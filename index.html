@@ -1761,10 +1761,13 @@
 
         // Get player theme color helper
         function getPlayerThemeColor(steamId) {
+            const player = globalPlayers.find(p => p.steam_id === steamId);
+            if (player && player.color) {
+                return player.color;
+            }
             const colors = [
-                '#00f5d4', // Hela Teal
-                '#f72585', // Venom Red
-                '#ffd166', // Crown Gold
+                '#00f5d4', // Teal
+                '#f72585', // Red
                 '#00a8fc', // Blue
                 '#7209b7', // Purple
                 '#4caf50', // Green
@@ -1823,6 +1826,8 @@
             afterDraw(chart) {
                 const container = chart.canvas.parentNode;
                 if (!container) return;
+
+                const globalDelay = getSyncedAnimationDelay();
 
                 if (!chart._overlayGroup) {
                     const leftover = container.querySelector('.chart-overlays-wrapper');
@@ -1936,7 +1941,7 @@
                     if (isRecentPB) {
                         overlay.classList.add('recent-pb-pulse');
                         overlay.style.setProperty('--pulse-color', themeColor);
-                        overlay.style.animationDelay = getSyncedAnimationDelay();
+                        overlay.style.animationDelay = globalDelay;
                     } else {
                         overlay.classList.remove('recent-pb-pulse');
                         overlay.style.boxShadow = 'none';
@@ -2670,7 +2675,8 @@
                 globalPlayers = config.players.map(p => ({
                     steam_id: p.steam_id,
                     username: p.discord_username,
-                    discord_id: p.discord_id
+                    discord_id: p.discord_id,
+                    color: p.color
                 }));
 
                 renderPlayerSettings();
@@ -2985,6 +2991,8 @@
         function renderLeaderboard() {
             const bData = standingsData[currentBenchmarkId];
             if (!bData) return;
+
+            const globalDelay = getSyncedAnimationDelay();
 
             // Render standings table
             const tbody = document.getElementById('standings-body');
@@ -3419,7 +3427,7 @@
                                 }
                                 
                                 let pulseClass = isRecentPB ? 'recent-pb-pulse' : '';
-                                let delayStyle = isRecentPB ? `animation-delay: ${getSyncedAnimationDelay()};` : '';
+                                let delayStyle = isRecentPB ? `animation-delay: ${globalDelay};` : '';
                                 let borderStyle = `border: 2.2px solid ${themeColor};`;
                                 if (isRecentPB) {
                                     borderStyle += ` --pulse-color: ${themeColor};`;
@@ -3452,7 +3460,7 @@
                                     <img src="${avatarUrl}" class="grid-pin ${pulseClass}" 
                                          style="position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; ${borderStyle} ${opacityStyle} ${filterStyle} ${delayStyle} z-index: ${5 + pIdx};" 
                                          title="${tooltipText}" 
-                                         onerror="this.onerror=null; this.outerHTML=\`<span class='grid-pin ${pulseClass}' style='position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; width: 26px; height: 26px; border-radius: 50%; background: ${themeColor}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: #fff; ${borderStyle} z-index: ${5 + pIdx};'>${p.username.substring(0,2).toUpperCase()}</span>\`;"
+                                         onerror="this.onerror=null; this.outerHTML=\`<span class='grid-pin ${pulseClass}' style='position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; width: 26px; height: 26px; border-radius: 50%; background: ${themeColor}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: #fff; ${borderStyle} ${delayStyle} z-index: ${5 + pIdx};'>${p.username.substring(0,2).toUpperCase()}</span>\`;"
                                          onmouseenter="updateRadarChart('${p.steam_id}')"
                                          onmouseleave="updateRadarChart(null)">
                                 `;
@@ -3545,7 +3553,7 @@
                                 }
                                 
                                 let pulseClass = isRecentPB ? 'recent-pb-pulse' : '';
-                                let delayStyle = isRecentPB ? `animation-delay: ${getSyncedAnimationDelay()};` : '';
+                                let delayStyle = isRecentPB ? `animation-delay: ${globalDelay};` : '';
                                 let borderStyle = `border: 2.2px solid ${themeColor};`;
                                 if (isRecentPB) {
                                     borderStyle += ` --pulse-color: ${themeColor};`;
@@ -3888,21 +3896,6 @@
             }
         }
 
-        function getPlayerColor(steamId) {
-            const colors = [
-                '#00f5d4', // Hela Teal
-                '#f72585', // Venom Red
-                '#ffd166', // Crown Gold
-                '#00a8fc', // Blue
-                '#7209b7', // Purple
-                '#4caf50', // Green
-                '#ff9800'  // Orange
-            ];
-            const steamIds = Object.keys(currentHistoryData);
-            const idx = steamIds.indexOf(steamId);
-            return colors[idx >= 0 ? idx % colors.length : 0];
-        }
-
         function drawComparisonChart(ctx) {
             const datasets = [];
 
@@ -3944,7 +3937,8 @@
                 if (dataPoints.length > 0 && dataPoints[0].x > 0) {
                     dataPoints.unshift({
                         x: 0,
-                        y: dataPoints[0].y
+                        y: dataPoints[0].y,
+                        isBoundary: true
                     });
                 }
 
@@ -3952,7 +3946,8 @@
                 if (dataPoints.length > 0 && dataPoints[dataPoints.length - 1].x < M - 1) {
                     dataPoints.push({
                         x: M - 1,
-                        y: dataPoints[dataPoints.length - 1].y
+                        y: dataPoints[dataPoints.length - 1].y,
+                        isBoundary: true
                     });
                 }
 
@@ -3965,8 +3960,8 @@
                     borderColor: color,
                     backgroundColor: color + '15',
                     borderWidth: 3,
-                    pointRadius: 4,
-                    pointHoverRadius: 6,
+                    pointRadius: dataPoints.map(pt => pt.isBoundary ? 0 : 4),
+                    pointHoverRadius: dataPoints.map(pt => pt.isBoundary ? 0 : 6),
                     tension: 0.1,
                     spanGaps: true
                 });
@@ -4006,6 +4001,7 @@
                                 color: '#9fa6b2',
                                 font: { family: "'Outfit', sans-serif" },
                                 precision: 0,
+                                maxTicksLimit: 6,
                                 callback: function(val) {
                                     const i = Math.round(val);
                                     if (val === i && i >= 0 && i < sortedTimestamps.length) {
@@ -4106,7 +4102,8 @@
             if (dataPoints.length > 0 && dataPoints[0].x > 0) {
                 dataPoints.unshift({
                     x: 0,
-                    y: dataPoints[0].y
+                    y: dataPoints[0].y,
+                    isBoundary: true
                 });
             }
 
@@ -4114,7 +4111,8 @@
             if (dataPoints.length > 0 && dataPoints[dataPoints.length - 1].x < M - 1) {
                 dataPoints.push({
                     x: M - 1,
-                    y: dataPoints[dataPoints.length - 1].y
+                    y: dataPoints[dataPoints.length - 1].y,
+                    isBoundary: true
                 });
             }
 
@@ -4129,8 +4127,8 @@
                     borderColor: color,
                     backgroundColor: color + '15',
                     borderWidth: 3,
-                    pointRadius: 5,
-                    pointHoverRadius: 7,
+                    pointRadius: dataPoints.map(pt => pt.isBoundary ? 0 : 5),
+                    pointHoverRadius: dataPoints.map(pt => pt.isBoundary ? 0 : 7),
                     tension: 0.1,
                     fill: true
                 },
@@ -4224,6 +4222,7 @@
                                 color: '#9fa6b2',
                                 font: { family: "'Outfit', sans-serif" },
                                 precision: 0,
+                                maxTicksLimit: 6,
                                 callback: function(val) {
                                     const i = Math.round(val);
                                     if (val === i && i >= 0 && i < sortedTimestamps.length) {
@@ -4675,7 +4674,7 @@
                 // For each index in sortedTimestamps, find the value at that time
                 for (let k = 0; k < K; k++) {
                     const t = sortedTimestamps[k];
-                    let latestPct = 0.0;
+                    let latestPct = playerPoints.length > 0 ? playerPoints[0].y : 0.0;
                     playerPoints.forEach(pt => {
                         if (pt.timestamp <= t) {
                             latestPct = pt.y;
@@ -4751,6 +4750,7 @@
                                 color: '#9fa6b2',
                                 font: { family: "'Outfit', sans-serif" },
                                 precision: 0,
+                                maxTicksLimit: 6,
                                 callback: function(val) {
                                     const i = Math.round(val);
                                     if (val === i && i >= 0 && i < sortedTimestamps.length) {

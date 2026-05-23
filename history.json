@@ -5495,62 +5495,6 @@
       ]
     }
   },
-  "688_Whisphere": {
-    "76561198995689034": {
-      "player_name": "@Haruno",
-      "history": [
-        {
-          "score": 40.0,
-          "timestamp": "2026-05-13 14:27:00"
-        }
-      ]
-    },
-    "76561198017954362": {
-      "player_name": "@BakaOppai",
-      "history": [
-        {
-          "score": 50.0,
-          "timestamp": "2026-05-23 02:36:56"
-        }
-      ]
-    },
-    "76561198033879793": {
-      "player_name": "@CoachCam",
-      "history": [
-        {
-          "score": 40.0,
-          "timestamp": "2026-05-23 02:36:56"
-        }
-      ]
-    },
-    "76561198046477600": {
-      "player_name": "@Laggiing",
-      "history": [
-        {
-          "score": 40.0,
-          "timestamp": "2026-05-23 02:36:56"
-        }
-      ]
-    },
-    "76561198348625808": {
-      "player_name": "@Christine",
-      "history": [
-        {
-          "score": 60.0,
-          "timestamp": "2026-05-23 02:36:56"
-        }
-      ]
-    },
-    "76561199164422123": {
-      "player_name": "@Olioli",
-      "history": [
-        {
-          "score": 40.0,
-          "timestamp": "2026-05-23 02:36:56"
-        }
-      ]
-    }
-  },
   "688_Whisphere Extra Small & Slow": {
     "76561198995689034": {
       "player_name": "@Haruno",

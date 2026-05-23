@@ -1735,7 +1735,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779571830.431963,
+    "last_poll": 1779574293.831688,
     "check_interval": 180
   },
   "687": {
@@ -3411,7 +3411,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779571830.436729,
+    "last_poll": 1779574293.836554,
     "check_interval": 180
   },
   "688": {
@@ -3452,8 +3452,7 @@
       "1w2ts Pasu Perfected 30% Smaller",
       "1w3ts Pasu Perfected Micro Goated",
       "Floating Heads Timing 400% FIXED",
-      "VoxTargetSwitch Click Small",
-      "Whisphere"
+      "VoxTargetSwitch Click Small"
     ],
     "scores": {
       "WhisphereRawControl 30% small": {
@@ -3959,14 +3958,6 @@
         "76561198033879793": 0.0,
         "76561198046477600": 0.0,
         "76561198995689034": 0.0
-      },
-      "Whisphere": {
-        "76561198017954362": 50.0,
-        "76561198348625808": 60.0,
-        "76561199164422123": 40.0,
-        "76561198033879793": 40.0,
-        "76561198046477600": 40.0,
-        "76561198995689034": 40.0
       }
     },
     "score_timestamps": {
@@ -4473,14 +4464,6 @@
         "76561198033879793": "2000-01-01 00:00:00",
         "76561198046477600": "2000-01-01 00:00:00",
         "76561198995689034": "2000-01-01 00:00:00"
-      },
-      "Whisphere": {
-        "76561198017954362": "2000-01-01 00:00:00",
-        "76561198348625808": "2000-01-01 00:00:00",
-        "76561199164422123": "2000-01-01 00:00:00",
-        "76561198033879793": "2000-01-01 00:00:00",
-        "76561198046477600": "2000-01-01 00:00:00",
-        "76561198995689034": "2000-01-01 00:00:00"
       }
     },
     "leaders": {
@@ -4525,10 +4508,7 @@
       "1w2ts Pasu Perfected 30% Smaller": [],
       "1w3ts Pasu Perfected Micro Goated": [],
       "Floating Heads Timing 400% FIXED": [],
-      "VoxTargetSwitch Click Small": [],
-      "Whisphere": [
-        "76561198348625808"
-      ]
+      "VoxTargetSwitch Click Small": []
     },
     "players": [
       {
@@ -4538,23 +4518,8 @@
         "rank_idx": 0,
         "rank_name": "Unranked",
         "crown_count": 3,
-        "completed_count": 4,
+        "completed_count": 3,
         "points": 3.56,
-        "has_streak": false,
-        "weekly_pbs": 1,
-        "total_pbs": 1,
-        "active_days": 1,
-        "position_change": 0
-      },
-      {
-        "steam_id": "76561198348625808",
-        "username": "@Christine",
-        "discord_id": "",
-        "rank_idx": 0,
-        "rank_name": "Unranked",
-        "crown_count": 1,
-        "completed_count": 2,
-        "points": 1.21,
         "has_streak": false,
         "weekly_pbs": 1,
         "total_pbs": 1,
@@ -4568,13 +4533,13 @@
         "rank_idx": 0,
         "rank_name": "Unranked",
         "crown_count": 0,
-        "completed_count": 2,
+        "completed_count": 1,
         "points": 1.57,
         "has_streak": false,
         "weekly_pbs": 0,
         "total_pbs": 0,
         "active_days": 0,
-        "position_change": 0
+        "position_change": 1
       },
       {
         "steam_id": "76561198033879793",
@@ -4583,13 +4548,28 @@
         "rank_idx": 0,
         "rank_name": "Unranked",
         "crown_count": 0,
-        "completed_count": 2,
+        "completed_count": 1,
         "points": 1.37,
         "has_streak": false,
         "weekly_pbs": 0,
         "total_pbs": 0,
         "active_days": 0,
-        "position_change": 0
+        "position_change": 1
+      },
+      {
+        "steam_id": "76561198348625808",
+        "username": "@Christine",
+        "discord_id": "",
+        "rank_idx": 0,
+        "rank_name": "Unranked",
+        "crown_count": 0,
+        "completed_count": 1,
+        "points": 1.21,
+        "has_streak": false,
+        "weekly_pbs": 1,
+        "total_pbs": 1,
+        "active_days": 1,
+        "position_change": -2
       },
       {
         "steam_id": "76561198046477600",
@@ -4598,7 +4578,7 @@
         "rank_idx": 0,
         "rank_name": "Unranked",
         "crown_count": 0,
-        "completed_count": 2,
+        "completed_count": 1,
         "points": 1.09,
         "has_streak": false,
         "weekly_pbs": 0,
@@ -4613,7 +4593,7 @@
         "rank_idx": 0,
         "rank_name": "Unranked",
         "crown_count": 0,
-        "completed_count": 1,
+        "completed_count": 0,
         "points": 0.0,
         "has_streak": false,
         "weekly_pbs": 0,
@@ -4969,7 +4949,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779571830.441302,
+    "last_poll": 1779574293.841015,
     "check_interval": 180
   }
 }
