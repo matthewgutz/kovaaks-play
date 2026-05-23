@@ -2506,7 +2506,7 @@
                             
                             if (score !== null && score > 0) {
                                 const isLeader = leaders.includes(p.steam_id);
-                                const rankMaxes = bData.thresholds[scen] || [];
+                                const rankMaxes = (bData.thresholds && bData.thresholds[scen]) || [];
                                 const maxThreshold = rankMaxes[rankMaxes.length - 1] || 1;
                                 const pct = Math.min(100, (score / maxThreshold) * 100);
                                 
