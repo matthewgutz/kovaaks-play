@@ -2666,7 +2666,7 @@
         // Fetch config parameters
         async function loadConfig() {
             try {
-                const response = await fetch(isStatic ? 'public_config.json' : '/api/config');
+                const response = await fetch(isStatic ? `public_config.json?_t=${Date.now()}` : '/api/config');
                 const config = await response.json();
                 
                 document.getElementById('webhook-url').value = config.discord_webhook_url || '';
@@ -2834,7 +2834,7 @@
         async function fetchStandings() {
             try {
                 await fetchActiveMaps();
-                const response = await fetch(isStatic ? 'standings.json' : '/api/standings');
+                const response = await fetch(isStatic ? `standings.json?_t=${Date.now()}` : '/api/standings');
                 standingsData = await response.json();
                 
                 // Extract last poll and check interval for countdown
@@ -3758,7 +3758,7 @@
         // Fetch simulated notifications
         async function fetchNotifications() {
             try {
-                const response = await fetch(isStatic ? 'notifications.json' : '/api/notifications');
+                const response = await fetch(isStatic ? `notifications.json?_t=${Date.now()}` : '/api/notifications');
                 const data = await response.json();
                 
                 renderTimeline(data);
@@ -3819,7 +3819,7 @@
                 let response;
                 if (isStatic) {
                     if (!window.globalHistoryData) {
-                        const res = await fetch('history.json');
+                        const res = await fetch(`history.json?_t=${Date.now()}`);
                         window.globalHistoryData = await res.json();
                     }
                     const key = `${currentBenchmarkId}_${scenarioName}`;
@@ -4282,7 +4282,7 @@
         // Fetch most active scenarios and store globally
         async function fetchActiveMaps() {
             try {
-                const response = await fetch(isStatic ? 'active_maps.json' : '/api/active-maps');
+                const response = await fetch(isStatic ? `active_maps.json?_t=${Date.now()}` : '/api/active-maps');
                 activeMapsData = await response.json();
             } catch (err) {
                 console.error("Error fetching active maps:", err);
@@ -4519,7 +4519,7 @@
                 let data;
                 if (isStatic) {
                     if (!window.globalHistoryData) {
-                        const res = await fetch('history.json');
+                        const res = await fetch(`history.json?_t=${Date.now()}`);
                         window.globalHistoryData = await res.json();
                     }
                     data = window.globalHistoryData;
