@@ -84,19 +84,48 @@
 
         @media (min-width: 1024px) {
             .app-container {
-                grid-template-columns: 1.3fr 3fr;
+                grid-template-columns: 3fr 1.3fr;
             }
             .header-full {
                 grid-column: span 2;
             }
-            aside {
+            main {
                 grid-column: 1;
                 grid-row: 2;
             }
-            main {
+            aside {
                 grid-column: 2;
                 grid-row: 2;
             }
+        }
+
+
+        #grid-table {
+            table-layout: fixed;
+            width: 100%;
+        }
+        @keyframes pb-glow-pulse {
+            0% {
+                box-shadow: 0 0 0 0 var(--pulse-color, var(--accent-primary));
+                transform: scale(1);
+            }
+            70% {
+                box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
+                transform: scale(1.1);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+                transform: scale(1);
+            }
+        }
+        .recent-pb-pulse {
+            animation: pb-glow-pulse 1.8s infinite cubic-bezier(0.25, 0, 0, 1);
+            z-index: 10 !important;
+        }
+        .grid-pin:hover {
+            transform: scale(1.4) !important;
+            animation: none !important;
+            z-index: 100 !important;
         }
 
         /* Header */
@@ -105,8 +134,8 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 20px;
-            padding: 24px;
+            gap: 12px;
+            padding: 12px 20px;
             margin-bottom: 10px;
         }
 
@@ -509,32 +538,32 @@
         }
 
         /* Easier ranks colors */
-        .rank-lemming { background: rgba(158, 158, 158, 0.15); color: #9e9e9e; border: 1px solid rgba(158, 158, 158, 0.3); }
-        .rank-hare { background: rgba(76, 175, 80, 0.15); color: #4caf50; border: 1px solid rgba(76, 175, 80, 0.3); }
-        .rank-ermine { background: rgba(33, 150, 243, 0.15); color: #2196f3; border: 1px solid rgba(33, 150, 243, 0.3); }
-        .rank-penguin { background: rgba(0, 188, 212, 0.15); color: #00bcd4; border: 1px solid rgba(0, 188, 212, 0.3); }
-        .rank-fox { background: rgba(156, 39, 176, 0.15); color: #9c27b0; border: 1px solid rgba(156, 39, 176, 0.3); }
-        .rank-mammoth { background: rgba(255, 152, 0, 0.15); color: #ff9800; border: 1px solid rgba(255, 152, 0, 0.3); }
-        .rank-orca { background: rgba(233, 30, 99, 0.15); color: #e91e63; border: 1px solid rgba(233, 30, 99, 0.3); }
-        .rank-seal { background: rgba(244, 67, 54, 0.15); color: #f44336; border: 1px solid rgba(244, 67, 54, 0.3); }
+        .rank-lemming { background: rgba(138, 153, 173, 0.15); color: #8a99ad; border: 1px solid rgba(138, 153, 173, 0.3); }
+        .rank-hare { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .rank-ermine { background: rgba(59, 130, 246, 0.15); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.3); }
+        .rank-penguin { background: rgba(20, 184, 166, 0.15); color: #14b8a6; border: 1px solid rgba(20, 184, 166, 0.3); }
+        .rank-fox { background: rgba(139, 92, 246, 0.15); color: #8b5cf6; border: 1px solid rgba(139, 92, 246, 0.3); }
+        .rank-mammoth { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+        .rank-orca { background: rgba(236, 72, 153, 0.15); color: #ec4899; border: 1px solid rgba(236, 72, 153, 0.3); }
+        .rank-seal { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
 
         /* Medium ranks colors */
-        .rank-cinnabar { background: rgba(183, 28, 28, 0.15); color: #b71c1c; border: 1px solid rgba(183, 28, 28, 0.3); }
-        .rank-vermillion { background: rgba(216, 67, 21, 0.15); color: #d84315; border: 1px solid rgba(216, 67, 21, 0.3); }
-        .rank-saffron { background: rgba(249, 168, 37, 0.15); color: #f9a825; border: 1px solid rgba(249, 168, 37, 0.3); }
-        .rank-celadon { background: rgba(46, 125, 50, 0.15); color: #2e7d32; border: 1px solid rgba(46, 125, 50, 0.3); }
-        .rank-cerulean { background: rgba(21, 101, 192, 0.15); color: #1565c0; border: 1px solid rgba(21, 101, 192, 0.3); }
-        .rank-lavender { background: rgba(106, 27, 154, 0.15); color: #6a1b9a; border: 1px solid rgba(106, 27, 154, 0.3); }
-        .rank-indigo { background: rgba(40, 53, 147, 0.15); color: #283593; border: 1px solid rgba(40, 53, 147, 0.3); }
-        .rank-fuchsia { background: rgba(173, 20, 87, 0.15); color: #ad1457; border: 1px solid rgba(173, 20, 87, 0.3); }
+        .rank-cinnabar { background: rgba(138, 153, 173, 0.15); color: #8a99ad; border: 1px solid rgba(138, 153, 173, 0.3); }
+        .rank-vermillion { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .rank-saffron { background: rgba(59, 130, 246, 0.15); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.3); }
+        .rank-celadon { background: rgba(20, 184, 166, 0.15); color: #14b8a6; border: 1px solid rgba(20, 184, 166, 0.3); }
+        .rank-cerulean { background: rgba(139, 92, 246, 0.15); color: #8b5cf6; border: 1px solid rgba(139, 92, 246, 0.3); }
+        .rank-lavender { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+        .rank-indigo { background: rgba(236, 72, 153, 0.15); color: #ec4899; border: 1px solid rgba(236, 72, 153, 0.3); }
+        .rank-fuchsia { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
 
         /* Hard ranks colors */
-        .rank-wool { background: rgba(141, 110, 99, 0.15); color: #8d6e63; border: 1px solid rgba(141, 110, 99, 0.3); }
-        .rank-linen { background: rgba(189, 189, 189, 0.15); color: #bdbdbd; border: 1px solid rgba(189, 189, 189, 0.3); }
-        .rank-velvet { background: rgba(110, 29, 74, 0.15); color: #ab47bc; border: 1px solid rgba(110, 29, 74, 0.3); }
-        .rank-chiffon { background: rgba(0, 150, 136, 0.15); color: #009688; border: 1px solid rgba(0, 150, 136, 0.3); }
-        .rank-satin { background: rgba(2, 136, 209, 0.15); color: #0288d1; border: 1px solid rgba(2, 136, 209, 0.3); }
-        .rank-silk { background: rgba(224, 64, 251, 0.15); color: #e040fb; border: 1px solid rgba(224, 64, 251, 0.3); }
+        .rank-wool { background: rgba(138, 153, 173, 0.15); color: #8a99ad; border: 1px solid rgba(138, 153, 173, 0.3); }
+        .rank-linen { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .rank-velvet { background: rgba(59, 130, 246, 0.15); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.3); }
+        .rank-chiffon { background: rgba(20, 184, 166, 0.15); color: #14b8a6; border: 1px solid rgba(20, 184, 166, 0.3); }
+        .rank-satin { background: rgba(139, 92, 246, 0.15); color: #8b5cf6; border: 1px solid rgba(139, 92, 246, 0.3); }
+        .rank-silk { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
 
         .rank-unranked { background: rgba(255, 255, 255, 0.05); color: var(--text-muted); border: 1px solid rgba(255, 255, 255, 0.1); }
 
@@ -1298,28 +1327,28 @@
         }
 
         /* Rank Text Colors */
-        .rank-lemming-text { color: #9e9e9e; text-shadow: 0 0 6px rgba(158, 158, 158, 0.2); }
-        .rank-hare-text { color: #4caf50; text-shadow: 0 0 6px rgba(76, 175, 80, 0.2); }
-        .rank-ermine-text { color: #2196f3; text-shadow: 0 0 6px rgba(33, 150, 243, 0.2); }
-        .rank-penguin-text { color: #00bcd4; text-shadow: 0 0 6px rgba(0, 188, 212, 0.2); }
-        .rank-fox-text { color: #9c27b0; text-shadow: 0 0 6px rgba(156, 39, 176, 0.2); }
-        .rank-mammoth-text { color: #ff9800; text-shadow: 0 0 6px rgba(255, 152, 0, 0.2); }
-        .rank-orca-text { color: #e91e63; text-shadow: 0 0 6px rgba(233, 30, 99, 0.2); }
-        .rank-seal-text { color: #f44336; text-shadow: 0 0 6px rgba(244, 67, 54, 0.2); }
-        .rank-cinnabar-text { color: #b71c1c; text-shadow: 0 0 6px rgba(183, 28, 28, 0.2); }
-        .rank-vermillion-text { color: #d84315; text-shadow: 0 0 6px rgba(216, 67, 21, 0.2); }
-        .rank-saffron-text { color: #f9a825; text-shadow: 0 0 6px rgba(249, 168, 37, 0.2); }
-        .rank-celadon-text { color: #2e7d32; text-shadow: 0 0 6px rgba(46, 125, 50, 0.2); }
-        .rank-cerulean-text { color: #1565c0; text-shadow: 0 0 6px rgba(21, 101, 192, 0.2); }
-        .rank-lavender-text { color: #6a1b9a; text-shadow: 0 0 6px rgba(106, 27, 154, 0.2); }
-        .rank-indigo-text { color: #283593; text-shadow: 0 0 6px rgba(40, 53, 147, 0.2); }
-        .rank-fuchsia-text { color: #ad1457; text-shadow: 0 0 6px rgba(173, 20, 87, 0.2); }
-        .rank-wool-text { color: #8d6e63; text-shadow: 0 0 6px rgba(141, 110, 99, 0.2); }
-        .rank-linen-text { color: #bdbdbd; text-shadow: 0 0 6px rgba(189, 189, 189, 0.2); }
-        .rank-velvet-text { color: #ab47bc; text-shadow: 0 0 6px rgba(171, 71, 188, 0.2); }
-        .rank-chiffon-text { color: #009688; text-shadow: 0 0 6px rgba(0, 150, 136, 0.2); }
-        .rank-satin-text { color: #0288d1; text-shadow: 0 0 6px rgba(2, 136, 209, 0.2); }
-        .rank-silk-text { color: #e040fb; text-shadow: 0 0 6px rgba(224, 64, 251, 0.2); }
+        .rank-lemming-text { color: #8a99ad; text-shadow: 0 0 6px rgba(138, 153, 173, 0.2); }
+        .rank-hare-text { color: #10b981; text-shadow: 0 0 6px rgba(16, 185, 129, 0.2); }
+        .rank-ermine-text { color: #3b82f6; text-shadow: 0 0 6px rgba(59, 130, 246, 0.2); }
+        .rank-penguin-text { color: #14b8a6; text-shadow: 0 0 6px rgba(20, 184, 166, 0.2); }
+        .rank-fox-text { color: #8b5cf6; text-shadow: 0 0 6px rgba(139, 92, 246, 0.2); }
+        .rank-mammoth-text { color: #f59e0b; text-shadow: 0 0 6px rgba(245, 158, 11, 0.2); }
+        .rank-orca-text { color: #ec4899; text-shadow: 0 0 6px rgba(236, 72, 153, 0.2); }
+        .rank-seal-text { color: #ef4444; text-shadow: 0 0 6px rgba(239, 68, 68, 0.2); }
+        .rank-cinnabar-text { color: #8a99ad; text-shadow: 0 0 6px rgba(138, 153, 173, 0.2); }
+        .rank-vermillion-text { color: #10b981; text-shadow: 0 0 6px rgba(16, 185, 129, 0.2); }
+        .rank-saffron-text { color: #3b82f6; text-shadow: 0 0 6px rgba(59, 130, 246, 0.2); }
+        .rank-celadon-text { color: #14b8a6; text-shadow: 0 0 6px rgba(20, 184, 166, 0.2); }
+        .rank-cerulean-text { color: #8b5cf6; text-shadow: 0 0 6px rgba(139, 92, 246, 0.2); }
+        .rank-lavender-text { color: #f59e0b; text-shadow: 0 0 6px rgba(245, 158, 11, 0.2); }
+        .rank-indigo-text { color: #ec4899; text-shadow: 0 0 6px rgba(236, 72, 153, 0.2); }
+        .rank-fuchsia-text { color: #ef4444; text-shadow: 0 0 6px rgba(239, 68, 68, 0.2); }
+        .rank-wool-text { color: #8a99ad; text-shadow: 0 0 6px rgba(138, 153, 173, 0.2); }
+        .rank-linen-text { color: #10b981; text-shadow: 0 0 6px rgba(16, 185, 129, 0.2); }
+        .rank-velvet-text { color: #3b82f6; text-shadow: 0 0 6px rgba(59, 130, 246, 0.2); }
+        .rank-chiffon-text { color: #14b8a6; text-shadow: 0 0 6px rgba(20, 184, 166, 0.2); }
+        .rank-satin-text { color: #8b5cf6; text-shadow: 0 0 6px rgba(139, 92, 246, 0.2); }
+        .rank-silk-text { color: #ef4444; text-shadow: 0 0 6px rgba(239, 68, 68, 0.2); }
     </style>
 </head>
 <body>
@@ -1327,46 +1356,60 @@
     <div class="app-container">
         
         <!-- Header row -->
-        <header class="glass-panel header-full">
-            <div class="header-title-area">
-                <h1>
-                    <span style="font-size: 2.2rem">🎯</span> Kovaak's Rivals
-                </h1>
-                <p>Viscose Benchmarks Aim Tracker & Live Leaderboard Dashboard</p>
+        <header class="glass-panel header-full" style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap; gap: 12px;">
+                <div class="header-title-area">
+                    <h1>
+                        <span style="font-size: 2.2rem">🎯</span> Kovaak's Rivals
+                    </h1>
+                    <p>Viscose Benchmarks Aim Tracker & Live Leaderboard Dashboard</p>
+                </div>
+                
+                <div class="controls-row">
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        <span id="tracking-status-text">Tracking Active (5m)</span>
+                    </div>
+                    <button id="admin-lock-badge" class="admin-badge locked" onclick="toggleAdminLock()" style="cursor: pointer; display: none; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; font-family: var(--font-main); transition: var(--transition-smooth);">
+                        <span id="admin-lock-icon">🔒</span>
+                        <span id="admin-lock-text">Admin Locked</span>
+                    </button>
+                    <div class="mode-selector-container" id="mode-selector-container" style="display: inline-flex; align-items: center; background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.08); padding: 4px; border-radius: 8px; gap: 4px;">
+                        <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted); padding: 0 8px; font-family: var(--font-heading);">Mode</span>
+                        <button onclick="setMockMode(false)" id="btn-real-mode" class="mode-pill active-real" style="padding: 6px 14px; font-size: 0.85rem; border: none; background: transparent; border-radius: 6px; cursor: pointer; font-weight: 600; font-family: var(--font-main); transition: var(--transition-smooth);">
+                            🌐 Real
+                        </button>
+                        <button onclick="setMockMode(true)" id="btn-mock-mode" class="mode-pill" style="padding: 6px 14px; font-size: 0.85rem; border: none; background: transparent; border-radius: 6px; cursor: pointer; font-weight: 600; font-family: var(--font-main); transition: var(--transition-smooth);">
+                            ⚡ Mock
+                        </button>
+                    </div>
+                    <button onclick="triggerImmediatePoll()" id="btn-poll">
+                        <span style="font-size: 1rem">🔄</span> Poll Scores Now
+                    </button>
+                </div>
             </div>
-            
-            <div class="controls-row">
-                <div class="status-badge">
-                    <span class="status-dot"></span>
-                    <span id="tracking-status-text">Tracking Active (5m)</span>
+
+            <!-- Unified Global Navigation Bar -->
+            <div class="header-global-navigation" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; width: 100%; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 8px; margin-top: 2px; gap: 8px;">
+                <!-- View Toggles on Left -->
+                <div class="main-tabs-toggle" style="display: flex; gap: 8px;">
+                    <button class="main-tab-btn active" onclick="switchMainView('leaderboard', this)" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-size: 0.95rem; font-weight: bold; cursor: pointer; padding: 8px 16px; border-radius: 6px; transition: var(--transition-smooth); font-family: 'Outfit', sans-serif;">🏆 Leaderboard</button>
+                    <button class="main-tab-btn" onclick="switchMainView('history', this)" style="background: none; border: 1px solid transparent; color: var(--text-muted); font-size: 0.95rem; font-weight: bold; cursor: pointer; padding: 8px 16px; border-radius: 6px; transition: var(--transition-smooth); font-family: 'Outfit', sans-serif;">📜 History Log</button>
                 </div>
-                <button id="admin-lock-badge" class="admin-badge locked" onclick="toggleAdminLock()" style="cursor: pointer; display: none; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; font-family: var(--font-main); transition: var(--transition-smooth);">
-                    <span id="admin-lock-icon">🔒</span>
-                    <span id="admin-lock-text">Admin Locked</span>
-                </button>
-                <div class="mode-selector-container" id="mode-selector-container" style="display: inline-flex; align-items: center; background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.08); padding: 4px; border-radius: 8px; gap: 4px;">
-                    <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted); padding: 0 8px; font-family: var(--font-heading);">Mode</span>
-                    <button onclick="setMockMode(false)" id="btn-real-mode" class="mode-pill active-real" style="padding: 6px 14px; font-size: 0.85rem; border: none; background: transparent; border-radius: 6px; cursor: pointer; font-weight: 600; font-family: var(--font-main); transition: var(--transition-smooth);">
-                        🌐 Real
-                    </button>
-                    <button onclick="setMockMode(true)" id="btn-mock-mode" class="mode-pill" style="padding: 6px 14px; font-size: 0.85rem; border: none; background: transparent; border-radius: 6px; cursor: pointer; font-weight: 600; font-family: var(--font-main); transition: var(--transition-smooth);">
-                        ⚡ Mock
-                    </button>
+
+                <!-- Difficulty Selector on Right -->
+                <div class="tab-controls" style="display: flex; border-bottom: none; margin-bottom: 0; padding-bottom: 0; gap: 8px;">
+                    <button class="tab-btn active" data-benchmark-id="686" onclick="switchBenchmark('686', this)">Easier</button>
+                    <button class="tab-btn" data-benchmark-id="687" onclick="switchBenchmark('687', this)">Medium</button>
+                    <button class="tab-btn" data-benchmark-id="688" onclick="switchBenchmark('688', this)">Hard</button>
                 </div>
-                <button onclick="triggerImmediatePoll()" id="btn-poll">
-                    <span style="font-size: 1rem">🔄</span> Poll Scores Now
-                </button>
             </div>
         </header>
 
         <!-- Main Content Area (Rendered on Right on Desktop) -->
         <main style="display: flex; flex-direction: column; gap: 30px;">
             
-            <!-- Main View Toggle Tab Controls -->
-            <div class="main-tabs-toggle" style="display: flex; gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 12px; margin-bottom: -10px;">
-                <button class="main-tab-btn active" onclick="switchMainView('leaderboard', this)" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-size: 0.95rem; font-weight: bold; cursor: pointer; padding: 8px 16px; border-radius: 6px; transition: var(--transition-smooth); font-family: 'Outfit', sans-serif;">🏆 Leaderboard</button>
-                <button class="main-tab-btn" onclick="switchMainView('history', this)" style="background: none; border: 1px solid transparent; color: var(--text-muted); font-size: 0.95rem; font-weight: bold; cursor: pointer; padding: 8px 16px; border-radius: 6px; transition: var(--transition-smooth); font-family: 'Outfit', sans-serif;">📜 History Log</button>
-            </div>
+            <!-- Main View Toggle Controls Moved to Header -->
 
             <!-- Leaderboard View Container -->
             <div id="leaderboard-view" style="display: flex; flex-direction: column; gap: 30px;">
@@ -1426,32 +1469,25 @@
             
             <!-- Subcategory Performance Radar Chart Panel -->
             <section class="glass-panel sidebar-panel" id="radar-chart-section" style="padding: 24px; display: flex; flex-direction: column; gap: 16px;">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-                    <h2 class="panel-title" style="margin: 0; border-bottom: none; padding-bottom: 0;">📊 Subcategory Radar</h2>
-                    <select id="radar-player-select" onchange="updateRadarChart()" style="width: auto; padding: 4px 8px; font-size: 0.85rem; margin: 0; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; color: #fff; cursor: pointer; font-family: 'Outfit', sans-serif;">
-                        <option value="all">All Players</option>
-                    </select>
+                <div style="display: flex; flex-direction: column; gap: 4px;">
+                    <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: bold; letter-spacing: 0.5px;">Aim Training Performance Metrics</span>
+                    <h2 class="panel-title" style="margin: 0; border-bottom: none; padding-bottom: 0; font-size: 1.25rem; font-weight: 700; color: #fff;">Radar Chart Overview</h2>
                 </div>
                 
-                <div style="display: flex; gap: 16px; align-items: center; justify-content: center; min-height: 250px; position: relative;">
-                    <!-- Subcategory List (Left of chart) -->
-                    <div id="radar-subcat-list" style="display: none; flex-direction: column; gap: 10px; font-size: 0.8rem; color: var(--text-muted); width: 140px; flex-shrink: 0; border-right: 1px solid rgba(255,255,255,0.05); padding-right: 12px; max-height: 250px; overflow-y: auto;">
+                <div style="display: flex; gap: 16px; align-items: stretch; justify-content: space-between; min-height: 250px; position: relative; width: 100%;">
+                    <!-- Player Selection Checklist (Left of chart) -->
+                    <div id="radar-player-list" style="display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; color: var(--text-muted); width: 155px; flex-shrink: 0; border-right: 1px solid rgba(255,255,255,0.05); padding-right: 12px; max-height: 250px; overflow-y: auto;">
                         <!-- Populated dynamically -->
                     </div>
                     
                     <!-- Radar Canvas -->
-                    <div style="flex-grow: 1; max-width: 250px; height: 250px; position: relative; display: flex; align-items: center; justify-content: center;">
+                    <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; position: relative; height: 250px;">
                         <canvas id="radar-chart" style="width: 100%; height: 100%;"></canvas>
                     </div>
                 </div>
             </section>
 
-            <!-- Tab Controls -->
-            <div class="tab-controls" style="display: flex; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 10px; margin-bottom: -10px; gap: 8px;">
-                <button class="tab-btn active" onclick="switchBenchmark('686', this)">Easier (686)</button>
-                <button class="tab-btn" onclick="switchBenchmark('687', this)">Medium (687)</button>
-                <button class="tab-btn" onclick="switchBenchmark('688', this)">Hard (688)</button>
-            </div>
+            <!-- Difficulty Selector Moved to Header -->
 
             <!-- Leaderboard Standings Section -->
             <section class="glass-panel" id="standings-section" style="padding: 24px;">
@@ -1476,10 +1512,7 @@
                 </div>
             </section>
             
-            <!-- Crown Holders Banner -->
-            <div class="crown-cards-grid" id="crowns-banner" style="grid-template-columns: 1fr; margin-bottom: 0;">
-                <!-- Populated dynamically -->
-            </div>
+
 
             <!-- Active Rivalries Panel -->
             <section class="glass-panel" id="rivalries-section" style="padding: 24px; display: none;">
@@ -1557,15 +1590,7 @@
                 </div>
             </section>
 
-            <!-- Most Active Maps Widget -->
-            <section class="glass-panel sidebar-panel">
-                <div>
-                    <h2 class="panel-title">🔥 Most Active Scenarios</h2>
-                    <div id="active-maps-list" style="display: flex; flex-direction: column; gap: 12px;">
-                        <!-- Populated dynamically -->
-                    </div>
-                </div>
-            </section>
+
 
             <!-- Player Configuration Panel -->
             <section class="glass-panel sidebar-panel" id="player-management-section">
@@ -1737,6 +1762,175 @@
             return colors[idx >= 0 ? idx % colors.length : 0];
         }
 
+        function hasPlayerRecentAnyPB(steamId) {
+            const bData = standingsData[currentBenchmarkId];
+            if (!bData || !bData.score_timestamps) return false;
+            const now = new Date();
+            for (const scen in bData.score_timestamps) {
+                const lastUpdatedStr = bData.score_timestamps[scen][steamId];
+                if (lastUpdatedStr) {
+                    const diffTime = Math.abs(now - parseDate(lastUpdatedStr));
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                    if (diffDays <= 7) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        function hasPlayerRecentMapPB(steamId, scenName) {
+            const bData = standingsData[currentBenchmarkId];
+            if (!bData || !bData.score_timestamps) return false;
+            const timestamps = bData.score_timestamps[scenName] || {};
+            const lastUpdatedStr = timestamps[steamId];
+            if (lastUpdatedStr) {
+                const diffTime = Math.abs(new Date() - parseDate(lastUpdatedStr));
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                return diffDays <= 7;
+            }
+            return false;
+        }
+
+        const htmlOverlayPlugin = {
+            id: 'htmlOverlayPlugin',
+            afterDraw(chart) {
+                const container = chart.canvas.parentNode;
+                if (!container) return;
+
+                if (!chart._overlayGroup) {
+                    const leftover = container.querySelector('.chart-overlays-wrapper');
+                    if (leftover) {
+                        leftover.remove();
+                    }
+
+                    chart._overlayGroup = document.createElement('div');
+                    chart._overlayGroup.className = 'chart-overlays-wrapper';
+                    chart._overlayGroup.style.position = 'absolute';
+                    chart._overlayGroup.style.top = '0';
+                    chart._overlayGroup.style.left = '0';
+                    chart._overlayGroup.style.width = '100%';
+                    chart._overlayGroup.style.height = '100%';
+                    chart._overlayGroup.style.pointerEvents = 'none';
+                    container.appendChild(chart._overlayGroup);
+                }
+
+                chart._avatarOverlays = chart._avatarOverlays || {};
+                const seenIds = new Set();
+                const datasets = chart.data.datasets;
+
+                for (let i = 0; i < datasets.length; i++) {
+                    const dataset = datasets[i];
+                    const meta = chart.getDatasetMeta(i);
+                    const steamId = dataset.steamId;
+                    if (!steamId) continue;
+
+                    if (meta.hidden || !chart.isDatasetVisible(i)) {
+                        if (chart._avatarOverlays[steamId]) {
+                            chart._avatarOverlays[steamId].style.display = 'none';
+                        }
+                        continue;
+                    }
+
+                    const points = meta.data;
+                    if (!points || points.length === 0) {
+                        if (chart._avatarOverlays[steamId]) {
+                            chart._avatarOverlays[steamId].style.display = 'none';
+                        }
+                        continue;
+                    }
+
+                    const lastPoint = points[points.length - 1];
+                    if (!lastPoint || lastPoint.x === undefined || lastPoint.y === undefined || isNaN(lastPoint.x) || isNaN(lastPoint.y)) {
+                        if (chart._avatarOverlays[steamId]) {
+                            chart._avatarOverlays[steamId].style.display = 'none';
+                        }
+                        continue;
+                    }
+
+                    seenIds.add(steamId);
+
+                    const bData = standingsData[currentBenchmarkId];
+                    if (!bData) continue;
+                    const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
+                    const player = configuredPlayers.find(p => p.steam_id === steamId);
+                    if (!player) continue;
+
+                    const username = player.username.replace('@', '');
+                    const avatarUrl = `avatars/${username}.png`;
+                    const themeColor = getPlayerThemeColor(steamId);
+
+                    let isRecentPB = false;
+                    if (chart.canvas.id === 'timeline-chart') {
+                        isRecentPB = hasPlayerRecentAnyPB(steamId);
+                    } else {
+                        isRecentPB = hasPlayerRecentMapPB(steamId, currentScenarioName);
+                    }
+
+                    let overlay = chart._avatarOverlays[steamId];
+                    if (!overlay) {
+                        overlay = document.createElement('div');
+                        overlay.className = 'chart-avatar-overlay';
+                        overlay.style.position = 'absolute';
+                        overlay.style.width = '30px';
+                        overlay.style.height = '30px';
+                        overlay.style.borderRadius = '50%';
+                        overlay.style.transform = 'translate(-50%, -50%)';
+                        overlay.style.transition = 'left 0.1s ease, top 0.1s ease';
+                        overlay.style.backgroundSize = 'cover';
+                        overlay.style.backgroundPosition = 'center';
+                        
+                        const img = new Image();
+                        img.src = avatarUrl;
+                        img.onload = () => {
+                            overlay.style.backgroundImage = `url('${avatarUrl}')`;
+                        };
+                        img.onerror = () => {
+                            overlay.style.backgroundColor = '#1e293b';
+                            overlay.style.display = 'flex';
+                            overlay.style.alignItems = 'center';
+                            overlay.style.justifyContent = 'center';
+                            overlay.style.fontSize = '10px';
+                            overlay.style.fontWeight = 'bold';
+                            overlay.style.color = '#ffffff';
+                            overlay.innerText = player.username.slice(0, 2).toUpperCase();
+                        };
+
+                        chart._overlayGroup.appendChild(overlay);
+                        chart._avatarOverlays[steamId] = overlay;
+                    }
+
+                    overlay.style.display = 'block';
+                    overlay.style.left = `${lastPoint.x}px`;
+                    overlay.style.top = `${lastPoint.y}px`;
+                    
+                    let borderStyle = `2.2px solid ${themeColor}`;
+                    overlay.style.border = borderStyle;
+
+                    if (isRecentPB) {
+                        overlay.classList.add('recent-pb-pulse');
+                        overlay.style.setProperty('--pulse-color', themeColor);
+                    } else {
+                        overlay.classList.remove('recent-pb-pulse');
+                        overlay.style.boxShadow = 'none';
+                    }
+                }
+
+                for (const steamId in chart._avatarOverlays) {
+                    if (!seenIds.has(steamId)) {
+                        chart._avatarOverlays[steamId].style.display = 'none';
+                    }
+                }
+            },
+            beforeDestroy(chart) {
+                if (chart._overlayGroup) {
+                    chart._overlayGroup.remove();
+                    chart._overlayGroup = null;
+                }
+                chart._avatarOverlays = null;
+            }
+        };
+
         // Safe date parsing helper
         function parseDate(dateStr) {
             if (!dateStr) return new Date();
@@ -1749,16 +1943,18 @@
 
         // Player colors map for radar chart rings
         const rankColors = {
-            'lemming': '#9e9e9e', 'hare': '#4caf50', 'ermine': '#2196f3', 'penguin': '#00bcd4',
-            'fox': '#9c27b0', 'mammoth': '#ff9800', 'orca': '#e91e63', 'seal': '#f44336',
-            'cinnabar': '#b71c1c', 'vermillion': '#d84315', 'saffron': '#f9a825', 'celadon': '#2e7d32',
-            'cerulean': '#1565c0', 'lavender': '#6a1b9a', 'indigo': '#283593', 'fuchsia': '#ad1457',
-            'wool': '#8d6e63', 'linen': '#bdbdbd', 'velvet': '#ab47bc', 'chiffon': '#009688',
-            'satin': '#0288d1', 'silk': '#e040fb', 'unranked': '#4a4a4a'
+            'lemming': '#8a99ad', 'hare': '#10b981', 'ermine': '#3b82f6', 'penguin': '#14b8a6',
+            'fox': '#8b5cf6', 'mammoth': '#f59e0b', 'orca': '#ec4899', 'seal': '#ef4444',
+            'cinnabar': '#8a99ad', 'vermillion': '#10b981', 'saffron': '#3b82f6', 'celadon': '#14b8a6',
+            'cerulean': '#8b5cf6', 'lavender': '#f59e0b', 'indigo': '#ec4899', 'fuchsia': '#ef4444',
+            'wool': '#8a99ad', 'linen': '#10b981', 'velvet': '#3b82f6', 'chiffon': '#14b8a6',
+            'satin': '#8b5cf6', 'silk': '#ef4444', 'unranked': '#4a4a4a'
         };
 
-        // Radar chart global variable
+        // Radar chart global variables
         let radarChart = null;
+        let selectedRadarPlayerId = 'all';
+        let lastLoadedBenchmarkId = null;
 
         function getSubcategoryData(bData) {
             const PARENT_ORDER = ["DYNAMIC CLICKING", "FLICK TECH", "REACTIVE TRACKING", "CONTROL TRACKING"];
@@ -1876,21 +2072,74 @@
             };
         }
 
-        function populateRadarDropdown(configuredPlayers) {
-            const select = document.getElementById('radar-player-select');
-            if (!select) return;
+        function populateRadarPlayerList(configuredPlayers) {
+            const list = document.getElementById('radar-player-list');
+            if (!list) return;
             
-            const currentVal = select.value;
-            select.innerHTML = '<option value="all">All Players</option>';
+            list.innerHTML = '';
+            
+            // Add 'Compare All' option
+            const allItem = document.createElement('div');
+            allItem.className = 'radar-player-item';
+            allItem.style.display = 'flex';
+            allItem.style.alignItems = 'center';
+            allItem.style.gap = '10px';
+            allItem.style.padding = '8px 12px';
+            allItem.style.borderRadius = '6px';
+            allItem.style.cursor = 'pointer';
+            allItem.style.transition = 'var(--transition-smooth)';
+            allItem.style.background = selectedRadarPlayerId === 'all' ? 'rgba(255,255,255,0.06)' : 'transparent';
+            allItem.style.border = selectedRadarPlayerId === 'all' ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent';
+            
+            allItem.innerHTML = `
+                <div style="width: 14px; height: 14px; border-radius: 3px; border: 1.5px solid #9fa6b2; background: ${selectedRadarPlayerId === 'all' ? '#9fa6b2' : 'transparent'}; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; color: #000; font-weight: bold;">
+                    ${selectedRadarPlayerId === 'all' ? '✓' : ''}
+                </div>
+                <span style="font-weight: 600; color: ${selectedRadarPlayerId === 'all' ? '#fff' : 'var(--text-muted)'};">Compare All</span>
+            `;
+            allItem.onclick = () => {
+                selectedRadarPlayerId = 'all';
+                populateRadarPlayerList(configuredPlayers);
+                updateRadarChart();
+            };
+            list.appendChild(allItem);
+            
+            // Add players
             configuredPlayers.forEach(p => {
-                const opt = document.createElement('option');
-                opt.value = p.steam_id;
-                opt.textContent = p.username;
-                select.appendChild(opt);
+                const color = getPlayerThemeColor(p.steam_id);
+                const isSelected = selectedRadarPlayerId === p.steam_id;
+                const pItem = document.createElement('div');
+                pItem.className = 'radar-player-item';
+                pItem.style.display = 'flex';
+                pItem.style.alignItems = 'center';
+                pItem.style.gap = '10px';
+                pItem.style.padding = '8px 12px';
+                pItem.style.borderRadius = '6px';
+                pItem.style.cursor = 'pointer';
+                pItem.style.transition = 'var(--transition-smooth)';
+                
+                if (isSelected) {
+                    pItem.style.background = 'rgba(' + hexToRgb(color) + ', 0.1)';
+                    pItem.style.border = '1px solid ' + color;
+                    pItem.style.boxShadow = '0 0 10px rgba(' + hexToRgb(color) + ', 0.15)';
+                } else {
+                    pItem.style.background = 'transparent';
+                    pItem.style.border = '1px solid transparent';
+                }
+                
+                pItem.innerHTML = `
+                    <div style="width: 14px; height: 14px; border-radius: 3px; border: 1.5px solid ${color}; background: ${isSelected ? color : 'transparent'}; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; color: #000; font-weight: bold;">
+                        ${isSelected ? '✓' : ''}
+                    </div>
+                    <span style="font-weight: 600; color: ${isSelected ? '#fff' : 'var(--text-muted)'};">${p.username}</span>
+                `;
+                pItem.onclick = () => {
+                    selectedRadarPlayerId = p.steam_id;
+                    populateRadarPlayerList(configuredPlayers);
+                    updateRadarChart();
+                };
+                list.appendChild(pItem);
             });
-            if ([...select.options].some(o => o.value === currentVal)) {
-                select.value = currentVal;
-            }
         }
 
         function updateRadarChart(hoveredPlayerSteamId = null) {
@@ -1903,81 +2152,7 @@
             const ranksList = radarInfo.ranks;
             
             const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
-            
-            const playerSelect = document.getElementById('radar-player-select');
-            const selectedVal = playerSelect ? playerSelect.value : 'all';
-            
-            let activePlayerIdForList = null;
-            if (hoveredPlayerSteamId) {
-                activePlayerIdForList = hoveredPlayerSteamId;
-            } else if (selectedVal !== 'all') {
-                activePlayerIdForList = selectedVal;
-            } else if (bData.players.length > 0) {
-                activePlayerIdForList = bData.players[0].steam_id;
-            }
-            
-            const listContainer = document.getElementById('radar-subcat-list');
-            if (listContainer) {
-                if (selectedVal === 'all' && !hoveredPlayerSteamId) {
-                    listContainer.style.display = 'none';
-                } else {
-                    listContainer.style.display = 'flex';
-                    listContainer.innerHTML = '';
-                    
-                    const activePlayer = configuredPlayers.find(p => p.steam_id === activePlayerIdForList);
-                    if (activePlayer) {
-                        const playerPerf = performances[activePlayerIdForList] || [];
-                        
-                        const playerHeader = document.createElement('div');
-                        playerHeader.style.fontWeight = '800';
-                        playerHeader.style.color = getPlayerThemeColor(activePlayerIdForList);
-                        playerHeader.style.marginBottom = '6px';
-                        playerHeader.style.fontSize = '0.85rem';
-                        playerHeader.style.overflow = 'hidden';
-                        playerHeader.style.textOverflow = 'ellipsis';
-                        playerHeader.style.whiteSpace = 'nowrap';
-                        playerHeader.textContent = activePlayer.username;
-                        listContainer.appendChild(playerHeader);
-                        
-                        activeSubcats.forEach((subcat, idx) => {
-                            const val = playerPerf[idx] || 0;
-                            let rankName = 'Unranked';
-                            let progressPct = 0;
-                            
-                            if (val >= ranksList.length) {
-                                rankName = ranksList[ranksList.length - 1];
-                                progressPct = 100;
-                            } else if (val >= 1) {
-                                const rIdx = Math.floor(val) - 1;
-                                rankName = ranksList[rIdx];
-                                progressPct = Math.round((val - Math.floor(val)) * 100);
-                            } else if (val > 0) {
-                                rankName = 'Unranked';
-                                progressPct = Math.round(val * 100);
-                            }
-                            
-                            const item = document.createElement('div');
-                            item.style.display = 'flex';
-                            item.style.flexDirection = 'column';
-                            item.style.gap = '2px';
-                            
-                            const lowerRank = rankName.toLowerCase();
-                            const badgeColorClass = `rank-${lowerRank}`;
-                            
-                            item.innerHTML = `
-                                <div style="display: flex; justify-content: space-between; font-weight: 600; color: #f8f9fa;">
-                                    <span>${subcat}</span>
-                                </div>
-                                <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.75rem;">
-                                    <span class="rank-badge ${badgeColorClass}" style="font-size: 0.6rem; padding: 1px 4px; border-radius: 3px; font-weight: 700; text-transform: uppercase;">${rankName}</span>
-                                    <span style="color: var(--text-muted); font-weight: bold;">+${progressPct}%</span>
-                                </div>
-                            `;
-                            listContainer.appendChild(item);
-                        });
-                    }
-                }
-            }
+            const selectedVal = selectedRadarPlayerId;
             
             const datasets = [];
             
@@ -1986,63 +2161,77 @@
                 const perf = performances[sid] || [];
                 const color = getPlayerThemeColor(sid);
                 
-                let borderOpacity = 1.0;
+                let borderOpacity = 0.85;
                 let bgOpacity = 0.0;
-                let isHidden = false;
+                let borderWidth = 2.5;
+                let pointRadius = 2.5;
+                let fillVal = false;
                 
-                if (selectedVal !== 'all') {
-                    if (selectedVal !== sid) {
-                        isHidden = true;
-                    }
-                } else if (hoveredPlayerSteamId !== null) {
-                    if (hoveredPlayerSteamId !== sid) {
-                        borderOpacity = 0.08;
-                    } else {
+                if (hoveredPlayerSteamId !== null) {
+                    if (hoveredPlayerSteamId === sid) {
                         borderOpacity = 1.0;
+                        borderWidth = 3.5;
+                        pointRadius = 4;
+                        bgOpacity = 0.04;
+                        fillVal = true;
+                    } else {
+                        borderOpacity = 0.08;
+                        borderWidth = 1.5;
+                        pointRadius = 0;
+                    }
+                } else if (selectedVal !== 'all') {
+                    if (selectedVal === sid) {
+                        borderOpacity = 1.0;
+                        borderWidth = 3.5;
+                        pointRadius = 4;
+                        bgOpacity = 0.04;
+                        fillVal = true;
+                    } else {
+                        borderOpacity = 0.08;
+                        borderWidth = 1.5;
+                        pointRadius = 0;
                     }
                 }
                 
-                if (!isHidden) {
-                    datasets.push({
-                        label: p.username,
-                        data: perf,
-                        borderColor: `rgba(${hexToRgb(color)}, ${borderOpacity})`,
-                        backgroundColor: `rgba(${hexToRgb(color)}, ${bgOpacity})`,
-                        borderWidth: hoveredPlayerSteamId === sid ? 3.5 : 2,
-                        pointBackgroundColor: `rgba(${hexToRgb(color)}, ${borderOpacity})`,
-                        pointBorderColor: '#121214',
-                        pointHoverBackgroundColor: color,
-                        pointHoverBorderColor: '#fff',
-                        pointRadius: hoveredPlayerSteamId === sid ? 4 : 2.5,
-                        pointHoverRadius: 5,
-                        tension: 0.15
-                    });
-                }
+                datasets.push({
+                    label: p.username,
+                    data: perf,
+                    borderColor: `rgba(${hexToRgb(color)}, ${borderOpacity})`,
+                    backgroundColor: `rgba(${hexToRgb(color)}, ${bgOpacity})`,
+                    borderWidth: borderWidth,
+                    pointBackgroundColor: `rgba(${hexToRgb(color)}, ${borderOpacity})`,
+                    pointBorderColor: '#121214',
+                    pointHoverBackgroundColor: color,
+                    pointRadius: 0,
+                    pointHoverRadius: 0,
+                    tension: 0.15,
+                    fill: fillVal
+                });
             });
             
             const rankColorsMap = {
-                'lemming': 'rgba(158, 158, 158, 0.06)',
-                'hare': 'rgba(76, 175, 80, 0.06)',
-                'ermine': 'rgba(33, 150, 243, 0.06)',
-                'penguin': 'rgba(0, 188, 212, 0.06)',
-                'fox': 'rgba(156, 39, 176, 0.06)',
-                'mammoth': 'rgba(255, 152, 0, 0.06)',
-                'orca': 'rgba(233, 30, 99, 0.06)',
-                'seal': 'rgba(244, 67, 54, 0.06)',
-                'cinnabar': 'rgba(183, 28, 28, 0.06)',
-                'vermillion': 'rgba(216, 67, 21, 0.06)',
-                'saffron': 'rgba(249, 168, 37, 0.06)',
-                'celadon': 'rgba(46, 125, 50, 0.06)',
-                'cerulean': 'rgba(21, 101, 192, 0.06)',
-                'lavender': 'rgba(106, 27, 154, 0.06)',
-                'indigo': 'rgba(40, 53, 147, 0.06)',
-                'fuchsia': 'rgba(173, 20, 87, 0.06)',
-                'wool': 'rgba(141, 110, 99, 0.06)',
-                'linen': 'rgba(189, 189, 189, 0.06)',
-                'velvet': 'rgba(110, 29, 74, 0.06)',
-                'chiffon': 'rgba(0, 150, 136, 0.06)',
-                'satin': 'rgba(2, 136, 209, 0.06)',
-                'silk': 'rgba(224, 64, 251, 0.06)'
+                'lemming': 'rgba(138, 153, 173, 0.06)',
+                'hare': 'rgba(16, 185, 129, 0.06)',
+                'ermine': 'rgba(59, 130, 246, 0.06)',
+                'penguin': 'rgba(20, 184, 166, 0.06)',
+                'fox': 'rgba(139, 92, 246, 0.06)',
+                'mammoth': 'rgba(245, 158, 11, 0.06)',
+                'orca': 'rgba(236, 72, 153, 0.06)',
+                'seal': 'rgba(239, 68, 68, 0.06)',
+                'cinnabar': 'rgba(138, 153, 173, 0.06)',
+                'vermillion': 'rgba(16, 185, 129, 0.06)',
+                'saffron': 'rgba(59, 130, 246, 0.06)',
+                'celadon': 'rgba(20, 184, 166, 0.06)',
+                'cerulean': 'rgba(139, 92, 246, 0.06)',
+                'lavender': 'rgba(245, 158, 11, 0.06)',
+                'indigo': 'rgba(236, 72, 153, 0.06)',
+                'fuchsia': 'rgba(239, 68, 68, 0.06)',
+                'wool': 'rgba(138, 153, 173, 0.06)',
+                'linen': 'rgba(16, 185, 129, 0.06)',
+                'velvet': 'rgba(59, 130, 246, 0.06)',
+                'chiffon': 'rgba(20, 184, 166, 0.06)',
+                'satin': 'rgba(139, 92, 246, 0.06)',
+                'silk': 'rgba(239, 68, 68, 0.06)'
             };
             
             const gridColors = ['rgba(255, 255, 255, 0.02)'];
@@ -2055,71 +2244,87 @@
             if (!canvasEl) return;
             const ctx = canvasEl.getContext('2d');
             
-            if (radarChart) {
-                radarChart.destroy();
-            }
+            const canUpdateInPlace = radarChart && lastLoadedBenchmarkId === currentBenchmarkId;
             
-            radarChart = new Chart(ctx, {
-                type: 'radar',
-                data: {
-                    labels: activeSubcats,
-                    datasets: datasets
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    const val = context.raw;
-                                    let rankName = 'Unranked';
-                                    let progressPct = 0;
-                                    if (val >= ranksList.length) {
-                                        rankName = ranksList[ranksList.length - 1];
-                                        progressPct = 100;
-                                    } else if (val >= 1) {
-                                        const rIdx = Math.floor(val) - 1;
-                                        rankName = ranksList[rIdx];
-                                        progressPct = Math.round((val - Math.floor(val)) * 100);
-                                    } else if (val > 0) {
-                                        rankName = 'Unranked';
-                                        progressPct = Math.round(val * 100);
-                                    }
-                                    return `${context.dataset.label}: ${rankName} (+${progressPct}%)`;
-                                }
-                            }
-                        }
+            if (canUpdateInPlace) {
+                radarChart.data.labels = activeSubcats;
+                radarChart.data.datasets = datasets;
+                radarChart.options.scales.r.max = ranksList.length;
+                radarChart.options.scales.r.grid.color = gridColors;
+                radarChart.update('none');
+            } else {
+                if (radarChart) {
+                    radarChart.destroy();
+                }
+                
+                lastLoadedBenchmarkId = currentBenchmarkId;
+                
+                radarChart = new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: activeSubcats,
+                        datasets: datasets
                     },
-                    scales: {
-                        r: {
-                            min: 0,
-                            max: ranksList.length,
-                            ticks: {
-                                stepSize: 1,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        animation: {
+                            duration: 500,
+                            easing: 'easeOutQuart'
+                        },
+                        plugins: {
+                            legend: {
                                 display: false
                             },
-                            grid: {
-                                color: gridColors
-                            },
-                            angleLines: {
-                                color: 'rgba(255, 255, 255, 0.05)'
-                            },
-                            pointLabels: {
-                                color: '#9fa6b2',
-                                font: {
-                                    family: "'Outfit', sans-serif",
-                                    size: 9,
-                                    weight: '600'
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        const val = context.raw;
+                                        let rankName = 'Unranked';
+                                        let progressPct = 0;
+                                        if (val >= ranksList.length) {
+                                            rankName = ranksList[ranksList.length - 1];
+                                            progressPct = 100;
+                                        } else if (val >= 1) {
+                                            const rIdx = Math.floor(val) - 1;
+                                            rankName = ranksList[rIdx];
+                                            progressPct = Math.round((val - Math.floor(val)) * 100);
+                                        } else if (val > 0) {
+                                            rankName = 'Unranked';
+                                            progressPct = Math.round(val * 100);
+                                        }
+                                        return `${context.dataset.label}: ${rankName} (+${progressPct}%)`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            r: {
+                                min: 0,
+                                max: ranksList.length,
+                                ticks: {
+                                    stepSize: 1,
+                                    display: false
+                                },
+                                grid: {
+                                    color: gridColors
+                                },
+                                angleLines: {
+                                    color: 'rgba(255, 255, 255, 0.05)'
+                                },
+                                pointLabels: {
+                                    color: '#9fa6b2',
+                                    font: {
+                                        family: "'Outfit', sans-serif",
+                                        size: 9,
+                                        weight: '600'
+                                    }
                                 }
                             }
                         }
                     }
-                }
-            });
+                });
+            }
         }
 
         function getAdminHeaders() {
@@ -2253,7 +2458,6 @@
             }
             await fetchStandings();
             fetchNotifications();
-            fetchActiveMaps();
             
             // Check for play redirect query parameter
             checkRedirectQuery();
@@ -2262,7 +2466,6 @@
             if (!isStatic) {
                 setInterval(() => {
                     fetchStandings();
-                    fetchActiveMaps();
                 }, 5000);
                 setInterval(fetchNotifications, 3000);
             }
@@ -2588,6 +2791,7 @@
         // Fetch standings data
         async function fetchStandings() {
             try {
+                await fetchActiveMaps();
                 const response = await fetch(isStatic ? 'standings.json' : '/api/standings');
                 standingsData = await response.json();
                 
@@ -2603,7 +2807,6 @@
                 startCountdown(lastPoll, checkInterval);
                 
                 renderLeaderboard();
-                renderCrownBanner();
                 renderRivalries();
                 renderWeeklyActivity();
                 renderFocusMapsDropdown();
@@ -2615,38 +2818,7 @@
             }
         }
 
-        // Render Crown Cards Banner
-        function renderCrownBanner() {
-            const banner = document.getElementById('crowns-banner');
-            banner.innerHTML = '';
-            
-            Object.keys(standingsData).forEach(bId => {
-                const bData = standingsData[bId];
-                // Find leader
-                const leader = bData.players[0]; // Sorted by crowns first
-                
-                const card = document.createElement('div');
-                card.className = 'glass-panel crown-card';
-                
-                let holderText = 'No Leader';
-                let spotsCount = '0 top spots';
-                
-                if (leader && leader.crown_count > 0) {
-                    holderText = leader.username;
-                    spotsCount = `${leader.crown_count} / ${bData.scenarios.length || 36} top spots`;
-                }
 
-                card.innerHTML = `
-                    <div class="crown-icon-container">👑</div>
-                    <div class="crown-card-info">
-                        <h3>${bData.benchmark_name} Champion</h3>
-                        <div class="crown-holder-name">${holderText}</div>
-                        <div class="crown-spots-count">${spotsCount}</div>
-                    </div>
-                `;
-                banner.appendChild(card);
-            });
-        }
 
         // Render Active Rivalries Panel
         function renderRivalries() {
@@ -2657,31 +2829,17 @@
             
             grid.innerHTML = '';
             
-            const players = bData.players;
-            if (players.length <= 1) {
+            const rivalries = (bData.active_rivalries || []).slice(0, 6);
+            if (rivalries.length === 0) {
                 section.style.display = 'none';
                 return;
             }
             
-            let hasRivalries = false;
-            
-            for (let i = 1; i < players.length; i++) {
-                const chaser = players[i];
-                const target = players[i - 1]; // Player directly above
+            rivalries.forEach(item => {
+                const chaserColor = getPlayerThemeColor(item.chaser_sid);
+                const targetColor = getPlayerThemeColor(item.target_sid);
                 
-                let gapText = '';
-                if (target.crown_count > chaser.crown_count) {
-                    const diff = target.crown_count - chaser.crown_count;
-                    gapText = `Need ${diff} crown${diff > 1 ? 's' : ''} to overtake`;
-                } else if (target.completed_count > chaser.completed_count) {
-                    const diff = target.completed_count - chaser.completed_count;
-                    gapText = `Need ${diff} completed map${diff > 1 ? 's' : ''} to overtake`;
-                } else if (target.points > chaser.points) {
-                    const diff = (target.points - chaser.points).toFixed(2);
-                    gapText = `Behind by ${diff}% max rank diff`;
-                } else {
-                    gapText = `Tied! Pull ahead on any scenario`;
-                }
+                const gapText = `Overtook target ${item.chaser_overtakes_target} time${item.chaser_overtakes_target !== 1 ? 's' : ''}, overtaken ${item.target_overtakes_chaser} time${item.target_overtakes_chaser !== 1 ? 's' : ''}`;
                 
                 const card = document.createElement('div');
                 card.className = 'glass-panel crown-card rivalry-item';
@@ -2691,16 +2849,15 @@
                 card.innerHTML = `
                     <div style="font-size: 1.8rem; background: rgba(0, 245, 212, 0.05); width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 10px; border: 1px solid rgba(0, 245, 212, 0.15); flex-shrink: 0;">⚔️</div>
                     <div style="display: flex; flex-direction: column;">
-                        <span class="rivalry-chaser" style="font-size: 0.95rem; font-weight: 700;">${chaser.username}</span>
-                        <span style="font-size: 0.8rem; color: var(--text-muted); margin: 2px 0;">chasing <strong class="rivalry-target" style="color: var(--accent-primary);">${target.username}</strong></span>
+                        <span class="rivalry-chaser" style="font-size: 0.95rem; font-weight: 700; color: ${chaserColor};">${item.chaser_name}</span>
+                        <span style="font-size: 0.8rem; color: var(--text-muted); margin: 2px 0;">chasing <strong class="rivalry-target" style="color: ${targetColor};">${item.target_name}</strong></span>
                         <span class="rivalry-gap" style="font-size: 0.8rem; font-weight: 700; color: var(--accent-gold);">${gapText}</span>
                     </div>
                 `;
                 grid.appendChild(card);
-                hasRivalries = true;
-            }
+            });
             
-            section.style.display = hasRivalries ? 'block' : 'none';
+            section.style.display = 'block';
         }
 
         // Render Weekly Activity Panel
@@ -2842,8 +2999,8 @@
                 });
             }
 
-            // Radar dropdown population
-            populateRadarDropdown(configuredPlayers);
+            // Radar player checklist population
+            populateRadarPlayerList(configuredPlayers);
             updateRadarChart();
 
             // Benchmark ranks configuration
@@ -2854,26 +3011,38 @@
             };
             const ranksList = benchmarkRanks[currentBenchmarkId] || [];
 
+            // Calculate equal width for each rank
+            const rankColWidth = (60.0 / ranksList.length).toFixed(2) + '%';
+
             // Grid header
             const headerRow = document.createElement('tr');
             headerRow.innerHTML = `
-                <th style="width: 45px; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted);">Cat</th>
-                <th style="width: 45px; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted);">Sub</th>
-                <th style="text-align: left; font-size: 0.9rem; letter-spacing: 0.5px; width: 220px;">Scenario Name</th>
-                <th style="text-align: center; font-size: 0.85rem; letter-spacing: 0.5px; color: var(--accent-gold); width: 100px;">Best Score</th>
+                <th style="width: 3.5%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted);">Cat</th>
+                <th style="width: 4.5%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted);">Sub</th>
+                <th style="width: 20%; text-align: left; font-size: 0.9rem; letter-spacing: 0.5px;">Scenario Name</th>
+                <th style="width: 7%; text-align: center; font-size: 0.85rem; letter-spacing: 0.5px; color: var(--accent-gold);">Best Score</th>
             `;
             
             ranksList.forEach(r => {
                 const th = document.createElement('th');
                 th.style.textAlign = 'center';
                 th.style.verticalAlign = 'middle';
-                th.style.width = '100px';
+                th.style.width = rankColWidth;
                 
                 const lowerRank = r.toLowerCase();
                 const spanStyle = `font-family: var(--font-heading); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.5px;`;
                 th.innerHTML = `<span class="rank-${lowerRank}-text" style="${spanStyle}">${r}</span>`;
                 headerRow.appendChild(th);
             });
+
+            // Add overflow '+' column header
+            const overflowTh = document.createElement('th');
+            overflowTh.style.textAlign = 'center';
+            overflowTh.style.verticalAlign = 'middle';
+            overflowTh.style.width = '5%';
+            overflowTh.innerHTML = `<span style="font-family: var(--font-heading); font-weight: 700; font-size: 0.85rem; color: var(--accent-gold);">+</span>`;
+            headerRow.appendChild(overflowTh);
+
             gridHeader.appendChild(headerRow);
 
             // Group recent overtakes by scenario
@@ -3076,6 +3245,7 @@
                             cell.style.position = 'relative';
                             cell.style.overflow = 'visible';
                             cell.style.padding = '0';
+                            cell.style.width = rankColWidth;
                             
                             const colMin = rIdx === 0 ? 0 : (rankMaxes[rIdx - 1] || 0);
                             const colMax = rankMaxes[rIdx] || 1;
@@ -3096,8 +3266,13 @@
                             const lowerRank = rankName.toLowerCase();
                             const rankColor = rankColors[lowerRank] || '#4a4a4a';
                             if (fillPct > 0) {
-                                cell.style.background = `linear-gradient(90deg, rgba(${hexToRgb(rankColor)}, 0.12) 0%, rgba(${hexToRgb(rankColor)}, 0.12) ${fillPct}%, transparent ${fillPct}%)`;
+                                cell.style.background = `linear-gradient(90deg, rgba(${hexToRgb(rankColor)}, 0.28) 0%, rgba(${hexToRgb(rankColor)}, 0.14) ${fillPct}%, transparent ${fillPct}%)`;
                             }
+
+                            // Progress Bottom Border Line
+                            const progressBarHtml = fillPct > 0 
+                                ? `<div style="position: absolute; bottom: 0; left: 0; width: ${fillPct}%; height: 3px; background: ${rankColor}; box-shadow: 0 0 5px ${rankColor}; pointer-events: none;"></div>`
+                                : '';
                             
                             // Collect players landing in this rank column
                             const cellPins = [];
@@ -3106,8 +3281,6 @@
                                 let landsInCol = false;
                                 if (sVal !== undefined && sVal > 0) {
                                     if (sVal >= colMin && sVal < colMax) {
-                                        landsInCol = true;
-                                    } else if (rIdx === ranksList.length - 1 && sVal >= colMin) {
                                         landsInCol = true;
                                     }
                                 } else if (rIdx === 0 && (sVal === undefined || sVal === 0)) {
@@ -3170,13 +3343,32 @@
                                 }
                                 
                                 const isLeader = leaders.includes(p.steam_id);
-                                const playerOvertook = overtakes.some(o => o.winner_sid === p.steam_id);
+
+                                // Check if this player hit a recent PB on this scenario (within 7 days)
+                                const timestamps = (bData.score_timestamps && bData.score_timestamps[scen]) || {};
+                                const lastUpdatedStr = timestamps[p.steam_id];
+                                let isRecentPB = false;
+                                if (lastUpdatedStr && sVal > 0) {
+                                    const diffTime = Math.abs(new Date() - parseDate(lastUpdatedStr));
+                                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                                    isRecentPB = diffDays <= 7;
+                                }
                                 
+                                let pulseClass = isRecentPB ? 'recent-pb-pulse' : '';
                                 let borderStyle = `border: 2.2px solid ${themeColor};`;
-                                if (isLeader) {
-                                    borderStyle = `border: 2.5px solid var(--accent-gold); box-shadow: 0 0 8px var(--accent-gold);`;
+                                if (isRecentPB) {
+                                    borderStyle += ` --pulse-color: ${themeColor};`;
                                 } else {
-                                    borderStyle += ` box-shadow: 0 0 5px ${themeColor};`;
+                                    borderStyle += ' box-shadow: none;';
+                                }
+                                
+                                if (isLeader) {
+                                    borderStyle = `border: 2.5px solid var(--accent-gold);`;
+                                    if (isRecentPB) {
+                                        borderStyle += ' --pulse-color: var(--accent-gold);';
+                                    } else {
+                                        borderStyle += ' box-shadow: none;';
+                                    }
                                 }
                                 
                                 let opacityStyle = '';
@@ -3185,16 +3377,17 @@
                                     opacityStyle = 'opacity: 0.25;';
                                     filterStyle = 'filter: grayscale(100%);';
                                     borderStyle = `border: 1.5px solid rgba(255,255,255,0.2); box-shadow: none;`;
+                                    pulseClass = '';
                                 }
                                 
                                 const scoreStr = sVal > 0 ? sVal.toFixed(2) : 'No score';
-                                const tooltipText = `${p.username}: ${scoreStr}${isLeader ? ' (Leader 👑)' : ''}`;
+                                const tooltipText = `${p.username}: ${scoreStr}${isLeader ? ' (Leader 👑)' : ''}${isRecentPB ? ' (New PB! ⚡)' : ''}`;
                                 
                                 pinsHtml += `
-                                    <img src="${avatarUrl}" class="grid-pin" 
+                                    <img src="${avatarUrl}" class="grid-pin ${pulseClass}" 
                                          style="position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; ${borderStyle} ${opacityStyle} ${filterStyle} z-index: ${5 + vIdx};" 
                                          title="${tooltipText}" 
-                                         onerror="this.onerror=null; this.outerHTML='<span class=\\'grid-pin\\' style=\\'position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; width: 26px; height: 26px; border-radius: 50%; background: ${themeColor}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: #fff; z-index: ${5 + vIdx};\\'>${p.username.substring(0,2).toUpperCase()}</span>\\';"
+                                         onerror="this.onerror=null; this.outerHTML=\`<span class='grid-pin ${pulseClass}' style='position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; width: 26px; height: 26px; border-radius: 50%; background: ${themeColor}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: #fff; ${borderStyle} z-index: ${5 + vIdx};'>${p.username.substring(0,2).toUpperCase()}</span>\`;"
                                          onmouseenter="updateRadarChart('${p.steam_id}')"
                                          onmouseleave="updateRadarChart(null)">
                                 `;
@@ -3209,11 +3402,125 @@
                             cell.innerHTML = `
                                 <div style="position: relative; width: 100%; height: 100%; min-height: 40px; box-sizing: border-box;">
                                     ${thresholdHtml}
+                                    ${progressBarHtml}
                                     ${pinsHtml}
                                 </div>
                             `;
                             row.appendChild(cell);
                         });
+
+                        // 4. Render '+' overflow column
+                        {
+                            const cell = document.createElement('td');
+                            cell.className = 'scen-cell overflow-cell';
+                            cell.style.position = 'relative';
+                            cell.style.overflow = 'visible';
+                            cell.style.padding = '0';
+                            cell.style.width = '5%';
+                            
+                            const colMin = rankMaxes[ranksList.length - 1] || 1;
+                            const highestScore = Math.max(...configuredPlayers.map(p => scoresMap[p.steam_id] || 0), colMin);
+                            const colMax = Math.max(colMin * 1.1, highestScore * 1.05);
+                            
+                            const cellPins = [];
+                            configuredPlayers.forEach(p => {
+                                const sVal = scoresMap[p.steam_id];
+                                if (sVal !== undefined && sVal >= colMin && sVal > 0) {
+                                    let pinPct = ((sVal - colMin) / (colMax - colMin)) * 100;
+                                    if (pinPct > 85) pinPct = 85;
+                                    cellPins.push({
+                                        player: p,
+                                        score: sVal,
+                                        pct: pinPct
+                                    });
+                                }
+                            });
+                            
+                            cellPins.sort((a, b) => a.pct - b.pct);
+                            
+                            const vOffsets = [];
+                            let maxV = 0;
+                            cellPins.forEach((pin, pIdx) => {
+                                let vIdx = 0;
+                                while (true) {
+                                    const hasConflict = cellPins.slice(0, pIdx).some((prevPin, prevIdx) => {
+                                        return vOffsets[prevIdx] === vIdx && Math.abs(prevPin.pct - pin.pct) < 15;
+                                    });
+                                    if (!hasConflict) break;
+                                    vIdx++;
+                                }
+                                vOffsets.push(vIdx);
+                                if (vIdx > maxV) maxV = vIdx;
+                            });
+                            
+                            rowMaxV = Math.max(rowMaxV, maxV);
+                            
+                            let pinsHtml = '';
+                            cellPins.forEach((pin, pIdx) => {
+                                const p = pin.player;
+                                const sVal = pin.score;
+                                const pctVal = pin.pct;
+                                const vIdx = vOffsets[pIdx];
+                                
+                                const themeColor = getPlayerThemeColor(p.steam_id);
+                                const username = p.username.replace('@', '');
+                                const avatarUrl = `avatars/${username}.png`;
+                                
+                                let topOffset = 8;
+                                if (maxV === 1) {
+                                    topOffset = vIdx === 0 ? 2 : 18;
+                                } else if (maxV >= 2) {
+                                    topOffset = vIdx === 0 ? -2 : (vIdx === 1 ? 10 : 22);
+                                }
+                                
+                                const isLeader = leaders.includes(p.steam_id);
+
+                                // Check if this player hit a recent PB on this scenario (within 7 days)
+                                const timestamps = (bData.score_timestamps && bData.score_timestamps[scen]) || {};
+                                const lastUpdatedStr = timestamps[p.steam_id];
+                                let isRecentPB = false;
+                                if (lastUpdatedStr) {
+                                    const diffTime = Math.abs(new Date() - parseDate(lastUpdatedStr));
+                                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                                    isRecentPB = diffDays <= 7;
+                                }
+                                
+                                let pulseClass = isRecentPB ? 'recent-pb-pulse' : '';
+                                let borderStyle = `border: 2.2px solid ${themeColor};`;
+                                if (isRecentPB) {
+                                    borderStyle += ` --pulse-color: ${themeColor};`;
+                                } else {
+                                    borderStyle += ' box-shadow: none;';
+                                }
+                                
+                                if (isLeader) {
+                                    borderStyle = `border: 2.5px solid var(--accent-gold);`;
+                                    if (isRecentPB) {
+                                        borderStyle += ' --pulse-color: var(--accent-gold);';
+                                    } else {
+                                        borderStyle += ' box-shadow: none;';
+                                    }
+                                }
+                                
+                                const tooltipText = `${p.username}: ${sVal.toFixed(2)}${isLeader ? ' (Leader 👑)' : ''}${isRecentPB ? ' (New PB! ⚡)' : ''}`;
+                                
+                                pinsHtml += `
+                                    <img src="${avatarUrl}" class="grid-pin ${pulseClass}" 
+                                         style="position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; ${borderStyle} z-index: ${5 + vIdx};" 
+                                         title="${tooltipText}" 
+                                         onerror="this.onerror=null; this.outerHTML=\`<span class='grid-pin ${pulseClass}' style='position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; width: 26px; height: 26px; border-radius: 50%; background: ${themeColor}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: #fff; ${borderStyle} z-index: ${5 + vIdx};'>${p.username.substring(0,2).toUpperCase()}</span>\`;"
+                                         onmouseenter="updateRadarChart('${p.steam_id}')"
+                                         onmouseleave="updateRadarChart(null)">
+                                `;
+                            });
+                            
+                            cell.innerHTML = `
+                                <div style="position: relative; width: 100%; height: 100%; min-height: 40px; box-sizing: border-box;">
+                                    ${pinsHtml}
+                                </div>
+                            `;
+                            row.appendChild(cell);
+                        }
                         
                         // Adjust row height to comfortably accommodate vertical staggering
                         if (rowMaxV === 1) {
@@ -3384,10 +3691,11 @@
                 renderTimeline(data);
                 
                 const feed = document.getElementById('discord-feed');
-                // Store scroll position to keep scrolled to bottom if user is already there
-                const isScrolledToBottom = feed.scrollHeight - feed.clientHeight <= feed.scrollTop + 10;
-                
-                feed.innerHTML = '';
+                if (feed) {
+                    // Store scroll position to keep scrolled to bottom if user is already there
+                    const isScrolledToBottom = feed.scrollHeight - feed.clientHeight <= feed.scrollTop + 10;
+                    
+                    feed.innerHTML = '';
                 
                 if (data.length === 0) {
                     feed.innerHTML = `
@@ -3451,6 +3759,7 @@
                 // Auto-scroll to bottom of the chat window
                 if (isScrolledToBottom) {
                     feed.scrollTop = feed.scrollHeight;
+                }
                 }
                 updateServerStatus(true);
             } catch (err) {
@@ -3607,67 +3916,73 @@
         }
 
         function drawComparisonChart(ctx) {
-            const uniqueTimestamps = [];
-            Object.values(currentHistoryData).forEach(playerObj => {
-                playerObj.history.forEach(h => {
-                    if (!uniqueTimestamps.includes(h.timestamp)) {
-                        uniqueTimestamps.push(h.timestamp);
-                    }
-                });
-            });
-            
-            uniqueTimestamps.sort((a, b) => parseDate(a) - parseDate(b));
-            
-            const labels = uniqueTimestamps.map(ts => {
-                const d = parseDate(ts);
-                return d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-            });
-            
             const datasets = [];
-            
+            const now = new Date();
+
             Object.keys(currentHistoryData).forEach(steamId => {
                 const playerObj = currentHistoryData[steamId];
                 const pName = playerObj.player_name;
                 const pHistory = [...playerObj.history].sort((a, b) => parseDate(a.timestamp) - parseDate(b.timestamp));
                 
-                const data = [];
-                const pointRadius = [];
-                const pointHoverRadius = [];
-                let lastScore = null;
-                
-                uniqueTimestamps.forEach(ts => {
-                    const record = pHistory.find(h => h.timestamp === ts);
-                    if (record) {
-                        lastScore = record.score;
-                        data.push(lastScore);
-                        pointRadius.push(4);
-                        pointHoverRadius.push(6);
-                    } else {
-                        data.push(lastScore);
-                        pointRadius.push(0);
-                        pointHoverRadius.push(0);
-                    }
+                if (pHistory.length === 0) return;
+
+                const dataPoints = [];
+                pHistory.forEach(h => {
+                    dataPoints.push({
+                        x: parseDate(h.timestamp),
+                        y: h.score
+                    });
                 });
-                
-                const color = getPlayerColor(steamId);
+
+                // Stretch to now
+                const latest = dataPoints[dataPoints.length - 1];
+                dataPoints.push({
+                    x: now,
+                    y: latest.y
+                });
+
+                const color = getPlayerThemeColor(steamId);
                 
                 datasets.push({
                     label: pName,
-                    data: data,
+                    steamId: steamId,
+                    data: dataPoints,
                     borderColor: color,
                     backgroundColor: color + '15',
                     borderWidth: 3,
-                    pointRadius: pointRadius,
-                    pointHoverRadius: pointHoverRadius,
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
                     tension: 0.1,
                     spanGaps: true
                 });
             });
-            
+
             historyChart = new Chart(ctx, {
                 type: 'line',
-                data: { labels: labels, datasets: datasets },
-                options: getCommonChartOptions()
+                data: { datasets: datasets },
+                plugins: [htmlOverlayPlugin],
+                options: {
+                    ...getCommonChartOptions(),
+                    scales: {
+                        x: {
+                            type: 'time',
+                            time: {
+                                displayFormats: {
+                                    day: 'MMM d',
+                                    week: 'MMM d',
+                                    month: 'MMM yyyy'
+                                }
+                            },
+                            max: now,
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#9fa6b2', font: { family: "'Outfit', sans-serif" } }
+                        },
+                        y: {
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#9fa6b2', font: { family: "'Outfit', sans-serif" } }
+                        }
+                    }
+                }
             });
         }
 
@@ -3720,20 +4035,32 @@
             const playerObj = currentHistoryData[steamId] || { player_name: 'Player', history: [] };
             const pHistory = [...playerObj.history].sort((a, b) => parseDate(a.timestamp) - parseDate(b.timestamp));
             
-            const labels = pHistory.map(h => {
-                const d = parseDate(h.timestamp);
-                return d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            if (pHistory.length === 0) return;
+
+            const now = new Date();
+            const dataPoints = [];
+            pHistory.forEach(h => {
+                dataPoints.push({
+                    x: parseDate(h.timestamp),
+                    y: h.score
+                });
             });
-            
-            const scores = pHistory.map(h => h.score);
-            const pb = scores.length > 0 ? Math.max(...scores) : 0;
-            
-            const color = getPlayerColor(steamId);
+
+            // Stretch to now
+            const latest = dataPoints[dataPoints.length - 1];
+            dataPoints.push({
+                x: now,
+                y: latest.y
+            });
+
+            const pb = Math.max(...pHistory.map(h => h.score));
+            const color = getPlayerThemeColor(steamId);
             
             const datasets = [
                 {
                     label: `${playerObj.player_name} Score`,
-                    data: scores,
+                    steamId: steamId,
+                    data: dataPoints,
                     borderColor: color,
                     backgroundColor: color + '15',
                     borderWidth: 3,
@@ -3744,7 +4071,10 @@
                 },
                 {
                     label: 'Personal Best',
-                    data: Array(labels.length).fill(pb),
+                    data: [
+                        { x: dataPoints[0].x, y: pb },
+                        { x: now, y: pb }
+                    ],
                     borderColor: '#ffd166', // Gold
                     borderWidth: 2,
                     borderDash: [5, 5],
@@ -3760,12 +4090,12 @@
                 "688": ['Wool', 'Linen', 'Velvet', 'Chiffon', 'Satin', 'Silk']
             };
             const rankColors = {
-                'lemming': '#9e9e9e', 'hare': '#4caf50', 'ermine': '#2196f3', 'penguin': '#00bcd4',
-                'fox': '#9c27b0', 'mammoth': '#ff9800', 'orca': '#e91e63', 'seal': '#f44336',
-                'cinnabar': '#b71c1c', 'vermillion': '#d84315', 'saffron': '#f9a825', 'celadon': '#2e7d32',
-                'cerulean': '#1565c0', 'lavender': '#6a1b9a', 'indigo': '#283593', 'fuchsia': '#ad1457',
-                'wool': '#8d6e63', 'linen': '#bdbdbd', 'velvet': '#ab47bc', 'chiffon': '#009688',
-                'satin': '#0288d1', 'silk': '#e040fb'
+                'lemming': '#8a99ad', 'hare': '#10b981', 'ermine': '#3b82f6', 'penguin': '#14b8a6',
+                'fox': '#8b5cf6', 'mammoth': '#f59e0b', 'orca': '#ec4899', 'seal': '#ef4444',
+                'cinnabar': '#8a99ad', 'vermillion': '#10b981', 'saffron': '#3b82f6', 'celadon': '#14b8a6',
+                'cerulean': '#8b5cf6', 'lavender': '#f59e0b', 'indigo': '#ec4899', 'fuchsia': '#ef4444',
+                'wool': '#8a99ad', 'linen': '#10b981', 'velvet': '#3b82f6', 'chiffon': '#14b8a6',
+                'satin': '#8b5cf6', 'silk': '#ef4444'
             };
 
             const ranks = benchmarkRanks[currentBenchmarkId] || [];
@@ -3779,7 +4109,10 @@
                         const rankColor = rankColors[rankName.toLowerCase()] || '#ffffff';
                         datasets.push({
                             label: `${rankName} Target`,
-                            data: Array(labels.length).fill(thresholdVal),
+                            data: [
+                                { x: dataPoints[0].x, y: thresholdVal },
+                                { x: now, y: thresholdVal }
+                            ],
                             borderColor: rankColor + '40', // Subtle 25% opacity
                             borderWidth: 1.5,
                             borderDash: [3, 3],
@@ -3793,10 +4126,31 @@
             historyChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: labels,
                     datasets: datasets
                 },
-                options: getCommonChartOptions()
+                plugins: [htmlOverlayPlugin],
+                options: {
+                    ...getCommonChartOptions(),
+                    scales: {
+                        x: {
+                            type: 'time',
+                            time: {
+                                displayFormats: {
+                                    day: 'MMM d',
+                                    week: 'MMM d',
+                                    month: 'MMM yyyy'
+                                }
+                            },
+                            max: now,
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#9fa6b2', font: { family: "'Outfit', sans-serif" } }
+                        },
+                        y: {
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#9fa6b2', font: { family: "'Outfit', sans-serif" } }
+                        }
+                    }
+                }
             });
         }
 
@@ -3804,6 +4158,12 @@
             return {
                 responsive: true,
                 maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        right: 35, // Ensure floating HTML overlays aren't clipped
+                        top: 15    // Ensure overlays aren't clipped at the top
+                    }
+                },
                 plugins: {
                     legend: {
                         labels: {
@@ -3826,57 +4186,11 @@
             };
         }
 
-        // Fetch most active scenarios and render them in the sidebar
+        // Fetch most active scenarios and store globally
         async function fetchActiveMaps() {
             try {
                 const response = await fetch(isStatic ? 'active_maps.json' : '/api/active-maps');
-                const data = await response.json();
-                
-                const list = document.getElementById('active-maps-list');
-                list.innerHTML = '';
-                
-                if (!data || data.length === 0) {
-                    list.innerHTML = `
-                        <div style="color: var(--text-muted); font-size: 0.85rem; padding: 10px 0; text-align: center;">
-                            No active maps yet. Inject PBs or wait for scores!
-                        </div>
-                    `;
-                    return;
-                }
-                
-                data.forEach(item => {
-                    const row = document.createElement('div');
-                    row.className = 'player-config-item';
-                    row.style.cursor = 'pointer';
-                    row.title = "Click to view trend graph";
-                    
-                    row.onclick = () => {
-                        // Switch benchmark to match map
-                        const tabBtn = Array.from(document.querySelectorAll('.tab-btn')).find(btn => btn.innerText.includes(item.benchmark_id));
-                        if (tabBtn) {
-                            switchBenchmark(item.benchmark_id, tabBtn);
-                        }
-                        showScenarioHistory(item.scenario_name);
-                    };
-                    
-                    row.innerHTML = `
-                        <div class="player-config-info">
-                            <span class="player-config-name" style="color: #fff; transition: var(--transition-smooth);">📈 ${item.scenario_name}</span>
-                            <span class="player-config-sub">${item.benchmark_name} | updates: ${item.update_count}</span>
-                        </div>
-                        <span style="font-size: 1.1rem; color: var(--accent-primary);">🔥</span>
-                    `;
-                    
-                    // Add mouse hover styling
-                    row.addEventListener('mouseenter', () => {
-                        row.querySelector('.player-config-name').style.color = 'var(--accent-primary)';
-                    });
-                    row.addEventListener('mouseleave', () => {
-                        row.querySelector('.player-config-name').style.color = '#fff';
-                    });
-                    
-                    list.appendChild(row);
-                });
+                activeMapsData = await response.json();
             } catch (err) {
                 console.error("Error fetching active maps:", err);
             }
@@ -3965,7 +4279,7 @@
                 card.style.borderRadius = '8px';
                 card.style.padding = '10px 12px';
                 
-                const pctColor = item.pct < 40 ? 'var(--accent-primary)' : (item.pct < 80 ? '#ff9800' : 'var(--accent-secondary)');
+                const pctColor = getPlayerThemeColor(selectedPlayerId);
                 
                 card.innerHTML = `
                     <div class="player-config-info" style="flex: 1; min-width: 0;">
@@ -3996,12 +4310,19 @@
             btn.style.borderColor = 'rgba(255, 255, 255, 0.1)';
             btn.style.color = '#fff';
             
+            const aside = document.querySelector('aside');
+            const main = document.querySelector('main');
+            
             if (viewName === 'leaderboard') {
                 document.getElementById('leaderboard-view').style.display = 'flex';
                 document.getElementById('history-view').style.display = 'none';
+                if (aside) aside.style.display = '';
+                if (main) main.style.gridColumn = '';
             } else {
                 document.getElementById('leaderboard-view').style.display = 'none';
                 document.getElementById('history-view').style.display = 'flex';
+                if (aside) aside.style.display = 'none';
+                if (main) main.style.gridColumn = '1 / -1';
             }
         }
 
@@ -4033,7 +4354,7 @@
                 item.innerHTML = `
                     <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%;">
                         <div style="display: flex; align-items: center; gap: 12px; min-width: 0; flex-grow: 1;">
-                            <img src="${avatarUrl}" class="avatar-dot" style="width: 28px; height: 28px; border: 2px solid ${color}; box-shadow: 0 0 6px ${color}; flex-shrink: 0;" onerror="this.onerror=null; this.outerHTML='<span style=\'width: 28px; height: 28px; border-radius: 50%; background: ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; border: 2px solid ${color}; box-shadow: 0 0 6px ${color}; flex-shrink: 0; color: #fff;\\'>👤</span>';">
+                            <img src="${avatarUrl}" class="avatar-dot" style="width: 28px; height: 28px; border: 2px solid ${color}; box-shadow: 0 0 6px ${color}; flex-shrink: 0;" onerror="this.onerror=null; this.outerHTML=\`<span style='width: 28px; height: 28px; border-radius: 50%; background: ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; border: 2px solid ${color}; box-shadow: 0 0 6px ${color}; flex-shrink: 0; color: #fff;'>👤</span>\`;">
                             <span style="font-size: 0.85rem; color: #f3f4f6; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; line-height: 1.4;">
                                 <strong style="color: #fff; font-weight: 700; margin-right: 4px;">${n.player_name || 'System'}</strong> 
                                 ${parseDiscordMarkdown(n.message)}
@@ -4173,6 +4494,7 @@
                 playerSeries[sid] = [];
             });
             
+            // Helper to calculate maximum rank percentage
             function calcMaxRankPct(sid) {
                 let totalPct = 0.0;
                 scenarios.forEach(scen => {
@@ -4198,6 +4520,21 @@
                         y: Number(newPct.toFixed(2))
                     });
                 }
+            });
+            
+            // Collapse points with identical timestamps to prevent vertical jumps from 0
+            steamIds.forEach(sid => {
+                const raw = playerSeries[sid];
+                const collapsed = [];
+                for (let i = 0; i < raw.length; i++) {
+                    const current = raw[i];
+                    const next = raw[i + 1];
+                    if (next && current.x.getTime() === next.x.getTime()) {
+                        continue;
+                    }
+                    collapsed.push(current);
+                }
+                playerSeries[sid] = collapsed;
             });
             
             // Stretch each series to the current time (now)
@@ -4226,40 +4563,16 @@
                 const series = playerSeries[sid] || [];
                 const color = getPlayerThemeColor(sid);
                 
-                // Create Image object for the last point
-                const img = new Image();
-                const username = p.username.replace('@', '');
-                img.src = `avatars/${username}.png`;
-                img.width = 30;
-                img.height = 30;
-                
-                img.onload = () => {
-                    if (overallProgressChart) {
-                        overallProgressChart.update();
-                    }
-                };
-                
-                const pointStyles = Array(series.length).fill('circle');
-                const pointRadii = Array(series.length).fill(0);
-                const pointHoverRadii = Array(series.length).fill(4);
-                
-                if (series.length > 0) {
-                    pointStyles[series.length - 1] = img;
-                    pointRadii[series.length - 1] = 15; // 30px avatar size (radius 15)
-                    pointHoverRadii[series.length - 1] = 18;
-                }
-                
                 datasets.push({
                     label: p.username,
+                    steamId: sid,
                     data: series,
                     borderColor: color,
                     backgroundColor: color + '10',
                     borderWidth: 2.5,
-                    stepped: true, // Step-line rendering
-                    pointStyle: pointStyles,
-                    pointRadius: pointRadii,
-                    pointHoverRadius: pointHoverRadii,
-                    tension: 0,
+                    tension: 0, // linear line rendering
+                    pointRadius: 0,
+                    pointHoverRadius: 4,
                     fill: false
                 });
             });
@@ -4274,12 +4587,14 @@
             overallProgressChart = new Chart(ctx, {
                 type: 'line',
                 data: { datasets: datasets },
+                plugins: [htmlOverlayPlugin],
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
                     layout: {
                         padding: {
-                            right: 40 // Extra padding to make sure avatars are not clipped at right edge
+                            right: 35, // Ensure floating HTML overlays aren't clipped
+                            top: 15    // Ensure overlays aren't clipped at the top
                         }
                     },
                     plugins: {
