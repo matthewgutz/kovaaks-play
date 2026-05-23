@@ -1,129 +1,2787 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Launching Kovaak's</title>
+    <!-- Prevent Browser Caching -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Kovaak's Rivals - Leaderboard Dashboard</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <style>
+        :root {
+            --bg-base: #0b0c10;
+            --bg-surface: rgba(22, 26, 34, 0.7);
+            --bg-surface-solid: #161a22;
+            --border-glow: rgba(0, 245, 212, 0.15);
+            --accent-primary: #00f5d4; /* Hela Teal */
+            --accent-secondary: #7209b7; /* Magneto Purple */
+            --accent-danger: #f72585; /* Venom Red */
+            --accent-gold: #ffd166; /* Crown Gold */
+            --discord-color: #5865F2; /* Discord Blue */
+            --discord-bg: #313338;
+            --discord-embed-bg: #1e1f22;
+            --text-main: #f8f9fa;
+            --text-muted: #9fa6b2;
+            --font-main: 'Outfit', sans-serif;
+            --font-heading: 'Space Grotesk', sans-serif;
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            background-color: #121214;
-            color: #ffffff;
-            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-base);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(114, 9, 183, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 245, 212, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            font-family: var(--font-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        /* Glassmorphism utility */
+        .glass-panel {
+            background: var(--bg-surface);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            transition: var(--transition-smooth);
+        }
+
+        .glass-panel:hover {
+            border-color: rgba(0, 245, 212, 0.2);
+            box-shadow: 0 12px 40px 0 rgba(0, 245, 212, 0.05);
+        }
+
+        /* Layout */
+        .app-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 1024px) {
+            .app-container {
+                grid-template-columns: 3fr 1.2fr;
+            }
+            .header-full {
+                grid-column: span 2;
+            }
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 24px;
+            margin-bottom: 10px;
+        }
+
+        @media (min-width: 768px) {
+            header {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        .header-title-area h1 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--text-main) 30%, var(--accent-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title-area p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-top: 4px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 245, 212, 0.1);
+            border: 1px solid rgba(0, 245, 212, 0.2);
+            color: var(--accent-primary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .admin-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition-smooth);
+        }
+
+        .admin-badge:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .admin-badge.locked {
+            background: rgba(247, 37, 133, 0.1);
+            border: 1px solid rgba(247, 37, 133, 0.25);
+            color: var(--accent-danger);
+        }
+
+        .admin-badge.locked:hover {
+            border-color: rgba(247, 37, 133, 0.4);
+            box-shadow: 0 4px 12px rgba(247, 37, 133, 0.15);
+        }
+
+        .admin-badge.unlocked {
+            background: rgba(0, 245, 212, 0.1);
+            border: 1px solid rgba(0, 245, 212, 0.25);
+            color: var(--accent-primary);
+        }
+
+        .admin-badge.unlocked:hover {
+            border-color: rgba(0, 245, 212, 0.4);
+            box-shadow: 0 4px 12px rgba(0, 245, 212, 0.15);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-primary);
+            border-radius: 50%;
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 245, 212, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(0, 245, 212, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 245, 212, 0); }
+        }
+
+        /* Controls Section */
+        .controls-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        button {
+            font-family: var(--font-main);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 18px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition-smooth);
+        }
+
+        button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+
+        /* Mode Selector Pills */
+        .mode-pill {
+            color: var(--text-muted);
+            border: 1px solid transparent;
+        }
+        .mode-pill:hover {
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.05) !important;
+            transform: none !important;
+        }
+        .mode-pill.active-real {
+            color: #000 !important;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, rgba(0, 245, 212, 0.8) 100%) !important;
+            box-shadow: 0 2px 10px rgba(0, 245, 212, 0.2);
+            pointer-events: none;
+        }
+        .mode-pill.active-mock {
+            color: #fff !important;
+            background: linear-gradient(135deg, var(--accent-secondary) 0%, rgba(114, 9, 183, 0.8) 100%) !important;
+            box-shadow: 0 2px 10px rgba(114, 9, 183, 0.2);
+            pointer-events: none;
+        }
+
+        button.btn-primary {
+            background: linear-gradient(135deg, var(--accent-primary) 0%, rgba(0, 245, 212, 0.7) 100%);
+            color: #000;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 245, 212, 0.2);
+        }
+
+        button.btn-primary:hover {
+            background: linear-gradient(135deg, #00ffd5 0%, var(--accent-primary) 100%);
+            box-shadow: 0 6px 20px rgba(0, 245, 212, 0.3);
+            color: #000;
+        }
+
+        button.btn-discord {
+            background: var(--discord-color);
+            color: #fff;
+            border: none;
+        }
+
+        button.btn-discord:hover {
+            background: #4752c4;
+        }
+
+        /* Crown Cards Banner */
+        .crown-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+
+        .crown-card {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .crown-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255, 209, 102, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .crown-icon-container {
+            font-size: 2.2rem;
+            background: rgba(255, 209, 102, 0.1);
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 209, 102, 0.2);
         }
-        .container {
-            text-align: center;
-            padding: 40px 30px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            max-width: 420px;
-            width: 90%;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 0.6s ease-out;
+
+        .crown-card-info h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .icon {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            display: inline-block;
-            animation: float 3s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        h2 {
-            margin: 0 0 10px 0;
+
+        .crown-card-info .crown-holder-name {
+            font-size: 1.3rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--accent-gold);
+            margin: 2px 0;
         }
-        .desc {
-            color: #9fa6b2;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin: 0 0 25px 0;
+
+        .crown-card-info .crown-spots-count {
+            font-size: 0.85rem;
+            color: var(--text-muted);
         }
-        .scenario {
-            display: block;
-            margin-top: 8px;
-            color: #ffffff;
-            font-size: 1.15rem;
-            font-weight: 600;
-            word-break: break-word;
-            padding: 8px 12px;
-            background: rgba(255, 255, 255, 0.04);
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
+
+        /* Standings & Leaderboard Tabs */
+        .tab-controls {
+            display: flex;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 20px;
+            gap: 8px;
         }
-        .btn {
-            display: inline-block;
+
+        .tab-btn {
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            border-radius: 0;
+            color: var(--text-muted);
             padding: 12px 24px;
-            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
-            color: #121214;
-            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition-smooth);
+        }
+
+        .tab-btn:hover {
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.02);
+            transform: none;
+        }
+
+        .tab-btn.active {
+            color: var(--accent-primary);
+            border-bottom-color: var(--accent-primary);
+        }
+
+        /* Leaderboard Tables */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 14px 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 0.95rem;
+        }
+
+        th {
+            font-family: var(--font-heading);
+            color: var(--text-muted);
             font-weight: 600;
-            border-radius: 10px;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
-        }
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.4);
-        }
-        .footer {
+            text-transform: uppercase;
             font-size: 0.8rem;
-            color: #525866;
-            margin-top: 30px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Offline status badge overrides */
+        .status-badge.offline {
+            background: rgba(247, 37, 133, 0.1);
+            border-color: rgba(247, 37, 133, 0.2);
+            color: var(--accent-danger);
+        }
+        .status-badge.offline .status-dot {
+            background-color: var(--accent-danger);
+            animation: pulse-red 2s infinite;
+        }
+
+        /* Modal Backdrop */
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        .modal-backdrop.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        /* Modal Content */
+        .modal-content {
+            width: 90%;
+            max-width: 800px;
+            padding: 24px;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            background: var(--bg-surface-solid);
+        }
+        .modal-backdrop.show .modal-content {
+            transform: scale(1);
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .btn-close {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 2rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0;
+            transition: var(--transition-smooth);
+        }
+        .btn-close:hover {
+            color: var(--accent-danger);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .player-row:hover {
+            background: rgba(255, 255, 255, 0.015);
+        }
+
+        /* Rank badges with custom colors */
+        .rank-badge {
+            display: inline-flex;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Easier ranks colors */
+        .rank-lemming { background: rgba(158, 158, 158, 0.15); color: #9e9e9e; border: 1px solid rgba(158, 158, 158, 0.3); }
+        .rank-hare { background: rgba(76, 175, 80, 0.15); color: #4caf50; border: 1px solid rgba(76, 175, 80, 0.3); }
+        .rank-ermine { background: rgba(33, 150, 243, 0.15); color: #2196f3; border: 1px solid rgba(33, 150, 243, 0.3); }
+        .rank-penguin { background: rgba(0, 188, 212, 0.15); color: #00bcd4; border: 1px solid rgba(0, 188, 212, 0.3); }
+        .rank-fox { background: rgba(156, 39, 176, 0.15); color: #9c27b0; border: 1px solid rgba(156, 39, 176, 0.3); }
+        .rank-mammoth { background: rgba(255, 152, 0, 0.15); color: #ff9800; border: 1px solid rgba(255, 152, 0, 0.3); }
+        .rank-orca { background: rgba(233, 30, 99, 0.15); color: #e91e63; border: 1px solid rgba(233, 30, 99, 0.3); }
+        .rank-seal { background: rgba(244, 67, 54, 0.15); color: #f44336; border: 1px solid rgba(244, 67, 54, 0.3); }
+
+        /* Medium ranks colors */
+        .rank-cinnabar { background: rgba(183, 28, 28, 0.15); color: #b71c1c; border: 1px solid rgba(183, 28, 28, 0.3); }
+        .rank-vermillion { background: rgba(216, 67, 21, 0.15); color: #d84315; border: 1px solid rgba(216, 67, 21, 0.3); }
+        .rank-saffron { background: rgba(249, 168, 37, 0.15); color: #f9a825; border: 1px solid rgba(249, 168, 37, 0.3); }
+        .rank-celadon { background: rgba(46, 125, 50, 0.15); color: #2e7d32; border: 1px solid rgba(46, 125, 50, 0.3); }
+        .rank-cerulean { background: rgba(21, 101, 192, 0.15); color: #1565c0; border: 1px solid rgba(21, 101, 192, 0.3); }
+        .rank-lavender { background: rgba(106, 27, 154, 0.15); color: #6a1b9a; border: 1px solid rgba(106, 27, 154, 0.3); }
+        .rank-indigo { background: rgba(40, 53, 147, 0.15); color: #283593; border: 1px solid rgba(40, 53, 147, 0.3); }
+        .rank-fuchsia { background: rgba(173, 20, 87, 0.15); color: #ad1457; border: 1px solid rgba(173, 20, 87, 0.3); }
+
+        /* Hard ranks colors */
+        .rank-wool { background: rgba(141, 110, 99, 0.15); color: #8d6e63; border: 1px solid rgba(141, 110, 99, 0.3); }
+        .rank-linen { background: rgba(189, 189, 189, 0.15); color: #bdbdbd; border: 1px solid rgba(189, 189, 189, 0.3); }
+        .rank-velvet { background: rgba(110, 29, 74, 0.15); color: #ab47bc; border: 1px solid rgba(110, 29, 74, 0.3); }
+        .rank-chiffon { background: rgba(0, 150, 136, 0.15); color: #009688; border: 1px solid rgba(0, 150, 136, 0.3); }
+        .rank-satin { background: rgba(2, 136, 209, 0.15); color: #0288d1; border: 1px solid rgba(2, 136, 209, 0.3); }
+        .rank-silk { background: rgba(224, 64, 251, 0.15); color: #e040fb; border: 1px solid rgba(224, 64, 251, 0.3); }
+
+        .rank-unranked { background: rgba(255, 255, 255, 0.05); color: var(--text-muted); border: 1px solid rgba(255, 255, 255, 0.1); }
+
+        .streak-pill {
+            background: rgba(247, 37, 133, 0.15);
+            border: 1px solid rgba(247, 37, 133, 0.3);
+            color: var(--accent-danger);
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            animation: pulse-red 1.5s infinite;
+        }
+
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(247, 37, 133, 0.4); }
+            70% { box-shadow: 0 0 0 4px rgba(247, 37, 133, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(247, 37, 133, 0); }
+        }
+
+        .crown-pill {
+            background: rgba(255, 209, 102, 0.1);
+            border: 1px solid rgba(255, 209, 102, 0.2);
+            color: var(--accent-gold);
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Detail scores grid style */
+        .scen-cell {
+            position: relative;
+        }
+        
+        .scen-cell.leader-cell {
+            color: var(--accent-gold);
+            font-weight: 700;
+            background: rgba(255, 209, 102, 0.05);
+        }
+
+        .crown-inline {
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            margin-right: 4px;
+        }
+
+        .grid-scen-name {
+            font-weight: 600;
+            color: #d1d5db;
+            transition: var(--transition-smooth);
+        }
+        
+        .grid-scen-name:hover {
+            color: var(--accent-primary);
+            text-shadow: 0 0 8px rgba(0, 245, 212, 0.4);
+        }
+
+        /* Admin Panels & Sidebar */
+        .panel-title {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .form-group input {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 10px 14px;
+            color: var(--text-main);
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(0, 245, 212, 0.15);
+        }
+
+        .sidebar-panel {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            height: fit-content;
+        }
+
+        /* Player configuration item */
+        .player-config-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .player-config-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .player-config-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .player-config-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .player-config-sub {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .btn-icon {
+            padding: 6px;
+            border-radius: 6px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: var(--transition-smooth);
+        }
+
+        .btn-icon:hover {
+            color: var(--accent-danger);
+            background: rgba(247, 37, 133, 0.1);
+        }
+
+        /* Discord Preview Area */
+        .discord-preview {
+            background-color: var(--discord-bg);
+            border-radius: 12px;
+            font-family: var(--font-main);
+            font-size: 0.9rem;
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            height: 700px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .discord-header {
+            padding: 10px 16px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .discord-messages {
+            flex-grow: 1;
+            padding: 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .discord-msg-row {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .discord-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--discord-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #fff;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+            background-image: linear-gradient(135deg, var(--discord-color) 0%, var(--accent-secondary) 100%);
+        }
+
+        .discord-content-area {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .discord-msg-meta {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .discord-author {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.95rem;
+        }
+
+        .discord-time {
+            font-size: 0.75rem;
+            color: #949ba4;
+        }
+
+        .discord-bot-tag {
+            background: var(--discord-color);
+            color: #fff;
+            font-size: 0.65rem;
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .discord-text {
+            color: #dbdee1;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        /* Discord embeds */
+        .discord-embed {
+            background: var(--discord-embed-bg);
+            border-left: 4px solid var(--discord-color);
+            border-radius: 4px;
+            padding: 12px 16px;
+            margin-top: 6px;
+            max-width: 520px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .discord-embed-title {
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .discord-embed-desc {
+            color: #dbdee1;
+            font-size: 0.88rem;
+            white-space: pre-wrap;
+            line-height: 1.4;
+        }
+
+        .discord-mention {
+            background: rgba(88, 101, 242, 0.3);
+            color: #c9cdfb;
+            padding: 0 4px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+
+        .discord-link {
+            color: #00a8fc;
+            text-decoration: none;
+        }
+
+        .discord-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Tooltip or status messaging */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid var(--accent-primary);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition-smooth);
+            pointer-events: none;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Simulation options picker */
+        .sim-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .sim-btn {
+            padding: 8px 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.02);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .sim-btn:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .sim-btn.active-sim {
+            background: rgba(114, 9, 183, 0.2);
+            border-color: var(--accent-secondary);
+            color: #fff;
+        }
+
+        /* Loader */
+        .loader-ring {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--accent-primary);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Slide-in Drawer from Left */
+        .drawer-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .drawer-container.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .drawer-content {
+            position: absolute;
+            top: 0;
+            left: -800px;
+            width: 800px;
+            max-width: 95%;
+            height: 100vh;
+            background: var(--bg-surface-solid);
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 10px 0 50px rgba(0, 0, 0, 0.6);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(0);
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+            overflow-y: auto;
+        }
+        .drawer-container.show .drawer-content {
+            transform: translateX(800px);
+        }
+        
+        /* Drawer tabs navigation */
+        .drawer-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 12px;
+        }
+        .drawer-tab {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: var(--text-muted);
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+        .drawer-tab:hover {
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .drawer-tab.active {
+            color: #000;
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 10px rgba(0, 245, 212, 0.3);
+        }
+        
+        /* Two column layout inside drawer */
+        .drawer-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            flex-grow: 1;
+            height: calc(100% - 100px);
+        }
+        @media (min-width: 768px) {
+            .drawer-layout {
+                grid-template-columns: 280px 1fr;
+            }
+        }
+        
+        .drawer-stats-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            overflow-y: auto;
+        }
+        .drawer-chart-panel {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 350px;
+        }
+        
+        /* Stats cards */
+        .mini-stat-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 12px 16px;
+        }
+        .mini-stat-card.pb-card {
+            border-color: rgba(255, 209, 102, 0.2);
+            background: rgba(255, 209, 102, 0.02);
+        }
+        .mini-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+        }
+        .mini-stat-val {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-main);
+            font-family: var(--font-heading);
+            margin-top: 2px;
+        }
+        .mini-stat-card.pb-card .mini-stat-val {
+            color: var(--accent-gold);
+        }
+        
+        /* Trend indicators */
+        .trend-up { color: #4caf50; font-weight: bold; }
+        .trend-down { color: #f44336; font-weight: bold; }
+        .trend-neutral { color: var(--text-muted); }
+        
+        /* Pulsing Overtake Icons and Cells */
+        .overtake-icon {
+            display: inline-block;
+            margin-left: 6px;
+            color: var(--accent-danger);
+            animation: pulse-swords 1.5s infinite;
+        }
+        
+        @keyframes pulse-swords {
+            0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(247, 37, 133, 0.7)); }
+            70% { transform: scale(1.2); filter: drop-shadow(0 0 8px rgba(247, 37, 133, 0.8)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(247, 37, 133, 0)); }
+        }
+        
+        .overtake-highlight {
+            position: relative;
+            background: rgba(247, 37, 133, 0.04) !important;
+            box-shadow: inset 0 0 10px rgba(247, 37, 133, 0.08) !important;
+            animation: border-glow 3s infinite alternate;
+        }
+        
+        @keyframes border-glow {
+            from { outline: 1px solid rgba(247, 37, 133, 0.1); }
+            to { outline: 1px solid rgba(247, 37, 133, 0.4); }
+        }
+        
+        /* Active Rivalries panel style */
+        .rivalries-card {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .rivalry-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 10px;
+            transition: var(--transition-smooth);
+        }
+        .rivalry-item:hover {
+            border-color: rgba(0, 245, 212, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .rivalry-chaser {
+            font-weight: 700;
+            color: var(--text-main);
+        }
+        .rivalry-target {
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+        .rivalry-gap {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="icon">🎮</div>
-        <h2>Launching Kovaak's</h2>
-        <div class="desc">
-            Attempting to launch the scenario:
-            <span id="scenario-name" class="scenario">Loading...</span>
-        </div>
-        <a id="direct-link" class="btn" href="#">Launch Manually</a>
-        <div class="footer">
-            If prompted by your browser, check the box to allow launching the application.
+
+    <div class="app-container">
+        
+        <!-- Header row -->
+        <header class="glass-panel header-full">
+            <div class="header-title-area">
+                <h1>
+                    <span style="font-size: 2.2rem">🎯</span> Kovaak's Rivals
+                </h1>
+                <p>Viscose Benchmarks Aim Tracker & Live Leaderboard Dashboard</p>
+            </div>
+            
+            <div class="controls-row">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span id="tracking-status-text">Tracking Active (5m)</span>
+                </div>
+                <button id="admin-lock-badge" class="admin-badge locked" onclick="toggleAdminLock()" style="cursor: pointer; display: none; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; font-family: var(--font-main); transition: var(--transition-smooth);">
+                    <span id="admin-lock-icon">🔒</span>
+                    <span id="admin-lock-text">Admin Locked</span>
+                </button>
+                <div class="mode-selector-container" id="mode-selector-container" style="display: inline-flex; align-items: center; background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.08); padding: 4px; border-radius: 8px; gap: 4px;">
+                    <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted); padding: 0 8px; font-family: var(--font-heading);">Mode</span>
+                    <button onclick="setMockMode(false)" id="btn-real-mode" class="mode-pill active-real" style="padding: 6px 14px; font-size: 0.85rem; border: none; background: transparent; border-radius: 6px; cursor: pointer; font-weight: 600; font-family: var(--font-main); transition: var(--transition-smooth);">
+                        🌐 Real
+                    </button>
+                    <button onclick="setMockMode(true)" id="btn-mock-mode" class="mode-pill" style="padding: 6px 14px; font-size: 0.85rem; border: none; background: transparent; border-radius: 6px; cursor: pointer; font-weight: 600; font-family: var(--font-main); transition: var(--transition-smooth);">
+                        ⚡ Mock
+                    </button>
+                </div>
+                <button onclick="triggerImmediatePoll()" id="btn-poll">
+                    <span style="font-size: 1rem">🔄</span> Poll Scores Now
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Left Column -->
+        <main style="display: flex; flex-direction: column; gap: 30px;">
+            
+            <!-- Crown Holders Banner -->
+            <div class="crown-cards-grid" id="crowns-banner">
+                <!-- Populated dynamically -->
+            </div>
+
+            <!-- Active Rivalries Panel -->
+            <section class="glass-panel" id="rivalries-section" style="padding: 24px; display: none;">
+                <h2 class="panel-title">🎯 Active Rivalries & Chases</h2>
+                <div class="crown-cards-grid" id="rivalries-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 0;">
+                    <!-- Populated dynamically -->
+                </div>
+            </section>
+
+            <!-- Tab Controls -->
+            <div class="tab-controls">
+                <button class="tab-btn active" onclick="switchBenchmark('686', this)">Easier (686)</button>
+                <button class="tab-btn" onclick="switchBenchmark('687', this)">Medium (687)</button>
+                <button class="tab-btn" onclick="switchBenchmark('688', this)">Hard (688)</button>
+            </div>
+
+            <!-- Leaderboard Standings Section -->
+            <section class="glass-panel" style="padding: 24px;">
+                <h2 class="panel-title">🏆 Benchmark Standings</h2>
+                <div class="table-container">
+                    <table id="standings-table">
+                        <thead>
+                            <tr>
+                                <th>Pos</th>
+                                <th>Player</th>
+                                <th>Overall Rank</th>
+                                <th>Crowns 👑</th>
+                                <th>Completed Scenarios</th>
+                                <th>Avg Score % 🎯</th>
+                                <th>Total PBs 📈</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="standings-body">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Scenario Matrix Section -->
+            <section class="glass-panel" style="padding: 24px;">
+                <h2 class="panel-title">📊 Scenario Comparison Grid</h2>
+                <div class="table-container">
+                    <table id="grid-table">
+                        <thead id="grid-header">
+                            <!-- Populated dynamically -->
+                        </thead>
+                        <tbody id="grid-body">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Right Column / Sidebar -->
+        <aside style="display: flex; flex-direction: column; gap: 30px;">
+            
+            <!-- Simulated Discord Pane -->
+            <section class="glass-panel discord-preview">
+                <div class="discord-header">
+                    <span style="font-size: 1.1rem; color: #949ba4;">#</span> kovaaks-rivals
+                </div>
+                <div class="discord-messages" id="discord-feed">
+                    <!-- Populated dynamically -->
+                </div>
+                <!-- Simulated Discord input area -->
+                <div class="discord-input-container" style="padding: 0 16px 16px 16px; background-color: var(--discord-bg);">
+                    <div style="background-color: #383a40; border-radius: 8px; padding: 10px 16px; display: flex; align-items: center; gap: 12px; border: 1px solid rgba(255,255,255,0.02);">
+                        <span style="color: #b5bac1; font-size: 1.2rem; cursor: not-allowed;">+</span>
+                        <input type="text" placeholder="Message #kovaaks-rivals" disabled style="background: transparent; border: none; color: #dbdee1; width: 100%; font-family: var(--font-main); font-size: 0.9rem; outline: none; cursor: not-allowed;">
+                        <span style="color: #b5bac1; cursor: not-allowed; font-size: 0.8rem; font-weight: bold; background: rgba(255,255,255,0.05); padding: 2px 6px; border-radius: 4px;">GIF</span>
+                        <span style="color: #b5bac1; cursor: not-allowed; font-size: 1.1rem;">😀</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Simulation controls -->
+            <section class="glass-panel sidebar-panel" id="simulator-section">
+                <div>
+                    <h2 class="panel-title">⚙️ Interactive Simulator</h2>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">
+                        Inject simulated updates directly into the tracker system to verify Discord notifications, overtakes, streaks, and crown dethronements in real-time.
+                    </p>
+                    <div class="sim-grid">
+                        <div class="sim-btn" onclick="simulateEvent('pb')">🎉 Personal Best</div>
+                        <div class="sim-btn" onclick="simulateEvent('overtake')">⚔️ Overtake</div>
+                        <div class="sim-btn" onclick="simulateEvent('near_miss')">🤏 Near Miss</div>
+                        <div class="sim-btn" onclick="simulateEvent('rank_up')">🏆 Rank Up</div>
+                        <div class="sim-btn" onclick="simulateEvent('crown_change')">👑 Crown Shift</div>
+                        <div class="sim-btn" onclick="simulateEvent('hot_streak')">🔥 Hot Streak</div>
+                    </div>
+                    <div id="mock-reset-container" style="margin-top: 16px; display: none;">
+                        <button onclick="resetMockData()" class="btn-primary" style="width: 100%; justify-content: center; background: linear-gradient(135deg, var(--accent-danger) 0%, rgba(247, 37, 133, 0.7) 100%); box-shadow: 0 4px 15px rgba(247, 37, 133, 0.2); border: none;" id="btn-reset-mock">
+                            🗑️ Reset Mock Data
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Weekly Activity Leaderboard -->
+            <section class="glass-panel sidebar-panel" id="weekly-activity-section">
+                <div>
+                    <h2 class="panel-title">⚡ Weekly Activity (Last 7 Days)</h2>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.3;">
+                        Total Personal Bests achieved in the last 7 days. Highlights current practice and improvement!
+                    </p>
+                    
+                    <!-- Activity Highlights Banner -->
+                    <div class="activity-highlights" style="display: flex; gap: 8px; margin-bottom: 15px;">
+                        <div class="highlight-card" style="flex: 1; background: rgba(0, 245, 212, 0.03); border: 1px solid rgba(0, 245, 212, 0.08); border-radius: 8px; padding: 10px; text-align: center;">
+                            <div style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); font-weight: bold; letter-spacing: 0.5px;">🚀 Most Active</div>
+                            <div id="highlight-most-active" style="font-size: 0.85rem; font-weight: 800; color: var(--accent-secondary); margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">-</div>
+                        </div>
+                        <div class="highlight-card" style="flex: 1; background: rgba(247, 37, 133, 0.03); border: 1px solid rgba(247, 37, 133, 0.08); border-radius: 8px; padding: 10px; text-align: center;">
+                            <div style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); font-weight: bold; letter-spacing: 0.5px;">💤 Slumbering</div>
+                            <div id="highlight-slacking" style="font-size: 0.85rem; font-weight: 800; color: var(--accent-primary); margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">-</div>
+                        </div>
+                    </div>
+                    
+                    <div id="weekly-activity-list" style="display: flex; flex-direction: column; gap: 12px;">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Most Active Maps Widget -->
+            <section class="glass-panel sidebar-panel">
+                <div>
+                    <h2 class="panel-title">🔥 Most Active Scenarios</h2>
+                    <div id="active-maps-list" style="display: flex; flex-direction: column; gap: 12px;">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Player Configuration Panel -->
+            <section class="glass-panel sidebar-panel" id="player-management-section">
+                <div>
+                    <h2 class="panel-title">👥 Player Management</h2>
+                    <div class="player-config-list" id="player-config-list">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 12px; color: #fff;">Add New Player</h3>
+                    <form id="add-player-form" onsubmit="addPlayer(event)">
+                        <div class="form-group">
+                            <label>Steam Identifier</label>
+                            <input type="text" id="steam-identifier" placeholder="Steam ID or Vanity Name / URL" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Discord Handle</label>
+                            <input type="text" id="discord-username" placeholder="@BakaOppai" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Discord User ID (Optional)</label>
+                            <input type="text" id="discord-id" placeholder="111111111111111111">
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;" id="btn-add-player">
+                            Add Player
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Discord Webhook configuration -->
+            <section class="glass-panel sidebar-panel" id="webhook-section">
+                <div>
+                    <h2 class="panel-title">🔗 Discord Webhook Integrations</h2>
+                    <div class="form-group">
+                        <label>Discord Webhook URL</label>
+                        <input type="password" id="webhook-url" placeholder="https://discord.com/api/webhooks/...">
+                    </div>
+                    <button onclick="saveWebhook()" class="btn-discord" style="width: 100%; justify-content: center;">
+                        Save Webhook URL
+                    </button>
+                </div>
+            </section>
+
+        </aside>
+
+    </div>
+
+    <!-- Slide-in Drawer for Scenario Detail & History -->
+    <div id="graph-drawer" class="drawer-container" style="display: none;">
+        <div class="drawer-content">
+            <div class="modal-header" style="border-bottom: none; margin-bottom: 12px;">
+                <h2 id="drawer-title" class="panel-title" style="margin-bottom: 0; border: none; padding: 0;">Scenario Details</h2>
+                <button onclick="closeDrawer()" class="btn-close" style="font-size: 2rem; padding: 0 4px;">&times;</button>
+            </div>
+            
+            <!-- Player selection tabs -->
+            <div class="drawer-tabs" id="drawer-tabs-list">
+                <!-- Populated dynamically -->
+            </div>
+            
+            <!-- Content layout -->
+            <div class="drawer-layout">
+                <!-- Left stats panel (visible only in single player mode) -->
+                <div class="drawer-stats-panel" id="drawer-stats-col" style="display: none;">
+                    <div class="mini-stat-card pb-card">
+                        <div class="mini-stat-label">Personal Best</div>
+                        <div class="mini-stat-val" id="stat-pb">-</div>
+                    </div>
+                    <div class="mini-stat-card">
+                        <div class="mini-stat-label">PB Milestones</div>
+                        <div class="mini-stat-val" id="stat-pb-count">-</div>
+                    </div>
+                    <div class="mini-stat-card">
+                        <div class="mini-stat-label">Overall Improvement</div>
+                        <div class="mini-stat-val" id="stat-improvement">-</div>
+                    </div>
+                    
+                    <div style="margin-top: 10px;">
+                        <h3 class="mini-stat-label" style="margin-bottom: 8px;">PB Progress History (Last 10)</h3>
+                        <div class="table-container" style="margin-bottom: 0; border: 1px solid rgba(255,255,255,0.04); border-radius: 8px;">
+                            <table style="width: 100%; font-size: 0.85rem;">
+                                <thead>
+                                    <tr>
+                                        <th style="padding: 8px 12px;">Score</th>
+                                        <th style="padding: 8px 12px;">Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="drawer-history-tbody">
+                                    <!-- Populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right chart panel -->
+                <div class="drawer-chart-panel" id="drawer-chart-col" style="grid-column: span 2;">
+                    <div class="chart-container" style="position: relative; height: 100%; min-height: 400px; width: 100%;">
+                        <canvas id="history-chart"></canvas>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
+    <!-- Kovaak's Redirect Modal -->
+    <div id="redirect-modal" class="modal-backdrop" style="display: none;">
+        <div class="modal-content glass-panel" style="max-width: 450px; text-align: center; padding: 40px 30px; background: var(--bg-surface-solid); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px;">
+            <div style="font-size: 3.5rem; margin-bottom: 20px; display: inline-block; animation: float 3s ease-in-out infinite;">🎮</div>
+            <h2 style="margin: 0 0 10px 0; font-weight: 700; background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: var(--font-heading); font-size: 1.8rem;">Launching Kovaak's</h2>
+            <div style="color: #9fa6b2; font-size: 0.95rem; line-height: 1.6; margin: 0 0 25px 0;">
+                Attempting to launch the scenario:
+                <span id="redirect-scenario-name" style="display: block; margin-top: 8px; color: #ffffff; font-size: 1.15rem; font-weight: 600; word-break: break-word; padding: 8px 12px; background: rgba(255, 255, 255, 0.04); border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.04);">Loading...</span>
+            </div>
+            <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 20px;">
+                <a id="redirect-direct-link" class="btn btn-primary" href="#" style="text-decoration: none; padding: 12px 24px; font-weight: 600; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center;">Launch Manually</a>
+                <button onclick="closeRedirectModal()" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 12px 24px; border-radius: 8px; font-weight: 600; color: #fff; cursor: pointer;">Cancel / Browse</button>
+            </div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);" id="redirect-timer-text">
+                Redirecting in 3 seconds...
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Toast Notification -->
+    <div class="toast" id="toast">
+        <span id="toast-icon">ℹ️</span>
+        <span id="toast-message">Notification message here</span>
+    </div>
+
+    <!-- Script Section -->
     <script>
-        // Parse the scenario name from query parameters
-        const params = new URLSearchParams(window.location.search);
-        const scenName = params.get('scenario') || 'WhisphereRawControl';
-        document.getElementById('scenario-name').textContent = scenName;
+        const isStatic = window.location.hostname.includes('github.io') || window.location.protocol === 'file:';
+        let currentBenchmarkId = '686';
+        let globalPlayers = [];
+        let standingsData = {};
+        let historyChart = null;
+
+        let adminKeySet = false;
+        let countdownInterval = null;
+
+        function getAdminHeaders() {
+            const token = localStorage.getItem('admin_token') || '';
+            if (!token) return {};
+            return {
+                'Authorization': `Bearer ${token}`
+            };
+        }
+
+        function updateAdminUIState() {
+            const lockBadge = document.getElementById('admin-lock-badge');
+            const lockIcon = document.getElementById('admin-lock-icon');
+            const lockText = document.getElementById('admin-lock-text');
+            
+            const modeSelector = document.getElementById('mode-selector-container');
+            const pollBtn = document.getElementById('btn-poll');
+            const simSection = document.getElementById('simulator-section');
+            const playerMgmtSection = document.getElementById('player-management-section');
+            const webhookSection = document.getElementById('webhook-section');
+            
+            if (!adminKeySet) {
+                if (lockBadge) lockBadge.style.display = 'none';
+                if (modeSelector) modeSelector.style.display = 'inline-flex';
+                if (pollBtn) pollBtn.style.display = 'inline-block';
+                if (simSection) simSection.style.display = 'block';
+                if (playerMgmtSection) playerMgmtSection.style.display = 'block';
+                if (webhookSection) webhookSection.style.display = 'block';
+                return;
+            }
+            
+            if (lockBadge) lockBadge.style.display = 'inline-flex';
+            
+            const token = localStorage.getItem('admin_token');
+            if (token) {
+                if (lockBadge) {
+                    lockBadge.className = 'admin-badge unlocked';
+                }
+                if (lockIcon) lockIcon.innerText = '🔓';
+                if (lockText) lockText.innerText = 'Admin Unlocked';
+                
+                if (modeSelector) modeSelector.style.display = 'inline-flex';
+                if (pollBtn) pollBtn.style.display = 'inline-block';
+                if (simSection) simSection.style.display = 'block';
+                if (playerMgmtSection) playerMgmtSection.style.display = 'block';
+                if (webhookSection) webhookSection.style.display = 'block';
+            } else {
+                if (lockBadge) {
+                    lockBadge.className = 'admin-badge locked';
+                }
+                if (lockIcon) lockIcon.innerText = '🔒';
+                if (lockText) lockText.innerText = 'Admin Locked';
+                
+                if (modeSelector) modeSelector.style.display = 'none';
+                if (pollBtn) pollBtn.style.display = 'none';
+                if (simSection) simSection.style.display = 'none';
+                if (playerMgmtSection) playerMgmtSection.style.display = 'none';
+                if (webhookSection) webhookSection.style.display = 'none';
+            }
+        }
+
+        function toggleAdminLock() {
+            const token = localStorage.getItem('admin_token');
+            if (token) {
+                localStorage.removeItem('admin_token');
+                updateAdminUIState();
+                showToast("Admin access locked", '🔒');
+            } else {
+                const password = prompt("Enter Admin Key / Password:");
+                if (password === null) return;
+                if (password.trim() === "") {
+                    showToast("Admin key cannot be empty", '⚠️');
+                    return;
+                }
+                localStorage.setItem('admin_token', password.trim());
+                updateAdminUIState();
+                showToast("Admin access unlocked", '🔓');
+            }
+        }
+
+        function startCountdown(lastPoll, checkInterval) {
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+            
+            const badge = document.querySelector('.status-badge');
+            if (!badge) return;
+            const text = badge.querySelector('span:not(.status-dot)');
+            if (!text) return;
+            
+            if (!lastPoll || !checkInterval) {
+                text.innerText = 'Tracking Active (5m)';
+                return;
+            }
+            
+            function updateTimer() {
+                if (badge.classList.contains('offline')) {
+                    text.innerText = 'Server Offline';
+                    return;
+                }
+                
+                const nowSeconds = Math.floor(Date.now() / 1000);
+                const elapsed = nowSeconds - Math.floor(lastPoll);
+                const remaining = checkInterval - elapsed;
+                
+                if (isStatic) {
+                    text.innerText = 'Public Leaderboard';
+                    return;
+                }
+                
+                if (remaining <= 0) {
+                    text.innerText = 'Tracking Active (Polling...)';
+                } else {
+                    const minutes = Math.floor(remaining / 60);
+                    const seconds = remaining % 60;
+                    const secondsStr = seconds < 10 ? '0' + seconds : seconds;
+                    text.innerText = `Tracking Active (${minutes}:${secondsStr})`;
+                }
+            }
+            
+            updateTimer();
+            countdownInterval = setInterval(updateTimer, 1000);
+        }
+
+        // On document load
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                await loadConfig();
+            } catch (e) {
+                console.error("Config load failed", e);
+            }
+            await fetchStandings();
+            fetchNotifications();
+            fetchActiveMaps();
+            
+            // Check for play redirect query parameter
+            checkRedirectQuery();
+
+            // Refresh standings and notifications periodically
+            if (!isStatic) {
+                setInterval(() => {
+                    fetchStandings();
+                    fetchActiveMaps();
+                }, 5000);
+                setInterval(fetchNotifications, 3000);
+            }
+        });
+
+        // Server online/offline status badge toggler
+        function updateServerStatus(online) {
+            const badge = document.querySelector('.status-badge');
+            if (!badge) return;
+            const text = badge.querySelector('span:not(.status-dot)');
+            
+            if (online) {
+                badge.classList.remove('offline');
+            } else {
+                badge.classList.add('offline');
+                if (text) text.innerText = 'Server Offline';
+            }
+        }
+
+        // Update Mock Toggle button visual state
+        function updateMockButtonState(isMock) {
+            const btnReal = document.getElementById('btn-real-mode');
+            const btnMock = document.getElementById('btn-mock-mode');
+            const resetContainer = document.getElementById('mock-reset-container');
+            if (!btnReal || !btnMock) return;
+            
+            if (isMock) {
+                btnReal.className = 'mode-pill';
+                btnMock.className = 'mode-pill active-mock';
+                if (resetContainer) resetContainer.style.display = 'block';
+            } else {
+                btnReal.className = 'mode-pill active-real';
+                btnMock.className = 'mode-pill';
+                if (resetContainer) resetContainer.style.display = 'none';
+            }
+        }
+
+        // Set Mock Mode ON/OFF
+        async function setMockMode(enableMock) {
+            const btnReal = document.getElementById('btn-real-mode');
+            const btnMock = document.getElementById('btn-mock-mode');
+            if (!btnReal || !btnMock) return;
+            
+            const btnToDisable = enableMock ? btnMock : btnReal;
+            
+            btnReal.disabled = true;
+            btnMock.disabled = true;
+            const originalHtml = btnToDisable.innerHTML;
+            btnToDisable.innerHTML = '<span class="loader-ring"></span>';
+            
+            try {
+                const response = await fetch('/api/config/mock-mode', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        ...getAdminHeaders()
+                    },
+                    body: JSON.stringify({ enabled: enableMock })
+                });
+                
+                if (response.status === 401) {
+                    localStorage.removeItem('admin_token');
+                    updateAdminUIState();
+                    showToast("Unauthorized: Admin Locked", '🔒');
+                    return;
+                }
+                
+                const res = await response.json();
+                if (res.success) {
+                    updateMockButtonState(enableMock);
+                    showToast(enableMock ? "Switched to Mock Data Mode" : "Switched to Real Data Mode", '✅');
+                    
+                    // Immediately trigger fresh loads to show updated standings
+                    await fetchStandings();
+                    await fetchNotifications();
+                } else {
+                    showToast(res.error || "Failed to toggle mode", '❌');
+                }
+            } catch (err) {
+                showToast("Connection error", '❌');
+            } finally {
+                btnReal.disabled = false;
+                btnMock.disabled = false;
+                btnReal.innerHTML = '🌐 Real';
+                btnMock.innerHTML = '⚡ Mock';
+                updateMockButtonState(enableMock);
+            }
+        }
+
+        // Reset mock database
+        async function resetMockData() {
+            if (!confirm("Are you sure you want to completely reset the Mock database? This will clear all mock standings, crowns, and histories.")) {
+                return;
+            }
+            
+            const btn = document.getElementById('btn-reset-mock');
+            const originalText = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<span class="loader-ring"></span> Resetting...';
+            
+            try {
+                const response = await fetch('/api/test/reset-mock', { 
+                    method: 'POST',
+                    headers: {
+                        ...getAdminHeaders()
+                    }
+                });
+                
+                if (response.status === 401) {
+                    localStorage.removeItem('admin_token');
+                    updateAdminUIState();
+                    showToast("Unauthorized: Admin Locked", '🔒');
+                    return;
+                }
+                
+                const res = await response.json();
+                if (res.success) {
+                    showToast("Mock database reset and re-seeded successfully", '✅');
+                    await fetchStandings();
+                    await fetchNotifications();
+                } else {
+                    showToast(res.error || "Failed to reset mock database", '❌');
+                }
+            } catch (err) {
+                showToast("Connection error", '❌');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            }
+        }
+
+        // Show toast helper
+        function showToast(message, icon = 'ℹ️') {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-icon').innerText = icon;
+            document.getElementById('toast-message').innerText = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Switch Benchmark Tab
+        function switchBenchmark(benchmarkId, btnElement) {
+            currentBenchmarkId = benchmarkId;
+            
+            // Toggle active classes
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            btnElement.classList.add('active');
+
+            // Render tables
+            renderLeaderboard();
+        }
+
+        // Fetch config parameters
+        async function loadConfig() {
+            try {
+                const response = await fetch(isStatic ? 'public_config.json' : '/api/config');
+                const config = await response.json();
+                
+                document.getElementById('webhook-url').value = config.discord_webhook_url || '';
+                updateMockButtonState(config.use_mock_data);
+                
+                // Track admin key status
+                adminKeySet = config.admin_key_set || false;
+                updateAdminUIState();
+                
+                // Keep tracks of players configured
+                globalPlayers = config.players.map(p => ({
+                    steam_id: p.steam_id,
+                    username: p.discord_username,
+                    discord_id: p.discord_id
+                }));
+
+                renderPlayerSettings();
+                updateServerStatus(true);
+            } catch (err) {
+                console.error("Error loading config:", err);
+                updateServerStatus(false);
+            }
+        }
+
+        // Render players in management panel
+        function renderPlayerSettings() {
+            const list = document.getElementById('player-config-list');
+            list.innerHTML = '';
+            
+            globalPlayers.forEach(p => {
+                const item = document.createElement('div');
+                item.className = 'player-config-item';
+                item.innerHTML = `
+                    <div class="player-config-info">
+                        <span class="player-config-name">${p.username}</span>
+                        <span class="player-config-sub">Steam: ${p.steam_id.substring(0,8)}... | ID: ${p.discord_id || 'None'}</span>
+                    </div>
+                    <button class="btn-icon" onclick="removePlayer('${p.steam_id}')" title="Remove Player">
+                        <span style="font-size: 0.95rem">🗑️</span>
+                    </button>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        // Add player to system
+        async function addPlayer(event) {
+            event.preventDefault();
+            const btn = document.getElementById('btn-add-player');
+            const originalText = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<span class="loader-ring"></span> Resolving Steam ID...';
+
+            const identifier = document.getElementById('steam-identifier').value.trim();
+            const discord_username = document.getElementById('discord-username').value.trim();
+            const discord_id = document.getElementById('discord-id').value.trim();
+
+            try {
+                const response = await fetch('/api/players/add', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        ...getAdminHeaders()
+                    },
+                    body: JSON.stringify({ identifier, discord_username, discord_id })
+                });
+
+                if (response.status === 401) {
+                    localStorage.removeItem('admin_token');
+                    updateAdminUIState();
+                    showToast("Unauthorized: Admin Locked", '🔒');
+                    return;
+                }
+
+                const res = await response.json();
+
+                if (res.error) {
+                    showToast(res.error, '❌');
+                } else {
+                    showToast(`Successfully added ${res.player.discord_username}! Resolving scores in background...`, '✅');
+                    document.getElementById('add-player-form').reset();
+                    await loadConfig();
+                    await fetchStandings();
+                }
+            } catch (err) {
+                showToast("Server error resolving player ID", '❌');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            }
+        }
+
+        // Remove player from system
+        async function removePlayer(steamId) {
+            if (!confirm("Are you sure you want to remove this player? All historical scores will be cleared.")) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/players/remove', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        ...getAdminHeaders()
+                    },
+                    body: JSON.stringify({ steam_id: steamId })
+                });
+
+                if (response.status === 401) {
+                    localStorage.removeItem('admin_token');
+                    updateAdminUIState();
+                    showToast("Unauthorized: Admin Locked", '🔒');
+                    return;
+                }
+
+                const res = await response.json();
+
+                if (res.error) {
+                    showToast(res.error, '❌');
+                } else {
+                    showToast("Player removed successfully", '✅');
+                    await loadConfig();
+                    await fetchStandings();
+                }
+            } catch (err) {
+                showToast("Server error removing player", '❌');
+            }
+        }
+
+        // Save Webhook configuration
+        async function saveWebhook() {
+            const webhook_url = document.getElementById('webhook-url').value.trim();
+            try {
+                const response = await fetch('/api/config/webhook', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        ...getAdminHeaders()
+                    },
+                    body: JSON.stringify({ webhook_url })
+                });
+
+                if (response.status === 401) {
+                    localStorage.removeItem('admin_token');
+                    updateAdminUIState();
+                    showToast("Unauthorized: Admin Locked", '🔒');
+                    return;
+                }
+
+                const res = await response.json();
+                if (res.success) {
+                    showToast("Discord Webhook URL updated", '✅');
+                } else {
+                    showToast("Failed to save webhook", '❌');
+                }
+            } catch (err) {
+                showToast("Server connection error", '❌');
+            }
+        }
+
+        // Fetch standings data
+        async function fetchStandings() {
+            try {
+                const response = await fetch(isStatic ? 'standings.json' : '/api/standings');
+                standingsData = await response.json();
+                
+                // Extract last poll and check interval for countdown
+                let lastPoll = null;
+                let checkInterval = 300;
+                const benchmarkIds = Object.keys(standingsData);
+                if (benchmarkIds.length > 0) {
+                    const firstBenchmark = standingsData[benchmarkIds[0]];
+                    lastPoll = firstBenchmark.last_poll;
+                    checkInterval = firstBenchmark.check_interval || 300;
+                }
+                startCountdown(lastPoll, checkInterval);
+                
+                renderLeaderboard();
+                renderCrownBanner();
+                renderRivalries();
+                renderWeeklyActivity();
+                updateServerStatus(true);
+            } catch (err) {
+                console.error("Error fetching standings:", err);
+                updateServerStatus(false);
+            }
+        }
+
+        // Render Crown Cards Banner
+        function renderCrownBanner() {
+            const banner = document.getElementById('crowns-banner');
+            banner.innerHTML = '';
+            
+            Object.keys(standingsData).forEach(bId => {
+                const bData = standingsData[bId];
+                // Find leader
+                const leader = bData.players[0]; // Sorted by crowns first
+                
+                const card = document.createElement('div');
+                card.className = 'glass-panel crown-card';
+                
+                let holderText = 'No Leader';
+                let spotsCount = '0 top spots';
+                
+                if (leader && leader.crown_count > 0) {
+                    holderText = leader.username;
+                    spotsCount = `${leader.crown_count} / ${bData.scenarios.length || 36} top spots`;
+                }
+
+                card.innerHTML = `
+                    <div class="crown-icon-container">👑</div>
+                    <div class="crown-card-info">
+                        <h3>${bData.benchmark_name} Champion</h3>
+                        <div class="crown-holder-name">${holderText}</div>
+                        <div class="crown-spots-count">${spotsCount}</div>
+                    </div>
+                `;
+                banner.appendChild(card);
+            });
+        }
+
+        // Render Active Rivalries Panel
+        function renderRivalries() {
+            const bData = standingsData[currentBenchmarkId];
+            const section = document.getElementById('rivalries-section');
+            const grid = document.getElementById('rivalries-grid');
+            if (!bData || !grid || !section) return;
+            
+            grid.innerHTML = '';
+            
+            const players = bData.players;
+            if (players.length <= 1) {
+                section.style.display = 'none';
+                return;
+            }
+            
+            let hasRivalries = false;
+            
+            for (let i = 1; i < players.length; i++) {
+                const chaser = players[i];
+                const target = players[i - 1]; // Player directly above
+                
+                let gapText = '';
+                if (target.crown_count > chaser.crown_count) {
+                    const diff = target.crown_count - chaser.crown_count;
+                    gapText = `Need ${diff} crown${diff > 1 ? 's' : ''} to overtake`;
+                } else if (target.completed_count > chaser.completed_count) {
+                    const diff = target.completed_count - chaser.completed_count;
+                    gapText = `Need ${diff} completed map${diff > 1 ? 's' : ''} to overtake`;
+                } else if (target.points > chaser.points) {
+                    const diff = (target.points - chaser.points).toFixed(2);
+                    gapText = `Behind by ${diff}% avg score diff`;
+                } else {
+                    gapText = `Tied! Pull ahead on any scenario`;
+                }
+                
+                const card = document.createElement('div');
+                card.className = 'glass-panel crown-card rivalry-item';
+                card.style.padding = '14px 18px';
+                card.style.gap = '14px';
+                
+                card.innerHTML = `
+                    <div style="font-size: 1.8rem; background: rgba(0, 245, 212, 0.05); width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 10px; border: 1px solid rgba(0, 245, 212, 0.15); flex-shrink: 0;">⚔️</div>
+                    <div style="display: flex; flex-direction: column;">
+                        <span class="rivalry-chaser" style="font-size: 0.95rem; font-weight: 700;">${chaser.username}</span>
+                        <span style="font-size: 0.8rem; color: var(--text-muted); margin: 2px 0;">chasing <strong class="rivalry-target" style="color: var(--accent-primary);">${target.username}</strong></span>
+                        <span class="rivalry-gap" style="font-size: 0.8rem; font-weight: 700; color: var(--accent-gold);">${gapText}</span>
+                    </div>
+                `;
+                grid.appendChild(card);
+                hasRivalries = true;
+            }
+            
+            section.style.display = hasRivalries ? 'block' : 'none';
+        }
+
+        // Render Weekly Activity Panel
+        function renderWeeklyActivity() {
+            const bData = standingsData[currentBenchmarkId];
+            const list = document.getElementById('weekly-activity-list');
+            if (!bData || !list) return;
+            
+            list.innerHTML = '';
+            
+            const sortedPlayers = [...bData.players].sort((a, b) => b.weekly_pbs - a.weekly_pbs);
+            const maxPBs = Math.max(...sortedPlayers.map(p => p.weekly_pbs), 1);
+            
+            // Populate highlights
+            const mostActive = sortedPlayers[0];
+            const slacking = [...sortedPlayers].reverse().find(p => p.weekly_pbs === 0);
+            
+            document.getElementById('highlight-most-active').innerText = mostActive && mostActive.weekly_pbs > 0 
+                ? `${mostActive.username} (${mostActive.weekly_pbs} PB${mostActive.weekly_pbs !== 1 ? 's' : ''})` 
+                : 'None';
+            document.getElementById('highlight-slacking').innerText = slacking 
+                ? `${slacking.username} (0 PBs)` 
+                : 'None! All Active 🙌';
+            
+            sortedPlayers.forEach(p => {
+                const item = document.createElement('div');
+                item.className = 'player-config-item';
+                item.style.flexDirection = 'column';
+                item.style.alignItems = 'stretch';
+                item.style.gap = '8px';
+                item.style.padding = '12px';
+                
+                const pct = (p.weekly_pbs / maxPBs) * 100;
+                const daysText = p.active_days > 0 ? `Active ${p.active_days}/7 days` : 'Inactive this week';
+                
+                item.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span class="player-config-name" style="font-size: 0.9rem; font-weight: 700; color: #fff;">${p.username}</span>
+                        <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-primary);">${p.weekly_pbs} PB${p.weekly_pbs !== 1 ? 's' : ''}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: var(--text-muted); margin-top: -4px;">
+                        <span>${daysText}</span>
+                    </div>
+                    <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.04); border-radius: 3px; overflow: hidden; margin-top: 2px;">
+                        <div style="width: ${pct}%; height: 100%; background: linear-gradient(90deg, var(--accent-secondary) 0%, var(--accent-primary) 100%); border-radius: 3px;"></div>
+                    </div>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        // Render current benchmark leaderboard and score grid
+        function renderLeaderboard() {
+            const bData = standingsData[currentBenchmarkId];
+            if (!bData) return;
+
+            // Render standings table
+            const tbody = document.getElementById('standings-body');
+            tbody.innerHTML = '';
+
+            bData.players.forEach((p, idx) => {
+                const row = document.createElement('tr');
+                row.className = 'player-row';
+                
+                const statusHtml = p.has_streak ? '<span class="streak-pill">🔥 Streak</span>' : '<span style="color: var(--text-muted)">Idle</span>';
+                const lowerRankName = p.rank_name.toLowerCase();
+                
+                let changeHtml = '';
+                if (p.position_change > 0) {
+                    changeHtml = `<span class="trend-up" style="margin-left: 6px; font-size: 0.8rem;">▲${p.position_change}</span>`;
+                } else if (p.position_change < 0) {
+                    changeHtml = `<span class="trend-down" style="margin-left: 6px; font-size: 0.8rem;">▼${Math.abs(p.position_change)}</span>`;
+                } else {
+                    changeHtml = `<span class="trend-neutral" style="margin-left: 6px; font-size: 0.8rem;">-</span>`;
+                }
+                
+                let activityBadge = '';
+                if (p.weekly_pbs >= 3) {
+                    activityBadge = '<span class="status-badge-active" title="Active (3+ PBs this week)" style="cursor: help;">🔥</span>';
+                } else if (p.weekly_pbs === 0) {
+                    activityBadge = '<span class="status-badge-hibernating" title="Hibernating (0 PBs this week)" style="cursor: help;">💤</span>';
+                }
+                
+                row.innerHTML = `
+                    <td style="font-weight: bold; width: 85px;">#${idx + 1}${changeHtml}</td>
+                    <td style="font-weight: 600;">
+                        <a href="https://steamcommunity.com/profiles/${p.steam_id}" target="_blank" style="color: #fff; text-decoration: none; display: flex; align-items: center; gap: 6px;">
+                            ${p.username} ${activityBadge}
+                        </a>
+                    </td>
+                    <td><span class="rank-badge rank-${lowerRankName}">${p.rank_name}</span></td>
+                    <td>${p.crown_count > 0 ? `<span class="crown-pill">👑 ${p.crown_count}</span>` : `<span style="color: var(--text-muted)">0</span>`}</td>
+                    <td>${p.completed_count}</td>
+                    <td style="font-weight: 600; color: var(--accent-primary);">${p.points ? p.points.toFixed(1) : '0.0'}%</td>
+                    <td>${p.total_pbs}</td>
+                    <td>${statusHtml}</td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            // Render scenario comparison grid
+            const gridHeader = document.getElementById('grid-header');
+            const gridBody = document.getElementById('grid-body');
+            gridHeader.innerHTML = '';
+            gridBody.innerHTML = '';
+
+            if (bData.scenarios.length === 0) {
+                gridHeader.innerHTML = '<tr><th>No data populated yet. Trigger a manual check.</th></tr>';
+                return;
+            }
+
+            // Grid header
+            const headerRow = document.createElement('tr');
+            headerRow.innerHTML = '<th>Scenario Name</th>';
+            
+            const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
+            
+            configuredPlayers.forEach(p => {
+                const th = document.createElement('th');
+                th.innerText = p.username;
+                headerRow.appendChild(th);
+            });
+            gridHeader.appendChild(headerRow);
+
+            // Group recent overtakes by scenario
+            const scenarioOvertakes = {};
+            if (bData.recent_overtakes) {
+                bData.recent_overtakes.forEach(o => {
+                    if (!scenarioOvertakes[o.scenario_name]) {
+                        scenarioOvertakes[o.scenario_name] = [];
+                    }
+                    scenarioOvertakes[o.scenario_name].push(o);
+                });
+            }
+
+            // Grid rows
+            bData.scenarios.forEach(scen => {
+                const row = document.createElement('tr');
+                const escapedScenName = scen.replace(/'/g, "\\'");
+                
+                const overtakes = scenarioOvertakes[scen] || [];
+                const isRecentOvertake = overtakes.length > 0;
+                
+                let scenarioLabelHtml = `📈 ${scen}`;
+                if (isRecentOvertake) {
+                    scenarioLabelHtml += ` <span class="overtake-icon" title="Overtake occurred in the last 24 hours!">⚔️</span>`;
+                }
+                
+                const playUrl = `steam://run/824270/?action=jump-to-scenario;name=${encodeURIComponent(scen)}`;
+                row.innerHTML = `
+                    <td class="grid-scen-name" style="cursor: pointer; padding: 0;" title="Click scenario name to view history graph">
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; width: 100%; box-sizing: border-box;">
+                            <span onclick="showScenarioHistory('${escapedScenName}')" style="flex-grow: 1;">
+                                ${scenarioLabelHtml}
+                            </span>
+                            <a href="${playUrl}" title="Launch Kovaak's & Play Scenario" style="color: #00ff88; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; opacity: 0.7; transition: var(--transition-smooth);" onmouseover="this.style.opacity=1; this.style.transform='scale(1.25)';" onmouseout="this.style.opacity=0.7; this.style.transform='scale(1)';" onclick="event.stopPropagation();">
+                                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 22px; height: 22px;">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </td>
+                `;
+                
+                const leaders = bData.leaders[scen] || [];
+                const scoresMap = bData.scores[scen] || {};
+
+                configuredPlayers.forEach(p => {
+                    const cell = document.createElement('td');
+                    cell.className = 'scen-cell';
+                    
+                    const playerOvertook = overtakes.some(o => o.winner_sid === p.steam_id);
+                    if (playerOvertook) {
+                        cell.className += ' overtake-highlight';
+                    }
+                    
+                    const score = scoresMap[p.steam_id];
+                    if (score !== undefined) {
+                        const isLeader = leaders.includes(p.steam_id);
+                        if (isLeader) {
+                            cell.className += ' leader-cell';
+                            cell.innerHTML = `<span class="crown-inline">👑</span>${score.toFixed(2)}`;
+                        } else {
+                            cell.innerText = score.toFixed(2);
+                        }
+                    } else {
+                        cell.innerText = '-';
+                        cell.style.color = 'var(--text-muted)';
+                    }
+                    
+                    row.appendChild(cell);
+                });
+                gridBody.appendChild(row);
+            });
+        }
+
+        // Trigger immediate check/poll
+        async function triggerImmediatePoll() {
+            const btn = document.getElementById('btn-poll');
+            const originalText = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<span class="loader-ring"></span> Polling API...';
+            
+            try {
+                const response = await fetch('/api/test/poll', { 
+                    method: 'POST',
+                    headers: {
+                        ...getAdminHeaders()
+                    }
+                });
+
+                if (response.status === 401) {
+                    localStorage.removeItem('admin_token');
+                    updateAdminUIState();
+                    showToast("Unauthorized: Admin Locked", '🔒');
+                    return;
+                }
+
+                const res = await response.json();
+                
+                if (res.success) {
+                    showToast(`Scraped scores successfully! Generated ${res.alerts_sent} alerts.`, '✅');
+                    await fetchStandings();
+                    await fetchNotifications();
+                } else {
+                    showToast(res.error || "Failed to poll Kovaaks API", '❌');
+                }
+            } catch (err) {
+                showToast("Server connection error", '❌');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            }
+        }
+
+        // Trigger simulated update event
+        async function simulateEvent(eventType) {
+            showToast(`Simulating event '${eventType}'...`, '🔄');
+            
+            try {
+                const response = await fetch('/api/test/simulate', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        ...getAdminHeaders()
+                    },
+                    body: JSON.stringify({ event_type: eventType })
+                });
+
+                if (response.status === 401) {
+                    localStorage.removeItem('admin_token');
+                    updateAdminUIState();
+                    showToast("Unauthorized: Admin Locked", '🔒');
+                    return;
+                }
+
+                const res = await response.json();
+                
+                if (res.success) {
+                    showToast(`Simulation complete! Check discord feed.`, '✅');
+                    await fetchStandings();
+                    await fetchNotifications();
+                } else {
+                    showToast(res.error || "Simulation error", '❌');
+                }
+            } catch (err) {
+                showToast("Connection error while simulating", '❌');
+            }
+        }
+
+        // Discord markdown parser
+        function parseDiscordMarkdown(text) {
+            if (!text) return "";
+            
+            // Escape HTML
+            let html = text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+                
+            // 1. Replace <@ID> with plain username
+            html = html.replace(/&lt;@(\d+)&gt;/g, (match, id) => {
+                const player = globalPlayers.find(p => p.discord_id === id);
+                return player ? player.username : `@user-${id}`;
+            });
+            
+            // 2. Replace plain @username handles with styled pills
+            html = html.replace(/@([a-zA-Z0-9_\-]+)/g, '<span class="discord-mention">@$1</span>');
+            
+            // Bold **text**
+            html = html.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+            
+            // Links [title](url)
+            html = html.replace(/\[(.*?)\]\((.*?)\)/g, (match, title, url) => {
+                const target = url.startsWith('steam://') ? '' : 'target="_blank"';
+                return `<a href="${url}" ${target} class="discord-link">${title}</a>`;
+            });
+            
+            // Links <url>
+            html = html.replace(/&lt;([a-zA-Z0-9+\-.]+:\/\/[^\s&<>]+?)&gt;/g, (match, url) => {
+                const target = url.startsWith('steam://') ? '' : 'target="_blank"';
+                return `<a href="${url}" ${target} class="discord-link">${url}</a>`;
+            });
+            
+            return html;
+        }
+
+        // Fetch simulated notifications
+        async function fetchNotifications() {
+            try {
+                const response = await fetch(isStatic ? 'notifications.json' : '/api/notifications');
+                const data = await response.json();
+                
+                const feed = document.getElementById('discord-feed');
+                // Store scroll position to keep scrolled to bottom if user is already there
+                const isScrolledToBottom = feed.scrollHeight - feed.clientHeight <= feed.scrollTop + 10;
+                
+                feed.innerHTML = '';
+                
+                if (data.length === 0) {
+                    feed.innerHTML = `
+                        <div style="color: var(--text-muted); text-align: center; padding: 40px 10px;">
+                            💬 No notifications in #kovaaks-rivals channel yet.<br>
+                            Click the Simulator triggers to inject events!
+                        </div>
+                    `;
+                    updateServerStatus(true);
+                    return;
+                }
+
+                // Render in chronological order (oldest first for chat feed style)
+                data.reverse().forEach(n => {
+                    const row = document.createElement('div');
+                    row.className = 'discord-msg-row';
+                    
+                    const timeStr = new Date(n.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    const initial = n.player_name ? n.player_name.substring(0,2).toUpperCase() : "KV";
+                    
+                    let innerContent = '';
+                    
+                    // Detect if embed
+                    if (n.message.includes('\n') && (n.message.includes('Update') || n.message.includes('Consolidated'))) {
+                        // Display as rich embed
+                        const lines = n.message.split('\n');
+                        const title = lines[0];
+                        const description = lines.slice(1).join('\n');
+                        
+                        innerContent = `
+                            <div class="discord-msg-meta">
+                                <span class="discord-author">KovaakRivalsBot</span>
+                                <span class="discord-bot-tag">BOT</span>
+                                <span class="discord-time">Today at ${timeStr}</span>
+                            </div>
+                            <div class="discord-embed">
+                                <div class="discord-embed-title">${parseDiscordMarkdown(title)}</div>
+                                <div class="discord-embed-desc">${parseDiscordMarkdown(description)}</div>
+                            </div>
+                        `;
+                    } else {
+                        // Display as standard text
+                        innerContent = `
+                            <div class="discord-msg-meta">
+                                <span class="discord-author">KovaakRivalsBot</span>
+                                <span class="discord-bot-tag">BOT</span>
+                                <span class="discord-time">Today at ${timeStr}</span>
+                            </div>
+                            <div class="discord-text">${parseDiscordMarkdown(n.message)}</div>
+                        `;
+                    }
+                    
+                    row.innerHTML = `
+                        <div class="discord-avatar">${initial}</div>
+                        <div class="discord-content-area">${innerContent}</div>
+                    `;
+                    
+                    feed.appendChild(row);
+                });
+
+                // Auto-scroll to bottom of the chat window
+                if (isScrolledToBottom) {
+                    feed.scrollTop = feed.scrollHeight;
+                }
+                updateServerStatus(true);
+            } catch (err) {
+                console.error("Error fetching notifications:", err);
+                updateServerStatus(false);
+            }
+        }
+
+        // Drawer Controls
+        function openDrawer() {
+            const drawer = document.getElementById('graph-drawer');
+            drawer.style.display = 'flex';
+            // Force browser reflow to enable transition
+            drawer.offsetHeight;
+            drawer.classList.add('show');
+        }
+
+        function closeDrawer() {
+            const drawer = document.getElementById('graph-drawer');
+            drawer.classList.remove('show');
+            setTimeout(() => {
+                drawer.style.display = 'none';
+            }, 400);
+        }
+
+        // Close drawer when clicking backdrop
+        document.addEventListener('DOMContentLoaded', () => {
+            const drawer = document.getElementById('graph-drawer');
+            if (drawer) {
+                drawer.addEventListener('click', (e) => {
+                    if (e.target === drawer) {
+                        closeDrawer();
+                    }
+                });
+            }
+        });
+
+        let currentScenarioName = '';
+        let currentHistoryData = {};
+        let activeDrawerTab = 'all';
+
+        // Show scenario details & trend inside slide-in drawer
+        async function showScenarioHistory(scenarioName) {
+            currentScenarioName = scenarioName;
+            activeDrawerTab = 'all';
+            openDrawer();
+            document.getElementById('drawer-title').innerText = `📊 Details: ${scenarioName}`;
+            
+            // Clean up old chart
+            const ctx = document.getElementById('history-chart').getContext('2d');
+            if (historyChart) {
+                historyChart.destroy();
+            }
+            
+            try {
+                let response;
+                if (isStatic) {
+                    if (!window.globalHistoryData) {
+                        const res = await fetch('history.json');
+                        window.globalHistoryData = await res.json();
+                    }
+                    const key = `${currentBenchmarkId}_${scenarioName}`;
+                    currentHistoryData = window.globalHistoryData[key] || {};
+                } else {
+                    response = await fetch(`/api/history?scenario_name=${encodeURIComponent(scenarioName)}&benchmark_id=${currentBenchmarkId}`);
+                    currentHistoryData = await response.json();
+                }
+                
+                if (currentHistoryData.error) {
+                    showToast(currentHistoryData.error, '❌');
+                    closeDrawer();
+                    return;
+                }
+                
+                buildDrawerTabs();
+                renderDrawerTab('all');
+                
+            } catch (err) {
+                console.error("Error loading scenario history:", err);
+                showToast("Failed to load scenario history", '❌');
+                closeDrawer();
+            }
+        }
+
+        function buildDrawerTabs() {
+            const tabsList = document.getElementById('drawer-tabs-list');
+            tabsList.innerHTML = '';
+            
+            // 1. All Players tab
+            const tabAll = document.createElement('button');
+            tabAll.className = `drawer-tab ${activeDrawerTab === 'all' ? 'active' : ''}`;
+            tabAll.innerHTML = `👥 All Players`;
+            tabAll.onclick = () => selectDrawerTab('all');
+            tabsList.appendChild(tabAll);
+            
+            // 2. Player tabs
+            const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : Object.values(currentHistoryData).map(p => ({
+                steam_id: p.steam_id,
+                username: p.player_name
+            }));
+            
+            configuredPlayers.forEach(p => {
+                const hasData = currentHistoryData[p.steam_id] && currentHistoryData[p.steam_id].history.length > 0;
+                if (!hasData) return;
+                
+                const tabPlayer = document.createElement('button');
+                tabPlayer.className = `drawer-tab ${activeDrawerTab === p.steam_id ? 'active' : ''}`;
+                tabPlayer.innerText = p.username;
+                tabPlayer.onclick = () => selectDrawerTab(p.steam_id);
+                tabsList.appendChild(tabPlayer);
+            });
+        }
+
+        function selectDrawerTab(tabId) {
+            activeDrawerTab = tabId;
+            buildDrawerTabs();
+            renderDrawerTab(tabId);
+        }
+
+        function renderDrawerTab(tabId) {
+            const statsCol = document.getElementById('drawer-stats-col');
+            const chartCol = document.getElementById('drawer-chart-col');
+            const ctx = document.getElementById('history-chart').getContext('2d');
+            
+            if (historyChart) {
+                historyChart.destroy();
+            }
+            
+            if (tabId === 'all') {
+                statsCol.style.display = 'none';
+                chartCol.style.gridColumn = 'span 2';
+                drawComparisonChart(ctx);
+            } else {
+                statsCol.style.display = 'flex';
+                chartCol.style.gridColumn = 'span 1';
+                renderSinglePlayerDetails(tabId);
+                drawSinglePlayerChart(ctx, tabId);
+            }
+        }
+
+        function getPlayerColor(steamId) {
+            const colors = [
+                '#00f5d4', // Hela Teal
+                '#f72585', // Venom Red
+                '#ffd166', // Crown Gold
+                '#00a8fc', // Blue
+                '#7209b7', // Purple
+                '#4caf50', // Green
+                '#ff9800'  // Orange
+            ];
+            const steamIds = Object.keys(currentHistoryData);
+            const idx = steamIds.indexOf(steamId);
+            return colors[idx >= 0 ? idx % colors.length : 0];
+        }
+
+        function drawComparisonChart(ctx) {
+            const uniqueTimestamps = [];
+            Object.values(currentHistoryData).forEach(playerObj => {
+                playerObj.history.forEach(h => {
+                    if (!uniqueTimestamps.includes(h.timestamp)) {
+                        uniqueTimestamps.push(h.timestamp);
+                    }
+                });
+            });
+            
+            uniqueTimestamps.sort((a, b) => new Date(a) - new Date(b));
+            
+            const labels = uniqueTimestamps.map(ts => {
+                const d = new Date(ts);
+                return d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            });
+            
+            const datasets = [];
+            
+            Object.keys(currentHistoryData).forEach(steamId => {
+                const playerObj = currentHistoryData[steamId];
+                const pName = playerObj.player_name;
+                const pHistory = [...playerObj.history].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+                
+                const data = [];
+                let lastScore = null;
+                
+                uniqueTimestamps.forEach(ts => {
+                    const record = pHistory.find(h => h.timestamp === ts);
+                    if (record) {
+                        lastScore = record.score;
+                        data.push(lastScore);
+                    } else {
+                        data.push(lastScore);
+                    }
+                });
+                
+                const color = getPlayerColor(steamId);
+                
+                datasets.push({
+                    label: pName,
+                    data: data,
+                    borderColor: color,
+                    backgroundColor: color + '15',
+                    borderWidth: 3,
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
+                    tension: 0.1,
+                    spanGaps: true
+                });
+            });
+            
+            historyChart = new Chart(ctx, {
+                type: 'line',
+                data: { labels: labels, datasets: datasets },
+                options: getCommonChartOptions()
+            });
+        }
+
+        function renderSinglePlayerDetails(steamId) {
+            const playerObj = currentHistoryData[steamId] || { player_name: 'Player', history: [] };
+            
+            // Sort chronologically ascending
+            const chronologicalHistory = [...playerObj.history].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+            const scores = chronologicalHistory.map(h => h.score);
+            const pb = scores.length > 0 ? Math.max(...scores) : 0;
+            
+            // Sort chronologically descending for the history table (newest first)
+            const newestFirstHistory = [...playerObj.history].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            const last10 = newestFirstHistory.slice(0, 10);
+            
+            const pbCount = playerObj.history.length;
+            
+            let pctText = '-';
+            if (scores.length > 1) {
+                const firstScore = scores[0];
+                const lastScore = pb;
+                const pct = ((lastScore - firstScore) / firstScore) * 100;
+                pctText = (pct >= 0 ? '+' : '') + pct.toFixed(1) + '%';
+            }
+            
+            document.getElementById('stat-pb').innerText = pb > 0 ? pb.toFixed(2) : '-';
+            document.getElementById('stat-pb-count').innerText = pbCount + ' PB' + (pbCount !== 1 ? 's' : '');
+            document.getElementById('stat-improvement').innerText = pctText;
+            
+            const tbody = document.getElementById('drawer-history-tbody');
+            tbody.innerHTML = '';
+            
+            if (last10.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="2" style="text-align: center; color: var(--text-muted); padding: 12px;">No scores recorded yet.</td></tr>';
+            } else {
+                last10.forEach(h => {
+                    const row = document.createElement('tr');
+                    const d = new Date(h.timestamp);
+                    const dateStr = d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    row.innerHTML = `
+                        <td style="padding: 8px 12px; font-weight: 600;">${h.score.toFixed(2)}</td>
+                        <td style="padding: 8px 12px; color: var(--text-muted);">${dateStr}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            }
+        }
+
+        function drawSinglePlayerChart(ctx, steamId) {
+            const playerObj = currentHistoryData[steamId] || { player_name: 'Player', history: [] };
+            const pHistory = [...playerObj.history].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+            
+            const labels = pHistory.map(h => {
+                const d = new Date(h.timestamp);
+                return d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            });
+            
+            const scores = pHistory.map(h => h.score);
+            const pb = scores.length > 0 ? Math.max(...scores) : 0;
+            
+            const color = getPlayerColor(steamId);
+            
+            historyChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: `${playerObj.player_name} Score`,
+                            data: scores,
+                            borderColor: color,
+                            backgroundColor: color + '15',
+                            borderWidth: 3,
+                            pointRadius: 5,
+                            pointHoverRadius: 7,
+                            tension: 0.1,
+                            fill: true
+                        },
+                        {
+                            label: 'Personal Best',
+                            data: Array(labels.length).fill(pb),
+                            borderColor: '#ffd166', // Gold
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            pointRadius: 0,
+                            fill: false
+                        }
+                    ]
+                },
+                options: getCommonChartOptions()
+            });
+        }
+
+        function getCommonChartOptions() {
+            return {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#f8f9fa',
+                            font: { family: "'Outfit', sans-serif", size: 12, weight: '600' }
+                        }
+                    },
+                    tooltip: { mode: 'index', intersect: false }
+                },
+                scales: {
+                    x: {
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                        ticks: { color: '#9fa6b2', font: { family: "'Outfit', sans-serif" } }
+                    },
+                    y: {
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                        ticks: { color: '#9fa6b2', font: { family: "'Outfit', sans-serif" } }
+                    }
+                }
+            };
+        }
+
+        // Fetch most active scenarios and render them in the sidebar
+        async function fetchActiveMaps() {
+            try {
+                const response = await fetch(isStatic ? 'active_maps.json' : '/api/active-maps');
+                const data = await response.json();
+                
+                const list = document.getElementById('active-maps-list');
+                list.innerHTML = '';
+                
+                if (!data || data.length === 0) {
+                    list.innerHTML = `
+                        <div style="color: var(--text-muted); font-size: 0.85rem; padding: 10px 0; text-align: center;">
+                            No active maps yet. Inject PBs or wait for scores!
+                        </div>
+                    `;
+                    return;
+                }
+                
+                data.forEach(item => {
+                    const row = document.createElement('div');
+                    row.className = 'player-config-item';
+                    row.style.cursor = 'pointer';
+                    row.title = "Click to view trend graph";
+                    
+                    row.onclick = () => {
+                        // Switch benchmark to match map
+                        const tabBtn = Array.from(document.querySelectorAll('.tab-btn')).find(btn => btn.innerText.includes(item.benchmark_id));
+                        if (tabBtn) {
+                            switchBenchmark(item.benchmark_id, tabBtn);
+                        }
+                        showScenarioHistory(item.scenario_name);
+                    };
+                    
+                    row.innerHTML = `
+                        <div class="player-config-info">
+                            <span class="player-config-name" style="color: #fff; transition: var(--transition-smooth);">📈 ${item.scenario_name}</span>
+                            <span class="player-config-sub">${item.benchmark_name} | updates: ${item.update_count}</span>
+                        </div>
+                        <span style="font-size: 1.1rem; color: var(--accent-primary);">🔥</span>
+                    `;
+                    
+                    // Add mouse hover styling
+                    row.addEventListener('mouseenter', () => {
+                        row.querySelector('.player-config-name').style.color = 'var(--accent-primary)';
+                    });
+                    row.addEventListener('mouseleave', () => {
+                        row.querySelector('.player-config-name').style.color = '#fff';
+                    });
+                    
+                    list.appendChild(row);
+                });
+            } catch (err) {
+                console.error("Error fetching active maps:", err);
+            }
+        }
+
+        // Redirect check and modal handlers
+        function checkRedirectQuery() {
+            const params = new URLSearchParams(window.location.search);
+            const scenName = params.get('scenario');
+            if (scenName) {
+                document.getElementById('redirect-scenario-name').textContent = scenName;
+                const playUrl = 'steam://run/824270/?action=jump-to-scenario;name=' + encodeURIComponent(scenName);
+                document.getElementById('redirect-direct-link').href = playUrl;
+                
+                // Show modal
+                const modal = document.getElementById('redirect-modal');
+                modal.style.display = 'flex';
+                modal.offsetHeight; // Trigger reflow
+                modal.classList.add('show');
+                
+                // Auto redirect after 3 seconds with countdown
+                let seconds = 3;
+                const timerText = document.getElementById('redirect-timer-text');
+                
+                // Trigger launch immediately
+                window.location.href = playUrl;
+                
+                const interval = setInterval(() => {
+                    seconds--;
+                    if (seconds <= 0) {
+                        clearInterval(interval);
+                        closeRedirectModal();
+                    } else {
+                        timerText.innerText = `Redirecting in ${seconds} second${seconds !== 1 ? 's' : ''}...`;
+                    }
+                }, 1000);
+                
+                // Save interval to cancel it if user clicks close
+                window.redirectInterval = interval;
+            }
+        }
         
-        // Construct the Steam launch URI
-        const playUrl = 'steam://run/824270/?action=jump-to-scenario;name=' + encodeURIComponent(scenName);
-        document.getElementById('direct-link').href = playUrl;
-        
-        // Auto-redirect browser to the Steam protocol link
-        window.location.href = playUrl;
-        
-        // Automatically close the window/tab after 4 seconds (if the browser allows it)
-        setTimeout(function() {
-            window.close();
-        }, 4000);
+        function closeRedirectModal() {
+            if (window.redirectInterval) {
+                clearInterval(window.redirectInterval);
+            }
+            const modal = document.getElementById('redirect-modal');
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                // Clear the query parameter from URL so refreshing doesn't launch again
+                const url = new URL(window.location);
+                url.searchParams.delete('scenario');
+                window.history.replaceState({}, document.title, url);
+            }, 300);
+        }
     </script>
 </body>
 </html>
