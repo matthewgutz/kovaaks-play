@@ -2618,32 +2618,71 @@
             
             const color = getPlayerColor(steamId);
             
+            const datasets = [
+                {
+                    label: `${playerObj.player_name} Score`,
+                    data: scores,
+                    borderColor: color,
+                    backgroundColor: color + '15',
+                    borderWidth: 3,
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                    tension: 0.1,
+                    fill: true
+                },
+                {
+                    label: 'Personal Best',
+                    data: Array(labels.length).fill(pb),
+                    borderColor: '#ffd166', // Gold
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    pointRadius: 0,
+                    fill: false
+                }
+            ];
+
+            // Add Voltaic Rank Targets
+            const benchmarkRanks = {
+                "686": ['Lemming', 'Hare', 'Ermine', 'Penguin', 'Fox', 'Mammoth', 'Orca', 'Seal'],
+                "687": ['Cinnabar', 'Vermillion', 'Saffron', 'Celadon', 'Cerulean', 'Lavender', 'Indigo', 'Fuchsia'],
+                "688": ['Wool', 'Linen', 'Velvet', 'Chiffon', 'Satin', 'Silk']
+            };
+            const rankColors = {
+                'lemming': '#9e9e9e', 'hare': '#4caf50', 'ermine': '#2196f3', 'penguin': '#00bcd4',
+                'fox': '#9c27b0', 'mammoth': '#ff9800', 'orca': '#e91e63', 'seal': '#f44336',
+                'cinnabar': '#b71c1c', 'vermillion': '#d84315', 'saffron': '#f9a825', 'celadon': '#2e7d32',
+                'cerulean': '#1565c0', 'lavender': '#6a1b9a', 'indigo': '#283593', 'fuchsia': '#ad1457',
+                'wool': '#8d6e63', 'linen': '#bdbdbd', 'velvet': '#ab47bc', 'chiffon': '#009688',
+                'satin': '#0288d1', 'silk': '#e040fb'
+            };
+
+            const ranks = benchmarkRanks[currentBenchmarkId] || [];
+            const thresholds = (standingsData[currentBenchmarkId] && standingsData[currentBenchmarkId].thresholds) ? 
+                               standingsData[currentBenchmarkId].thresholds[currentScenarioName] : null;
+
+            if (thresholds && thresholds.length > 0) {
+                ranks.forEach((rankName, index) => {
+                    const thresholdVal = thresholds[index];
+                    if (thresholdVal !== undefined && thresholdVal > 0) {
+                        const rankColor = rankColors[rankName.toLowerCase()] || '#ffffff';
+                        datasets.push({
+                            label: `${rankName} Target`,
+                            data: Array(labels.length).fill(thresholdVal),
+                            borderColor: rankColor + '40', // Subtle 25% opacity
+                            borderWidth: 1.5,
+                            borderDash: [3, 3],
+                            pointRadius: 0,
+                            fill: false
+                        });
+                    }
+                });
+            }
+            
             historyChart = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: labels,
-                    datasets: [
-                        {
-                            label: `${playerObj.player_name} Score`,
-                            data: scores,
-                            borderColor: color,
-                            backgroundColor: color + '15',
-                            borderWidth: 3,
-                            pointRadius: 5,
-                            pointHoverRadius: 7,
-                            tension: 0.1,
-                            fill: true
-                        },
-                        {
-                            label: 'Personal Best',
-                            data: Array(labels.length).fill(pb),
-                            borderColor: '#ffd166', // Gold
-                            borderWidth: 2,
-                            borderDash: [5, 5],
-                            pointRadius: 0,
-                            fill: false
-                        }
-                    ]
+                    datasets: datasets
                 },
                 options: getCommonChartOptions()
             });
