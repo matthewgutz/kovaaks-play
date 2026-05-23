@@ -2,31 +2,13 @@
   {
     "benchmark_id": "686",
     "benchmark_name": "Easier",
-    "scenario_name": "cloverRawControl Easy 80% Speed",
-    "update_count": 15
+    "scenario_name": "WhisphereRawControl Larger + Slowed",
+    "update_count": 3
   },
   {
     "benchmark_id": "687",
     "benchmark_name": "Medium",
-    "scenario_name": "Ground Plaza Sparky V3",
-    "update_count": 14
-  },
-  {
-    "benchmark_id": "686",
-    "benchmark_name": "Easier",
-    "scenario_name": "1w3ts Pasu Perfected Micro Goated Larger 80%",
-    "update_count": 12
-  },
-  {
-    "benchmark_id": "686",
-    "benchmark_name": "Easier",
-    "scenario_name": "Flicker Plaza rAim Easy Less Blinks",
-    "update_count": 12
-  },
-  {
-    "benchmark_id": "686",
-    "benchmark_name": "Easier",
-    "scenario_name": "SmoothBot Invincible Goated 75%",
-    "update_count": 12
+    "scenario_name": "WhisphereRawControl",
+    "update_count": 2
   }
 ]
