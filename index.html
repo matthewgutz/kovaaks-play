@@ -110,17 +110,34 @@
                 transform: scale(1);
             }
             70% {
-                box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
-                transform: scale(1.1);
+                box-shadow: 0 0 10px 4px var(--pulse-color, var(--accent-primary));
+                transform: scale(1.08);
             }
             100% {
                 box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
                 transform: scale(1);
             }
         }
+        @keyframes pb-glow-pulse-overlay {
+            0% {
+                box-shadow: 0 0 0 0 var(--pulse-color, var(--accent-primary));
+                transform: translate(-50%, -50%) scale(1);
+            }
+            70% {
+                box-shadow: 0 0 10px 4px var(--pulse-color, var(--accent-primary));
+                transform: translate(-50%, -50%) scale(1.08);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
         .recent-pb-pulse {
             animation: pb-glow-pulse 1.8s infinite cubic-bezier(0.25, 0, 0, 1);
             z-index: 10 !important;
+        }
+        .chart-avatar-overlay.recent-pb-pulse {
+            animation: pb-glow-pulse-overlay 1.8s infinite cubic-bezier(0.25, 0, 0, 1) !important;
         }
         .grid-pin:hover {
             transform: scale(1.4) !important;
@@ -782,10 +799,15 @@
         }
         #grid-table th {
             text-align: center;
+            padding: 12px 2px;
+        }
+        #grid-table td {
+            padding: 10px 4px;
         }
         #grid-table td.grid-scen-name {
             text-align: left;
             border-right: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 14px 18px;
         }
 
         /* Admin Panels & Sidebar */
@@ -1241,17 +1263,7 @@
             100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(247, 37, 133, 0)); }
         }
         
-        .overtake-highlight {
-            position: relative;
-            animation: pulse-overtake-border 2s infinite ease-in-out;
-            z-index: 1;
-        }
-        
-        @keyframes pulse-overtake-border {
-            0% { box-shadow: inset 0 0 0 1px rgba(247, 37, 133, 0.4); }
-            50% { box-shadow: inset 0 0 0 2px rgba(247, 37, 133, 1), 0 0 8px rgba(247, 37, 133, 0.4); }
-            100% { box-shadow: inset 0 0 0 1px rgba(247, 37, 133, 0.4); }
-        }
+        /* Overtake-highlight visual cell glow deprecated */
         
         /* Active Rivalries panel style */
         .rivalries-card {
@@ -1474,14 +1486,14 @@
                     <h2 class="panel-title" style="margin: 0; border-bottom: none; padding-bottom: 0; font-size: 1.25rem; font-weight: 700; color: #fff;">Radar Chart Overview</h2>
                 </div>
                 
-                <div style="display: flex; gap: 16px; align-items: stretch; justify-content: space-between; min-height: 250px; position: relative; width: 100%;">
+                <div style="display: flex; gap: 16px; align-items: stretch; justify-content: space-between; min-height: 320px; position: relative; width: 100%;">
                     <!-- Player Selection Checklist (Left of chart) -->
-                    <div id="radar-player-list" style="display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; color: var(--text-muted); width: 155px; flex-shrink: 0; border-right: 1px solid rgba(255,255,255,0.05); padding-right: 12px; max-height: 250px; overflow-y: auto;">
+                    <div id="radar-player-list" style="display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; color: var(--text-muted); width: 155px; flex-shrink: 0; border-right: 1px solid rgba(255,255,255,0.05); padding-right: 12px; max-height: 320px; overflow-y: auto;">
                         <!-- Populated dynamically -->
                     </div>
                     
                     <!-- Radar Canvas -->
-                    <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; position: relative; height: 250px;">
+                    <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; position: relative; height: 320px;">
                         <canvas id="radar-chart" style="width: 100%; height: 100%;"></canvas>
                     </div>
                 </div>
@@ -3385,19 +3397,13 @@
                                 
                                 pinsHtml += `
                                     <img src="${avatarUrl}" class="grid-pin ${pulseClass}" 
-                                         style="position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; ${borderStyle} ${opacityStyle} ${filterStyle} z-index: ${5 + vIdx};" 
+                                         style="position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; ${borderStyle} ${opacityStyle} ${filterStyle} z-index: ${5 + pIdx};" 
                                          title="${tooltipText}" 
-                                         onerror="this.onerror=null; this.outerHTML=\`<span class='grid-pin ${pulseClass}' style='position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; width: 26px; height: 26px; border-radius: 50%; background: ${themeColor}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: #fff; ${borderStyle} z-index: ${5 + vIdx};'>${p.username.substring(0,2).toUpperCase()}</span>\`;"
+                                         onerror="this.onerror=null; this.outerHTML=\`<span class='grid-pin ${pulseClass}' style='position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; width: 26px; height: 26px; border-radius: 50%; background: ${themeColor}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: #fff; ${borderStyle} z-index: ${5 + pIdx};'>${p.username.substring(0,2).toUpperCase()}</span>\`;"
                                          onmouseenter="updateRadarChart('${p.steam_id}')"
                                          onmouseleave="updateRadarChart(null)">
                                 `;
                             });
-                            
-                            // Visual highlight for overtakes
-                            const rowOvertook = overtakes.some(o => scoresMap[o.winner_sid] !== undefined);
-                            if (rowOvertook && bestScoreVal > colMin && bestScoreVal <= colMax) {
-                                cell.className += ' overtake-highlight';
-                            }
                             
                             cell.innerHTML = `
                                 <div style="position: relative; width: 100%; height: 100%; min-height: 40px; box-sizing: border-box;">
@@ -3506,9 +3512,9 @@
                                 
                                 pinsHtml += `
                                     <img src="${avatarUrl}" class="grid-pin ${pulseClass}" 
-                                         style="position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; ${borderStyle} z-index: ${5 + vIdx};" 
+                                         style="position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; ${borderStyle} z-index: ${5 + pIdx};" 
                                          title="${tooltipText}" 
-                                         onerror="this.onerror=null; this.outerHTML=\`<span class='grid-pin ${pulseClass}' style='position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; width: 26px; height: 26px; border-radius: 50%; background: ${themeColor}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: #fff; ${borderStyle} z-index: ${5 + vIdx};'>${p.username.substring(0,2).toUpperCase()}</span>\`;"
+                                         onerror="this.onerror=null; this.outerHTML=\`<span class='grid-pin ${pulseClass}' style='position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; width: 26px; height: 26px; border-radius: 50%; background: ${themeColor}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: #fff; ${borderStyle} z-index: ${5 + pIdx};'>${p.username.substring(0,2).toUpperCase()}</span>\`;"
                                          onmouseenter="updateRadarChart('${p.steam_id}')"
                                          onmouseleave="updateRadarChart(null)">
                                 `;
@@ -3845,8 +3851,23 @@
 
         function drawComparisonChart(ctx) {
             const datasets = [];
-            const now = new Date();
 
+            // 1. Gather and sort unique timestamps across all players' histories
+            const allTimestampsSet = new Set();
+            Object.keys(currentHistoryData).forEach(steamId => {
+                const playerObj = currentHistoryData[steamId];
+                if (playerObj && playerObj.history) {
+                    playerObj.history.forEach(h => {
+                        allTimestampsSet.add(h.timestamp);
+                    });
+                }
+            });
+            const sortedTimestamps = [...allTimestampsSet].sort((a, b) => parseDate(a) - parseDate(b));
+            
+            if (sortedTimestamps.length === 0) return;
+            const M = sortedTimestamps.length;
+
+            // 2. Build datasets
             Object.keys(currentHistoryData).forEach(steamId => {
                 const playerObj = currentHistoryData[steamId];
                 const pName = playerObj.player_name;
@@ -3856,18 +3877,30 @@
 
                 const dataPoints = [];
                 pHistory.forEach(h => {
-                    dataPoints.push({
-                        x: parseDate(h.timestamp),
-                        y: h.score
-                    });
+                    const idx = sortedTimestamps.indexOf(h.timestamp);
+                    if (idx !== -1) {
+                        dataPoints.push({
+                            x: idx,
+                            y: h.score
+                        });
+                    }
                 });
 
-                // Stretch to now
-                const latest = dataPoints[dataPoints.length - 1];
-                dataPoints.push({
-                    x: now,
-                    y: latest.y
-                });
+                // Carry first score backward to x = 0 to ensure it starts at the far left
+                if (dataPoints.length > 0 && dataPoints[0].x > 0) {
+                    dataPoints.unshift({
+                        x: 0,
+                        y: dataPoints[0].y
+                    });
+                }
+
+                // Carry latest score forward to x = M - 1 to stretch to the far right
+                if (dataPoints.length > 0 && dataPoints[dataPoints.length - 1].x < M - 1) {
+                    dataPoints.push({
+                        x: M - 1,
+                        y: dataPoints[dataPoints.length - 1].y
+                    });
+                }
 
                 const color = getPlayerThemeColor(steamId);
                 
@@ -3891,19 +3924,43 @@
                 plugins: [htmlOverlayPlugin],
                 options: {
                     ...getCommonChartOptions(),
+                    plugins: {
+                        ...getCommonChartOptions().plugins,
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                title: function(context) {
+                                    const val = context[0].parsed.x;
+                                    const i = Math.round(val);
+                                    if (i >= 0 && i < sortedTimestamps.length) {
+                                        const d = parseDate(sortedTimestamps[i]);
+                                        return d.toLocaleDateString([], {month: 'short', day: 'numeric', year: 'numeric'}) + ', ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second: '2-digit', hour12: false});
+                                    }
+                                    return '';
+                                }
+                            }
+                        }
+                    },
                     scales: {
                         x: {
-                            type: 'time',
-                            time: {
-                                displayFormats: {
-                                    day: 'MMM d',
-                                    week: 'MMM d',
-                                    month: 'MMM yyyy'
-                                }
-                            },
-                            max: now,
+                            type: 'linear',
+                            min: 0,
+                            max: M - 1,
                             grid: { color: 'rgba(255, 255, 255, 0.05)' },
-                            ticks: { color: '#9fa6b2', font: { family: "'Outfit', sans-serif" } }
+                            ticks: {
+                                color: '#9fa6b2',
+                                font: { family: "'Outfit', sans-serif" },
+                                precision: 0,
+                                callback: function(val) {
+                                    const i = Math.round(val);
+                                    if (val === i && i >= 0 && i < sortedTimestamps.length) {
+                                        const d = parseDate(sortedTimestamps[i]);
+                                        return d.toLocaleDateString([], {month: 'short', day: 'numeric'}) + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false});
+                                    }
+                                    return '';
+                                }
+                            }
                         },
                         y: {
                             grid: { color: 'rgba(255, 255, 255, 0.05)' },
@@ -3965,21 +4022,47 @@
             
             if (pHistory.length === 0) return;
 
-            const now = new Date();
+            // 1. Gather and sort unique timestamps across all players' histories
+            const allTimestampsSet = new Set();
+            Object.keys(currentHistoryData).forEach(sId => {
+                const pObj = currentHistoryData[sId];
+                if (pObj && pObj.history) {
+                    pObj.history.forEach(h => {
+                        allTimestampsSet.add(h.timestamp);
+                    });
+                }
+            });
+            const sortedTimestamps = [...allTimestampsSet].sort((a, b) => parseDate(a) - parseDate(b));
+            
+            if (sortedTimestamps.length === 0) return;
+            const M = sortedTimestamps.length;
+
             const dataPoints = [];
             pHistory.forEach(h => {
-                dataPoints.push({
-                    x: parseDate(h.timestamp),
-                    y: h.score
-                });
+                const idx = sortedTimestamps.indexOf(h.timestamp);
+                if (idx !== -1) {
+                    dataPoints.push({
+                        x: idx,
+                        y: h.score
+                    });
+                }
             });
 
-            // Stretch to now
-            const latest = dataPoints[dataPoints.length - 1];
-            dataPoints.push({
-                x: now,
-                y: latest.y
-            });
+            // Carry first score backward to x = 0
+            if (dataPoints.length > 0 && dataPoints[0].x > 0) {
+                dataPoints.unshift({
+                    x: 0,
+                    y: dataPoints[0].y
+                });
+            }
+
+            // Carry latest score forward to x = M - 1
+            if (dataPoints.length > 0 && dataPoints[dataPoints.length - 1].x < M - 1) {
+                dataPoints.push({
+                    x: M - 1,
+                    y: dataPoints[dataPoints.length - 1].y
+                });
+            }
 
             const pb = Math.max(...pHistory.map(h => h.score));
             const color = getPlayerThemeColor(steamId);
@@ -4000,8 +4083,8 @@
                 {
                     label: 'Personal Best',
                     data: [
-                        { x: dataPoints[0].x, y: pb },
-                        { x: now, y: pb }
+                        { x: 0, y: pb },
+                        { x: M - 1, y: pb }
                     ],
                     borderColor: '#ffd166', // Gold
                     borderWidth: 2,
@@ -4038,8 +4121,8 @@
                         datasets.push({
                             label: `${rankName} Target`,
                             data: [
-                                { x: dataPoints[0].x, y: thresholdVal },
-                                { x: now, y: thresholdVal }
+                                { x: 0, y: thresholdVal },
+                                { x: M - 1, y: thresholdVal }
                             ],
                             borderColor: rankColor + '40', // Subtle 25% opacity
                             borderWidth: 1.5,
@@ -4059,19 +4142,43 @@
                 plugins: [htmlOverlayPlugin],
                 options: {
                     ...getCommonChartOptions(),
+                    plugins: {
+                        ...getCommonChartOptions().plugins,
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                title: function(context) {
+                                    const val = context[0].parsed.x;
+                                    const i = Math.round(val);
+                                    if (i >= 0 && i < sortedTimestamps.length) {
+                                        const d = parseDate(sortedTimestamps[i]);
+                                        return d.toLocaleDateString([], {month: 'short', day: 'numeric', year: 'numeric'}) + ', ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second: '2-digit', hour12: false});
+                                    }
+                                    return '';
+                                }
+                            }
+                        }
+                    },
                     scales: {
                         x: {
-                            type: 'time',
-                            time: {
-                                displayFormats: {
-                                    day: 'MMM d',
-                                    week: 'MMM d',
-                                    month: 'MMM yyyy'
-                                }
-                            },
-                            max: now,
+                            type: 'linear',
+                            min: 0,
+                            max: M - 1,
                             grid: { color: 'rgba(255, 255, 255, 0.05)' },
-                            ticks: { color: '#9fa6b2', font: { family: "'Outfit', sans-serif" } }
+                            ticks: {
+                                color: '#9fa6b2',
+                                font: { family: "'Outfit', sans-serif" },
+                                precision: 0,
+                                callback: function(val) {
+                                    const i = Math.round(val);
+                                    if (val === i && i >= 0 && i < sortedTimestamps.length) {
+                                        const d = parseDate(sortedTimestamps[i]);
+                                        return d.toLocaleDateString([], {month: 'short', day: 'numeric'}) + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false});
+                                    }
+                                    return '';
+                                }
+                            }
                         },
                         y: {
                             grid: { color: 'rgba(255, 255, 255, 0.05)' },
