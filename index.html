@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
     
     <style>
         :root {
@@ -220,6 +221,32 @@
             background: rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.2);
             transform: translateY(-1px);
+        }
+
+        .time-filter-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .time-filter-btn:hover {
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-1px);
+        }
+        .time-filter-btn.active {
+            color: #000 !important;
+            background: var(--accent-primary) !important;
+            border-color: var(--accent-primary) !important;
+            box-shadow: 0 0 10px rgba(0, 245, 212, 0.3) !important;
         }
 
         /* Mode Selector Pills */
@@ -1178,14 +1205,14 @@
         
         .overtake-highlight {
             position: relative;
-            background: rgba(247, 37, 133, 0.04) !important;
-            box-shadow: inset 0 0 10px rgba(247, 37, 133, 0.08) !important;
-            animation: border-glow 3s infinite alternate;
+            animation: pulse-overtake-border 2s infinite ease-in-out;
+            z-index: 1;
         }
         
-        @keyframes border-glow {
-            from { outline: 1px solid rgba(247, 37, 133, 0.1); }
-            to { outline: 1px solid rgba(247, 37, 133, 0.4); }
+        @keyframes pulse-overtake-border {
+            0% { box-shadow: inset 0 0 0 1px rgba(247, 37, 133, 0.4); }
+            50% { box-shadow: inset 0 0 0 2px rgba(247, 37, 133, 1), 0 0 8px rgba(247, 37, 133, 0.4); }
+            100% { box-shadow: inset 0 0 0 1px rgba(247, 37, 133, 0.4); }
         }
         
         /* Active Rivalries panel style */
@@ -1273,18 +1300,20 @@
             <!-- Leaderboard View Container -->
             <div id="leaderboard-view" style="display: flex; flex-direction: column; gap: 30px;">
                 
-                <!-- Crown Holders Banner -->
-                <div class="crown-cards-grid" id="crowns-banner">
-                    <!-- Populated dynamically -->
-                </div>
-
-            <!-- Active Rivalries Panel -->
-            <section class="glass-panel" id="rivalries-section" style="padding: 24px; display: none;">
-                <h2 class="panel-title">🎯 Active Rivalries & Chases</h2>
-                <div class="crown-cards-grid" id="rivalries-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 0;">
-                    <!-- Populated dynamically -->
-                </div>
-            </section>
+                <!-- Overall Progress Timeline Chart -->
+                <section class="glass-panel" style="padding: 24px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                        <h2 class="panel-title" style="margin-bottom: 0; border-bottom: none; padding-bottom: 0;">📈 Max Rank % Progress Timeline</h2>
+                        <div class="time-filter-controls" style="display: flex; gap: 6px;">
+                            <button class="time-filter-btn" onclick="filterTimelineChart('1W', this)">1W</button>
+                            <button class="time-filter-btn" onclick="filterTimelineChart('1M', this)">1M</button>
+                            <button class="time-filter-btn active" onclick="filterTimelineChart('ALL', this)">ALL</button>
+                        </div>
+                    </div>
+                    <div style="height: 320px; position: relative; width: 100%;">
+                        <canvas id="timeline-chart"></canvas>
+                    </div>
+                </section>
 
             <!-- Tab Controls -->
             <div class="tab-controls">
@@ -1305,9 +1334,8 @@
                                 <th>Overall Rank</th>
                                 <th>Crowns 👑</th>
                                 <th>Completed Scenarios</th>
-                                <th>Avg Score % 🎯</th>
+                                <th>Max Rank %</th>
                                 <th>Total PBs 📈</th>
-                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="standings-body">
@@ -1355,22 +1383,16 @@
         <!-- Right Column / Sidebar -->
         <aside style="display: flex; flex-direction: column; gap: 30px;">
             
-            <!-- Simulated Discord Pane -->
-            <section class="glass-panel discord-preview">
-                <div class="discord-header">
-                    <span style="font-size: 1.1rem; color: #949ba4;">#</span> kovaaks-rivals
-                </div>
-                <div class="discord-messages" id="discord-feed">
+            <!-- Crown Holders Banner -->
+            <div class="crown-cards-grid" id="crowns-banner" style="grid-template-columns: 1fr; margin-bottom: 0;">
+                <!-- Populated dynamically -->
+            </div>
+
+            <!-- Active Rivalries Panel -->
+            <section class="glass-panel" id="rivalries-section" style="padding: 24px; display: none;">
+                <h2 class="panel-title">🎯 Active Rivalries & Chases</h2>
+                <div class="crown-cards-grid" id="rivalries-grid" style="grid-template-columns: 1fr; margin-bottom: 0;">
                     <!-- Populated dynamically -->
-                </div>
-                <!-- Simulated Discord input area -->
-                <div class="discord-input-container" style="padding: 0 16px 16px 16px; background-color: var(--discord-bg);">
-                    <div style="background-color: #383a40; border-radius: 8px; padding: 10px 16px; display: flex; align-items: center; gap: 12px; border: 1px solid rgba(255,255,255,0.02);">
-                        <span style="color: #b5bac1; font-size: 1.2rem; cursor: not-allowed;">+</span>
-                        <input type="text" placeholder="Message #kovaaks-rivals" disabled style="background: transparent; border: none; color: #dbdee1; width: 100%; font-family: var(--font-main); font-size: 0.9rem; outline: none; cursor: not-allowed;">
-                        <span style="color: #b5bac1; cursor: not-allowed; font-size: 0.8rem; font-weight: bold; background: rgba(255,255,255,0.05); padding: 2px 6px; border-radius: 4px;">GIF</span>
-                        <span style="color: #b5bac1; cursor: not-allowed; font-size: 1.1rem;">😀</span>
-                    </div>
                 </div>
             </section>
 
@@ -1591,6 +1613,8 @@
         let globalPlayers = [];
         let standingsData = {};
         let historyChart = null;
+        let overallProgressChart = null;
+        let timelineFilter = 'ALL';
 
         let adminKeySet = false;
         let countdownInterval = null;
@@ -2151,7 +2175,7 @@
                     gapText = `Need ${diff} completed map${diff > 1 ? 's' : ''} to overtake`;
                 } else if (target.points > chaser.points) {
                     const diff = (target.points - chaser.points).toFixed(2);
-                    gapText = `Behind by ${diff}% avg score diff`;
+                    gapText = `Behind by ${diff}% max rank diff`;
                 } else {
                     gapText = `Tied! Pull ahead on any scenario`;
                 }
@@ -2238,7 +2262,6 @@
                 const row = document.createElement('tr');
                 row.className = 'player-row';
                 
-                const statusHtml = p.has_streak ? '<span class="streak-pill">🔥 Streak</span>' : '<span style="color: var(--text-muted)">Idle</span>';
                 const lowerRankName = p.rank_name.toLowerCase();
                 
                 let changeHtml = '';
@@ -2269,7 +2292,6 @@
                     <td>${p.completed_count}</td>
                     <td style="font-weight: 600; color: var(--accent-primary);">${p.points ? p.points.toFixed(1) : '0.0'}%</td>
                     <td>${p.total_pbs}</td>
-                    <td>${statusHtml}</td>
                 `;
                 tbody.appendChild(row);
             });
@@ -2571,6 +2593,8 @@
                             
                             const username = p.username.replace('@', '');
                             const avatarUrl = `avatars/${username}.png`;
+                            
+                            cell.title = `${p.username}: ${score !== null && score > 0 ? score.toFixed(2) : 'No score'}`;
 
                             if (score !== null && score > 0) {
                                 const isLeader = leaders.includes(p.steam_id);
@@ -2578,37 +2602,66 @@
                                 const maxThreshold = rankMaxes[rankMaxes.length - 1] || 1;
                                 const pct = Math.min(100, (score / maxThreshold) * 100);
                                 
-                                cell.style.background = `linear-gradient(90deg, rgba(${hexToRgb(color)}, 0.15) 0%, rgba(${hexToRgb(color)}, 0.15) ${pct}%, transparent ${pct}%)`;
+                                // Calculate Voltaic rank
+                                const benchmarkRanks = {
+                                    "686": ['Lemming', 'Hare', 'Ermine', 'Penguin', 'Fox', 'Mammoth', 'Orca', 'Seal'],
+                                    "687": ['Cinnabar', 'Vermillion', 'Saffron', 'Celadon', 'Cerulean', 'Lavender', 'Indigo', 'Fuchsia'],
+                                    "688": ['Wool', 'Linen', 'Velvet', 'Chiffon', 'Satin', 'Silk']
+                                };
+                                const ranksList = benchmarkRanks[currentBenchmarkId] || [];
+                                let rankName = 'Unranked';
+                                if (rankMaxes.length > 0) {
+                                    for (let rIdx = rankMaxes.length - 1; rIdx >= 0; rIdx--) {
+                                        if (score >= rankMaxes[rIdx]) {
+                                            rankName = ranksList[rIdx];
+                                            break;
+                                        }
+                                    }
+                                }
+                                const lowerRank = rankName.toLowerCase();
+                                
+                                // Unified Hela Teal progress bar filling right-to-left
+                                cell.style.background = `linear-gradient(270deg, rgba(0, 245, 212, 0.08) 0%, rgba(0, 245, 212, 0.08) ${pct}%, transparent ${pct}%)`;
                                 
                                 let scoreHtml = score.toFixed(2);
                                 let scoreStyle = 'font-weight: 700;';
                                 if (isLeader) {
                                     cell.className += ' leader-cell';
+                                    cell.style.boxShadow = 'inset 0 0 0 1.5px rgba(255, 209, 102, 0.4)';
                                     scoreHtml = `<span class="crown-inline">👑</span>${scoreHtml}`;
                                     scoreStyle = 'font-weight: 800; color: var(--accent-gold); text-shadow: 0 0 8px rgba(255, 209, 102, 0.4);';
                                 }
                                 
                                 cell.innerHTML = `
-                                    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 4px 6px; min-height: 38px;">
-                                        <img src="${avatarUrl}" class="avatar-dot" style="border: 2px solid ${color}; box-shadow: 0 0 6px ${color};" onerror="this.onerror=null; this.outerHTML='<span style=\'width: 10px; height: 10px; border-radius: 50%; background: ${color}; box-shadow: 0 0 6px ${color}; display: inline-block;\'></span>';">
-                                        <span style="${scoreStyle}">${scoreHtml}</span>
+                                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 4px 8px; min-height: 38px; width: 100%; box-sizing: border-box;">
+                                        <div style="display: flex; align-items: center; gap: 8px;">
+                                            <img src="${avatarUrl}" class="avatar-dot" style="border: 2px solid ${color}; box-shadow: 0 0 6px ${color};" onerror="this.onerror=null; this.outerHTML='<span style=\'width: 10px; height: 10px; border-radius: 50%; background: ${color}; box-shadow: 0 0 6px ${color}; display: inline-block;\'></span>';">
+                                            <span style="${scoreStyle}">${scoreHtml}</span>
+                                        </div>
+                                        <span class="rank-badge rank-${lowerRank}" style="font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">${rankName}</span>
                                     </div>
                                 `;
                             } else {
                                 cell.innerHTML = `
-                                    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 4px 6px; min-height: 38px;">
-                                        <img src="${avatarUrl}" class="avatar-dot" style="border: 2px solid ${color}; box-shadow: 0 0 6px ${color}; opacity: 0.25; filter: grayscale(100%);" onerror="this.onerror=null; this.outerHTML='<span style=\'width: 10px; height: 10px; border-radius: 50%; background: ${color}; opacity: 0.25; display: inline-block;\'></span>';">
-                                        <span style="color: var(--text-muted); font-weight: 500;">-</span>
+                                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 4px 8px; min-height: 38px; width: 100%; box-sizing: border-box;">
+                                        <div style="display: flex; align-items: center; gap: 8px;">
+                                            <img src="${avatarUrl}" class="avatar-dot" style="border: 2px solid ${color}; box-shadow: 0 0 6px ${color}; opacity: 0.25; filter: grayscale(100%);" onerror="this.onerror=null; this.outerHTML='<span style=\'width: 10px; height: 10px; border-radius: 50%; background: ${color}; opacity: 0.25; display: inline-block;\'></span>';">
+                                            <span style="color: var(--text-muted); font-weight: 500;">-</span>
+                                        </div>
+                                        <span class="rank-badge rank-unranked" style="font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; opacity: 0.3;">Unranked</span>
                                     </div>
                                 `;
                             }
                             
-                                                    row.appendChild(cell);
+                            row.appendChild(cell);
                         });
                         gridBody.appendChild(row);
                     });
                 });
             });
+            
+            // Fetch and render overall progress timeline chart at the top
+            fetchOverallHistoryAndRenderChart();
         }
 
         // Trigger immediate check/poll
@@ -3011,6 +3064,8 @@
                 const pHistory = [...playerObj.history].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
                 
                 const data = [];
+                const pointRadius = [];
+                const pointHoverRadius = [];
                 let lastScore = null;
                 
                 uniqueTimestamps.forEach(ts => {
@@ -3018,8 +3073,12 @@
                     if (record) {
                         lastScore = record.score;
                         data.push(lastScore);
+                        pointRadius.push(4);
+                        pointHoverRadius.push(6);
                     } else {
                         data.push(lastScore);
+                        pointRadius.push(0);
+                        pointHoverRadius.push(0);
                     }
                 });
                 
@@ -3031,8 +3090,8 @@
                     borderColor: color,
                     backgroundColor: color + '15',
                     borderWidth: 3,
-                    pointRadius: 4,
-                    pointHoverRadius: 6,
+                    pointRadius: pointRadius,
+                    pointHoverRadius: pointHoverRadius,
                     tension: 0.1,
                     spanGaps: true
                 });
@@ -3467,6 +3526,247 @@
                 url.searchParams.delete('scenario');
                 window.history.replaceState({}, document.title, url);
             }, 300);
+        }
+
+        // --- Benchmark Overall Progress Chart Logic ---
+        async function fetchOverallHistoryAndRenderChart() {
+            try {
+                let data;
+                if (isStatic) {
+                    if (!window.globalHistoryData) {
+                        const res = await fetch('history.json');
+                        window.globalHistoryData = await res.json();
+                    }
+                    data = window.globalHistoryData;
+                } else {
+                    const res = await fetch(`/api/history?benchmark_id=${currentBenchmarkId}`);
+                    data = await res.json();
+                }
+                renderOverallProgressChart(data);
+            } catch (err) {
+                console.error("Error loading overall progress history:", err);
+            }
+        }
+        
+        function renderOverallProgressChart(historyData) {
+            const canvas = document.getElementById('timeline-chart');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            if (overallProgressChart) {
+                overallProgressChart.destroy();
+            }
+            
+            const bData = standingsData[currentBenchmarkId];
+            if (!bData) return;
+            
+            const scenarios = bData.scenarios;
+            const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
+            const steamIds = configuredPlayers.map(p => p.steam_id);
+            
+            // Gather all PB events chronologically
+            const events = [];
+            scenarios.forEach(scenName => {
+                const key = `${currentBenchmarkId}_${scenName}`;
+                const scenHistory = historyData[key];
+                if (!scenHistory) return;
+                
+                steamIds.forEach(steamId => {
+                    const playerScenData = scenHistory[steamId];
+                    if (!playerScenData || !playerScenData.history) return;
+                    
+                    playerScenData.history.forEach(h => {
+                        events.push({
+                            steamId: steamId,
+                            scenName: scenName,
+                            score: h.score,
+                            timestamp: new Date(h.timestamp)
+                        });
+                    });
+                });
+            });
+            
+            // Sort events chronologically
+            events.sort((a, b) => a.timestamp - b.timestamp);
+            
+            // Keep track of current scores for calculation
+            const currentScores = {};
+            steamIds.forEach(sid => {
+                currentScores[sid] = {};
+                scenarios.forEach(scen => {
+                    currentScores[sid][scen] = 0.0;
+                });
+            });
+            
+            const playerSeries = {};
+            steamIds.forEach(sid => {
+                playerSeries[sid] = [];
+            });
+            
+            function calcMaxRankPct(sid) {
+                let totalPct = 0.0;
+                scenarios.forEach(scen => {
+                    const score = currentScores[sid][scen] || 0.0;
+                    const rankMaxes = bData.thresholds[scen] || [];
+                    const threshold = rankMaxes[rankMaxes.length - 1] || 1.0;
+                    const pct = Math.min(100.0, (score / threshold) * 100.0);
+                    totalPct += pct;
+                });
+                return totalPct / (scenarios.length || 1);
+            }
+            
+            // Process events to build time series
+            events.forEach(evt => {
+                const prevScore = currentScores[evt.steamId][evt.scenName] || 0.0;
+                if (evt.score > prevScore) {
+                    currentScores[evt.steamId][evt.scenName] = evt.score;
+                    const newPct = calcMaxRankPct(evt.steamId);
+                    
+                    const series = playerSeries[evt.steamId];
+                    series.push({
+                        x: evt.timestamp,
+                        y: Number(newPct.toFixed(2))
+                    });
+                }
+            });
+            
+            // Stretch each series to the current time (now)
+            const now = new Date();
+            steamIds.forEach(sid => {
+                const series = playerSeries[sid];
+                if (series.length > 0) {
+                    const latest = series[series.length - 1];
+                    series.push({
+                        x: now,
+                        y: latest.y
+                    });
+                } else {
+                    series.push({
+                        x: now,
+                        y: 0.0
+                    });
+                }
+            });
+            
+            const datasets = [];
+            
+            // Generate datasets with avatars for final points
+            configuredPlayers.forEach(p => {
+                const sid = p.steam_id;
+                const series = playerSeries[sid] || [];
+                const color = getPlayerThemeColor(sid);
+                
+                // Create Image object for the last point
+                const img = new Image();
+                const username = p.username.replace('@', '');
+                img.src = `avatars/${username}.png`;
+                img.width = 30;
+                img.height = 30;
+                
+                img.onload = () => {
+                    if (overallProgressChart) {
+                        overallProgressChart.update();
+                    }
+                };
+                
+                const pointStyles = Array(series.length).fill('circle');
+                const pointRadii = Array(series.length).fill(0);
+                const pointHoverRadii = Array(series.length).fill(4);
+                
+                if (series.length > 0) {
+                    pointStyles[series.length - 1] = img;
+                    pointRadii[series.length - 1] = 15; // 30px avatar size (radius 15)
+                    pointHoverRadii[series.length - 1] = 18;
+                }
+                
+                datasets.push({
+                    label: p.username,
+                    data: series,
+                    borderColor: color,
+                    backgroundColor: color + '10',
+                    borderWidth: 2.5,
+                    stepped: true, // Step-line rendering
+                    pointStyle: pointStyles,
+                    pointRadius: pointRadii,
+                    pointHoverRadius: pointHoverRadii,
+                    tension: 0,
+                    fill: false
+                });
+            });
+            
+            let minTime = null;
+            if (timelineFilter === '1W') {
+                minTime = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+            } else if (timelineFilter === '1M') {
+                minTime = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+            }
+            
+            overallProgressChart = new Chart(ctx, {
+                type: 'line',
+                data: { datasets: datasets },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    layout: {
+                        padding: {
+                            right: 40 // Extra padding to make sure avatars are not clipped at right edge
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#f8f9fa',
+                                font: { family: "'Outfit', sans-serif", size: 12, weight: '600' }
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.parsed.y.toFixed(2)}%`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            type: 'time',
+                            time: {
+                                unit: timelineFilter === '1W' ? 'day' : (timelineFilter === '1M' ? 'week' : 'month'),
+                                displayFormats: {
+                                    day: 'MMM d',
+                                    week: 'MMM d',
+                                    month: 'MMM yyyy'
+                                }
+                            },
+                            min: minTime,
+                            max: now,
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#9fa6b2', font: { family: "'Outfit', sans-serif" } }
+                        },
+                        y: {
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#9fa6b2', font: { family: "'Outfit', sans-serif" } },
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    }
+                }
+            });
+        }
+        
+        function filterTimelineChart(filter, btn) {
+            timelineFilter = filter;
+            
+            // Toggle active state in buttons
+            const buttons = document.querySelectorAll('.time-filter-btn');
+            buttons.forEach(b => {
+                b.classList.remove('active');
+            });
+            btn.classList.add('active');
+            
+            fetchOverallHistoryAndRenderChart();
         }
     </script>
 </body>
