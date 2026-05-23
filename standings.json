@@ -61,7 +61,7 @@
         "76561198348625808": 16.67,
         "76561199164422123": 16.72,
         "76561198033879793": 16.7,
-        "76561198046477600": 16.61,
+        "76561198046477600": 16.7,
         "76561198995689034": 16.58
       },
       "Leaptrack Goated 60% Larger": {
@@ -74,7 +74,7 @@
       },
       "Controlsphere rAim Easy 90%": {
         "76561198017954362": 56.6,
-        "76561198348625808": 56.2,
+        "76561198348625808": 56.4,
         "76561199164422123": 56.09,
         "76561198033879793": 56.49,
         "76561198046477600": 55.9,
@@ -129,11 +129,11 @@
         "76561198995689034": 7.61
       },
       "Whisphere Small & Slow 55%": {
-        "76561198017954362": 55.41,
+        "76561198017954362": 55.51,
         "76561198348625808": 55.53,
         "76561199164422123": 55.75,
         "76561198033879793": 55.78,
-        "76561198046477600": 55.28,
+        "76561198046477600": 55.38,
         "76561198995689034": 55.75
       },
       "Air Voltaic Invincible 7 Easy 80%": {
@@ -150,12 +150,12 @@
         "76561199164422123": 50.11,
         "76561198033879793": 49.83,
         "76561198046477600": 50.17,
-        "76561198995689034": 49.72
+        "76561198995689034": 49.78
       },
       "Flicker Plaza rAim Easy Less Blinks": {
         "76561198017954362": 7.95,
         "76561198348625808": 7.97,
-        "76561199164422123": 7.9,
+        "76561199164422123": 7.92,
         "76561198033879793": 7.95,
         "76561198046477600": 7.95,
         "76561198995689034": 7.92
@@ -265,7 +265,7 @@
         "76561198995689034": 0.7
       },
       "B180 Voltaic Easy 92%": {
-        "76561198017954362": 0.23,
+        "76561198017954362": 0.24,
         "76561198348625808": 0.24,
         "76561199164422123": 0.24,
         "76561198033879793": 0.24,
@@ -449,6 +449,7 @@
         "76561198995689034"
       ],
       "B180 Voltaic Easy 92%": [
+        "76561198017954362",
         "76561198348625808",
         "76561199164422123",
         "76561198033879793",
@@ -510,14 +511,14 @@
         "steam_id": "76561198995689034",
         "username": "@Haruno",
         "discord_id": "",
-        "rank_idx": 4,
-        "rank_name": "Penguin",
+        "rank_idx": 5,
+        "rank_name": "Fox",
         "crown_count": 20,
         "completed_count": 36,
         "points": 0.41,
         "has_streak": true,
-        "weekly_pbs": 138,
-        "total_pbs": 138,
+        "weekly_pbs": 139,
+        "total_pbs": 139,
         "active_days": 1,
         "position_change": 5
       },
@@ -525,14 +526,14 @@
         "steam_id": "76561198348625808",
         "username": "@Christine",
         "discord_id": "",
-        "rank_idx": 3,
-        "rank_name": "Ermine",
+        "rank_idx": 4,
+        "rank_name": "Penguin",
         "crown_count": 19,
         "completed_count": 36,
         "points": 0.42,
         "has_streak": true,
-        "weekly_pbs": 172,
-        "total_pbs": 172,
+        "weekly_pbs": 173,
+        "total_pbs": 173,
         "active_days": 1,
         "position_change": 0
       },
@@ -546,8 +547,8 @@
         "completed_count": 36,
         "points": 0.41,
         "has_streak": true,
-        "weekly_pbs": 137,
-        "total_pbs": 137,
+        "weekly_pbs": 138,
+        "total_pbs": 138,
         "active_days": 1,
         "position_change": 0
       },
@@ -555,8 +556,8 @@
         "steam_id": "76561198033879793",
         "username": "@CoachCam",
         "discord_id": "",
-        "rank_idx": 4,
-        "rank_name": "Penguin",
+        "rank_idx": 5,
+        "rank_name": "Fox",
         "crown_count": 17,
         "completed_count": 36,
         "points": 0.41,
@@ -572,12 +573,12 @@
         "discord_id": "",
         "rank_idx": 5,
         "rank_name": "Fox",
-        "crown_count": 14,
+        "crown_count": 15,
         "completed_count": 36,
         "points": 0.42,
         "has_streak": true,
-        "weekly_pbs": 138,
-        "total_pbs": 138,
+        "weekly_pbs": 140,
+        "total_pbs": 140,
         "active_days": 1,
         "position_change": -4
       },
@@ -585,14 +586,14 @@
         "steam_id": "76561198046477600",
         "username": "@Laggiing",
         "discord_id": "",
-        "rank_idx": 3,
-        "rank_name": "Ermine",
+        "rank_idx": 4,
+        "rank_name": "Penguin",
         "crown_count": 13,
         "completed_count": 36,
         "points": 0.41,
         "has_streak": true,
-        "weekly_pbs": 158,
-        "total_pbs": 158,
+        "weekly_pbs": 161,
+        "total_pbs": 161,
         "active_days": 1,
         "position_change": -2
       }
@@ -4995,9 +4996,21 @@
         "winner_sid": "76561198046477600",
         "loser_sid": "76561198995689034",
         "timestamp": "2026-05-23 07:21:35"
+      },
+      {
+        "scenario_name": "SmoothBot Invincible Goated 75%",
+        "winner_sid": "76561198046477600",
+        "loser_sid": "76561198348625808",
+        "timestamp": "2026-05-23 07:24:44"
+      },
+      {
+        "scenario_name": "SmoothBot Invincible Goated 75%",
+        "winner_sid": "76561198046477600",
+        "loser_sid": "76561198017954362",
+        "timestamp": "2026-05-23 07:24:44"
       }
     ],
-    "last_poll": 1779520901.667138,
+    "last_poll": 1779521090.982089,
     "check_interval": 180
   },
   "687": {
@@ -5050,12 +5063,12 @@
         "76561198995689034": 40.0
       },
       "Whisphere": {
-        "76561198017954362": 52.93,
+        "76561198017954362": 53.05,
         "76561198348625808": 53.4,
-        "76561199164422123": 53.36,
+        "76561199164422123": 53.42,
         "76561198033879793": 53.44,
         "76561198046477600": 53.46,
-        "76561198995689034": 52.73
+        "76561198995689034": 53.42
       },
       "SmoothBot Invincible Goated": {
         "76561198017954362": 15.78,
@@ -5102,7 +5115,7 @@
         "76561198348625808": 46.46,
         "76561199164422123": 46.31,
         "76561198033879793": 46.48,
-        "76561198046477600": 46.09,
+        "76561198046477600": 46.29,
         "76561198995689034": 45.62
       },
       "Controlsphere Far Larger": {
@@ -5111,7 +5124,7 @@
         "76561199164422123": 72.46,
         "76561198033879793": 72.3,
         "76561198046477600": 72.42,
-        "76561198995689034": 71.17
+        "76561198995689034": 71.83
       },
       "PGTI Voltaic Easy": {
         "76561198017954362": 7.42,
@@ -5135,7 +5148,7 @@
         "76561199164422123": 51.07,
         "76561198033879793": 51.07,
         "76561198046477600": 50.83,
-        "76561198995689034": 50.62
+        "76561198995689034": 50.87
       },
       "Ground Plaza Sparky V3": {
         "76561198017954362": 7.97,
@@ -5159,18 +5172,18 @@
         "76561199164422123": 7.98,
         "76561198033879793": 7.9,
         "76561198046477600": 7.96,
-        "76561198995689034": 7.94
+        "76561198995689034": 7.99
       },
       "Polarized Hell Easy 20% Slower": {
         "76561198017954362": 14.81,
         "76561198348625808": 14.79,
         "76561199164422123": 14.85,
         "76561198033879793": 14.87,
-        "76561198046477600": 14.77,
+        "76561198046477600": 14.81,
         "76561198995689034": 14.78
       },
       "Air Pure Intermediate": {
-        "76561198017954362": 7.83,
+        "76561198017954362": 7.84,
         "76561198348625808": 7.87,
         "76561199164422123": 7.77,
         "76561198033879793": 7.85,
@@ -5183,7 +5196,7 @@
         "76561199164422123": 16.68,
         "76561198033879793": 16.6,
         "76561198046477600": 16.59,
-        "76561198995689034": 16.6
+        "76561198995689034": 16.64
       },
       "Pokeball Frenzy Auto TE Wide": {
         "76561198017954362": 18.1,
@@ -5243,10 +5256,10 @@
       },
       "domiSwitch Easy": {
         "76561198017954362": 38.95,
-        "76561198348625808": 38.89,
+        "76561198348625808": 38.97,
         "76561199164422123": 38.86,
         "76561198033879793": 38.81,
-        "76561198046477600": 38.88,
+        "76561198046477600": 38.99,
         "76561198995689034": 39.0
       },
       "tamTargetSwitch Smooth Easy": {
@@ -5292,7 +5305,7 @@
       "Pasu Angelic 20% Larger": {
         "76561198017954362": 0.66,
         "76561198348625808": 0.66,
-        "76561199164422123": 0.65,
+        "76561199164422123": 0.66,
         "76561198033879793": 0.66,
         "76561198046477600": 0.66,
         "76561198995689034": 0.66
@@ -5317,7 +5330,7 @@
         "76561198017954362": 18.13,
         "76561198348625808": 18.07,
         "76561199164422123": 18.11,
-        "76561198033879793": 18.01,
+        "76561198033879793": 18.06,
         "76561198046477600": 17.93,
         "76561198995689034": 18.11
       },
@@ -5379,7 +5392,7 @@
         "76561198995689034"
       ],
       "Flicker Plaza rAim Easy": [
-        "76561199164422123"
+        "76561198995689034"
       ],
       "Polarized Hell Easy 20% Slower": [
         "76561198033879793"
@@ -5469,6 +5482,7 @@
       "Pasu Angelic 20% Larger": [
         "76561198017954362",
         "76561198348625808",
+        "76561199164422123",
         "76561198033879793",
         "76561198046477600",
         "76561198995689034"
@@ -5506,8 +5520,8 @@
         "completed_count": 36,
         "points": 0.48,
         "has_streak": true,
-        "weekly_pbs": 151,
-        "total_pbs": 151,
+        "weekly_pbs": 152,
+        "total_pbs": 152,
         "active_days": 1,
         "position_change": 3
       },
@@ -5521,8 +5535,8 @@
         "completed_count": 36,
         "points": 0.49,
         "has_streak": true,
-        "weekly_pbs": 173,
-        "total_pbs": 173,
+        "weekly_pbs": 174,
+        "total_pbs": 174,
         "active_days": 1,
         "position_change": 0
       },
@@ -5530,14 +5544,14 @@
         "steam_id": "76561198995689034",
         "username": "@Haruno",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Cerulean",
-        "crown_count": 15,
+        "rank_idx": 4,
+        "rank_name": "Celadon",
+        "crown_count": 16,
         "completed_count": 36,
         "points": 0.48,
         "has_streak": true,
-        "weekly_pbs": 163,
-        "total_pbs": 163,
+        "weekly_pbs": 173,
+        "total_pbs": 173,
         "active_days": 1,
         "position_change": 3
       },
@@ -5551,8 +5565,8 @@
         "completed_count": 36,
         "points": 0.49,
         "has_streak": true,
-        "weekly_pbs": 150,
-        "total_pbs": 150,
+        "weekly_pbs": 152,
+        "total_pbs": 152,
         "active_days": 1,
         "position_change": -3
       },
@@ -5560,14 +5574,14 @@
         "steam_id": "76561199164422123",
         "username": "@Olioli",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Cerulean",
+        "rank_idx": 3,
+        "rank_name": "Saffron",
         "crown_count": 13,
         "completed_count": 36,
         "points": 0.48,
         "has_streak": true,
-        "weekly_pbs": 142,
-        "total_pbs": 142,
+        "weekly_pbs": 144,
+        "total_pbs": 144,
         "active_days": 1,
         "position_change": -2
       },
@@ -5581,8 +5595,8 @@
         "completed_count": 36,
         "points": 0.48,
         "has_streak": true,
-        "weekly_pbs": 142,
-        "total_pbs": 142,
+        "weekly_pbs": 147,
+        "total_pbs": 147,
         "active_days": 1,
         "position_change": -1
       }
@@ -10117,9 +10131,99 @@
         "winner_sid": "76561198046477600",
         "loser_sid": "76561198033879793",
         "timestamp": "2026-05-23 07:21:38"
+      },
+      {
+        "scenario_name": "domiSwitch Easy",
+        "winner_sid": "76561198046477600",
+        "loser_sid": "76561198017954362",
+        "timestamp": "2026-05-23 07:24:47"
+      },
+      {
+        "scenario_name": "domiSwitch Easy",
+        "winner_sid": "76561198046477600",
+        "loser_sid": "76561198348625808",
+        "timestamp": "2026-05-23 07:24:47"
+      },
+      {
+        "scenario_name": "Whisphere",
+        "winner_sid": "76561198995689034",
+        "loser_sid": "76561198348625808",
+        "timestamp": "2026-05-23 07:24:47"
+      },
+      {
+        "scenario_name": "Whisphere",
+        "winner_sid": "76561198995689034",
+        "loser_sid": "76561199164422123",
+        "timestamp": "2026-05-23 07:24:47"
+      },
+      {
+        "scenario_name": "Whisphere",
+        "winner_sid": "76561198995689034",
+        "loser_sid": "76561198017954362",
+        "timestamp": "2026-05-23 07:24:47"
+      },
+      {
+        "scenario_name": "domiSwitch Easy",
+        "winner_sid": "76561198348625808",
+        "loser_sid": "76561198017954362",
+        "timestamp": "2026-05-23 07:24:47"
+      },
+      {
+        "scenario_name": "Whisphere",
+        "winner_sid": "76561199164422123",
+        "loser_sid": "76561198348625808",
+        "timestamp": "2026-05-23 07:24:47"
+      },
+      {
+        "scenario_name": "Polarized Hell Easy 20% Slower",
+        "winner_sid": "76561198046477600",
+        "loser_sid": "76561198348625808",
+        "timestamp": "2026-05-23 07:24:48"
+      },
+      {
+        "scenario_name": "Polarized Hell Easy 20% Slower",
+        "winner_sid": "76561198046477600",
+        "loser_sid": "76561198995689034",
+        "timestamp": "2026-05-23 07:24:48"
+      },
+      {
+        "scenario_name": "Whisphere Small & Slow 75%",
+        "winner_sid": "76561198995689034",
+        "loser_sid": "76561198046477600",
+        "timestamp": "2026-05-23 07:24:48"
+      },
+      {
+        "scenario_name": "Whisphere Small & Slow 75%",
+        "winner_sid": "76561198995689034",
+        "loser_sid": "76561198348625808",
+        "timestamp": "2026-05-23 07:24:48"
+      },
+      {
+        "scenario_name": "Flicker Plaza rAim Easy",
+        "winner_sid": "76561198995689034",
+        "loser_sid": "76561199164422123",
+        "timestamp": "2026-05-23 07:24:48"
+      },
+      {
+        "scenario_name": "Flicker Plaza rAim Easy",
+        "winner_sid": "76561198995689034",
+        "loser_sid": "76561198046477600",
+        "timestamp": "2026-05-23 07:24:48"
+      },
+      {
+        "scenario_name": "Flicker Plaza rAim Easy",
+        "winner_sid": "76561198995689034",
+        "loser_sid": "76561198348625808",
+        "timestamp": "2026-05-23 07:24:48"
+      },
+      {
+        "scenario_name": "Air Voltaic Easy Invincible 4",
+        "winner_sid": "76561198995689034",
+        "loser_sid": "76561198033879793",
+        "timestamp": "2026-05-23 07:24:48"
       }
     ],
-    "last_poll": 1779520901.673223,
+    "last_poll": 1779521090.989723,
     "check_interval": 180
   },
   "688": {
@@ -10166,14 +10270,14 @@
     "scores": {
       "WhisphereRawControl 30% small": {
         "76561198017954362": 65.64,
-        "76561198348625808": 65.91,
+        "76561198348625808": 65.98,
         "76561199164422123": 65.41,
         "76561198033879793": 65.78,
         "76561198046477600": 65.96,
         "76561198995689034": 66.0
       },
       "Whisphere Small & Slow": {
-        "76561198017954362": 128.13,
+        "76561198017954362": 129.36,
         "76561198348625808": 129.58,
         "76561199164422123": 129.82,
         "76561198033879793": 129.9,
@@ -10229,7 +10333,7 @@
         "76561198995689034": 65.04
       },
       "Controlsphere Far": {
-        "76561198017954362": 79.67,
+        "76561198017954362": 79.88,
         "76561198348625808": 79.8,
         "76561199164422123": 79.97,
         "76561198033879793": 79.56,
@@ -10265,7 +10369,7 @@
         "76561198348625808": 8.12,
         "76561199164422123": 8.18,
         "76561198033879793": 8.16,
-        "76561198046477600": 8.07,
+        "76561198046477600": 8.1,
         "76561198995689034": 8.16
       },
       "Controlsphere OW 150%": {
@@ -10298,7 +10402,7 @@
         "76561199164422123": 8.21,
         "76561198033879793": 8.22,
         "76561198046477600": 8.21,
-        "76561198995689034": 8.19
+        "76561198995689034": 8.21
       },
       "Air Voltaic Invincible 4": {
         "76561198017954362": 26.03,
@@ -10328,7 +10432,7 @@
         "76561198017954362": 0.95,
         "76561198348625808": 0.95,
         "76561199164422123": 0.94,
-        "76561198033879793": 0.94,
+        "76561198033879793": 0.95,
         "76561198046477600": 0.95,
         "76561198995689034": 0.94
       },
@@ -10342,7 +10446,7 @@
       },
       "FloatTS Angelic": {
         "76561198017954362": 0.87,
-        "76561198348625808": 0.86,
+        "76561198348625808": 0.87,
         "76561199164422123": 0.87,
         "76561198033879793": 0.86,
         "76561198046477600": 0.86,
@@ -10365,7 +10469,7 @@
         "76561198995689034": 6.93
       },
       "domiSwitch": {
-        "76561198017954362": 51.46,
+        "76561198017954362": 51.52,
         "76561198348625808": 51.55,
         "76561199164422123": 51.58,
         "76561198033879793": 51.36,
@@ -10386,7 +10490,7 @@
         "76561199164422123": 1.01,
         "76561198033879793": 1.01,
         "76561198046477600": 1.02,
-        "76561198995689034": 1.0
+        "76561198995689034": 1.01
       },
       "VT Bounceshot Advanced": {
         "76561198017954362": 6.73,
@@ -10406,9 +10510,9 @@
       },
       "Popcorn MV Advanced": {
         "76561198017954362": 2.69,
-        "76561198348625808": 2.68,
+        "76561198348625808": 2.69,
         "76561199164422123": 2.67,
-        "76561198033879793": 2.68,
+        "76561198033879793": 2.69,
         "76561198046477600": 2.68,
         "76561198995689034": 2.68
       },
@@ -10533,6 +10637,7 @@
       "voxTargetSwitch 2 20% Smaller": [
         "76561198017954362",
         "76561198348625808",
+        "76561198033879793",
         "76561198046477600"
       ],
       "beanTS 30% Smaller": [
@@ -10544,6 +10649,7 @@
       ],
       "FloatTS Angelic": [
         "76561198017954362",
+        "76561198348625808",
         "76561199164422123"
       ],
       "waldoTS": [
@@ -10581,7 +10687,9 @@
         "76561198995689034"
       ],
       "Popcorn MV Advanced": [
-        "76561198017954362"
+        "76561198017954362",
+        "76561198348625808",
+        "76561198033879793"
       ],
       "Pasu Angelic": [
         "76561198017954362",
@@ -10615,34 +10723,49 @@
     },
     "players": [
       {
-        "steam_id": "76561198995689034",
-        "username": "@Haruno",
+        "steam_id": "76561198348625808",
+        "username": "@Christine",
         "discord_id": "",
         "rank_idx": 4,
         "rank_name": "Chiffon",
+        "crown_count": 16,
+        "completed_count": 37,
+        "points": 0.69,
+        "has_streak": true,
+        "weekly_pbs": 178,
+        "total_pbs": 178,
+        "active_days": 1,
+        "position_change": 4
+      },
+      {
+        "steam_id": "76561198995689034",
+        "username": "@Haruno",
+        "discord_id": "",
+        "rank_idx": 5,
+        "rank_name": "Satin",
         "crown_count": 15,
         "completed_count": 37,
         "points": 0.69,
         "has_streak": true,
-        "weekly_pbs": 173,
-        "total_pbs": 173,
+        "weekly_pbs": 175,
+        "total_pbs": 175,
         "active_days": 1,
-        "position_change": 2
+        "position_change": 1
       },
       {
-        "steam_id": "76561198348625808",
-        "username": "@Christine",
+        "steam_id": "76561198033879793",
+        "username": "@CoachCam",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Satin",
+        "rank_idx": 4,
+        "rank_name": "Chiffon",
         "crown_count": 14,
         "completed_count": 37,
         "points": 0.69,
         "has_streak": true,
-        "weekly_pbs": 171,
-        "total_pbs": 171,
+        "weekly_pbs": 151,
+        "total_pbs": 151,
         "active_days": 1,
-        "position_change": 3
+        "position_change": 1
       },
       {
         "steam_id": "76561198017954362",
@@ -10654,25 +10777,10 @@
         "completed_count": 37,
         "points": 0.69,
         "has_streak": true,
-        "weekly_pbs": 152,
-        "total_pbs": 152,
+        "weekly_pbs": 155,
+        "total_pbs": 155,
         "active_days": 1,
-        "position_change": -2
-      },
-      {
-        "steam_id": "76561198033879793",
-        "username": "@CoachCam",
-        "discord_id": "",
-        "rank_idx": 3,
-        "rank_name": "Velvet",
-        "crown_count": 12,
-        "completed_count": 37,
-        "points": 0.69,
-        "has_streak": true,
-        "weekly_pbs": 147,
-        "total_pbs": 147,
-        "active_days": 1,
-        "position_change": 0
+        "position_change": -3
       },
       {
         "steam_id": "76561198046477600",
@@ -10684,8 +10792,8 @@
         "completed_count": 37,
         "points": 0.69,
         "has_streak": true,
-        "weekly_pbs": 168,
-        "total_pbs": 168,
+        "weekly_pbs": 169,
+        "total_pbs": 169,
         "active_days": 1,
         "position_change": -3
       },
@@ -15403,9 +15511,87 @@
         "winner_sid": "76561198995689034",
         "loser_sid": "76561198348625808",
         "timestamp": "2026-05-23 07:21:41"
+      },
+      {
+        "scenario_name": "Controlsphere Far",
+        "winner_sid": "76561198017954362",
+        "loser_sid": "76561198348625808",
+        "timestamp": "2026-05-23 07:21:41"
+      },
+      {
+        "scenario_name": "FloatTS Angelic",
+        "winner_sid": "76561198348625808",
+        "loser_sid": "76561198033879793",
+        "timestamp": "2026-05-23 07:21:41"
+      },
+      {
+        "scenario_name": "FloatTS Angelic",
+        "winner_sid": "76561198348625808",
+        "loser_sid": "76561198046477600",
+        "timestamp": "2026-05-23 07:21:41"
+      },
+      {
+        "scenario_name": "FloatTS Angelic",
+        "winner_sid": "76561198348625808",
+        "loser_sid": "76561198995689034",
+        "timestamp": "2026-05-23 07:21:41"
+      },
+      {
+        "scenario_name": "Popcorn MV Advanced",
+        "winner_sid": "76561198348625808",
+        "loser_sid": "76561198033879793",
+        "timestamp": "2026-05-23 07:21:41"
+      },
+      {
+        "scenario_name": "Popcorn MV Advanced",
+        "winner_sid": "76561198348625808",
+        "loser_sid": "76561198046477600",
+        "timestamp": "2026-05-23 07:21:41"
+      },
+      {
+        "scenario_name": "Popcorn MV Advanced",
+        "winner_sid": "76561198348625808",
+        "loser_sid": "76561198995689034",
+        "timestamp": "2026-05-23 07:21:41"
+      },
+      {
+        "scenario_name": "WhisphereRawControl 30% small",
+        "winner_sid": "76561198348625808",
+        "loser_sid": "76561198046477600",
+        "timestamp": "2026-05-23 07:24:50"
+      },
+      {
+        "scenario_name": "voxTargetSwitch 2 20% Smaller",
+        "winner_sid": "76561198033879793",
+        "loser_sid": "76561199164422123",
+        "timestamp": "2026-05-23 07:24:50"
+      },
+      {
+        "scenario_name": "voxTargetSwitch 2 20% Smaller",
+        "winner_sid": "76561198033879793",
+        "loser_sid": "76561198995689034",
+        "timestamp": "2026-05-23 07:24:50"
+      },
+      {
+        "scenario_name": "Popcorn MV Advanced",
+        "winner_sid": "76561198033879793",
+        "loser_sid": "76561198046477600",
+        "timestamp": "2026-05-23 07:24:50"
+      },
+      {
+        "scenario_name": "Popcorn MV Advanced",
+        "winner_sid": "76561198033879793",
+        "loser_sid": "76561198995689034",
+        "timestamp": "2026-05-23 07:24:50"
+      },
+      {
+        "scenario_name": "Air Pure",
+        "winner_sid": "76561198995689034",
+        "loser_sid": "76561198017954362",
+        "timestamp": "2026-05-23 07:24:50"
       }
     ],
-    "last_poll": 1779520901.68084,
+    "last_poll": 1779521090.998335,
     "check_interval": 180
   }
 }
