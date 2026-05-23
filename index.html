@@ -687,8 +687,8 @@
         }
 
         .avatar-dot {
-            width: 22px;
-            height: 22px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             object-fit: cover;
             display: inline-block;
@@ -702,8 +702,8 @@
         }
 
         .legend-avatar {
-            width: 18px;
-            height: 18px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
             object-fit: cover;
             display: inline-block;
@@ -2327,7 +2327,7 @@
                     item.style.fontSize = '0.85rem';
                     item.style.fontWeight = '600';
                     item.innerHTML = `
-                        <img src="${avatarUrl}" class="legend-avatar" style="border: 1.5px solid ${color}; box-shadow: 0 0 4px ${color};" onerror="this.outerHTML='<span style=\"width: 10px; height: 10px; border-radius: 50%; background: ${color}; box-shadow: 0 0 6px ${color}; display: inline-block;\"></span>'">
+                        <img src="${avatarUrl}" class="legend-avatar" style="border: 1.5px solid ${color}; box-shadow: 0 0 4px ${color};" onerror="this.onerror=null; this.outerHTML='<span style=\'width: 10px; height: 10px; border-radius: 50%; background: ${color}; box-shadow: 0 0 6px ${color}; display: inline-block;\'></span>';">
                         ${p.username}
                     `;
                     gridLegend.appendChild(item);
@@ -2589,16 +2589,16 @@
                                 }
                                 
                                 cell.innerHTML = `
-                                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 6px 0; min-height: 48px;">
+                                    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 4px 6px; min-height: 38px;">
+                                        <img src="${avatarUrl}" class="avatar-dot" style="border: 2px solid ${color}; box-shadow: 0 0 6px ${color};" onerror="this.onerror=null; this.outerHTML='<span style=\'width: 10px; height: 10px; border-radius: 50%; background: ${color}; box-shadow: 0 0 6px ${color}; display: inline-block;\'></span>';">
                                         <span style="${scoreStyle}">${scoreHtml}</span>
-                                        <img src="${avatarUrl}" class="avatar-dot" style="border: 2px solid ${color}; box-shadow: 0 0 6px ${color};" onerror="this.outerHTML='<span style=\"width: 10px; height: 10px; border-radius: 50%; background: ${color}; box-shadow: 0 0 6px ${color}; display: inline-block;\"></span>'" title="${p.username}">
                                     </div>
                                 `;
                             } else {
                                 cell.innerHTML = `
-                                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 6px 0; min-height: 48px;">
+                                    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 4px 6px; min-height: 38px;">
+                                        <img src="${avatarUrl}" class="avatar-dot" style="border: 2px solid ${color}; box-shadow: 0 0 6px ${color}; opacity: 0.25; filter: grayscale(100%);" onerror="this.onerror=null; this.outerHTML='<span style=\'width: 10px; height: 10px; border-radius: 50%; background: ${color}; opacity: 0.25; display: inline-block;\'></span>';">
                                         <span style="color: var(--text-muted); font-weight: 500;">-</span>
-                                        <img src="${avatarUrl}" class="avatar-dot" style="border: 2px solid ${color}; box-shadow: 0 0 6px ${color}; opacity: 0.25; filter: grayscale(100%);" onerror="this.outerHTML='<span style=\"width: 10px; height: 10px; border-radius: 50%; background: ${color}; opacity: 0.25; display: inline-block;\"></span>'" title="${p.username} (No Score)">
                                     </div>
                                 `;
                             }
