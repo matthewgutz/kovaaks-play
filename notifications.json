@@ -1,9 +1,702 @@
 [
   {
-    "id": 1,
+    "id": 897,
+    "player_name": "Haruno",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83d\udd25 Hela vs. Magneto! The battle continues! @Haruno takes the lead BACK from @CoachCam, @BakaOppai, and @Olioli on **SmoothBot Invincible Goated Smaller** - <https://matthewgutz.github.io/kovaaks-play?scenario=SmoothBot%20Invincible%20Goated%20Smaller> with 24.94!\n- \ud83d\udd25 Team-Up active! @Haruno refuses to be carried by @Olioli, @Laggiing, @CoachCam, and @BakaOppai and retook the lead on **Pokeball Frenzy Auto TE Wide** - <https://matthewgutz.github.io/kovaaks-play?scenario=Pokeball%20Frenzy%20Auto%20TE%20Wide> with 32.99!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 896,
+    "player_name": "Christine",
+    "event_type": "consolidated",
+    "message": "Consolidated [3 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Mirror Dimension mastered! @Christine moves up to **Satin** on **Hard**!\n- \ud83e\udd0f Strategist heal required! @Christine scored 25.02 on **SmoothBot Invincible Goated Smaller** - <https://matthewgutz.github.io/kovaaks-play?scenario=SmoothBot%20Invincible%20Goated%20Smaller>\u2014falling just 0.07 points short of @Laggiing (25.09)! Luna Snow won't save you from this gap.\n- \ud83e\udd0f Rocket Raccoon missing his shots! @Christine fell short of @Haruno (32.87) by a measly 0.19 points on **Pokeball Frenzy Auto TE Wide** - <https://matthewgutz.github.io/kovaaks-play?scenario=Pokeball%20Frenzy%20Auto%20TE%20Wide>!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 895,
+    "player_name": "BakaOppai",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83d\udd25 No Nano-shield can save you! @BakaOppai dethroned @Christine, @Olioli, @CoachCam, @Laggiing, and @Haruno ONCE AGAIN on **PGTI Voltaic** - <https://matthewgutz.github.io/kovaaks-play?scenario=PGTI%20Voltaic> (Score: 12.55)!\n- \ud83d\udd25 Full Symbiote rage! @BakaOppai went Venom-mode and devoured @Haruno and @Christine's top spot on **Floating Heads Timing 400% FIXED** - <https://matthewgutz.github.io/kovaaks-play?scenario=Floating%20Heads%20Timing%20400%25%20FIXED> with 29.65!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 894,
+    "player_name": "Haruno",
+    "event_type": "rank_up",
+    "message": "\ud83c\udfc6 RANK UP! @Haruno has promoted to **Cerulean** (Rank 5) on the **Medium** benchmark! From Bronze scrubs to Grandmasters! (Previous: Celadon) \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 893,
+    "player_name": "Laggiing",
+    "event_type": "overtake",
+    "message": "\ud83d\udd25 Team-Up active! @Laggiing refuses to be carried by @Christine, @Haruno, and @CoachCam and retook the lead on **Air Voltaic Easy Invincible 4** - <https://matthewgutz.github.io/kovaaks-play?scenario=Air%20Voltaic%20Easy%20Invincible%204> with 16.66! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 892,
+    "player_name": "Olioli",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Wakanda Forever! @Olioli advances to **Celadon** on **Medium**!\n- \ud83d\udd25 Loki decoy exposed! @Olioli saw right through the illusion and snatched the lead back from @BakaOppai on **Leaptrack Goated 75% Slightly Larger** - <https://matthewgutz.github.io/kovaaks-play?scenario=Leaptrack%20Goated%2075%25%20Slightly%20Larger> with 12.97!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 891,
+    "player_name": "Christine",
+    "event_type": "rank_up",
+    "message": "\ud83c\udfc6 Time Stone activated! @Christine fast-forwards their rank to **Celadon** on **Medium**! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 890,
+    "player_name": "Haruno",
+    "event_type": "rank_up",
+    "message": "\ud83c\udfc6 Bifrost bridge open! @Haruno ascends to **Penguin** on the **Easier** benchmark! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 889,
+    "player_name": "CoachCam",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Doctor Strange portals to the next tier! @CoachCam promoted to **Fox** on **Easier**!\n- \u2694\ufe0f Uni-beam tracking! @CoachCam melted @BakaOppai's score on **Controlsphere OW Long Strafes 90%** - <https://matthewgutz.github.io/kovaaks-play?scenario=Controlsphere%20OW%20Long%20Strafes%2090%25> like a laser to the face! New high: 49.99! (Previous: 49.9)",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 888,
+    "player_name": "Olioli",
+    "event_type": "rank_up",
+    "message": "\ud83c\udfc6 Look who's climbing! @Olioli is now a certified **Penguin** on **Easier**! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 887,
+    "player_name": "Christine",
+    "event_type": "rank_up",
+    "message": "\ud83c\udfc6 Mirror Dimension mastered! @Christine moves up to **Fox** on **Easier**! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 886,
     "player_name": "BakaOppai",
     "event_type": "rank_up",
-    "message": "\ud83c\udfc6 Climb mountain! <@111111111111111111> stand high as **Hare** on Easier!",
-    "timestamp": "2026-05-23 07:25:42"
+    "message": "\ud83c\udfc6 RANK UP! @BakaOppai has promoted to **Fox** (Rank 5) on the **Easier** benchmark! From Bronze scrubs to Grandmasters! (Previous: Penguin) \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 885,
+    "player_name": "Haruno",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Mirror Dimension mastered! @Haruno moves up to **Satin** on **Hard**!\n- \ud83c\udf89 Iron Man Overdrive! @Haruno's repulsors are fully charged, landing a new PB of 64.14 on **Controlsphere OW 150%** - <https://matthewgutz.github.io/kovaaks-play?scenario=Controlsphere%20OW%20150%25>!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 884,
+    "player_name": "Laggiing",
+    "event_type": "consolidated",
+    "message": "Consolidated [3 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 RANK UP! @Laggiing has promoted to **Satin** (Rank 5) on the **Hard** benchmark! From Bronze scrubs to Grandmasters! (Previous: Velvet)\n- \ud83c\udf89 Punisher rage activated! @Laggiing went full auto and shredded their old score, hitting a new PB of 65.08 on **cloverRawControl** - <https://matthewgutz.github.io/kovaaks-play?scenario=cloverRawControl>!\n- \u2694\ufe0f Widow's Kiss! @Laggiing sniped @CoachCam's score on **Floating Heads Timing 400% FIXED** - <https://matthewgutz.github.io/kovaaks-play?scenario=Floating%20Heads%20Timing%20400%25%20FIXED> right out of existence with a clean 29.75!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 883,
+    "player_name": "CoachCam",
+    "event_type": "rank_up",
+    "message": "\ud83c\udfc6 Wakanda Forever! @CoachCam advances to **Satin** on **Hard**! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 882,
+    "player_name": "Olioli",
+    "event_type": "consolidated",
+    "message": "Consolidated [3 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83e\udd0f Rocket Raccoon missing his shots! @Olioli fell short of @Christine (23.67) by a measly 0.02 points on **Polarized Hell 20% Slower** - <https://matthewgutz.github.io/kovaaks-play?scenario=Polarized%20Hell%2020%25%20Slower>!\n- \ud83d\udd25 No Nano-shield can save you! @Olioli dethroned @Laggiing and @Haruno ONCE AGAIN on **Popcorn MV Advanced** - <https://matthewgutz.github.io/kovaaks-play?scenario=Popcorn%20MV%20Advanced> (Score: 2.69)!\n- \ud83d\udc3f\ufe0f No safety net! @Olioli clipped @BakaOppai on **1w3ts Pasu Perfected Micro Goated** - <https://matthewgutz.github.io/kovaaks-play?scenario=1w3ts%20Pasu%20Perfected%20Micro%20Goated> mid-acrobatic leap! Not even Black Cat's good fortune could save that 10.2!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 881,
+    "player_name": "Christine",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83d\udd25 Full Symbiote rage! @Christine went Venom-mode and devoured @Haruno, @CoachCam, @Olioli, and @Laggiing's top spot on **Whisphere Extra Small & Slow** - <https://matthewgutz.github.io/kovaaks-play?scenario=Whisphere%20Extra%20Small%20%26%20Slow> with 79.03!\n- \ud83e\udd0f Almost a team wipe! @Christine is breathing down @Haruno's neck on **Pokeball Frenzy Auto TE Wide** - <https://matthewgutz.github.io/kovaaks-play?scenario=Pokeball%20Frenzy%20Auto%20TE%20Wide>, trailing by only 0.24 points!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 880,
+    "player_name": "Haruno",
+    "event_type": "pb",
+    "message": "\ud83c\udf89 Web-Zip! @Haruno accelerated past their limits to hit a new PB of 19.14 on **VT Controlsphere Novice S5 Hard** - <https://matthewgutz.github.io/kovaaks-play?scenario=VT%20Controlsphere%20Novice%20S5%20Hard>! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 879,
+    "player_name": "Christine",
+    "event_type": "overtake",
+    "message": "\ud83d\udd25 Team-Up active! @Christine refuses to be carried by @BakaOppai and @Olioli and retook the lead on **Leaptrack Goated 75% Slightly Larger** - <https://matthewgutz.github.io/kovaaks-play?scenario=Leaptrack%20Goated%2075%25%20Slightly%20Larger> with 12.97! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 878,
+    "player_name": "BakaOppai",
+    "event_type": "rank_up",
+    "message": "\ud83c\udfc6 Look who's climbing! @BakaOppai is now a certified **Cerulean** on **Medium**! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 877,
+    "player_name": "Laggiing",
+    "event_type": "overtake",
+    "message": "\u2694\ufe0f Psychic link tracking! @Laggiing read @BakaOppai's movement perfectly on **Leaptrack Goated 60% Larger** - <https://matthewgutz.github.io/kovaaks-play?scenario=Leaptrack%20Goated%2060%25%20Larger> and hit a crystal-clear 7.89! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 876,
+    "player_name": "CoachCam",
+    "event_type": "overtake",
+    "message": "\ud83d\udd25 Loki decoy exposed! @CoachCam saw right through the illusion and snatched the lead back from @Laggiing on **Air Pure Intermediate Slower No UFO** - <https://matthewgutz.github.io/kovaaks-play?scenario=Air%20Pure%20Intermediate%20Slower%20No%20UFO> with 7.96! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 875,
+    "player_name": "BakaOppai",
+    "event_type": "overtake",
+    "message": "\ud83d\udd25 Hela vs. Magneto! The battle continues! @BakaOppai takes the lead BACK from @CoachCam, @Laggiing, and @Olioli on **Pokeball Frenzy Auto TE Wide** - <https://matthewgutz.github.io/kovaaks-play?scenario=Pokeball%20Frenzy%20Auto%20TE%20Wide> with 6.03! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:26:55"
+  },
+  {
+    "id": 874,
+    "player_name": "Laggiing",
+    "event_type": "consolidated",
+    "message": "Consolidated [3 updates]  \ud83d\udd25 Hot Streak!:\n- \u2694\ufe0f Uni-beam tracking! @Laggiing melted @Christine's score on **SmoothBot Invincible Goated Smaller** - <https://matthewgutz.github.io/kovaaks-play?scenario=SmoothBot%20Invincible%20Goated%20Smaller> like a laser to the face! New high: 25.09! (Previous: 25.01)\n- \ud83d\udd25 Loki decoy exposed! @Laggiing saw right through the illusion and snatched the lead back from @CoachCam on **Leaptrack Goated 80%** - <https://matthewgutz.github.io/kovaaks-play?scenario=Leaptrack%20Goated%2080%25> with 23.21!\n- \u2694\ufe0f Wakandan hunting ground! @Laggiing pounced between targets on **FloatTS Angelic** - <https://matthewgutz.github.io/kovaaks-play?scenario=FloatTS%20Angelic> and sliced past @CoachCam and @Haruno's score with 0.87!",
+    "timestamp": "2026-05-23 07:24:51"
+  },
+  {
+    "id": 873,
+    "player_name": "BakaOppai",
+    "event_type": "consolidated",
+    "message": "Consolidated [3 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Time Stone activated! @BakaOppai fast-forwards their rank to **Satin** on **Hard**!\n- \u2694\ufe0f Milano's Calling! @BakaOppai rocket-boot drifted around @Haruno and sprayed down a tracking score of 24.92 on **SmoothBot Invincible Goated Smaller** - <https://matthewgutz.github.io/kovaaks-play?scenario=SmoothBot%20Invincible%20Goated%20Smaller>!\n- \ud83e\udd0f Almost a team wipe! @BakaOppai is breathing down @Christine's neck on **PGTI Voltaic** - <https://matthewgutz.github.io/kovaaks-play?scenario=PGTI%20Voltaic>, trailing by only 0.02 points!",
+    "timestamp": "2026-05-23 07:24:51"
+  },
+  {
+    "id": 872,
+    "player_name": "Haruno",
+    "event_type": "consolidated",
+    "message": "Consolidated [5 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Wakanda Forever! @Haruno advances to **Celadon** on **Medium**!\n- \ud83e\udd0f Strategist heal required! @Haruno scored 71.83 on **Controlsphere Far Larger** - <https://matthewgutz.github.io/kovaaks-play?scenario=Controlsphere%20Far%20Larger>\u2014falling just 0.37 points short of @BakaOppai (72.2)! Luna Snow won't save you from this gap.\n- \ud83d\udd25 Hela vs. Magneto! The battle continues! @Haruno takes the lead BACK from @Laggiing and @Christine on **Whisphere Small & Slow 75%** - <https://matthewgutz.github.io/kovaaks-play?scenario=Whisphere%20Small%20%26%20Slow%2075%25> with 50.87!\n- \ud83d\udd25 Full Symbiote rage! @Haruno went Venom-mode and devoured @Olioli, @Laggiing, and @Christine's top spot on **Flicker Plaza rAim Easy** - <https://matthewgutz.github.io/kovaaks-play?scenario=Flicker%20Plaza%20rAim%20Easy> with 7.99!\n- \u2694\ufe0f Flyer diff! @Haruno shot @CoachCam's score out of the sky on **Air Voltaic Easy Invincible 4** - <https://matthewgutz.github.io/kovaaks-play?scenario=Air%20Voltaic%20Easy%20Invincible%204> with a clean 16.64! Go practice shooting down that annoying flying Iron Man!",
+    "timestamp": "2026-05-23 07:24:51"
+  },
+  {
+    "id": 871,
+    "player_name": "Laggiing",
+    "event_type": "consolidated",
+    "message": "Consolidated [3 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Bifrost bridge open! @Laggiing ascends to **Cerulean** on the **Medium** benchmark!\n- \ud83e\udd0f Rocket Raccoon missing his shots! @Laggiing fell short of @Olioli (46.31) by a measly 0.02 points on **cloverRawControl Easy** - <https://matthewgutz.github.io/kovaaks-play?scenario=cloverRawControl%20Easy>!\n- \ud83d\udd25 No Nano-shield can save you! @Laggiing dethroned @Christine and @Haruno ONCE AGAIN on **Polarized Hell Easy 20% Slower** - <https://matthewgutz.github.io/kovaaks-play?scenario=Polarized%20Hell%20Easy%2020%25%20Slower> (Score: 14.81)!",
+    "timestamp": "2026-05-23 07:24:51"
+  },
+  {
+    "id": 870,
+    "player_name": "Olioli",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \u2694\ufe0f Spit-fire track! @Olioli tracked @Christine with perfect splash precision on **Whisphere** - <https://matthewgutz.github.io/kovaaks-play?scenario=Whisphere> for a new high of 53.42!\n- \ud83c\udf89 Aim training is paying off! @Olioli pushed their **Pasu Angelic 20% Larger** - <https://matthewgutz.github.io/kovaaks-play?scenario=Pasu%20Angelic%2020%25%20Larger> record up to 0.66!",
+    "timestamp": "2026-05-23 07:24:51"
+  },
+  {
+    "id": 869,
+    "player_name": "Christine",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 RANK UP! @Christine has promoted to **Cerulean** (Rank 5) on the **Medium** benchmark! From Bronze scrubs to Grandmasters! (Previous: Celadon)\n- \u2694\ufe0f Chaos Magic pop! @Christine popped targets in rapid succession on **domiSwitch Easy** - <https://matthewgutz.github.io/kovaaks-play?scenario=domiSwitch%20Easy> to hit 38.97! Scarlet Witch's auto-lock has nothing on this!",
+    "timestamp": "2026-05-23 07:24:51"
+  },
+  {
+    "id": 868,
+    "player_name": "BakaOppai",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Mirror Dimension mastered! @BakaOppai moves up to **Celadon** on **Medium**!\n- \ud83e\udd0f Almost a team wipe! @BakaOppai is breathing down @CoachCam's neck on **Air Pure Intermediate** - <https://matthewgutz.github.io/kovaaks-play?scenario=Air%20Pure%20Intermediate>, trailing by only 0.01 points!",
+    "timestamp": "2026-05-23 07:24:51"
+  },
+  {
+    "id": 867,
+    "player_name": "Laggiing",
+    "event_type": "overtake",
+    "message": "\ud83d\udd25 Loki decoy exposed! @Laggiing saw right through the illusion and snatched the lead back from @Christine and @BakaOppai on **SmoothBot Invincible Goated 75%** - <https://matthewgutz.github.io/kovaaks-play?scenario=SmoothBot%20Invincible%20Goated%2075%25> with 16.7! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:24:51"
+  },
+  {
+    "id": 866,
+    "player_name": "CoachCam",
+    "event_type": "rank_up",
+    "message": "\ud83c\udfc6 Doctor Strange portals to the next tier! @CoachCam promoted to **Fox** on **Easier**! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:24:51"
+  },
+  {
+    "id": 865,
+    "player_name": "Olioli",
+    "event_type": "pain_point",
+    "message": "\ud83e\udd0f Strategist heal required! @Olioli scored 7.92 on **Flicker Plaza rAim Easy Less Blinks** - <https://matthewgutz.github.io/kovaaks-play?scenario=Flicker%20Plaza%20rAim%20Easy%20Less%20Blinks>\u2014falling just 0.03 points short of @BakaOppai (7.95)! Luna Snow won't save you from this gap. \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:24:51"
+  },
+  {
+    "id": 864,
+    "player_name": "Christine",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Time Stone activated! @Christine fast-forwards their rank to **Penguin** on **Easier**!\n- \ud83e\udd0f Rocket Raccoon missing his shots! @Christine fell short of @Haruno (56.44) by a measly 0.04 points on **Controlsphere rAim Easy 90%** - <https://matthewgutz.github.io/kovaaks-play?scenario=Controlsphere%20rAim%20Easy%2090%25>!",
+    "timestamp": "2026-05-23 07:24:51"
+  },
+  {
+    "id": 863,
+    "player_name": "BakaOppai",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Look who's climbing! @BakaOppai is now a certified **Fox** on **Easier**!\n- \ud83e\udd0f Almost a team wipe! @BakaOppai is breathing down @Christine's neck on **Whisphere Small & Slow 55%** - <https://matthewgutz.github.io/kovaaks-play?scenario=Whisphere%20Small%20%26%20Slow%2055%25>, trailing by only 0.02 points!",
+    "timestamp": "2026-05-23 07:24:51"
+  },
+  {
+    "id": 862,
+    "player_name": "Haruno",
+    "event_type": "consolidated",
+    "message": "Consolidated [3 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Wakanda Forever! @Haruno advances to **Satin** on **Hard**!\n- \ud83d\udd25 Full Symbiote rage! @Haruno went Venom-mode and devoured @BakaOppai's top spot on **Air Pure** - <https://matthewgutz.github.io/kovaaks-play?scenario=Air%20Pure> with 8.21!\n- \ud83e\udd0f Rocket Raccoon missing his shots! @Haruno fell short of @BakaOppai (1.02) by a measly 0.01 points on **Pasu Reload Goated** - <https://matthewgutz.github.io/kovaaks-play?scenario=Pasu%20Reload%20Goated>!",
+    "timestamp": "2026-05-23 07:24:50"
+  },
+  {
+    "id": 861,
+    "player_name": "Laggiing",
+    "event_type": "pain_point",
+    "message": "\ud83e\udd0f Almost a team wipe! @Laggiing is breathing down @Christine's neck on **Ground Plaza Sparky V3 Thin** - <https://matthewgutz.github.io/kovaaks-play?scenario=Ground%20Plaza%20Sparky%20V3%20Thin>, trailing by only 0.02 points! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:24:50"
+  },
+  {
+    "id": 860,
+    "player_name": "CoachCam",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \u2694\ufe0f Dash prediction diff! @CoachCam read @Olioli and @Haruno's psychic slash on **voxTargetSwitch 2 20% Smaller** - <https://matthewgutz.github.io/kovaaks-play?scenario=voxTargetSwitch%202%2020%25%20Smaller> and pinned them down mid-dash with a clean 0.95!\n- \ud83d\udc3f\ufe0f Anti-Squirrel defense active! @CoachCam hit a clean 2.69 on **Popcorn MV Advanced** - <https://matthewgutz.github.io/kovaaks-play?scenario=Popcorn%20MV%20Advanced>, shooting down those annoying bouncing targets like a pro!",
+    "timestamp": "2026-05-23 07:24:50"
+  },
+  {
+    "id": 859,
+    "player_name": "Olioli",
+    "event_type": "rank_up",
+    "message": "\ud83c\udfc6 Bifrost bridge open! @Olioli ascends to **Satin** on the **Hard** benchmark! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:24:50"
+  },
+  {
+    "id": 858,
+    "player_name": "Christine",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Doctor Strange portals to the next tier! @Christine promoted to **Chiffon** on **Hard**!\n- \u2694\ufe0f Subjugation beam! @Christine tracked the target like an AI drone, overtaking @Laggiing on **WhisphereRawControl 30% small** - <https://matthewgutz.github.io/kovaaks-play?scenario=WhisphereRawControl%2030%25%20small> with 65.98!",
+    "timestamp": "2026-05-23 07:24:50"
+  },
+  {
+    "id": 857,
+    "player_name": "BakaOppai",
+    "event_type": "pain_point",
+    "message": "\ud83e\udd0f Strategist heal required! @BakaOppai scored 51.52 on **domiSwitch** - <https://matthewgutz.github.io/kovaaks-play?scenario=domiSwitch>\u2014falling just 0.03 points short of @Christine (51.55)! Luna Snow won't save you from this gap. \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:24:50"
+  },
+  {
+    "id": 856,
+    "player_name": "Haruno",
+    "event_type": "overtake",
+    "message": "\ud83d\udd25 Loki decoy exposed! @Haruno saw right through the illusion and snatched the lead back from @Christine, @Olioli, and @BakaOppai on **Whisphere** - <https://matthewgutz.github.io/kovaaks-play?scenario=Whisphere> with 53.42! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:24:50"
+  },
+  {
+    "id": 855,
+    "player_name": "Laggiing",
+    "event_type": "overtake",
+    "message": "\ud83d\udd25 Hela vs. Magneto! The battle continues! @Laggiing takes the lead BACK from @BakaOppai and @Christine on **domiSwitch Easy** - <https://matthewgutz.github.io/kovaaks-play?scenario=domiSwitch%20Easy> with 38.99! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:24:50"
+  },
+  {
+    "id": 854,
+    "player_name": "CoachCam",
+    "event_type": "pain_point",
+    "message": "\ud83e\udd0f Rocket Raccoon missing his shots! @CoachCam fell short of @Christine (18.07) by a measly 0.01 points on **Floating Heads Timing 400% Larger** - <https://matthewgutz.github.io/kovaaks-play?scenario=Floating%20Heads%20Timing%20400%25%20Larger>! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:24:50"
+  },
+  {
+    "id": 853,
+    "player_name": "BakaOppai",
+    "event_type": "pain_point",
+    "message": "\ud83e\udd0f Almost a team wipe! @BakaOppai is breathing down @Olioli's neck on **Whisphere** - <https://matthewgutz.github.io/kovaaks-play?scenario=Whisphere>, trailing by only 0.31 points! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:24:50"
+  },
+  {
+    "id": 852,
+    "player_name": "Haruno",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Mirror Dimension mastered! @Haruno moves up to **Fox** on **Easier**!\n- \ud83e\udd0f Strategist heal required! @Haruno scored 49.78 on **Controlsphere OW Long Strafes 90%** - <https://matthewgutz.github.io/kovaaks-play?scenario=Controlsphere%20OW%20Long%20Strafes%2090%25>\u2014falling just 0.05 points short of @CoachCam (49.83)! Luna Snow won't save you from this gap.",
+    "timestamp": "2026-05-23 07:24:50"
+  },
+  {
+    "id": 851,
+    "player_name": "Laggiing",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Look who's climbing! @Laggiing is now a certified **Penguin** on **Easier**!\n- \ud83e\udd0f Rocket Raccoon missing his shots! @Laggiing fell short of @BakaOppai (55.41) by a measly 0.03 points on **Whisphere Small & Slow 55%** - <https://matthewgutz.github.io/kovaaks-play?scenario=Whisphere%20Small%20%26%20Slow%2055%25>!",
+    "timestamp": "2026-05-23 07:24:50"
+  },
+  {
+    "id": 850,
+    "player_name": "BakaOppai",
+    "event_type": "pb",
+    "message": "\ud83c\udf89 Unstoppable! @BakaOppai just set a record of 0.24 on **B180 Voltaic Easy 92%** - <https://matthewgutz.github.io/kovaaks-play?scenario=B180%20Voltaic%20Easy%2092%25>! Someone check their aimkeys! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:24:50"
+  },
+  {
+    "id": 849,
+    "player_name": "Laggiing",
+    "event_type": "rank_up",
+    "message": "\ud83c\udfc6 Wakanda Forever! @Laggiing advances to **Chiffon** on **Hard**! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 848,
+    "player_name": "CoachCam",
+    "event_type": "rank_up",
+    "message": "\ud83c\udfc6 RANK UP! @CoachCam has promoted to **Satin** (Rank 5) on the **Hard** benchmark! From Bronze scrubs to Grandmasters! (Previous: Velvet) \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 847,
+    "player_name": "Christine",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83d\udd25 Full Symbiote rage! @Christine went Venom-mode and devoured @CoachCam, @Laggiing, and @Haruno's top spot on **FloatTS Angelic** - <https://matthewgutz.github.io/kovaaks-play?scenario=FloatTS%20Angelic> with 0.87!\n- \ud83d\udc3f\ufe0f Squirrel Girl down! @Christine clicked @CoachCam, @Laggiing, and @Haruno out of the sky on **Popcorn MV Advanced** - <https://matthewgutz.github.io/kovaaks-play?scenario=Popcorn%20MV%20Advanced> like hunting Squirrel Girl mid-bounce! New high: 2.69!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 846,
+    "player_name": "BakaOppai",
+    "event_type": "consolidated",
+    "message": "Consolidated [3 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Mirror Dimension mastered! @BakaOppai moves up to **Satin** on **Hard**!\n- \ud83e\udd0f Strategist heal required! @BakaOppai scored 129.36 on **Whisphere Small & Slow** - <https://matthewgutz.github.io/kovaaks-play?scenario=Whisphere%20Small%20%26%20Slow>\u2014falling just 0.22 points short of @Christine (129.58)! Luna Snow won't save you from this gap.\n- \ud83d\udd25 Hela vs. Magneto! The battle continues! @BakaOppai takes the lead BACK from @Christine on **Controlsphere Far** - <https://matthewgutz.github.io/kovaaks-play?scenario=Controlsphere%20Far> with 79.88!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 845,
+    "player_name": "Laggiing",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Bifrost bridge open! @Laggiing ascends to **Cerulean** on the **Medium** benchmark!\n- \ud83d\udd25 No Nano-shield can save you! @Laggiing dethroned @Christine and @CoachCam ONCE AGAIN on **VT Bounceshot Intermediate** - <https://matthewgutz.github.io/kovaaks-play?scenario=VT%20Bounceshot%20Intermediate> (Score: 5.11)!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 844,
+    "player_name": "CoachCam",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Time Stone activated! @CoachCam fast-forwards their rank to **Cerulean** on **Medium**!\n- \ud83e\udd0f Rocket Raccoon missing his shots! @CoachCam fell short of @Olioli (15.74) by a measly 0.08 points on **SmoothBot Invincible Goated** - <https://matthewgutz.github.io/kovaaks-play?scenario=SmoothBot%20Invincible%20Goated>!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 843,
+    "player_name": "Olioli",
+    "event_type": "overtake",
+    "message": "\ud83d\udd25 Team-Up active! @Olioli refuses to be carried by @Laggiing, @CoachCam, and @BakaOppai and retook the lead on **Controlsphere Far Larger** - <https://matthewgutz.github.io/kovaaks-play?scenario=Controlsphere%20Far%20Larger> with 72.46! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 842,
+    "player_name": "Haruno",
+    "event_type": "pain_point",
+    "message": "\ud83e\udd0f Almost a team wipe! @Haruno is breathing down @BakaOppai's neck on **Flicker Plaza rAim Easy Less Blinks** - <https://matthewgutz.github.io/kovaaks-play?scenario=Flicker%20Plaza%20rAim%20Easy%20Less%20Blinks>, trailing by only 0.03 points! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 841,
+    "player_name": "Laggiing",
+    "event_type": "consolidated",
+    "message": "Consolidated [4 updates]  \ud83d\udd25 Hot Streak!:\n- \u2694\ufe0f Subjugation beam! @Laggiing tracked the target like an AI drone, overtaking @Haruno on **SmoothBot Invincible Goated 75%** - <https://matthewgutz.github.io/kovaaks-play?scenario=SmoothBot%20Invincible%20Goated%2075%25> with 16.61!\n- \u2694\ufe0f Anti-air master! @Laggiing swatted down the opposition on **Air CELESTIAL No UFO Easy Slowed** - <https://matthewgutz.github.io/kovaaks-play?scenario=Air%20CELESTIAL%20No%20UFO%20Easy%20Slowed> with 7.6! Storm won't be hovering in your lobby anymore.\n- \ud83d\udd25 Full Symbiote rage! @Laggiing went Venom-mode and devoured @CoachCam, @Olioli, and @Haruno's top spot on **Polarized Hell Easy 40% Slower** - <https://matthewgutz.github.io/kovaaks-play?scenario=Polarized%20Hell%20Easy%2040%25%20Slower> with 6.96!\n- \ud83e\udd0f Strategist heal required! @Laggiing scored 29.56 on **domiSwitch Easy Slower** - <https://matthewgutz.github.io/kovaaks-play?scenario=domiSwitch%20Easy%20Slower>\u2014falling just 0.05 points short of @CoachCam (29.61)! Luna Snow won't save you from this gap.",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 840,
+    "player_name": "Olioli",
+    "event_type": "pb",
+    "message": "\ud83c\udf89 Punisher rage activated! @Olioli went full auto and shredded their old score, hitting a new PB of 0.45 on **voxTargetSwitch Click** - <https://matthewgutz.github.io/kovaaks-play?scenario=voxTargetSwitch%20Click>! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 839,
+    "player_name": "Christine",
+    "event_type": "pain_point",
+    "message": "\ud83e\udd0f Rocket Raccoon missing his shots! @Christine fell short of @Olioli (6.96) by a measly 0.02 points on **Air Voltaic Invincible 7 Easy 80%** - <https://matthewgutz.github.io/kovaaks-play?scenario=Air%20Voltaic%20Invincible%207%20Easy%2080%25>! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 838,
+    "player_name": "BakaOppai",
+    "event_type": "consolidated",
+    "message": "Consolidated [4 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Look who's climbing! @BakaOppai is now a certified **Fox** on **Easier**!\n- \u2694\ufe0f No hover zone! @BakaOppai absolutely melted @Christine and @Olioli's score on **PGTI Voltaic Easy 80%** - <https://matthewgutz.github.io/kovaaks-play?scenario=PGTI%20Voltaic%20Easy%2080%25> (3.24)! Good luck trying to fly away like Angela!\n- \ud83e\udd0f Almost a team wipe! @BakaOppai is breathing down @CoachCam's neck on **Pokeball Frenzy Auto TE Wide** - <https://matthewgutz.github.io/kovaaks-play?scenario=Pokeball%20Frenzy%20Auto%20TE%20Wide>, trailing by only 0.01 points!\n- \ud83d\udd25 Loki decoy exposed! @BakaOppai saw right through the illusion and snatched the lead back from @Laggiing on **Floating Heads Timing 400% Larger** - <https://matthewgutz.github.io/kovaaks-play?scenario=Floating%20Heads%20Timing%20400%25%20Larger> with 3.67!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 837,
+    "player_name": "Haruno",
+    "event_type": "overtake",
+    "message": "\ud83d\udd25 No Nano-shield can save you! @Haruno dethroned @Christine ONCE AGAIN on **Leaptrack Goated 80%** - <https://matthewgutz.github.io/kovaaks-play?scenario=Leaptrack%20Goated%2080%25> (Score: 23.07)! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 836,
+    "player_name": "Laggiing",
+    "event_type": "consolidated",
+    "message": "Consolidated [3 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83e\udd0f Almost a team wipe! @Laggiing is breathing down @Christine's neck on **Ground Plaza Sparky V3 Thin** - <https://matthewgutz.github.io/kovaaks-play?scenario=Ground%20Plaza%20Sparky%20V3%20Thin>, trailing by only 0.05 points!\n- \ud83d\udd25 Full Symbiote rage! @Laggiing went Venom-mode and devoured @Christine and @CoachCam's top spot on **Flicker Plaza** - <https://matthewgutz.github.io/kovaaks-play?scenario=Flicker%20Plaza> with 8.2!\n- \u2694\ufe0f Soul Rebirth denied! @Laggiing sniped @Olioli, @Haruno, @Christine, and @BakaOppai right as they respawned on **Floating Heads Timing 400% FIXED** - <https://matthewgutz.github.io/kovaaks-play?scenario=Floating%20Heads%20Timing%20400%25%20FIXED>! New high score: 29.72!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 835,
+    "player_name": "CoachCam",
+    "event_type": "consolidated",
+    "message": "Consolidated [3 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83d\udd25 Team-Up active! @CoachCam refuses to be carried by @BakaOppai and retook the lead on **WhisphereRawControl 30% small** - <https://matthewgutz.github.io/kovaaks-play?scenario=WhisphereRawControl%2030%25%20small> with 65.78!\n- \ud83e\udd0f Strategist heal required! @CoachCam scored 8.19 on **Flicker Plaza** - <https://matthewgutz.github.io/kovaaks-play?scenario=Flicker%20Plaza>\u2014falling just 0.07 points short of @Olioli (8.26)! Luna Snow won't save you from this gap.\n- \ud83d\udc3f\ufe0f No safety net! @CoachCam clipped @Christine on **1w2ts Pasu Perfected 30% Smaller** - <https://matthewgutz.github.io/kovaaks-play?scenario=1w2ts%20Pasu%20Perfected%2030%25%20Smaller> mid-acrobatic leap! Not even Black Cat's good fortune could save that 0.69!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 834,
+    "player_name": "Olioli",
+    "event_type": "consolidated",
+    "message": "Consolidated [4 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Time Stone activated! @Olioli fast-forwards their rank to **Satin** on **Hard**!\n- \ud83d\udd25 Hela vs. Magneto! The battle continues! @Olioli takes the lead BACK from @Christine, @Haruno, @CoachCam, and @BakaOppai on **Air Angelic 4 Voltaic** - <https://matthewgutz.github.io/kovaaks-play?scenario=Air%20Angelic%204%20Voltaic> with 30.65!\n- \ud83d\udd25 Loki decoy exposed! @Olioli saw right through the illusion and snatched the lead back from @BakaOppai, @CoachCam, and @Haruno on **Ground Plaza Sparky V3 Thin** - <https://matthewgutz.github.io/kovaaks-play?scenario=Ground%20Plaza%20Sparky%20V3%20Thin> with 8.18!\n- \ud83e\udd0f Rocket Raccoon missing his shots! @Olioli fell short of @Laggiing (6.77) by a measly 0.01 points on **VT Bounceshot Advanced** - <https://matthewgutz.github.io/kovaaks-play?scenario=VT%20Bounceshot%20Advanced>!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 833,
+    "player_name": "Christine",
+    "event_type": "rank_up",
+    "message": "\ud83c\udfc6 Wakanda Forever! @Christine advances to **Satin** on **Hard**! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 832,
+    "player_name": "BakaOppai",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 RANK UP! @BakaOppai has promoted to **Chiffon** (Rank 4) on the **Hard** benchmark! From Bronze scrubs to Grandmasters! (Previous: Velvet)\n- \ud83e\udd0f Almost a team wipe! @BakaOppai is breathing down @Haruno's neck on **SmoothBot Invincible Goated Smaller** - <https://matthewgutz.github.io/kovaaks-play?scenario=SmoothBot%20Invincible%20Goated%20Smaller>, trailing by only 0.07 points!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 831,
+    "player_name": "Haruno",
+    "event_type": "rank_up",
+    "message": "\ud83c\udfc6 Doctor Strange portals to the next tier! @Haruno promoted to **Cerulean** on **Medium**! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 830,
+    "player_name": "Olioli",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Bifrost bridge open! @Olioli ascends to **Cerulean** on the **Medium** benchmark!\n- \u2694\ufe0f Psychic link tracking! @Olioli read @Christine's movement perfectly on **Leaptrack Goated 75% Slightly Larger** - <https://matthewgutz.github.io/kovaaks-play?scenario=Leaptrack%20Goated%2075%25%20Slightly%20Larger> and hit a crystal-clear 12.91!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 829,
+    "player_name": "Christine",
+    "event_type": "rank_up",
+    "message": "\ud83c\udfc6 Mirror Dimension mastered! @Christine moves up to **Cerulean** on **Medium**! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 828,
+    "player_name": "BakaOppai",
+    "event_type": "overtake",
+    "message": "\u2694\ufe0f Widow's Kiss! @BakaOppai sniped @Olioli, @Haruno, and @Christine's score on **Floating Heads Timing 400% Larger** - <https://matthewgutz.github.io/kovaaks-play?scenario=Floating%20Heads%20Timing%20400%25%20Larger> right out of existence with a clean 18.13! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 827,
+    "player_name": "Haruno",
+    "event_type": "consolidated",
+    "message": "Consolidated [3 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Look who's climbing! @Haruno is now a certified **Fox** on **Easier**!\n- \ud83e\udd0f Strategist heal required! @Haruno scored 56.44 on **Controlsphere rAim Easy 90%** - <https://matthewgutz.github.io/kovaaks-play?scenario=Controlsphere%20rAim%20Easy%2090%25>\u2014falling just 0.05 points short of @CoachCam (56.49)! Luna Snow won't save you from this gap.\n- \ud83d\udd25 Full Symbiote rage! @Haruno went Venom-mode and devoured @BakaOppai and @Laggiing's top spot on **Floating Heads Timing 400% Larger** - <https://matthewgutz.github.io/kovaaks-play?scenario=Floating%20Heads%20Timing%20400%25%20Larger> with 3.67!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 826,
+    "player_name": "Laggiing",
+    "event_type": "pb",
+    "message": "\ud83c\udf89 Black Panther speed! @Laggiing pounced on a new PB of 9.74 on **Air Angelic 4 Voltaic Easy 80% (Good Version)** - <https://matthewgutz.github.io/kovaaks-play?scenario=Air%20Angelic%204%20Voltaic%20Easy%2080%25%20%28Good%20Version%29>! Wakanda Forever! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 825,
+    "player_name": "CoachCam",
+    "event_type": "overtake",
+    "message": "\ud83d\udd25 No Nano-shield can save you! @CoachCam dethroned @Christine and @BakaOppai ONCE AGAIN on **SmoothBot Invincible Goated 75%** - <https://matthewgutz.github.io/kovaaks-play?scenario=SmoothBot%20Invincible%20Goated%2075%25> (Score: 16.7)! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 824,
+    "player_name": "Olioli",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Time Stone activated! @Olioli fast-forwards their rank to **Fox** on **Easier**!\n- \u2694\ufe0f Flyer diff! @Olioli shot @Christine, @CoachCam, @Laggiing, and @BakaOppai's score out of the sky on **Air CELESTIAL No UFO Easy Slowed** - <https://matthewgutz.github.io/kovaaks-play?scenario=Air%20CELESTIAL%20No%20UFO%20Easy%20Slowed> with a clean 7.61! Go practice shooting down that annoying flying Iron Man!",
+    "timestamp": "2026-05-23 07:21:41"
+  },
+  {
+    "id": 823,
+    "player_name": "Haruno",
+    "event_type": "consolidated",
+    "message": "Consolidated [3 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83d\udd25 Hela vs. Magneto! The battle continues! @Haruno takes the lead BACK from @Laggiing and @Christine on **WhisphereRawControl 30% small** - <https://matthewgutz.github.io/kovaaks-play?scenario=WhisphereRawControl%2030%25%20small> with 66.0!\n- \ud83d\udd25 No Nano-shield can save you! @Haruno dethroned @CoachCam ONCE AGAIN on **VT Controlsphere Intermediate S5 Hard** - <https://matthewgutz.github.io/kovaaks-play?scenario=VT%20Controlsphere%20Intermediate%20S5%20Hard> (Score: 26.48)!\n- \ud83e\udd0f Strategist heal required! @Haruno scored 79.32 on **Controlsphere Far** - <https://matthewgutz.github.io/kovaaks-play?scenario=Controlsphere%20Far>\u2014falling just 0.24 points short of @CoachCam (79.56)! Luna Snow won't save you from this gap.",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 822,
+    "player_name": "Laggiing",
+    "event_type": "pain_point",
+    "message": "\ud83e\udd0f Rocket Raccoon missing his shots! @Laggiing fell short of @CoachCam (51.36) by a measly 0.19 points on **domiSwitch** - <https://matthewgutz.github.io/kovaaks-play?scenario=domiSwitch>! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 821,
+    "player_name": "CoachCam",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \u2694\ufe0f Punisher primary fire laser! @CoachCam tracked @Christine and @Laggiing down and sprayed past them on **VT Controlsphere Intermediate S5 Hard** - <https://matthewgutz.github.io/kovaaks-play?scenario=VT%20Controlsphere%20Intermediate%20S5%20Hard> with 26.46!\n- \ud83d\udd25 Full Symbiote rage! @CoachCam went Venom-mode and devoured @BakaOppai's top spot on **Air Angelic 4 Voltaic** - <https://matthewgutz.github.io/kovaaks-play?scenario=Air%20Angelic%204%20Voltaic> with 30.59!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 820,
+    "player_name": "Christine",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \u2694\ufe0f Psychic link tracking! @Christine read @Haruno's movement perfectly on **WhisphereRawControl 30% small** - <https://matthewgutz.github.io/kovaaks-play?scenario=WhisphereRawControl%2030%25%20small> and hit a crystal-clear 65.91!\n- \u2694\ufe0f Bionic precision! @Christine locked in and punched past @BakaOppai and @Laggiing's score on **Controlsphere Click Smaller** - <https://matthewgutz.github.io/kovaaks-play?scenario=Controlsphere%20Click%20Smaller> with 0.36!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 819,
+    "player_name": "Laggiing",
+    "event_type": "rank_up",
+    "message": "\ud83c\udfc6 Doctor Strange portals to the next tier! @Laggiing promoted to **Cerulean** on **Medium**! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 818,
+    "player_name": "CoachCam",
+    "event_type": "rank_up",
+    "message": "\ud83c\udfc6 RANK UP! @CoachCam has promoted to **Celadon** (Rank 4) on the **Medium** benchmark! From Bronze scrubs to Grandmasters! (Previous: Saffron) \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 817,
+    "player_name": "Olioli",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83e\udd0f Almost a team wipe! @Olioli is breathing down @BakaOppai's neck on **Controlsphere Far Larger** - <https://matthewgutz.github.io/kovaaks-play?scenario=Controlsphere%20Far%20Larger>, trailing by only 0.06 points!\n- \u2694\ufe0f Dash prediction diff! @Olioli read @BakaOppai and @Laggiing's psychic slash on **waldoTS Intermediate** - <https://matthewgutz.github.io/kovaaks-play?scenario=waldoTS%20Intermediate> and pinned them down mid-dash with a clean 1.0!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 816,
+    "player_name": "Christine",
+    "event_type": "overtake",
+    "message": "\ud83d\udd25 Team-Up active! @Christine refuses to be carried by @Laggiing, @Olioli, and @BakaOppai and retook the lead on **Controlsphere rAim Easy** - <https://matthewgutz.github.io/kovaaks-play?scenario=Controlsphere%20rAim%20Easy> with 68.64! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 815,
+    "player_name": "BakaOppai",
+    "event_type": "overtake",
+    "message": "\ud83d\udd25 No Nano-shield can save you! @BakaOppai dethroned @Haruno, @Christine, and @CoachCam ONCE AGAIN on **Air CELESTIAL No UFO Easy** - <https://matthewgutz.github.io/kovaaks-play?scenario=Air%20CELESTIAL%20No%20UFO%20Easy> (Score: 7.66)! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 814,
+    "player_name": "Haruno",
+    "event_type": "rank_up",
+    "message": "\ud83c\udfc6 Wakanda Forever! @Haruno advances to **Penguin** on **Easier**! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 813,
+    "player_name": "CoachCam",
+    "event_type": "consolidated",
+    "message": "Consolidated [4 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Bifrost bridge open! @CoachCam ascends to **Penguin** on the **Easier** benchmark!\n- \ud83c\udf89 Popstar performance! @CoachCam is hitting all the notes with a new PB of 7.85 on **Air Pure Intermediate Slower No UFO** - <https://matthewgutz.github.io/kovaaks-play?scenario=Air%20Pure%20Intermediate%20Slower%20No%20UFO>! Cue the Luna Snow track!\n- \ud83e\udd0f Strategist heal required! @CoachCam scored 3.24 on **devTS Goated NR Static 5Bot** - <https://matthewgutz.github.io/kovaaks-play?scenario=devTS%20Goated%20NR%20Static%205Bot>\u2014falling just 0.01 points short of @Christine (3.25)! Luna Snow won't save you from this gap.\n- \ud83d\udd25 Hela vs. Magneto! The battle continues! @CoachCam takes the lead BACK from @BakaOppai, @Laggiing, and @Haruno on **Floating Heads Timing 400% Larger** - <https://matthewgutz.github.io/kovaaks-play?scenario=Floating%20Heads%20Timing%20400%25%20Larger> with 3.68!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 812,
+    "player_name": "Olioli",
+    "event_type": "overtake",
+    "message": "\u2694\ufe0f Uni-beam tracking! @Olioli melted @Laggiing's score on **Controlsphere rAim Easy 90%** - <https://matthewgutz.github.io/kovaaks-play?scenario=Controlsphere%20rAim%20Easy%2090%25> like a laser to the face! New high: 56.09! (Previous: 55.9) \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 811,
+    "player_name": "Christine",
+    "event_type": "overtake",
+    "message": "\ud83d\udd25 Full Symbiote rage! @Christine went Venom-mode and devoured @BakaOppai, @CoachCam, and @Laggiing's top spot on **Flicker Plaza rAim Easy Less Blinks** - <https://matthewgutz.github.io/kovaaks-play?scenario=Flicker%20Plaza%20rAim%20Easy%20Less%20Blinks> with 7.97! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 810,
+    "player_name": "Haruno",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Wakanda Forever! @Haruno advances to **Chiffon** on **Hard**!\n- \u2694\ufe0f Punisher primary fire laser! @Haruno tracked @BakaOppai down and sprayed past them on **Controlsphere rAim** - <https://matthewgutz.github.io/kovaaks-play?scenario=Controlsphere%20rAim> with 84.22!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 809,
+    "player_name": "Laggiing",
+    "event_type": "consolidated",
+    "message": "Consolidated [5 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Doctor Strange portals to the next tier! @Laggiing promoted to **Satin** on **Hard**!\n- \ud83e\udd0f Almost a team wipe! @Laggiing is breathing down @CoachCam's neck on **Controlsphere OW 150%** - <https://matthewgutz.github.io/kovaaks-play?scenario=Controlsphere%20OW%20150%25>, trailing by only 0.08 points!\n- \ud83d\udd25 Team-Up active! @Laggiing refuses to be carried by @CoachCam, @BakaOppai, and @Haruno and retook the lead on **Pokeball Frenzy Auto TE Wide** - <https://matthewgutz.github.io/kovaaks-play?scenario=Pokeball%20Frenzy%20Auto%20TE%20Wide> with 32.94!\n- \ud83d\udc3f\ufe0f Squirrel Girl down! @Laggiing clicked @Olioli out of the sky on **Popcorn MV Advanced** - <https://matthewgutz.github.io/kovaaks-play?scenario=Popcorn%20MV%20Advanced> like hunting Squirrel Girl mid-bounce! New high: 2.68!\n- \ud83e\udd0f Rocket Raccoon missing his shots! @Laggiing fell short of @BakaOppai (29.5) by a measly 0.28 points on **Floating Heads Timing 400% FIXED** - <https://matthewgutz.github.io/kovaaks-play?scenario=Floating%20Heads%20Timing%20400%25%20FIXED>!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 808,
+    "player_name": "Olioli",
+    "event_type": "pain_point",
+    "message": "\ud83e\udd0f Strategist heal required! @Olioli scored 23.64 on **Polarized Hell 20% Slower** - <https://matthewgutz.github.io/kovaaks-play?scenario=Polarized%20Hell%2020%25%20Slower>\u2014falling just 0.03 points short of @Christine (23.67)! Luna Snow won't save you from this gap. \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 807,
+    "player_name": "Christine",
+    "event_type": "rank_up",
+    "message": "\ud83c\udfc6 Bifrost bridge open! @Christine ascends to **Satin** on the **Hard** benchmark! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 806,
+    "player_name": "BakaOppai",
+    "event_type": "overtake",
+    "message": "\u2694\ufe0f Uni-beam tracking! @BakaOppai melted @Christine and @Haruno's score on **Leaptrack Goated 80%** - <https://matthewgutz.github.io/kovaaks-play?scenario=Leaptrack%20Goated%2080%25> like a laser to the face! New high: 23.07! (Previous: 23.02 & 22.98) \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 805,
+    "player_name": "Haruno",
+    "event_type": "rank_up",
+    "message": "\ud83c\udfc6 Mirror Dimension mastered! @Haruno moves up to **Cerulean** on **Medium**! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 804,
+    "player_name": "CoachCam",
+    "event_type": "pain_point",
+    "message": "\ud83e\udd0f Rocket Raccoon missing his shots! @CoachCam fell short of @Olioli (1.39) by a measly 0.01 points on **Popcorn MV Intermediate** - <https://matthewgutz.github.io/kovaaks-play?scenario=Popcorn%20MV%20Intermediate>! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 803,
+    "player_name": "Olioli",
+    "event_type": "pain_point",
+    "message": "\ud83e\udd0f Almost a team wipe! @Olioli is breathing down @CoachCam's neck on **Ground Plaza Sparky V3** - <https://matthewgutz.github.io/kovaaks-play?scenario=Ground%20Plaza%20Sparky%20V3>, trailing by only 0.01 points! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 802,
+    "player_name": "Christine",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Look who's climbing! @Christine is now a certified **Cerulean** on **Medium**!\n- \u2694\ufe0f Daywalker slashes! @Christine sliced through the targets on **waldoTS Intermediate** - <https://matthewgutz.github.io/kovaaks-play?scenario=waldoTS%20Intermediate> like butter, leaving @BakaOppai, @Olioli, and @Laggiing behind with 1.0!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 801,
+    "player_name": "BakaOppai",
+    "event_type": "overtake",
+    "message": "\u2694\ufe0f Precision gap! @BakaOppai hit a clean 0.25 on **Controlsphere Click** - <https://matthewgutz.github.io/kovaaks-play?scenario=Controlsphere%20Click>! Put down the Hela, play Groot, and just block the lobby with walls already! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 800,
+    "player_name": "Haruno",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83d\udd25 Hela vs. Magneto! The battle continues! @Haruno takes the lead BACK from @Laggiing on **Polarized Hell Easy 40% Slower** - <https://matthewgutz.github.io/kovaaks-play?scenario=Polarized%20Hell%20Easy%2040%25%20Slower> with 6.93!\n- \ud83d\udd25 Loki decoy exposed! @Haruno saw right through the illusion and snatched the lead back from @Olioli and @Laggiing on **devTS Goated NR Static 5Bot** - <https://matthewgutz.github.io/kovaaks-play?scenario=devTS%20Goated%20NR%20Static%205Bot> with 3.25!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 799,
+    "player_name": "Laggiing",
+    "event_type": "consolidated",
+    "message": "Consolidated [3 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83e\udd0f Strategist heal required! @Laggiing scored 17.13 on **VT Controlsphere Intermediate S5 80%** - <https://matthewgutz.github.io/kovaaks-play?scenario=VT%20Controlsphere%20Intermediate%20S5%2080%25>\u2014falling just 0.01 points short of @CoachCam (17.14)! Luna Snow won't save you from this gap.\n- \ud83d\udd25 Full Symbiote rage! @Laggiing went Venom-mode and devoured @BakaOppai and @CoachCam's top spot on **Air Voltaic Easy Invincible 4 80%** - <https://matthewgutz.github.io/kovaaks-play?scenario=Air%20Voltaic%20Easy%20Invincible%204%2080%25> with 10.21!\n- \ud83c\udf89 Jeff the Shark-sized improvement! @Laggiing swallowed their old record and set a new PB of 0.7 on **1wall5targets_pasu slow** - <https://matthewgutz.github.io/kovaaks-play?scenario=1wall5targets_pasu%20slow>!",
+    "timestamp": "2026-05-23 07:18:32"
+  },
+  {
+    "id": 798,
+    "player_name": "Olioli",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 RANK UP! @Olioli has promoted to **Fox** (Rank 5) on the **Easier** benchmark! From Bronze scrubs to Grandmasters! (Previous: Penguin)\n- \ud83d\udd25 No Nano-shield can save you! @Olioli dethroned @Haruno ONCE AGAIN on **VT Controlsphere Intermediate S5 80%** - <https://matthewgutz.github.io/kovaaks-play?scenario=VT%20Controlsphere%20Intermediate%20S5%2080%25> (Score: 17.17)!",
+    "timestamp": "2026-05-23 07:18:32"
   }
 ]
