@@ -1,37 +1,58 @@
 [
   {
+    "id": 182,
+    "player_name": "Christine",
+    "event_type": "pb",
+    "message": "\ud83c\udf89 Unstoppable! @Christine just set a record of 509.0 on **devTS Goated NR Static 5Bot** - <https://matthewgutz.github.io/kovaaks-play?scenario=devTS%20Goated%20NR%20Static%205Bot>! Someone check their aimkeys! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-23 04:12:26"
+  },
+  {
+    "id": 181,
+    "player_name": "Christine",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udf89 Web-Zip! @Christine accelerated past their limits to hit a new PB of 509.0 on **devTS Goated NR Static 5Bot** - <https://matthewgutz.github.io/kovaaks-play?scenario=devTS%20Goated%20NR%20Static%205Bot>!\n- \ud83c\udf89 Punisher rage activated! @Christine went full auto and shredded their old score, hitting a new PB of 2870.4 on **domiSwitch Easy Slower** - <https://matthewgutz.github.io/kovaaks-play?scenario=domiSwitch%20Easy%20Slower>!",
+    "timestamp": "2026-05-23 04:12:26"
+  },
+  {
+    "id": 180,
+    "player_name": "Christine",
+    "event_type": "consolidated",
+    "message": "Consolidated [4 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udf89 Black Panther speed! @Christine pounced on a new PB of 67.0 on **voxTargetSwitch 2 Large** - <https://matthewgutz.github.io/kovaaks-play?scenario=voxTargetSwitch%202%20Large>! Wakanda Forever!\n- \ud83c\udf89 Aim training is paying off! @Christine pushed their **beanTS Larger** - <https://matthewgutz.github.io/kovaaks-play?scenario=beanTS%20Larger> record up to 77.0!\n- \ud83c\udf89 Web-Zip! @Christine accelerated past their limits to hit a new PB of 68.54 on **FloatTS Angelic Easy Larger** - <https://matthewgutz.github.io/kovaaks-play?scenario=FloatTS%20Angelic%20Easy%20Larger>!\n- \ud83e\udd0f Rocket Raccoon missing his shots! @Christine fell short of @Olioli (90.15) by a measly 0.15 points on **waldoTS Novice** - <https://matthewgutz.github.io/kovaaks-play?scenario=waldoTS%20Novice>!",
+    "timestamp": "2026-05-23 04:07:10"
+  },
+  {
     "id": 179,
     "player_name": "Christine",
     "event_type": "overtake",
-    "message": "\u2694\ufe0f Web-swinging frenzy! @Christine zipped from target to target on **Pokeball Frenzy Auto TE Wide** - <http://192.168.1.4:8083/play?scenario=Pokeball%20Frenzy%20Auto%20TE%20Wide> and left @Laggiing tangled in the webs with 1830.0!",
+    "message": "\u2694\ufe0f Web-swinging frenzy! @Christine zipped from target to target on **Pokeball Frenzy Auto TE Wide** - <https://matthewgutz.github.io/kovaaks-play/play?scenario=Pokeball%20Frenzy%20Auto%20TE%20Wide> and left @Laggiing tangled in the webs with 1830.0!",
     "timestamp": "2026-05-23 03:57:54"
   },
   {
     "id": 178,
     "player_name": "Christine",
     "event_type": "consolidated",
-    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \u2694\ufe0f Decoy swap! @Christine fooled @Laggiing on **Pokeball Frenzy Auto TE Wide** - <http://192.168.1.4:8083/play?scenario=Pokeball%20Frenzy%20Auto%20TE%20Wide> and backstabbed their score with a 1830.0!\n- \u2694\ufe0f Telekinetic blade dash! @Christine dashed between targets on **1w3ts reload Larger** - <http://192.168.1.4:8083/play?scenario=1w3ts%20reload%20Larger> and cut right past @Laggiing's 62.0 with 64.0!",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \u2694\ufe0f Decoy swap! @Christine fooled @Laggiing on **Pokeball Frenzy Auto TE Wide** - <https://matthewgutz.github.io/kovaaks-play/play?scenario=Pokeball%20Frenzy%20Auto%20TE%20Wide> and backstabbed their score with a 1830.0!\n- \u2694\ufe0f Telekinetic blade dash! @Christine dashed between targets on **1w3ts reload Larger** - <https://matthewgutz.github.io/kovaaks-play/play?scenario=1w3ts%20reload%20Larger> and cut right past @Laggiing's 62.0 with 64.0!",
     "timestamp": "2026-05-23 03:57:54"
   },
   {
     "id": 177,
     "player_name": "Christine",
     "event_type": "overtake",
-    "message": "\u2694\ufe0f Chaos Magic pop! @Christine popped targets in rapid succession on **Pokeball Frenzy Auto TE Wide** - <http://192.168.1.4:8083/play?scenario=Pokeball%20Frenzy%20Auto%20TE%20Wide> to hit 1830.0! Scarlet Witch's auto-lock has nothing on this!",
+    "message": "\u2694\ufe0f Chaos Magic pop! @Christine popped targets in rapid succession on **Pokeball Frenzy Auto TE Wide** - <https://matthewgutz.github.io/kovaaks-play/play?scenario=Pokeball%20Frenzy%20Auto%20TE%20Wide> to hit 1830.0! Scarlet Witch's auto-lock has nothing on this!",
     "timestamp": "2026-05-23 03:57:54"
   },
   {
     "id": 176,
     "player_name": "Christine",
     "event_type": "pb",
-    "message": "\ud83c\udf89 Loki decoy-level trickery! @Christine just fooled everyone with a stunning new PB of 2154.0 on **Controlsphere OW Long Strafes 90%** - <http://192.168.1.4:8083/play?scenario=Controlsphere%20OW%20Long%20Strafes%2090%25>! \ud83d\udd25 Hot Streak!",
+    "message": "\ud83c\udf89 Loki decoy-level trickery! @Christine just fooled everyone with a stunning new PB of 2154.0 on **Controlsphere OW Long Strafes 90%** - <https://matthewgutz.github.io/kovaaks-play/play?scenario=Controlsphere%20OW%20Long%20Strafes%2090%25>! \ud83d\udd25 Hot Streak!",
     "timestamp": "2026-05-23 03:50:57"
   },
   {
     "id": 175,
     "player_name": "Christine",
     "event_type": "pb",
-    "message": "\ud83c\udf89 Aim training is paying off! @Christine pushed their **Air Voltaic Invincible 7 Easy 80%** - <http://192.168.1.4:8083/play?scenario=Air%20Voltaic%20Invincible%207%20Easy%2080%25> record up to 1412.0! \ud83d\udd25 Hot Streak!",
+    "message": "\ud83c\udf89 Aim training is paying off! @Christine pushed their **Air Voltaic Invincible 7 Easy 80%** - <https://matthewgutz.github.io/kovaaks-play/play?scenario=Air%20Voltaic%20Invincible%207%20Easy%2080%25> record up to 1412.0! \ud83d\udd25 Hot Streak!",
     "timestamp": "2026-05-23 03:45:43"
   },
   {
@@ -66,14 +87,14 @@
     "id": 170,
     "player_name": "Christine",
     "event_type": "pb",
-    "message": "\ud83c\udf89 Thor-level thunder! @Christine struck down their old score with a massive PB of 5290.0 on **Whisphere 80%** (<http://192.168.1.4:8083/play?scenario=Whisphere%2080%25>)!",
+    "message": "\ud83c\udf89 Thor-level thunder! @Christine struck down their old score with a massive PB of 5290.0 on **Whisphere 80%** (<https://matthewgutz.github.io/kovaaks-play/play?scenario=Whisphere%2080%25>)!",
     "timestamp": "2026-05-23 03:23:01"
   },
   {
     "id": 169,
     "player_name": "Christine",
     "event_type": "pb",
-    "message": "\ud83c\udf89 Aim training is paying off! @Christine pushed their **SmoothBot Invincible Goated 75%** (<http://192.168.1.4:8083/play?scenario=SmoothBot%20Invincible%20Goated%2075%25>) record up to 1434.0!",
+    "message": "\ud83c\udf89 Aim training is paying off! @Christine pushed their **SmoothBot Invincible Goated 75%** (<https://matthewgutz.github.io/kovaaks-play/play?scenario=SmoothBot%20Invincible%20Goated%2075%25>) record up to 1434.0!",
     "timestamp": "2026-05-23 03:17:46"
   },
   {
