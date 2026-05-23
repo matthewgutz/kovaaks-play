@@ -1979,6 +1979,48 @@
             return new Date(dateStr);
         }
 
+        // Format time in PST (e.g. 2:27pm or 2:27:00pm)
+        function formatTimePST(date, includeSeconds = false) {
+            const d = parseDate(date);
+            const timeOpts = {
+                timeZone: 'America/Los_Angeles',
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true,
+                ...(includeSeconds && { second: '2-digit' })
+            };
+            return d.toLocaleTimeString('en-US', timeOpts).toLowerCase().replace(/\s+/g, '');
+        }
+
+        // Format date in PST (e.g. May 13 or May 13, 2026)
+        function formatDatePST(date, includeYear = false) {
+            const d = parseDate(date);
+            const dateOpts = {
+                timeZone: 'America/Los_Angeles',
+                month: 'short',
+                day: 'numeric',
+                ...(includeYear && { year: 'numeric' })
+            };
+            return d.toLocaleDateString('en-US', dateOpts);
+        }
+
+        // Format date and time combined (e.g. May 13, 2:27pm or May 13, 2:27:00pm PDT)
+        function formatDateTimePST(date, includeYear = false, includeSeconds = false, includeTZ = false) {
+            const d = parseDate(date);
+            const dateStr = formatDatePST(d, includeYear);
+            const timeOpts = {
+                timeZone: 'America/Los_Angeles',
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true,
+                ...(includeSeconds && { second: '2-digit' }),
+                ...(includeTZ && { timeZoneName: 'short' })
+            };
+            let timeStr = d.toLocaleTimeString('en-US', timeOpts);
+            timeStr = timeStr.replace(/\s*(AM|PM)/i, (m, p) => p.toLowerCase());
+            return `${dateStr}, ${timeStr}`;
+        }
+
         // Player colors map for radar chart rings
         const rankColors = {
             'lemming': '#8a99ad', 'hare': '#10b981', 'ermine': '#3b82f6', 'penguin': '#14b8a6',
@@ -3988,8 +4030,7 @@
                                     const val = context[0].parsed.x;
                                     const i = Math.round(val);
                                     if (i >= 0 && i < sortedTimestamps.length) {
-                                        const d = parseDate(sortedTimestamps[i]);
-                                        return d.toLocaleDateString('en-US', {timeZone: 'America/Los_Angeles', month: 'short', day: 'numeric', year: 'numeric'}) + ', ' + d.toLocaleTimeString('en-US', {timeZone: 'America/Los_Angeles', hour: '2-digit', minute:'2-digit', second: '2-digit', hour12: false, timeZoneName: 'short'});
+                                        return formatDateTimePST(sortedTimestamps[i], true, true, true);
                                     }
                                     return '';
                                 }
@@ -4010,8 +4051,7 @@
                                 callback: function(val) {
                                     const i = Math.round(val);
                                     if (val === i && i >= 0 && i < sortedTimestamps.length) {
-                                        const d = parseDate(sortedTimestamps[i]);
-                                        return d.toLocaleDateString('en-US', {timeZone: 'America/Los_Angeles', month: 'short', day: 'numeric'}) + ' ' + d.toLocaleTimeString('en-US', {timeZone: 'America/Los_Angeles', hour: '2-digit', minute:'2-digit', hour12: false});
+                                        return formatDatePST(sortedTimestamps[i], false) + ' ' + formatTimePST(sortedTimestamps[i], false);
                                     }
                                     return '';
                                 }
@@ -4060,8 +4100,7 @@
             } else {
                 last10.forEach(h => {
                     const row = document.createElement('tr');
-                    const d = parseDate(h.timestamp);
-                    const dateStr = d.toLocaleDateString('en-US', {timeZone: 'America/Los_Angeles'}) + ' ' + d.toLocaleTimeString('en-US', {timeZone: 'America/Los_Angeles', hour: '2-digit', minute:'2-digit', timeZoneName: 'short'});
+                    const dateStr = formatDateTimePST(h.timestamp, false, false, true);
                     row.innerHTML = `
                         <td style="padding: 8px 12px; font-weight: 600;">${h.score.toFixed(2)}</td>
                         <td style="padding: 8px 12px; color: var(--text-muted);">${dateStr}</td>
@@ -4209,8 +4248,7 @@
                                     const val = context[0].parsed.x;
                                     const i = Math.round(val);
                                     if (i >= 0 && i < sortedTimestamps.length) {
-                                        const d = parseDate(sortedTimestamps[i]);
-                                        return d.toLocaleDateString('en-US', {timeZone: 'America/Los_Angeles', month: 'short', day: 'numeric', year: 'numeric'}) + ', ' + d.toLocaleTimeString('en-US', {timeZone: 'America/Los_Angeles', hour: '2-digit', minute:'2-digit', second: '2-digit', hour12: false, timeZoneName: 'short'});
+                                        return formatDateTimePST(sortedTimestamps[i], true, true, true);
                                     }
                                     return '';
                                 }
@@ -4231,8 +4269,7 @@
                                 callback: function(val) {
                                     const i = Math.round(val);
                                     if (val === i && i >= 0 && i < sortedTimestamps.length) {
-                                        const d = parseDate(sortedTimestamps[i]);
-                                        return d.toLocaleDateString('en-US', {timeZone: 'America/Los_Angeles', month: 'short', day: 'numeric'}) + ' ' + d.toLocaleTimeString('en-US', {timeZone: 'America/Los_Angeles', hour: '2-digit', minute:'2-digit', hour12: false});
+                                        return formatDatePST(sortedTimestamps[i], false) + ' ' + formatTimePST(sortedTimestamps[i], false);
                                     }
                                     return '';
                                 }
@@ -4436,8 +4473,7 @@
                 const item = document.createElement('div');
                 item.className = 'timeline-item-compact';
                 
-                const d = parseDate(n.timestamp);
-                const dateStr = d.toLocaleDateString('en-US', {timeZone: 'America/Los_Angeles'}) + ' ' + d.toLocaleTimeString('en-US', {timeZone: 'America/Los_Angeles', hour: '2-digit', minute:'2-digit', timeZoneName: 'short'});
+                const dateStr = formatDateTimePST(n.timestamp, false, false, true);
                 
                 const username = (n.player_name || '').replace('@', '');
                 const avatarUrl = `avatars/${username}.png`;
@@ -4734,8 +4770,7 @@
                                     const val = context[0].parsed.x;
                                     const i = Math.round(val);
                                     if (i >= 0 && i < sortedTimestamps.length) {
-                                        const d = parseDate(sortedTimestamps[i]);
-                                        return d.toLocaleDateString('en-US', {timeZone: 'America/Los_Angeles', month: 'short', day: 'numeric', year: 'numeric'}) + ', ' + d.toLocaleTimeString('en-US', {timeZone: 'America/Los_Angeles', hour: '2-digit', minute:'2-digit', second: '2-digit', hour12: false, timeZoneName: 'short'});
+                                        return formatDateTimePST(sortedTimestamps[i], true, true, true);
                                     }
                                     return '';
                                 },
@@ -4759,8 +4794,7 @@
                                 callback: function(val) {
                                     const i = Math.round(val);
                                     if (val === i && i >= 0 && i < sortedTimestamps.length) {
-                                        const d = parseDate(sortedTimestamps[i]);
-                                        return d.toLocaleDateString('en-US', {timeZone: 'America/Los_Angeles', month: 'short', day: 'numeric'}) + ' ' + d.toLocaleTimeString('en-US', {timeZone: 'America/Los_Angeles', hour: '2-digit', minute:'2-digit', hour12: false});
+                                        return formatDatePST(sortedTimestamps[i], false) + ' ' + formatTimePST(sortedTimestamps[i], false);
                                     }
                                     return '';
                                 }
