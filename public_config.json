@@ -1,36 +1,21 @@
 {
   "players": [
     {
-      "steam_id": "76561198017954362",
+      "steam_id": "1",
       "discord_username": "@BakaOppai",
-      "discord_id": ""
+      "discord_id": "111111111111111111"
     },
     {
-      "steam_id": "76561198348625808",
+      "steam_id": "2",
       "discord_username": "@Christine",
-      "discord_id": ""
+      "discord_id": "222222222222222222"
     },
     {
-      "steam_id": "76561199164422123",
+      "steam_id": "3",
       "discord_username": "@Olioli",
-      "discord_id": ""
-    },
-    {
-      "steam_id": "76561198033879793",
-      "discord_username": "@CoachCam",
-      "discord_id": ""
-    },
-    {
-      "steam_id": "76561198046477600",
-      "discord_username": "@Laggiing",
-      "discord_id": ""
-    },
-    {
-      "steam_id": "76561198995689034",
-      "discord_username": "@Haruno",
       "discord_id": ""
     }
   ],
   "use_mock_data": false,
-  "admin_key_set": true
+  "admin_key_set": false
 }
