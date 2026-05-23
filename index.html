@@ -73,7 +73,8 @@
 
         /* Layout */
         .app-container {
-            max-width: 1400px;
+            max-width: 1800px;
+            width: 96%;
             margin: 0 auto;
             padding: 30px 20px;
             display: grid;
@@ -83,10 +84,18 @@
 
         @media (min-width: 1024px) {
             .app-container {
-                grid-template-columns: 3fr 1.2fr;
+                grid-template-columns: 1.3fr 3fr;
             }
             .header-full {
                 grid-column: span 2;
+            }
+            aside {
+                grid-column: 1;
+                grid-row: 2;
+            }
+            main {
+                grid-column: 2;
+                grid-row: 2;
             }
         }
 
@@ -1249,6 +1258,68 @@
             color: var(--text-muted);
             font-style: italic;
         }
+        
+        /* Compact Timeline */
+        .timeline-compact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            padding: 0;
+            margin-top: 10px;
+        }
+        .timeline-item-compact {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            backdrop-filter: blur(8px);
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+        }
+        .timeline-item-compact:hover {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transform: translateX(2px);
+        }
+        
+        /* Grid Pins */
+        .grid-pin {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            transition: transform 0.2s ease, z-index 0.2s ease;
+            cursor: pointer;
+        }
+        .grid-pin:hover {
+            transform: scale(1.4);
+            z-index: 100 !important;
+        }
+
+        /* Rank Text Colors */
+        .rank-lemming-text { color: #9e9e9e; text-shadow: 0 0 6px rgba(158, 158, 158, 0.2); }
+        .rank-hare-text { color: #4caf50; text-shadow: 0 0 6px rgba(76, 175, 80, 0.2); }
+        .rank-ermine-text { color: #2196f3; text-shadow: 0 0 6px rgba(33, 150, 243, 0.2); }
+        .rank-penguin-text { color: #00bcd4; text-shadow: 0 0 6px rgba(0, 188, 212, 0.2); }
+        .rank-fox-text { color: #9c27b0; text-shadow: 0 0 6px rgba(156, 39, 176, 0.2); }
+        .rank-mammoth-text { color: #ff9800; text-shadow: 0 0 6px rgba(255, 152, 0, 0.2); }
+        .rank-orca-text { color: #e91e63; text-shadow: 0 0 6px rgba(233, 30, 99, 0.2); }
+        .rank-seal-text { color: #f44336; text-shadow: 0 0 6px rgba(244, 67, 54, 0.2); }
+        .rank-cinnabar-text { color: #b71c1c; text-shadow: 0 0 6px rgba(183, 28, 28, 0.2); }
+        .rank-vermillion-text { color: #d84315; text-shadow: 0 0 6px rgba(216, 67, 21, 0.2); }
+        .rank-saffron-text { color: #f9a825; text-shadow: 0 0 6px rgba(249, 168, 37, 0.2); }
+        .rank-celadon-text { color: #2e7d32; text-shadow: 0 0 6px rgba(46, 125, 50, 0.2); }
+        .rank-cerulean-text { color: #1565c0; text-shadow: 0 0 6px rgba(21, 101, 192, 0.2); }
+        .rank-lavender-text { color: #6a1b9a; text-shadow: 0 0 6px rgba(106, 27, 154, 0.2); }
+        .rank-indigo-text { color: #283593; text-shadow: 0 0 6px rgba(40, 53, 147, 0.2); }
+        .rank-fuchsia-text { color: #ad1457; text-shadow: 0 0 6px rgba(173, 20, 87, 0.2); }
+        .rank-wool-text { color: #8d6e63; text-shadow: 0 0 6px rgba(141, 110, 99, 0.2); }
+        .rank-linen-text { color: #bdbdbd; text-shadow: 0 0 6px rgba(189, 189, 189, 0.2); }
+        .rank-velvet-text { color: #ab47bc; text-shadow: 0 0 6px rgba(171, 71, 188, 0.2); }
+        .rank-chiffon-text { color: #009688; text-shadow: 0 0 6px rgba(0, 150, 136, 0.2); }
+        .rank-satin-text { color: #0288d1; text-shadow: 0 0 6px rgba(2, 136, 209, 0.2); }
+        .rank-silk-text { color: #e040fb; text-shadow: 0 0 6px rgba(224, 64, 251, 0.2); }
     </style>
 </head>
 <body>
@@ -1288,7 +1359,7 @@
             </div>
         </header>
 
-        <!-- Main Left Column -->
+        <!-- Main Content Area (Rendered on Right on Desktop) -->
         <main style="display: flex; flex-direction: column; gap: 30px;">
             
             <!-- Main View Toggle Tab Controls -->
@@ -1315,17 +1386,77 @@
                     </div>
                 </section>
 
+                <!-- Scenario Matrix Section -->
+                <section class="glass-panel" style="padding: 24px;">
+                    <h2 class="panel-title">📊 Scenario Comparison Grid</h2>
+                    <div id="grid-legend" style="display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 20px; padding: 12px 16px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px;">
+                        <!-- Populated dynamically -->
+                    </div>
+                    <div class="table-container">
+                        <table id="grid-table">
+                            <thead id="grid-header">
+                                <!-- Populated dynamically -->
+                            </thead>
+                            <tbody id="grid-body">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            
+            </div> <!-- End #leaderboard-view -->
+
+            <!-- History Log View Container -->
+            <div id="history-view" style="display: none; flex-direction: column; gap: 30px;">
+                <section class="glass-panel" style="padding: 24px;">
+                    <h2 class="panel-title">📜 Historical Timeline Feed</h2>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.4;">
+                        Chronological record of recent competition milestones: Personal Bests, Overtakes, Near Misses, Rank Promotions, and Crown shifts.
+                    </p>
+                    <div class="timeline-compact-list" id="timeline-container">
+                        <!-- Populated dynamically -->
+                    </div>
+                </section>
+            </div>
+
+        </main>
+
+        <!-- Sidebar Area (Rendered on Left on Desktop) -->
+        <aside style="display: flex; flex-direction: column; gap: 30px;">
+            
+            <!-- Subcategory Performance Radar Chart Panel -->
+            <section class="glass-panel sidebar-panel" id="radar-chart-section" style="padding: 24px; display: flex; flex-direction: column; gap: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                    <h2 class="panel-title" style="margin: 0; border-bottom: none; padding-bottom: 0;">📊 Subcategory Radar</h2>
+                    <select id="radar-player-select" onchange="updateRadarChart()" style="width: auto; padding: 4px 8px; font-size: 0.85rem; margin: 0; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; color: #fff; cursor: pointer; font-family: 'Outfit', sans-serif;">
+                        <option value="all">All Players</option>
+                    </select>
+                </div>
+                
+                <div style="display: flex; gap: 16px; align-items: center; justify-content: center; min-height: 250px; position: relative;">
+                    <!-- Subcategory List (Left of chart) -->
+                    <div id="radar-subcat-list" style="display: none; flex-direction: column; gap: 10px; font-size: 0.8rem; color: var(--text-muted); width: 140px; flex-shrink: 0; border-right: 1px solid rgba(255,255,255,0.05); padding-right: 12px; max-height: 250px; overflow-y: auto;">
+                        <!-- Populated dynamically -->
+                    </div>
+                    
+                    <!-- Radar Canvas -->
+                    <div style="flex-grow: 1; max-width: 250px; height: 250px; position: relative; display: flex; align-items: center; justify-content: center;">
+                        <canvas id="radar-chart" style="width: 100%; height: 100%;"></canvas>
+                    </div>
+                </div>
+            </section>
+
             <!-- Tab Controls -->
-            <div class="tab-controls">
+            <div class="tab-controls" style="display: flex; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 10px; margin-bottom: -10px; gap: 8px;">
                 <button class="tab-btn active" onclick="switchBenchmark('686', this)">Easier (686)</button>
                 <button class="tab-btn" onclick="switchBenchmark('687', this)">Medium (687)</button>
                 <button class="tab-btn" onclick="switchBenchmark('688', this)">Hard (688)</button>
             </div>
 
             <!-- Leaderboard Standings Section -->
-            <section class="glass-panel" style="padding: 24px;">
+            <section class="glass-panel" id="standings-section" style="padding: 24px;">
                 <h2 class="panel-title">🏆 Benchmark Standings</h2>
-                <div class="table-container">
+                <div class="table-container" style="margin-bottom: 0;">
                     <table id="standings-table">
                         <thead>
                             <tr>
@@ -1344,44 +1475,6 @@
                     </table>
                 </div>
             </section>
-
-            <!-- Scenario Matrix Section -->
-            <section class="glass-panel" style="padding: 24px;">
-                <h2 class="panel-title">📊 Scenario Comparison Grid</h2>
-                <div id="grid-legend" style="display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 20px; padding: 12px 16px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px;">
-                    <!-- Populated dynamically -->
-                </div>
-                <div class="table-container">
-                    <table id="grid-table">
-                        <thead id="grid-header">
-                            <!-- Populated dynamically -->
-                        </thead>
-                        <tbody id="grid-body">
-                            <!-- Populated dynamically -->
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-            
-            </div> <!-- End #leaderboard-view -->
-
-            <!-- History Log View Container -->
-            <div id="history-view" style="display: none; flex-direction: column; gap: 30px;">
-                <section class="glass-panel" style="padding: 24px;">
-                    <h2 class="panel-title">📜 Historical Timeline Feed</h2>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.4;">
-                        Chronological record of recent competition milestones: Personal Bests, Overtakes, Near Misses, Rank Promotions, and Crown shifts.
-                    </p>
-                    <div class="timeline" id="timeline-container">
-                        <!-- Populated dynamically -->
-                    </div>
-                </section>
-            </div>
-
-        </main>
-
-        <!-- Right Column / Sidebar -->
-        <aside style="display: flex; flex-direction: column; gap: 30px;">
             
             <!-- Crown Holders Banner -->
             <div class="crown-cards-grid" id="crowns-banner" style="grid-template-columns: 1fr; margin-bottom: 0;">
@@ -1618,6 +1711,416 @@
 
         let adminKeySet = false;
         let countdownInterval = null;
+
+        // Hex to RGB converter helper
+        function hexToRgb(hex) {
+            const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+            hex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b);
+            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? 
+                `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`
+                : '0, 245, 212';
+        }
+
+        // Get player theme color helper
+        function getPlayerThemeColor(steamId) {
+            const colors = [
+                '#00f5d4', // Hela Teal
+                '#f72585', // Venom Red
+                '#ffd166', // Crown Gold
+                '#00a8fc', // Blue
+                '#7209b7', // Purple
+                '#4caf50', // Green
+                '#ff9800'  // Orange
+            ];
+            const idx = globalPlayers.findIndex(p => p.steam_id === steamId);
+            return colors[idx >= 0 ? idx % colors.length : 0];
+        }
+
+        // Safe date parsing helper
+        function parseDate(dateStr) {
+            if (!dateStr) return new Date();
+            if (dateStr instanceof Date) return dateStr;
+            if (typeof dateStr === 'string') {
+                return new Date(dateStr.replace(' ', 'T'));
+            }
+            return new Date(dateStr);
+        }
+
+        // Player colors map for radar chart rings
+        const rankColors = {
+            'lemming': '#9e9e9e', 'hare': '#4caf50', 'ermine': '#2196f3', 'penguin': '#00bcd4',
+            'fox': '#9c27b0', 'mammoth': '#ff9800', 'orca': '#e91e63', 'seal': '#f44336',
+            'cinnabar': '#b71c1c', 'vermillion': '#d84315', 'saffron': '#f9a825', 'celadon': '#2e7d32',
+            'cerulean': '#1565c0', 'lavender': '#6a1b9a', 'indigo': '#283593', 'fuchsia': '#ad1457',
+            'wool': '#8d6e63', 'linen': '#bdbdbd', 'velvet': '#ab47bc', 'chiffon': '#009688',
+            'satin': '#0288d1', 'silk': '#e040fb', 'unranked': '#4a4a4a'
+        };
+
+        // Radar chart global variable
+        let radarChart = null;
+
+        function getSubcategoryData(bData) {
+            const PARENT_ORDER = ["DYNAMIC CLICKING", "FLICK TECH", "REACTIVE TRACKING", "CONTROL TRACKING"];
+            const SUBCAT_ORDER = {
+                "DYNAMIC CLICKING": ["Linear", "Precision", "Reading"],
+                "FLICK TECH": ["Evasive", "Micro", "Stability", "Speed"],
+                "REACTIVE TRACKING": ["Reading Track", "Speed Track", "Control"],
+                "CONTROL TRACKING": ["Blending", "Fingertip", "Wrist", "Arm"]
+            };
+            const SUBCAT_TO_PARENT = {
+                "Linear": "DYNAMIC CLICKING", "Precision": "DYNAMIC CLICKING", "Reading": "DYNAMIC CLICKING",
+                "Evasive": "FLICK TECH", "Micro": "FLICK TECH", "Stability": "FLICK TECH", "Speed": "FLICK TECH",
+                "Reading Track": "REACTIVE TRACKING", "Speed Track": "REACTIVE TRACKING", "Control": "REACTIVE TRACKING",
+                "Blending": "CONTROL TRACKING", "Fingertip": "CONTROL TRACKING", "Wrist": "CONTROL TRACKING", "Arm": "CONTROL TRACKING"
+            };
+            
+            const scenToSubcat = bData.categories || {};
+            const subcatScenarios = {};
+            
+            PARENT_ORDER.forEach(parent => {
+                SUBCAT_ORDER[parent].forEach(subcat => {
+                    subcatScenarios[subcat] = [];
+                });
+            });
+            
+            bData.scenarios.forEach(scen => {
+                let subcat = scenToSubcat[scen];
+                if (!subcat) {
+                    const lower = scen.toLowerCase();
+                    if (lower.includes("whisphere") || lower.includes("smoothbot")) subcat = "Arm";
+                    else if (lower.includes("leaptrack")) subcat = "Wrist";
+                    else if (lower.includes("clover")) subcat = "Fingertip";
+                    else if (lower.includes("pgti") || lower.includes("celestial")) subcat = "Blending";
+                    else if (lower.includes("ground plaza")) subcat = "Control";
+                    else if (lower.includes("flicker plaza") || lower.includes("polarized hell")) subcat = "Speed Track";
+                    else if (lower.includes("air pure") || lower.includes("air voltaic")) subcat = "Reading Track";
+                    else if (lower.includes("pokeball") || lower.includes("voxtargetswitch") || lower.includes("1w3ts reload")) subcat = "Speed";
+                    else if (lower.includes("beants") || lower.includes("floatts")) subcat = "Stability";
+                    else if (lower.includes("waldots") || lower.includes("devts")) subcat = "Micro";
+                    else if (lower.includes("domiswitch") || lower.includes("tamtargetswitch")) subcat = "Evasive";
+                    else if (lower.includes("bounceshot")) subcat = "Reading";
+                    else if (lower.includes("popcorn") || lower.includes("pasu")) subcat = "Precision";
+                    else subcat = "Arm";
+                }
+                if (subcatScenarios[subcat]) {
+                    subcatScenarios[subcat].push(scen);
+                }
+            });
+            
+            const activeSubcats = [];
+            PARENT_ORDER.forEach(parent => {
+                SUBCAT_ORDER[parent].forEach(subcat => {
+                    if (subcatScenarios[subcat] && subcatScenarios[subcat].length > 0) {
+                        activeSubcats.push(subcat);
+                    }
+                });
+            });
+            
+            const benchmarkRanks = {
+                "686": ['Lemming', 'Hare', 'Ermine', 'Penguin', 'Fox', 'Mammoth', 'Orca', 'Seal'],
+                "687": ['Cinnabar', 'Vermillion', 'Saffron', 'Celadon', 'Cerulean', 'Lavender', 'Indigo', 'Fuchsia'],
+                "688": ['Wool', 'Linen', 'Velvet', 'Chiffon', 'Satin', 'Silk']
+            };
+            const ranksList = benchmarkRanks[currentBenchmarkId] || [];
+            
+            const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
+            const playerPerformance = {};
+            
+            configuredPlayers.forEach(p => {
+                playerPerformance[p.steam_id] = activeSubcats.map(subcat => {
+                    const scens = subcatScenarios[subcat];
+                    let totalRankFraction = 0;
+                    let count = 0;
+                    
+                    scens.forEach(scen => {
+                        const scoresMap = bData.scores[scen] || {};
+                        const score = scoresMap[p.steam_id];
+                        if (score !== undefined && score > 0) {
+                            const rankMaxes = (bData.thresholds && bData.thresholds[scen]) || [];
+                            let rIdx = -1;
+                            if (rankMaxes.length > 0) {
+                                for (let i = rankMaxes.length - 1; i >= 0; i--) {
+                                    if (score >= rankMaxes[i]) {
+                                        rIdx = i;
+                                        break;
+                                    }
+                                }
+                            }
+                            
+                            let fraction = 0;
+                            if (rIdx === -1) {
+                                const nextVal = rankMaxes[0] || 1;
+                                fraction = score / nextVal;
+                            } else if (rIdx === rankMaxes.length - 1) {
+                                fraction = rIdx + 1;
+                            } else {
+                                const currentVal = rankMaxes[rIdx];
+                                const nextVal = rankMaxes[rIdx + 1];
+                                const stepProgress = (score - currentVal) / (nextVal - currentVal);
+                                fraction = (rIdx + 1) + stepProgress;
+                            }
+                            totalRankFraction += fraction;
+                            count++;
+                        }
+                    });
+                    
+                    return count > 0 ? (totalRankFraction / count) : 0;
+                });
+            });
+            
+            return {
+                subcategories: activeSubcats,
+                performances: playerPerformance,
+                ranks: ranksList
+            };
+        }
+
+        function populateRadarDropdown(configuredPlayers) {
+            const select = document.getElementById('radar-player-select');
+            if (!select) return;
+            
+            const currentVal = select.value;
+            select.innerHTML = '<option value="all">All Players</option>';
+            configuredPlayers.forEach(p => {
+                const opt = document.createElement('option');
+                opt.value = p.steam_id;
+                opt.textContent = p.username;
+                select.appendChild(opt);
+            });
+            if ([...select.options].some(o => o.value === currentVal)) {
+                select.value = currentVal;
+            }
+        }
+
+        function updateRadarChart(hoveredPlayerSteamId = null) {
+            const bData = standingsData[currentBenchmarkId];
+            if (!bData) return;
+            
+            const radarInfo = getSubcategoryData(bData);
+            const activeSubcats = radarInfo.subcategories;
+            const performances = radarInfo.performances;
+            const ranksList = radarInfo.ranks;
+            
+            const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
+            
+            const playerSelect = document.getElementById('radar-player-select');
+            const selectedVal = playerSelect ? playerSelect.value : 'all';
+            
+            let activePlayerIdForList = null;
+            if (hoveredPlayerSteamId) {
+                activePlayerIdForList = hoveredPlayerSteamId;
+            } else if (selectedVal !== 'all') {
+                activePlayerIdForList = selectedVal;
+            } else if (bData.players.length > 0) {
+                activePlayerIdForList = bData.players[0].steam_id;
+            }
+            
+            const listContainer = document.getElementById('radar-subcat-list');
+            if (listContainer) {
+                if (selectedVal === 'all' && !hoveredPlayerSteamId) {
+                    listContainer.style.display = 'none';
+                } else {
+                    listContainer.style.display = 'flex';
+                    listContainer.innerHTML = '';
+                    
+                    const activePlayer = configuredPlayers.find(p => p.steam_id === activePlayerIdForList);
+                    if (activePlayer) {
+                        const playerPerf = performances[activePlayerIdForList] || [];
+                        
+                        const playerHeader = document.createElement('div');
+                        playerHeader.style.fontWeight = '800';
+                        playerHeader.style.color = getPlayerThemeColor(activePlayerIdForList);
+                        playerHeader.style.marginBottom = '6px';
+                        playerHeader.style.fontSize = '0.85rem';
+                        playerHeader.style.overflow = 'hidden';
+                        playerHeader.style.textOverflow = 'ellipsis';
+                        playerHeader.style.whiteSpace = 'nowrap';
+                        playerHeader.textContent = activePlayer.username;
+                        listContainer.appendChild(playerHeader);
+                        
+                        activeSubcats.forEach((subcat, idx) => {
+                            const val = playerPerf[idx] || 0;
+                            let rankName = 'Unranked';
+                            let progressPct = 0;
+                            
+                            if (val >= ranksList.length) {
+                                rankName = ranksList[ranksList.length - 1];
+                                progressPct = 100;
+                            } else if (val >= 1) {
+                                const rIdx = Math.floor(val) - 1;
+                                rankName = ranksList[rIdx];
+                                progressPct = Math.round((val - Math.floor(val)) * 100);
+                            } else if (val > 0) {
+                                rankName = 'Unranked';
+                                progressPct = Math.round(val * 100);
+                            }
+                            
+                            const item = document.createElement('div');
+                            item.style.display = 'flex';
+                            item.style.flexDirection = 'column';
+                            item.style.gap = '2px';
+                            
+                            const lowerRank = rankName.toLowerCase();
+                            const badgeColorClass = `rank-${lowerRank}`;
+                            
+                            item.innerHTML = `
+                                <div style="display: flex; justify-content: space-between; font-weight: 600; color: #f8f9fa;">
+                                    <span>${subcat}</span>
+                                </div>
+                                <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.75rem;">
+                                    <span class="rank-badge ${badgeColorClass}" style="font-size: 0.6rem; padding: 1px 4px; border-radius: 3px; font-weight: 700; text-transform: uppercase;">${rankName}</span>
+                                    <span style="color: var(--text-muted); font-weight: bold;">+${progressPct}%</span>
+                                </div>
+                            `;
+                            listContainer.appendChild(item);
+                        });
+                    }
+                }
+            }
+            
+            const datasets = [];
+            
+            configuredPlayers.forEach(p => {
+                const sid = p.steam_id;
+                const perf = performances[sid] || [];
+                const color = getPlayerThemeColor(sid);
+                
+                let borderOpacity = 1.0;
+                let bgOpacity = 0.0;
+                let isHidden = false;
+                
+                if (selectedVal !== 'all') {
+                    if (selectedVal !== sid) {
+                        isHidden = true;
+                    }
+                } else if (hoveredPlayerSteamId !== null) {
+                    if (hoveredPlayerSteamId !== sid) {
+                        borderOpacity = 0.08;
+                    } else {
+                        borderOpacity = 1.0;
+                    }
+                }
+                
+                if (!isHidden) {
+                    datasets.push({
+                        label: p.username,
+                        data: perf,
+                        borderColor: `rgba(${hexToRgb(color)}, ${borderOpacity})`,
+                        backgroundColor: `rgba(${hexToRgb(color)}, ${bgOpacity})`,
+                        borderWidth: hoveredPlayerSteamId === sid ? 3.5 : 2,
+                        pointBackgroundColor: `rgba(${hexToRgb(color)}, ${borderOpacity})`,
+                        pointBorderColor: '#121214',
+                        pointHoverBackgroundColor: color,
+                        pointHoverBorderColor: '#fff',
+                        pointRadius: hoveredPlayerSteamId === sid ? 4 : 2.5,
+                        pointHoverRadius: 5,
+                        tension: 0.15
+                    });
+                }
+            });
+            
+            const rankColorsMap = {
+                'lemming': 'rgba(158, 158, 158, 0.06)',
+                'hare': 'rgba(76, 175, 80, 0.06)',
+                'ermine': 'rgba(33, 150, 243, 0.06)',
+                'penguin': 'rgba(0, 188, 212, 0.06)',
+                'fox': 'rgba(156, 39, 176, 0.06)',
+                'mammoth': 'rgba(255, 152, 0, 0.06)',
+                'orca': 'rgba(233, 30, 99, 0.06)',
+                'seal': 'rgba(244, 67, 54, 0.06)',
+                'cinnabar': 'rgba(183, 28, 28, 0.06)',
+                'vermillion': 'rgba(216, 67, 21, 0.06)',
+                'saffron': 'rgba(249, 168, 37, 0.06)',
+                'celadon': 'rgba(46, 125, 50, 0.06)',
+                'cerulean': 'rgba(21, 101, 192, 0.06)',
+                'lavender': 'rgba(106, 27, 154, 0.06)',
+                'indigo': 'rgba(40, 53, 147, 0.06)',
+                'fuchsia': 'rgba(173, 20, 87, 0.06)',
+                'wool': 'rgba(141, 110, 99, 0.06)',
+                'linen': 'rgba(189, 189, 189, 0.06)',
+                'velvet': 'rgba(110, 29, 74, 0.06)',
+                'chiffon': 'rgba(0, 150, 136, 0.06)',
+                'satin': 'rgba(2, 136, 209, 0.06)',
+                'silk': 'rgba(224, 64, 251, 0.06)'
+            };
+            
+            const gridColors = ['rgba(255, 255, 255, 0.02)'];
+            ranksList.forEach(r => {
+                const color = rankColorsMap[r.toLowerCase()] || 'rgba(255, 255, 255, 0.06)';
+                gridColors.push(color);
+            });
+            
+            const canvasEl = document.getElementById('radar-chart');
+            if (!canvasEl) return;
+            const ctx = canvasEl.getContext('2d');
+            
+            if (radarChart) {
+                radarChart.destroy();
+            }
+            
+            radarChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: activeSubcats,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const val = context.raw;
+                                    let rankName = 'Unranked';
+                                    let progressPct = 0;
+                                    if (val >= ranksList.length) {
+                                        rankName = ranksList[ranksList.length - 1];
+                                        progressPct = 100;
+                                    } else if (val >= 1) {
+                                        const rIdx = Math.floor(val) - 1;
+                                        rankName = ranksList[rIdx];
+                                        progressPct = Math.round((val - Math.floor(val)) * 100);
+                                    } else if (val > 0) {
+                                        rankName = 'Unranked';
+                                        progressPct = Math.round(val * 100);
+                                    }
+                                    return `${context.dataset.label}: ${rankName} (+${progressPct}%)`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        r: {
+                            min: 0,
+                            max: ranksList.length,
+                            ticks: {
+                                stepSize: 1,
+                                display: false
+                            },
+                            grid: {
+                                color: gridColors
+                            },
+                            angleLines: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            },
+                            pointLabels: {
+                                color: '#9fa6b2',
+                                font: {
+                                    family: "'Outfit', sans-serif",
+                                    size: 9,
+                                    weight: '600'
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
 
         function getAdminHeaders() {
             const token = localStorage.getItem('admin_token') || '';
@@ -2293,6 +2796,11 @@
                     <td style="font-weight: 600; color: var(--accent-primary);">${p.points ? p.points.toFixed(1) : '0.0'}%</td>
                     <td>${p.total_pbs}</td>
                 `;
+                
+                // Radar chart sync on hover
+                row.addEventListener('mouseenter', () => updateRadarChart(p.steam_id));
+                row.addEventListener('mouseleave', () => updateRadarChart(null));
+                
                 tbody.appendChild(row);
             });
 
@@ -2310,31 +2818,6 @@
 
             const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
 
-            // Hex to RGB converter helper
-            function hexToRgb(hex) {
-                const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-                hex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b);
-                const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-                return result ? 
-                    `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`
-                    : '0, 245, 212';
-            }
-
-            // Get player theme color helper
-            function getPlayerThemeColor(steamId) {
-                const colors = [
-                    '#00f5d4', // Hela Teal
-                    '#f72585', // Venom Red
-                    '#ffd166', // Crown Gold
-                    '#00a8fc', // Blue
-                    '#7209b7', // Purple
-                    '#4caf50', // Green
-                    '#ff9800'  // Orange
-                ];
-                const idx = configuredPlayers.findIndex(p => p.steam_id === steamId);
-                return colors[idx >= 0 ? idx % colors.length : 0];
-            }
-
             // Populate Legend
             if (gridLegend) {
                 gridLegend.innerHTML = '';
@@ -2348,43 +2831,47 @@
                     item.style.gap = '8px';
                     item.style.fontSize = '0.85rem';
                     item.style.fontWeight = '600';
+                    item.style.cursor = 'pointer';
                     item.innerHTML = `
                         <img src="${avatarUrl}" class="legend-avatar" style="border: 1.5px solid ${color}; box-shadow: 0 0 4px ${color};" onerror="this.onerror=null; this.outerHTML='<span style=\'width: 10px; height: 10px; border-radius: 50%; background: ${color}; box-shadow: 0 0 6px ${color}; display: inline-block;\'></span>';">
                         ${p.username}
                     `;
+                    item.addEventListener('mouseenter', () => updateRadarChart(p.steam_id));
+                    item.addEventListener('mouseleave', () => updateRadarChart(null));
                     gridLegend.appendChild(item);
                 });
             }
+
+            // Radar dropdown population
+            populateRadarDropdown(configuredPlayers);
+            updateRadarChart();
+
+            // Benchmark ranks configuration
+            const benchmarkRanks = {
+                "686": ['Lemming', 'Hare', 'Ermine', 'Penguin', 'Fox', 'Mammoth', 'Orca', 'Seal'],
+                "687": ['Cinnabar', 'Vermillion', 'Saffron', 'Celadon', 'Cerulean', 'Lavender', 'Indigo', 'Fuchsia'],
+                "688": ['Wool', 'Linen', 'Velvet', 'Chiffon', 'Satin', 'Silk']
+            };
+            const ranksList = benchmarkRanks[currentBenchmarkId] || [];
 
             // Grid header
             const headerRow = document.createElement('tr');
             headerRow.innerHTML = `
                 <th style="width: 45px; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted);">Cat</th>
                 <th style="width: 45px; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted);">Sub</th>
-                <th style="text-align: left; font-size: 0.9rem; letter-spacing: 0.5px;">Scenario Name</th>
+                <th style="text-align: left; font-size: 0.9rem; letter-spacing: 0.5px; width: 220px;">Scenario Name</th>
+                <th style="text-align: center; font-size: 0.85rem; letter-spacing: 0.5px; color: var(--accent-gold); width: 100px;">Best Score</th>
             `;
             
-            configuredPlayers.forEach((p, idx) => {
+            ranksList.forEach(r => {
                 const th = document.createElement('th');
                 th.style.textAlign = 'center';
                 th.style.verticalAlign = 'middle';
-                let suffix = 'th';
-                const rankNum = idx + 1;
-                if (rankNum === 1) suffix = 'st';
-                else if (rankNum === 2) suffix = 'nd';
-                else if (rankNum === 3) suffix = 'rd';
+                th.style.width = '100px';
                 
-                let thStyle = '';
-                if (rankNum === 1) {
-                    thStyle = 'color: var(--accent-gold); text-shadow: 0 0 8px rgba(255, 209, 102, 0.45); font-weight: 800; font-size: 0.95rem;';
-                } else if (rankNum === 2) {
-                    thStyle = 'color: #e2e8f0; font-weight: 700; font-size: 0.9rem; text-shadow: 0 0 6px rgba(226, 232, 240, 0.2);';
-                } else if (rankNum === 3) {
-                    thStyle = 'color: #cd7f32; font-weight: 700; font-size: 0.9rem; text-shadow: 0 0 6px rgba(205, 127, 50, 0.2);';
-                } else {
-                    thStyle = 'color: var(--text-muted); font-weight: 600; font-size: 0.85rem;';
-                }
-                th.innerHTML = `<span style="${thStyle}">${rankNum}${suffix}</span>`;
+                const lowerRank = r.toLowerCase();
+                const spanStyle = `font-family: var(--font-heading); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.5px;`;
+                th.innerHTML = `<span class="rank-${lowerRank}-text" style="${spanStyle}">${r}</span>`;
                 headerRow.appendChild(th);
             });
             gridHeader.appendChild(headerRow);
@@ -2520,6 +3007,10 @@
                 pInfo.subcats.forEach((subcatInfo, sIdx) => {
                     subcatInfo.scenarios.forEach((scen, scenIdx) => {
                         const row = document.createElement('tr');
+                        row.className = 'grid-scen-row';
+                        
+                        row.style.transition = 'height 0.25s ease';
+                        
                         const escapedScenName = scen.replace(/'/g, "\\'");
                         const overtakes = scenarioOvertakes[scen] || [];
                         const isRecentOvertake = overtakes.length > 0;
@@ -2542,12 +3033,27 @@
                             subcatTdHtml = `<td rowspan="${subcatInfo.scenarios.length}" class="grid-subcat">${displayName}</td>`;
                         }
                         
+                        // Calculate Best Score
+                        const leaders = bData.leaders[scen] || [];
+                        const scoresMap = bData.scores[scen] || {};
+                        let bestScoreVal = 0;
+                        configuredPlayers.forEach(p => {
+                            const s = scoresMap[p.steam_id];
+                            if (s !== undefined && s > bestScoreVal) {
+                                bestScoreVal = s;
+                            }
+                        });
+                        
+                        const bestScoreHtml = bestScoreVal > 0 
+                            ? `<span style="font-weight: 800; color: var(--accent-gold); text-shadow: 0 0 8px rgba(255, 209, 102, 0.4);"><span class="crown-inline">👑</span>${bestScoreVal.toFixed(2)}</span>`
+                            : `<span style="color: var(--text-muted)">-</span>`;
+                        
                         row.innerHTML = `
                             ${parentTdHtml}
                             ${subcatTdHtml}
                             <td class="grid-scen-name" style="cursor: pointer; padding: 0;" title="Click scenario name to view history graph">
                                 <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; width: 100%; box-sizing: border-box;">
-                                    <span onclick="showScenarioHistory('${escapedScenName}')" style="flex-grow: 1;">
+                                    <span onclick="showScenarioHistory('${escapedScenName}')" style="flex-grow: 1; font-weight: 600;">
                                         ${scenarioLabelHtml}
                                     </span>
                                     <a href="${playUrl}" title="Launch Kovaak's & Play Scenario" style="color: #00ff88; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; opacity: 0.7; transition: var(--transition-smooth);" onmouseover="this.style.opacity=1; this.style.transform='scale(1.25)';" onmouseout="this.style.opacity=0.7; this.style.transform='scale(1)';" onclick="event.stopPropagation();">
@@ -2557,104 +3063,165 @@
                                     </a>
                                 </div>
                             </td>
+                            <td style="text-align: center; vertical-align: middle; font-weight: bold; background: rgba(255,255,255,0.01);">${bestScoreHtml}</td>
                         `;
                         
-                        const leaders = bData.leaders[scen] || [];
-                        const scoresMap = bData.scores[scen] || {};
+                        const rankMaxes = (bData.thresholds && bData.thresholds[scen]) || [];
+                        let rowMaxV = 0;
 
-                        // Sort player scores descending
-                        const rowScores = configuredPlayers.map(p => {
-                            const score = scoresMap[p.steam_id];
-                            return {
-                                player: p,
-                                score: score !== undefined ? score : null
-                            };
-                        });
-                        rowScores.sort((a, b) => {
-                            if (a.score === null && b.score === null) return 0;
-                            if (a.score === null) return 1;
-                            if (b.score === null) return -1;
-                            return b.score - a.score;
-                        });
-
-                        rowScores.forEach(item => {
+                        // Renders each rank column
+                        ranksList.forEach((rankName, rIdx) => {
                             const cell = document.createElement('td');
                             cell.className = 'scen-cell';
+                            cell.style.position = 'relative';
+                            cell.style.overflow = 'visible';
+                            cell.style.padding = '0';
                             
-                            const p = item.player;
-                            const score = item.score;
+                            const colMin = rIdx === 0 ? 0 : (rankMaxes[rIdx - 1] || 0);
+                            const colMax = rankMaxes[rIdx] || 1;
                             
-                            const playerOvertook = overtakes.some(o => o.winner_sid === p.steam_id);
-                            if (playerOvertook) {
+                            const thresholdVal = rankMaxes[rIdx];
+                            const thresholdHtml = thresholdVal !== undefined && thresholdVal > 0 
+                                ? `<div style="position: absolute; bottom: 3px; right: 6px; font-size: 0.65rem; color: var(--text-muted); opacity: 0.4; pointer-events: none; font-weight: bold;">${thresholdVal}</div>`
+                                : '';
+                            
+                            // Background progress fill up to the leader's score
+                            let fillPct = 0;
+                            if (bestScoreVal >= colMax) {
+                                fillPct = 100;
+                            } else if (bestScoreVal > colMin) {
+                                fillPct = ((bestScoreVal - colMin) / (colMax - colMin)) * 100;
+                            }
+                            
+                            const lowerRank = rankName.toLowerCase();
+                            const rankColor = rankColors[lowerRank] || '#4a4a4a';
+                            if (fillPct > 0) {
+                                cell.style.background = `linear-gradient(90deg, rgba(${hexToRgb(rankColor)}, 0.12) 0%, rgba(${hexToRgb(rankColor)}, 0.12) ${fillPct}%, transparent ${fillPct}%)`;
+                            }
+                            
+                            // Collect players landing in this rank column
+                            const cellPins = [];
+                            configuredPlayers.forEach(p => {
+                                const sVal = scoresMap[p.steam_id];
+                                let landsInCol = false;
+                                if (sVal !== undefined && sVal > 0) {
+                                    if (sVal >= colMin && sVal < colMax) {
+                                        landsInCol = true;
+                                    } else if (rIdx === ranksList.length - 1 && sVal >= colMin) {
+                                        landsInCol = true;
+                                    }
+                                } else if (rIdx === 0 && (sVal === undefined || sVal === 0)) {
+                                    landsInCol = true;
+                                }
+                                
+                                if (landsInCol) {
+                                    let pinPct = 0;
+                                    if (sVal !== undefined && sVal > colMin) {
+                                        pinPct = ((sVal - colMin) / (colMax - colMin)) * 100;
+                                        if (pinPct > 100) pinPct = 100;
+                                    }
+                                    cellPins.push({
+                                        player: p,
+                                        score: sVal || 0,
+                                        pct: pinPct
+                                    });
+                                }
+                            });
+                            
+                            // Sort cellPins by percentage position for staggering calculation
+                            cellPins.sort((a, b) => a.pct - b.pct);
+                            
+                            const vOffsets = [];
+                            let maxV = 0;
+                            cellPins.forEach((pin, pIdx) => {
+                                let vIdx = 0;
+                                while (true) {
+                                    const hasConflict = cellPins.slice(0, pIdx).some((prevPin, prevIdx) => {
+                                        return vOffsets[prevIdx] === vIdx && Math.abs(prevPin.pct - pin.pct) < 15;
+                                    });
+                                    if (!hasConflict) {
+                                        break;
+                                    }
+                                    vIdx++;
+                                }
+                                vOffsets.push(vIdx);
+                                if (vIdx > maxV) maxV = vIdx;
+                            });
+                            
+                            rowMaxV = Math.max(rowMaxV, maxV);
+                            
+                            let pinsHtml = '';
+                            cellPins.forEach((pin, pIdx) => {
+                                const p = pin.player;
+                                const sVal = pin.score;
+                                const pctVal = pin.pct;
+                                const vIdx = vOffsets[pIdx];
+                                
+                                const themeColor = getPlayerThemeColor(p.steam_id);
+                                const username = p.username.replace('@', '');
+                                const avatarUrl = `avatars/${username}.png`;
+                                
+                                // Determine vertical spacing based on overlaps in this cell
+                                let topOffset = 8;
+                                if (maxV === 1) {
+                                    topOffset = vIdx === 0 ? 2 : 18;
+                                } else if (maxV >= 2) {
+                                    topOffset = vIdx === 0 ? -2 : (vIdx === 1 ? 10 : 22);
+                                }
+                                
+                                const isLeader = leaders.includes(p.steam_id);
+                                const playerOvertook = overtakes.some(o => o.winner_sid === p.steam_id);
+                                
+                                let borderStyle = `border: 2.2px solid ${themeColor};`;
+                                if (isLeader) {
+                                    borderStyle = `border: 2.5px solid var(--accent-gold); box-shadow: 0 0 8px var(--accent-gold);`;
+                                } else {
+                                    borderStyle += ` box-shadow: 0 0 5px ${themeColor};`;
+                                }
+                                
+                                let opacityStyle = '';
+                                let filterStyle = '';
+                                if (sVal === 0) {
+                                    opacityStyle = 'opacity: 0.25;';
+                                    filterStyle = 'filter: grayscale(100%);';
+                                    borderStyle = `border: 1.5px solid rgba(255,255,255,0.2); box-shadow: none;`;
+                                }
+                                
+                                const scoreStr = sVal > 0 ? sVal.toFixed(2) : 'No score';
+                                const tooltipText = `${p.username}: ${scoreStr}${isLeader ? ' (Leader 👑)' : ''}`;
+                                
+                                pinsHtml += `
+                                    <img src="${avatarUrl}" class="grid-pin" 
+                                         style="position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; ${borderStyle} ${opacityStyle} ${filterStyle} z-index: ${5 + vIdx};" 
+                                         title="${tooltipText}" 
+                                         onerror="this.onerror=null; this.outerHTML='<span class=\\'grid-pin\\' style=\\'position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; width: 26px; height: 26px; border-radius: 50%; background: ${themeColor}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: #fff; z-index: ${5 + vIdx};\\'>${p.username.substring(0,2).toUpperCase()}</span>\\';"
+                                         onmouseenter="updateRadarChart('${p.steam_id}')"
+                                         onmouseleave="updateRadarChart(null)">
+                                `;
+                            });
+                            
+                            // Visual highlight for overtakes
+                            const rowOvertook = overtakes.some(o => scoresMap[o.winner_sid] !== undefined);
+                            if (rowOvertook && bestScoreVal > colMin && bestScoreVal <= colMax) {
                                 cell.className += ' overtake-highlight';
                             }
                             
-                            const color = getPlayerThemeColor(p.steam_id);
-                            
-                            const username = p.username.replace('@', '');
-                            const avatarUrl = `avatars/${username}.png`;
-                            
-                            cell.title = `${p.username}: ${score !== null && score > 0 ? score.toFixed(2) : 'No score'}`;
-
-                            if (score !== null && score > 0) {
-                                const isLeader = leaders.includes(p.steam_id);
-                                const rankMaxes = (bData.thresholds && bData.thresholds[scen]) || [];
-                                const maxThreshold = rankMaxes[rankMaxes.length - 1] || 1;
-                                const pct = Math.min(100, (score / maxThreshold) * 100);
-                                
-                                // Calculate Voltaic rank
-                                const benchmarkRanks = {
-                                    "686": ['Lemming', 'Hare', 'Ermine', 'Penguin', 'Fox', 'Mammoth', 'Orca', 'Seal'],
-                                    "687": ['Cinnabar', 'Vermillion', 'Saffron', 'Celadon', 'Cerulean', 'Lavender', 'Indigo', 'Fuchsia'],
-                                    "688": ['Wool', 'Linen', 'Velvet', 'Chiffon', 'Satin', 'Silk']
-                                };
-                                const ranksList = benchmarkRanks[currentBenchmarkId] || [];
-                                let rankName = 'Unranked';
-                                if (rankMaxes.length > 0) {
-                                    for (let rIdx = rankMaxes.length - 1; rIdx >= 0; rIdx--) {
-                                        if (score >= rankMaxes[rIdx]) {
-                                            rankName = ranksList[rIdx];
-                                            break;
-                                        }
-                                    }
-                                }
-                                const lowerRank = rankName.toLowerCase();
-                                
-                                // Unified Hela Teal progress bar filling right-to-left
-                                cell.style.background = `linear-gradient(270deg, rgba(0, 245, 212, 0.08) 0%, rgba(0, 245, 212, 0.08) ${pct}%, transparent ${pct}%)`;
-                                
-                                let scoreHtml = score.toFixed(2);
-                                let scoreStyle = 'font-weight: 700;';
-                                if (isLeader) {
-                                    cell.className += ' leader-cell';
-                                    cell.style.boxShadow = 'inset 0 0 0 1.5px rgba(255, 209, 102, 0.4)';
-                                    scoreHtml = `<span class="crown-inline">👑</span>${scoreHtml}`;
-                                    scoreStyle = 'font-weight: 800; color: var(--accent-gold); text-shadow: 0 0 8px rgba(255, 209, 102, 0.4);';
-                                }
-                                
-                                cell.innerHTML = `
-                                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 4px 8px; min-height: 38px; width: 100%; box-sizing: border-box;">
-                                        <div style="display: flex; align-items: center; gap: 8px;">
-                                            <img src="${avatarUrl}" class="avatar-dot" style="border: 2px solid ${color}; box-shadow: 0 0 6px ${color};" onerror="this.onerror=null; this.outerHTML='<span style=\'width: 10px; height: 10px; border-radius: 50%; background: ${color}; box-shadow: 0 0 6px ${color}; display: inline-block;\'></span>';">
-                                            <span style="${scoreStyle}">${scoreHtml}</span>
-                                        </div>
-                                        <span class="rank-badge rank-${lowerRank}" style="font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">${rankName}</span>
-                                    </div>
-                                `;
-                            } else {
-                                cell.innerHTML = `
-                                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 4px 8px; min-height: 38px; width: 100%; box-sizing: border-box;">
-                                        <div style="display: flex; align-items: center; gap: 8px;">
-                                            <img src="${avatarUrl}" class="avatar-dot" style="border: 2px solid ${color}; box-shadow: 0 0 6px ${color}; opacity: 0.25; filter: grayscale(100%);" onerror="this.onerror=null; this.outerHTML='<span style=\'width: 10px; height: 10px; border-radius: 50%; background: ${color}; opacity: 0.25; display: inline-block;\'></span>';">
-                                            <span style="color: var(--text-muted); font-weight: 500;">-</span>
-                                        </div>
-                                        <span class="rank-badge rank-unranked" style="font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; opacity: 0.3;">Unranked</span>
-                                    </div>
-                                `;
-                            }
-                            
+                            cell.innerHTML = `
+                                <div style="position: relative; width: 100%; height: 100%; min-height: 40px; box-sizing: border-box;">
+                                    ${thresholdHtml}
+                                    ${pinsHtml}
+                                </div>
+                            `;
                             row.appendChild(cell);
                         });
+                        
+                        // Adjust row height to comfortably accommodate vertical staggering
+                        if (rowMaxV === 1) {
+                            row.style.height = '52px';
+                        } else if (rowMaxV >= 2) {
+                            row.style.height = '62px';
+                        }
+                        
                         gridBody.appendChild(row);
                     });
                 });
@@ -2838,7 +3405,7 @@
                     const row = document.createElement('div');
                     row.className = 'discord-msg-row';
                     
-                    const timeStr = new Date(n.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    const timeStr = parseDate(n.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                     const initial = n.player_name ? n.player_name.substring(0,2).toUpperCase() : "KV";
                     
                     let innerContent = '';
@@ -3049,10 +3616,10 @@
                 });
             });
             
-            uniqueTimestamps.sort((a, b) => new Date(a) - new Date(b));
+            uniqueTimestamps.sort((a, b) => parseDate(a) - parseDate(b));
             
             const labels = uniqueTimestamps.map(ts => {
-                const d = new Date(ts);
+                const d = parseDate(ts);
                 return d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
             });
             
@@ -3061,7 +3628,7 @@
             Object.keys(currentHistoryData).forEach(steamId => {
                 const playerObj = currentHistoryData[steamId];
                 const pName = playerObj.player_name;
-                const pHistory = [...playerObj.history].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+                const pHistory = [...playerObj.history].sort((a, b) => parseDate(a.timestamp) - parseDate(b.timestamp));
                 
                 const data = [];
                 const pointRadius = [];
@@ -3108,12 +3675,12 @@
             const playerObj = currentHistoryData[steamId] || { player_name: 'Player', history: [] };
             
             // Sort chronologically ascending
-            const chronologicalHistory = [...playerObj.history].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+            const chronologicalHistory = [...playerObj.history].sort((a, b) => parseDate(a.timestamp) - parseDate(b.timestamp));
             const scores = chronologicalHistory.map(h => h.score);
             const pb = scores.length > 0 ? Math.max(...scores) : 0;
             
             // Sort chronologically descending for the history table (newest first)
-            const newestFirstHistory = [...playerObj.history].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            const newestFirstHistory = [...playerObj.history].sort((a, b) => parseDate(b.timestamp) - parseDate(a.timestamp));
             const last10 = newestFirstHistory.slice(0, 10);
             
             const pbCount = playerObj.history.length;
@@ -3138,7 +3705,7 @@
             } else {
                 last10.forEach(h => {
                     const row = document.createElement('tr');
-                    const d = new Date(h.timestamp);
+                    const d = parseDate(h.timestamp);
                     const dateStr = d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                     row.innerHTML = `
                         <td style="padding: 8px 12px; font-weight: 600;">${h.score.toFixed(2)}</td>
@@ -3151,10 +3718,10 @@
 
         function drawSinglePlayerChart(ctx, steamId) {
             const playerObj = currentHistoryData[steamId] || { player_name: 'Player', history: [] };
-            const pHistory = [...playerObj.history].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+            const pHistory = [...playerObj.history].sort((a, b) => parseDate(a.timestamp) - parseDate(b.timestamp));
             
             const labels = pHistory.map(h => {
-                const d = new Date(h.timestamp);
+                const d = parseDate(h.timestamp);
                 return d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
             });
             
@@ -3452,25 +4019,28 @@
             
             notifications.forEach(n => {
                 const item = document.createElement('div');
-                item.className = 'timeline-item';
+                item.className = 'timeline-item-compact';
                 
-                const d = new Date(n.timestamp);
+                const d = parseDate(n.timestamp);
                 const dateStr = d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                 
-                let dotClass = 'pb';
-                if (n.event_type === 'overtake') dotClass = 'overtake';
-                else if (n.event_type === 'rank_up') dotClass = 'rank_up';
-                else if (n.event_type === 'crown_change') dotClass = 'crown_change';
-                else if (n.event_type === 'pain_point') dotClass = 'pain_point';
-                else if (n.event_type === 'consolidated') dotClass = 'consolidated';
+                const username = (n.player_name || '').replace('@', '');
+                const avatarUrl = `avatars/${username}.png`;
+                
+                const playerObj = globalPlayers.find(p => p.username.replace('@', '') === username);
+                const color = playerObj ? getPlayerThemeColor(playerObj.steam_id) : '#9e9e9e';
                 
                 item.innerHTML = `
-                    <div class="timeline-dot ${dotClass}"></div>
-                    <div class="timeline-meta">
-                        <span class="timeline-player">👤 ${n.player_name || 'System'}</span>
-                        <span class="timeline-time">${dateStr}</span>
+                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%;">
+                        <div style="display: flex; align-items: center; gap: 12px; min-width: 0; flex-grow: 1;">
+                            <img src="${avatarUrl}" class="avatar-dot" style="width: 28px; height: 28px; border: 2px solid ${color}; box-shadow: 0 0 6px ${color}; flex-shrink: 0;" onerror="this.onerror=null; this.outerHTML='<span style=\'width: 28px; height: 28px; border-radius: 50%; background: ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; border: 2px solid ${color}; box-shadow: 0 0 6px ${color}; flex-shrink: 0; color: #fff;\\'>👤</span>';">
+                            <span style="font-size: 0.85rem; color: #f3f4f6; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; line-height: 1.4;">
+                                <strong style="color: #fff; font-weight: 700; margin-right: 4px;">${n.player_name || 'System'}</strong> 
+                                ${parseDiscordMarkdown(n.message)}
+                            </span>
+                        </div>
+                        <span style="font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; flex-shrink: 0;">${dateStr}</span>
                     </div>
-                    <div class="timeline-content">${parseDiscordMarkdown(n.message)}</div>
                 `;
                 container.appendChild(item);
             });
@@ -3580,7 +4150,7 @@
                             steamId: steamId,
                             scenName: scenName,
                             score: h.score,
-                            timestamp: new Date(h.timestamp)
+                            timestamp: parseDate(h.timestamp)
                         });
                     });
                 });
