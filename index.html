@@ -1427,7 +1427,7 @@
             <div id="leaderboard-view" style="display: flex; flex-direction: column; gap: 30px;">
                 
                 <!-- Overall Progress Timeline Chart -->
-                <section class="glass-panel" style="padding: 24px;">
+                <section class="glass-panel" id="timeline-section" style="padding: 24px;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
                         <h2 class="panel-title" style="margin-bottom: 0; border-bottom: none; padding-bottom: 0;">📈 Max Rank % Progress Timeline</h2>
                         <div class="time-filter-controls" style="display: flex; gap: 6px;">
@@ -1436,7 +1436,7 @@
                             <button class="time-filter-btn active" onclick="filterTimelineChart('ALL', this)">ALL</button>
                         </div>
                     </div>
-                    <div style="height: 320px; position: relative; width: 100%;">
+                    <div style="flex-grow: 1; min-height: 250px; position: relative; width: 100%;">
                         <canvas id="timeline-chart"></canvas>
                     </div>
                 </section>
@@ -1488,12 +1488,12 @@
                 
                 <div style="display: flex; gap: 16px; align-items: stretch; justify-content: space-between; min-height: 320px; position: relative; width: 100%;">
                     <!-- Player Selection Checklist (Left of chart) -->
-                    <div id="radar-player-list" style="display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; color: var(--text-muted); width: 155px; flex-shrink: 0; border-right: 1px solid rgba(255,255,255,0.05); padding-right: 12px; max-height: 320px; overflow-y: auto;">
+                    <div id="radar-player-list" style="display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; color: var(--text-muted); width: 155px; flex-shrink: 0; border-right: 1px solid rgba(255,255,255,0.05); padding-right: 12px;">
                         <!-- Populated dynamically -->
                     </div>
                     
                     <!-- Radar Canvas -->
-                    <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; position: relative; height: 320px;">
+                    <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; position: relative; min-height: 320px;">
                         <canvas id="radar-chart" style="width: 100%; height: 100%;"></canvas>
                     </div>
                 </div>
@@ -1529,7 +1529,7 @@
             <!-- Active Rivalries Panel -->
             <section class="glass-panel" id="rivalries-section" style="padding: 24px; display: none;">
                 <h2 class="panel-title">🎯 Active Rivalries & Chases</h2>
-                <div class="crown-cards-grid" id="rivalries-grid" style="grid-template-columns: 1fr; margin-bottom: 0;">
+                <div class="crown-cards-grid" id="rivalries-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 0;">
                     <!-- Populated dynamically -->
                 </div>
             </section>
@@ -1804,6 +1804,39 @@
             return false;
         }
 
+        function getSyncedAnimationDelay(periodMs = 1800) {
+            const delay = -(Date.now() % periodMs) / 1000;
+            return `${delay}s`;
+        }
+
+        function hasPlayerRecentRankIncrease(dataPoints, chart) {
+            if (!dataPoints || dataPoints.length === 0 || !chart || !chart.sortedTimestamps) return false;
+            const now = new Date();
+            const sevenDaysAgo = now.getTime() - 7 * 24 * 60 * 60 * 1000;
+            for (let i = 0; i < dataPoints.length; i++) {
+                const pt = dataPoints[i];
+                const ts = chart.sortedTimestamps[pt.x];
+                if (!ts) continue;
+                const ptTime = parseDate(ts).getTime();
+                if (ptTime >= sevenDaysAgo) {
+                    // Ignore the stretched helper point at the end of the series
+                    if (i === dataPoints.length - 1 && i > 0) {
+                        const prev = dataPoints[i - 1];
+                        if (pt.y === prev.y && Math.abs(ptTime - now.getTime()) < 2000) {
+                            continue;
+                        }
+                    }
+                    if (i === 0) {
+                        if (pt.y > 0) return true;
+                    } else {
+                        const prev = dataPoints[i - 1];
+                        if (pt.y > prev.y) return true;
+                    }
+                }
+            }
+            return false;
+        }
+
         const htmlOverlayPlugin = {
             id: 'htmlOverlayPlugin',
             afterDraw(chart) {
@@ -1874,7 +1907,7 @@
 
                     let isRecentPB = false;
                     if (chart.canvas.id === 'timeline-chart') {
-                        isRecentPB = hasPlayerRecentAnyPB(steamId);
+                        isRecentPB = hasPlayerRecentRankIncrease(dataset.data, chart);
                     } else {
                         isRecentPB = hasPlayerRecentMapPB(steamId, currentScenarioName);
                     }
@@ -1922,9 +1955,11 @@
                     if (isRecentPB) {
                         overlay.classList.add('recent-pb-pulse');
                         overlay.style.setProperty('--pulse-color', themeColor);
+                        overlay.style.animationDelay = getSyncedAnimationDelay();
                     } else {
                         overlay.classList.remove('recent-pb-pulse');
                         overlay.style.boxShadow = 'none';
+                        overlay.style.animationDelay = '';
                     }
                 }
 
@@ -1969,18 +2004,18 @@
         let lastLoadedBenchmarkId = null;
 
         function getSubcategoryData(bData) {
-            const PARENT_ORDER = ["DYNAMIC CLICKING", "FLICK TECH", "REACTIVE TRACKING", "CONTROL TRACKING"];
+            const PARENT_ORDER = ["CONTROL TRACKING", "REACTIVE TRACKING", "FLICK TECH", "DYNAMIC CLICKING"];
             const SUBCAT_ORDER = {
-                "DYNAMIC CLICKING": ["Linear", "Precision", "Reading"],
-                "FLICK TECH": ["Evasive", "Micro", "Stability", "Speed"],
-                "REACTIVE TRACKING": ["Reading Track", "Speed Track", "Control"],
-                "CONTROL TRACKING": ["Blending", "Fingertip", "Wrist", "Arm"]
+                "CONTROL TRACKING": ["Arm", "Wrist", "Fingertip", "Blending"],
+                "REACTIVE TRACKING": ["Control", "Speed Track", "Reading Track"],
+                "FLICK TECH": ["Speed", "Stability", "Micro", "Evasive"],
+                "DYNAMIC CLICKING": ["Reading", "Precision", "Linear"]
             };
             const SUBCAT_TO_PARENT = {
-                "Linear": "DYNAMIC CLICKING", "Precision": "DYNAMIC CLICKING", "Reading": "DYNAMIC CLICKING",
-                "Evasive": "FLICK TECH", "Micro": "FLICK TECH", "Stability": "FLICK TECH", "Speed": "FLICK TECH",
-                "Reading Track": "REACTIVE TRACKING", "Speed Track": "REACTIVE TRACKING", "Control": "REACTIVE TRACKING",
-                "Blending": "CONTROL TRACKING", "Fingertip": "CONTROL TRACKING", "Wrist": "CONTROL TRACKING", "Arm": "CONTROL TRACKING"
+                "Arm": "CONTROL TRACKING", "Wrist": "CONTROL TRACKING", "Fingertip": "CONTROL TRACKING", "Blending": "CONTROL TRACKING",
+                "Control": "REACTIVE TRACKING", "Speed Track": "REACTIVE TRACKING", "Reading Track": "REACTIVE TRACKING",
+                "Speed": "FLICK TECH", "Stability": "FLICK TECH", "Micro": "FLICK TECH", "Evasive": "FLICK TECH",
+                "Reading": "DYNAMIC CLICKING", "Precision": "DYNAMIC CLICKING", "Linear": "DYNAMIC CLICKING"
             };
             
             const scenToSubcat = bData.categories || {};
@@ -1999,16 +2034,17 @@
                     if (lower.includes("whisphere") || lower.includes("smoothbot")) subcat = "Arm";
                     else if (lower.includes("leaptrack")) subcat = "Wrist";
                     else if (lower.includes("clover")) subcat = "Fingertip";
-                    else if (lower.includes("pgti") || lower.includes("celestial")) subcat = "Blending";
-                    else if (lower.includes("ground plaza")) subcat = "Control";
+                    else if (lower.includes("pgti") || lower.includes("celestial") || lower.includes("floating heads")) subcat = "Blending";
+                    else if (lower.includes("ground plaza") || lower.includes("controlsphere")) subcat = "Control";
                     else if (lower.includes("flicker plaza") || lower.includes("polarized hell")) subcat = "Speed Track";
-                    else if (lower.includes("air pure") || lower.includes("air voltaic")) subcat = "Reading Track";
-                    else if (lower.includes("pokeball") || lower.includes("voxtargetswitch") || lower.includes("1w3ts reload")) subcat = "Speed";
+                    else if (lower.includes("air pure") || lower.includes("air voltaic") || lower.includes("air angelic")) subcat = "Reading Track";
+                    else if (lower.includes("pokeball") || lower.includes("voxtargetswitch") || lower.includes("1w3ts reload") || lower.includes("1w3ts") || lower.includes("1w2ts reload") || lower.includes("voxtargetclick")) subcat = "Speed";
                     else if (lower.includes("beants") || lower.includes("floatts")) subcat = "Stability";
                     else if (lower.includes("waldots") || lower.includes("devts")) subcat = "Micro";
                     else if (lower.includes("domiswitch") || lower.includes("tamtargetswitch")) subcat = "Evasive";
                     else if (lower.includes("bounceshot")) subcat = "Reading";
                     else if (lower.includes("popcorn") || lower.includes("pasu")) subcat = "Precision";
+                    else if (lower.includes("linear") || lower.includes("controlsphere click")) subcat = "Linear";
                     else subcat = "Arm";
                 }
                 if (subcatScenarios[subcat]) {
@@ -2073,7 +2109,8 @@
                         }
                     });
                     
-                    return count > 0 ? (totalRankFraction / count) : 0;
+                    const avg = count > 0 ? (totalRankFraction / count) : 0;
+                    return Math.min(avg, ranksList.length);
                 });
             });
             
@@ -2337,6 +2374,7 @@
                     }
                 });
             }
+            syncLayoutHeights();
         }
 
         function getAdminHeaders() {
@@ -2851,19 +2889,60 @@
                 const chaserColor = getPlayerThemeColor(item.chaser_sid);
                 const targetColor = getPlayerThemeColor(item.target_sid);
                 
-                const gapText = `Overtook target ${item.chaser_overtakes_target} time${item.chaser_overtakes_target !== 1 ? 's' : ''}, overtaken ${item.target_overtakes_chaser} time${item.target_overtakes_chaser !== 1 ? 's' : ''}`;
-                
+                const chaserUsername = item.chaser_name.replace('@', '');
+                const chaserAvatarUrl = `avatars/${chaserUsername}.png`;
+                const targetUsername = item.target_name.replace('@', '');
+                const targetAvatarUrl = `avatars/${targetUsername}.png`;
+
+                let chaserSize = 36;
+                let targetSize = 36;
+                if (item.chaser_overtakes_target > item.target_overtakes_chaser) {
+                    chaserSize = 45;
+                    targetSize = 36;
+                } else if (item.target_overtakes_chaser > item.chaser_overtakes_target) {
+                    chaserSize = 36;
+                    targetSize = 45;
+                }
+
+                let statusText = '';
+                if (item.target_overtakes_chaser === 0 && item.chaser_overtakes_target > 0) {
+                    statusText = `${item.chaser_name} is dominating this rivalry (${item.chaser_overtakes_target} - 0)`;
+                } else if (item.chaser_overtakes_target === 0 && item.target_overtakes_chaser > 0) {
+                    statusText = `${item.target_name} is dominating this rivalry (${item.target_overtakes_chaser} - 0)`;
+                } else if (item.chaser_overtakes_target > item.target_overtakes_chaser) {
+                    statusText = `${item.chaser_name} leads this rivalry ${item.chaser_overtakes_target} to ${item.target_overtakes_chaser}`;
+                } else if (item.chaser_overtakes_target === item.target_overtakes_chaser) {
+                    statusText = `${item.chaser_name} and ${item.target_name} are deadlocked at ${item.chaser_overtakes_target} - ${item.target_overtakes_chaser}`;
+                } else {
+                    statusText = `${item.target_name} leads this rivalry ${item.target_overtakes_chaser} to ${item.chaser_overtakes_target}`;
+                }
+
                 const card = document.createElement('div');
                 card.className = 'glass-panel crown-card rivalry-item';
                 card.style.padding = '14px 18px';
                 card.style.gap = '14px';
                 
                 card.innerHTML = `
-                    <div style="font-size: 1.8rem; background: rgba(0, 245, 212, 0.05); width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 10px; border: 1px solid rgba(0, 245, 212, 0.15); flex-shrink: 0;">⚔️</div>
-                    <div style="display: flex; flex-direction: column;">
-                        <span class="rivalry-chaser" style="font-size: 0.95rem; font-weight: 700; color: ${chaserColor};">${item.chaser_name}</span>
-                        <span style="font-size: 0.8rem; color: var(--text-muted); margin: 2px 0;">chasing <strong class="rivalry-target" style="color: ${targetColor};">${item.target_name}</strong></span>
-                        <span class="rivalry-gap" style="font-size: 0.8rem; font-weight: 700; color: var(--accent-gold);">${gapText}</span>
+                    <div style="display: flex; align-items: center; gap: 12px; width: 100%;">
+                        <!-- Left side: Face-off avatars -->
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 6px; flex-shrink: 0; width: 100px; height: 50px; position: relative;">
+                            <!-- Chaser Avatar -->
+                            <img src="${chaserAvatarUrl}" style="width: ${chaserSize}px; height: ${chaserSize}px; border-radius: 50%; border: 2.2px solid ${chaserColor}; object-fit: cover; transition: all 0.2s; box-shadow: none;" title="${item.chaser_name}" onerror="this.onerror=null; this.outerHTML=\`<span style='width: ${chaserSize}px; height: ${chaserSize}px; border-radius: 50%; border: 2.2px solid ${chaserColor}; background: rgba(255,255,255,0.05); display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: bold; color: #fff;'>${item.chaser_name.substring(0,2).toUpperCase()}</span>\`;`>
+                            <!-- Crossed Swords -->
+                            <span style="font-size: 1.1rem; color: var(--text-muted); z-index: 2; margin: 0 -2px;">⚔️</span>
+                            <!-- Target Avatar -->
+                            <img src="${targetAvatarUrl}" style="width: ${targetSize}px; height: ${targetSize}px; border-radius: 50%; border: 2.2px solid ${targetColor}; object-fit: cover; transition: all 0.2s; box-shadow: none;" title="${item.target_name}" onerror="this.onerror=null; this.outerHTML=\`<span style='width: ${targetSize}px; height: ${targetSize}px; border-radius: 50%; border: 2.2px solid ${targetColor}; background: rgba(255,255,255,0.05); display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: bold; color: #fff;'>${item.target_name.substring(0,2).toUpperCase()}</span>\`;`>
+                        </div>
+                        <!-- Right side: Phrasing -->
+                        <div style="display: flex; flex-direction: column; flex-grow: 1; min-width: 0;">
+                            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: bold; color: var(--text-muted);">Rivalry Matchup</span>
+                            <span style="font-size: 0.95rem; font-weight: 700; color: #fff; line-height: 1.2; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                ${item.chaser_name} vs ${item.target_name}
+                            </span>
+                            <span style="font-size: 0.8rem; font-weight: 600; color: var(--accent-gold); margin-top: 4px; line-height: 1.3;">
+                                ${statusText}
+                            </span>
+                        </div>
                     </div>
                 `;
                 grid.appendChild(card);
@@ -3069,12 +3148,12 @@
             }
 
             // Categories layout helper metadata
-            const PARENT_ORDER = ["DYNAMIC CLICKING", "FLICK TECH", "REACTIVE TRACKING", "CONTROL TRACKING"];
+            const PARENT_ORDER = ["CONTROL TRACKING", "REACTIVE TRACKING", "FLICK TECH", "DYNAMIC CLICKING"];
             const SUBCAT_ORDER = {
-                "DYNAMIC CLICKING": ["Linear", "Precision", "Reading"],
-                "FLICK TECH": ["Evasive", "Micro", "Stability", "Speed"],
-                "REACTIVE TRACKING": ["Reading Track", "Speed Track", "Control"],
-                "CONTROL TRACKING": ["Blending", "Fingertip", "Wrist", "Arm"]
+                "CONTROL TRACKING": ["Arm", "Wrist", "Fingertip", "Blending"],
+                "REACTIVE TRACKING": ["Control", "Speed Track", "Reading Track"],
+                "FLICK TECH": ["Speed", "Stability", "Micro", "Evasive"],
+                "DYNAMIC CLICKING": ["Reading", "Precision", "Linear"]
             };
             const SUBCAT_DISPLAY_NAMES = {
                 "Reading Track": "Reading",
@@ -3093,20 +3172,10 @@
                 "Arm": "Arm"
             };
             const SUBCAT_TO_PARENT = {
-                "Linear": "DYNAMIC CLICKING",
-                "Precision": "DYNAMIC CLICKING",
-                "Reading": "DYNAMIC CLICKING",
-                "Evasive": "FLICK TECH",
-                "Micro": "FLICK TECH",
-                "Stability": "FLICK TECH",
-                "Speed": "FLICK TECH",
-                "Reading Track": "REACTIVE TRACKING",
-                "Speed Track": "REACTIVE TRACKING",
-                "Control": "REACTIVE TRACKING",
-                "Blending": "CONTROL TRACKING",
-                "Fingertip": "CONTROL TRACKING",
-                "Wrist": "CONTROL TRACKING",
-                "Arm": "CONTROL TRACKING"
+                "Arm": "CONTROL TRACKING", "Wrist": "CONTROL TRACKING", "Fingertip": "CONTROL TRACKING", "Blending": "CONTROL TRACKING",
+                "Control": "REACTIVE TRACKING", "Speed Track": "REACTIVE TRACKING", "Reading Track": "REACTIVE TRACKING",
+                "Speed": "FLICK TECH", "Stability": "FLICK TECH", "Micro": "FLICK TECH", "Evasive": "FLICK TECH",
+                "Reading": "DYNAMIC CLICKING", "Precision": "DYNAMIC CLICKING", "Linear": "DYNAMIC CLICKING"
             };
 
             // Group scenarios
@@ -3130,15 +3199,15 @@
                         subcat = "Wrist";
                     } else if (lower.includes("clover")) {
                         subcat = "Fingertip";
-                    } else if (lower.includes("pgti") || lower.includes("celestial")) {
+                    } else if (lower.includes("pgti") || lower.includes("celestial") || lower.includes("floating heads")) {
                         subcat = "Blending";
-                    } else if (lower.includes("ground plaza")) {
+                    } else if (lower.includes("ground plaza") || lower.includes("controlsphere")) {
                         subcat = "Control";
                     } else if (lower.includes("flicker plaza") || lower.includes("polarized hell")) {
                         subcat = "Speed Track";
-                    } else if (lower.includes("air pure") || lower.includes("air voltaic")) {
+                    } else if (lower.includes("air pure") || lower.includes("air voltaic") || lower.includes("air angelic")) {
                         subcat = "Reading Track";
-                    } else if (lower.includes("pokeball") || lower.includes("voxtargetswitch") || lower.includes("1w3ts reload")) {
+                    } else if (lower.includes("pokeball") || lower.includes("voxtargetswitch") || lower.includes("1w3ts reload") || lower.includes("1w3ts") || lower.includes("1w2ts reload") || lower.includes("voxtargetclick")) {
                         subcat = "Speed";
                     } else if (lower.includes("beants") || lower.includes("floatts")) {
                         subcat = "Stability";
@@ -3150,6 +3219,8 @@
                         subcat = "Reading";
                     } else if (lower.includes("popcorn") || lower.includes("pasu")) {
                         subcat = "Precision";
+                    } else if (lower.includes("linear") || lower.includes("controlsphere click")) {
+                        subcat = "Linear";
                     } else {
                         subcat = "Arm";
                     }
@@ -3367,6 +3438,7 @@
                                 }
                                 
                                 let pulseClass = isRecentPB ? 'recent-pb-pulse' : '';
+                                let delayStyle = isRecentPB ? `animation-delay: ${getSyncedAnimationDelay()};` : '';
                                 let borderStyle = `border: 2.2px solid ${themeColor};`;
                                 if (isRecentPB) {
                                     borderStyle += ` --pulse-color: ${themeColor};`;
@@ -3397,7 +3469,7 @@
                                 
                                 pinsHtml += `
                                     <img src="${avatarUrl}" class="grid-pin ${pulseClass}" 
-                                         style="position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; ${borderStyle} ${opacityStyle} ${filterStyle} z-index: ${5 + pIdx};" 
+                                         style="position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; ${borderStyle} ${opacityStyle} ${filterStyle} ${delayStyle} z-index: ${5 + pIdx};" 
                                          title="${tooltipText}" 
                                          onerror="this.onerror=null; this.outerHTML=\`<span class='grid-pin ${pulseClass}' style='position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; width: 26px; height: 26px; border-radius: 50%; background: ${themeColor}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: #fff; ${borderStyle} z-index: ${5 + pIdx};'>${p.username.substring(0,2).toUpperCase()}</span>\`;"
                                          onmouseenter="updateRadarChart('${p.steam_id}')"
@@ -3492,6 +3564,7 @@
                                 }
                                 
                                 let pulseClass = isRecentPB ? 'recent-pb-pulse' : '';
+                                let delayStyle = isRecentPB ? `animation-delay: ${getSyncedAnimationDelay()};` : '';
                                 let borderStyle = `border: 2.2px solid ${themeColor};`;
                                 if (isRecentPB) {
                                     borderStyle += ` --pulse-color: ${themeColor};`;
@@ -3512,9 +3585,9 @@
                                 
                                 pinsHtml += `
                                     <img src="${avatarUrl}" class="grid-pin ${pulseClass}" 
-                                         style="position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; ${borderStyle} z-index: ${5 + pIdx};" 
+                                         style="position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; ${borderStyle} ${delayStyle} z-index: ${5 + pIdx};" 
                                          title="${tooltipText}" 
-                                         onerror="this.onerror=null; this.outerHTML=\`<span class='grid-pin ${pulseClass}' style='position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; width: 26px; height: 26px; border-radius: 50%; background: ${themeColor}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: #fff; ${borderStyle} z-index: ${5 + pIdx};'>${p.username.substring(0,2).toUpperCase()}</span>\`;"
+                                         onerror="this.onerror=null; this.outerHTML=\`<span class='grid-pin ${pulseClass}' style='position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; width: 26px; height: 26px; border-radius: 50%; background: ${themeColor}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: #fff; ${borderStyle} ${delayStyle} z-index: ${5 + pIdx};'>${p.username.substring(0,2).toUpperCase()}</span>\`;"
                                          onmouseenter="updateRadarChart('${p.steam_id}')"
                                          onmouseleave="updateRadarChart(null)">
                                 `;
@@ -4324,7 +4397,7 @@
                             <span style="font-size: 0.7rem; color: var(--text-muted);">(${item.score.toFixed(1)} / ${item.maxThreshold.toFixed(1)})</span>
                         </div>
                     </div>
-                    <a href="${playUrl}" style="background: rgba(0, 245, 212, 0.1); border: 1px solid rgba(0, 245, 212, 0.2); border-radius: 4px; padding: 6px 10px; color: var(--accent-secondary); font-size: 0.75rem; font-weight: bold; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px; transition: var(--transition-smooth);" onmouseenter="this.style.background='var(--accent-secondary)'; this.style.color='#000';" onmouseleave="this.style.background='rgba(0, 245, 212, 0.1)'; this.style.color='var(--accent-secondary)';">
+                    <a href="${playUrl}" style="background: rgba(0, 255, 136, 0.1); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 4px; padding: 6px 10px; color: #00ff88; font-size: 0.75rem; font-weight: bold; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px; transition: var(--transition-smooth);" onmouseenter="this.style.background='#00ff88'; this.style.color='#000';" onmouseleave="this.style.background='rgba(0, 255, 136, 0.1)'; this.style.color='#00ff88';">
                         <span>▶</span> Play
                     </a>
                 `;
@@ -4353,6 +4426,7 @@
                 document.getElementById('history-view').style.display = 'none';
                 if (aside) aside.style.display = '';
                 if (main) main.style.gridColumn = '';
+                setTimeout(syncLayoutHeights, 100);
             } else {
                 document.getElementById('leaderboard-view').style.display = 'none';
                 document.getElementById('history-view').style.display = 'flex';
@@ -4473,6 +4547,29 @@
                 console.error("Error loading overall progress history:", err);
             }
         }
+
+        function syncLayoutHeights() {
+            const radarCard = document.getElementById('radar-chart-section');
+            const timelineCard = document.getElementById('timeline-section');
+            if (radarCard && timelineCard) {
+                const leaderboardView = document.getElementById('leaderboard-view');
+                if (leaderboardView && leaderboardView.style.display !== 'none') {
+                    if (window.innerWidth >= 1024) {
+                        const radarHeight = radarCard.getBoundingClientRect().height;
+                        if (radarHeight > 0) {
+                            timelineCard.style.height = `${radarHeight}px`;
+                            timelineCard.style.display = 'flex';
+                            timelineCard.style.flexDirection = 'column';
+                        }
+                    } else {
+                        timelineCard.style.height = 'auto';
+                    }
+                } else {
+                    timelineCard.style.height = 'auto';
+                }
+            }
+        }
+        window.addEventListener('resize', syncLayoutHeights);
         
         function renderOverallProgressChart(historyData) {
             const canvas = document.getElementById('timeline-chart');
@@ -4524,11 +4621,6 @@
                 });
             });
             
-            const playerSeries = {};
-            steamIds.forEach(sid => {
-                playerSeries[sid] = [];
-            });
-            
             // Helper to calculate maximum rank percentage
             function calcMaxRankPct(sid) {
                 let totalPct = 0.0;
@@ -4541,63 +4633,80 @@
                 });
                 return totalPct / (scenarios.length || 1);
             }
-            
-            // Process events to build time series
+
+            // Track player rank percentages over all events chronologically
+            const allProgressPoints = [];
+            const changeTimestampsSet = new Set();
+
             events.forEach(evt => {
                 const prevScore = currentScores[evt.steamId][evt.scenName] || 0.0;
                 if (evt.score > prevScore) {
                     currentScores[evt.steamId][evt.scenName] = evt.score;
-                    const newPct = calcMaxRankPct(evt.steamId);
+                    const newPct = Number(calcMaxRankPct(evt.steamId).toFixed(2));
                     
-                    const series = playerSeries[evt.steamId];
-                    series.push({
-                        x: evt.timestamp,
-                        y: Number(newPct.toFixed(2))
+                    allProgressPoints.push({
+                        steamId: evt.steamId,
+                        timestamp: evt.timestamp,
+                        y: newPct
                     });
+                    changeTimestampsSet.add(evt.timestamp.toISOString());
                 }
             });
-            
-            // Collapse points with identical timestamps to prevent vertical jumps from 0
-            steamIds.forEach(sid => {
-                const raw = playerSeries[sid];
-                const collapsed = [];
-                for (let i = 0; i < raw.length; i++) {
-                    const current = raw[i];
-                    const next = raw[i + 1];
-                    if (next && current.x.getTime() === next.x.getTime()) {
-                        continue;
-                    }
-                    collapsed.push(current);
-                }
-                playerSeries[sid] = collapsed;
-            });
-            
-            // Stretch each series to the current time (now)
+
+            // Convert set to sorted list of unique Date objects
+            let sortedTimestamps = [...changeTimestampsSet]
+                .map(tStr => new Date(tStr))
+                .sort((a, b) => a - b);
+
             const now = new Date();
-            steamIds.forEach(sid => {
-                const series = playerSeries[sid];
-                if (series.length > 0) {
-                    const latest = series[series.length - 1];
-                    series.push({
-                        x: now,
-                        y: latest.y
-                    });
-                } else {
-                    series.push({
-                        x: now,
-                        y: 0.0
-                    });
-                }
-            });
+            let minTime = null;
+            if (timelineFilter === '1W') {
+                minTime = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+            } else if (timelineFilter === '1M') {
+                minTime = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+            }
+
+            // Apply time filters: 1W or 1M
+            if (minTime) {
+                sortedTimestamps = sortedTimestamps.filter(t => t >= minTime);
+            }
             
+            // If no timestamps match, add at least one point (now)
+            if (sortedTimestamps.length === 0) {
+                sortedTimestamps.push(now);
+            } else {
+                // Always append current time
+                const lastT = sortedTimestamps[sortedTimestamps.length - 1];
+                if (Math.abs(now - lastT) > 1000) {
+                    sortedTimestamps.push(now);
+                }
+            }
+
+            const K = sortedTimestamps.length;
             const datasets = [];
             
             // Generate datasets with avatars for final points
             configuredPlayers.forEach(p => {
                 const sid = p.steam_id;
-                const series = playerSeries[sid] || [];
+                const playerPoints = allProgressPoints.filter(pt => pt.steamId === sid);
+                const series = [];
+
+                // For each index in sortedTimestamps, find the value at that time
+                for (let k = 0; k < K; k++) {
+                    const t = sortedTimestamps[k];
+                    let latestPct = 0.0;
+                    playerPoints.forEach(pt => {
+                        if (pt.timestamp <= t) {
+                            latestPct = pt.y;
+                        }
+                    });
+                    series.push({
+                        x: k,
+                        y: latestPct
+                    });
+                }
+
                 const color = getPlayerThemeColor(sid);
-                
                 datasets.push({
                     label: p.username,
                     steamId: sid,
@@ -4611,13 +4720,6 @@
                     fill: false
                 });
             });
-            
-            let minTime = null;
-            if (timelineFilter === '1W') {
-                minTime = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-            } else if (timelineFilter === '1M') {
-                minTime = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
-            }
             
             overallProgressChart = new Chart(ctx, {
                 type: 'line',
@@ -4643,6 +4745,15 @@
                             mode: 'index',
                             intersect: false,
                             callbacks: {
+                                title: function(context) {
+                                    const val = context[0].parsed.x;
+                                    const i = Math.round(val);
+                                    if (i >= 0 && i < sortedTimestamps.length) {
+                                        const d = parseDate(sortedTimestamps[i]);
+                                        return d.toLocaleDateString([], {month: 'short', day: 'numeric', year: 'numeric'}) + ', ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second: '2-digit', hour12: false});
+                                    }
+                                    return '';
+                                },
                                 label: function(context) {
                                     return `${context.dataset.label}: ${context.parsed.y.toFixed(2)}%`;
                                 }
@@ -4651,19 +4762,23 @@
                     },
                     scales: {
                         x: {
-                            type: 'time',
-                            time: {
-                                unit: timelineFilter === '1W' ? 'day' : (timelineFilter === '1M' ? 'week' : 'month'),
-                                displayFormats: {
-                                    day: 'MMM d',
-                                    week: 'MMM d',
-                                    month: 'MMM yyyy'
-                                }
-                            },
-                            min: minTime,
-                            max: now,
+                            type: 'linear',
+                            min: 0,
+                            max: K - 1,
                             grid: { color: 'rgba(255, 255, 255, 0.05)' },
-                            ticks: { color: '#9fa6b2', font: { family: "'Outfit', sans-serif" } }
+                            ticks: {
+                                color: '#9fa6b2',
+                                font: { family: "'Outfit', sans-serif" },
+                                precision: 0,
+                                callback: function(val) {
+                                    const i = Math.round(val);
+                                    if (val === i && i >= 0 && i < sortedTimestamps.length) {
+                                        const d = parseDate(sortedTimestamps[i]);
+                                        return d.toLocaleDateString([], {month: 'short', day: 'numeric'}) + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false});
+                                    }
+                                    return '';
+                                }
+                            }
                         },
                         y: {
                             grid: { color: 'rgba(255, 255, 255, 0.05)' },
@@ -4674,6 +4789,11 @@
                     }
                 }
             });
+            // Store sortedTimestamps on the chart instance to allow resolution in htmlOverlayPlugin
+            overallProgressChart.sortedTimestamps = sortedTimestamps;
+
+            // Sync card heights after drawing
+            syncLayoutHeights();
         }
         
         function filterTimelineChart(filter, btn) {
