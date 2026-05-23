@@ -2990,7 +2990,7 @@
                     item.style.fontWeight = '600';
                     item.style.cursor = 'pointer';
                     item.innerHTML = `
-                        <img src="${avatarUrl}" class="legend-avatar" style="border: 1.5px solid ${color}; box-shadow: 0 0 4px ${color};" onerror="this.onerror=null; this.outerHTML='<span style=\'width: 10px; height: 10px; border-radius: 50%; background: ${color}; box-shadow: 0 0 6px ${color}; display: inline-block;\'></span>';">
+                        <img src="${avatarUrl}" class="legend-avatar" style="border: 1.5px solid ${color}; box-shadow: 0 0 4px ${color};" onerror="this.onerror=null; this.outerHTML=\`<span style='width: 10px; height: 10px; border-radius: 50%; background: ${color}; box-shadow: 0 0 6px ${color}; display: inline-block;'></span>\`;">
                         ${p.username}
                     `;
                     item.addEventListener('mouseenter', () => updateRadarChart(p.steam_id));
