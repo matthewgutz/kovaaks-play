@@ -1,0 +1,21 @@
+{
+  "players": [
+    {
+      "steam_id": "1",
+      "discord_username": "@BakaOppai",
+      "discord_id": "111111111111111111"
+    },
+    {
+      "steam_id": "2",
+      "discord_username": "@Christine",
+      "discord_id": "222222222222222222"
+    },
+    {
+      "steam_id": "3",
+      "discord_username": "@Olioli",
+      "discord_id": ""
+    }
+  ],
+  "use_mock_data": false,
+  "admin_key_set": false
+}

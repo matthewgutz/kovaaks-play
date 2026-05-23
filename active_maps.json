@@ -8,25 +8,25 @@
   {
     "benchmark_id": "686",
     "benchmark_name": "Easier",
-    "scenario_name": "1w3ts reload Larger",
-    "update_count": 1
-  },
-  {
-    "benchmark_id": "686",
-    "benchmark_name": "Easier",
-    "scenario_name": "Air Angelic 4 Voltaic Easy 80% (Good Version)",
-    "update_count": 1
-  },
-  {
-    "benchmark_id": "686",
-    "benchmark_name": "Easier",
     "scenario_name": "Air CELESTIAL No UFO Easy Slowed",
-    "update_count": 1
+    "update_count": 3
   },
   {
     "benchmark_id": "686",
     "benchmark_name": "Easier",
-    "scenario_name": "Air Voltaic Invincible 7 Easy 80%",
-    "update_count": 1
+    "scenario_name": "Leaptrack Goated 60% Larger",
+    "update_count": 3
+  },
+  {
+    "benchmark_id": "686",
+    "benchmark_name": "Easier",
+    "scenario_name": "Controlsphere rAim Easy 90%",
+    "update_count": 2
+  },
+  {
+    "benchmark_id": "686",
+    "benchmark_name": "Easier",
+    "scenario_name": "VT Controlsphere Intermediate S5 80%",
+    "update_count": 2
   }
 ]
