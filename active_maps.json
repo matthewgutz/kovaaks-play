@@ -2,31 +2,31 @@
   {
     "benchmark_id": "687",
     "benchmark_name": "Medium",
-    "scenario_name": "Air Voltaic Easy Invincible 4",
-    "update_count": 28
+    "scenario_name": "WhisphereRawControl",
+    "update_count": 5
   },
   {
-    "benchmark_id": "688",
-    "benchmark_name": "Hard",
-    "scenario_name": "Whisphere Extra Small & Slow",
-    "update_count": 27
+    "benchmark_id": "686",
+    "benchmark_name": "Easier",
+    "scenario_name": "Air CELESTIAL No UFO Easy Slowed",
+    "update_count": 3
   },
   {
-    "benchmark_id": "688",
-    "benchmark_name": "Hard",
-    "scenario_name": "Leaptrack Goated 80%",
-    "update_count": 26
+    "benchmark_id": "686",
+    "benchmark_name": "Easier",
+    "scenario_name": "Leaptrack Goated 60% Larger",
+    "update_count": 3
   },
   {
-    "benchmark_id": "688",
-    "benchmark_name": "Hard",
-    "scenario_name": "PGTI Voltaic",
-    "update_count": 25
+    "benchmark_id": "686",
+    "benchmark_name": "Easier",
+    "scenario_name": "Controlsphere rAim Easy 90%",
+    "update_count": 2
   },
   {
-    "benchmark_id": "687",
-    "benchmark_name": "Medium",
-    "scenario_name": "Air Pure Intermediate",
-    "update_count": 24
+    "benchmark_id": "686",
+    "benchmark_name": "Easier",
+    "scenario_name": "VT Controlsphere Intermediate S5 80%",
+    "update_count": 2
   }
 ]
