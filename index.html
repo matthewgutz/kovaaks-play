@@ -1809,33 +1809,10 @@
             return `${delay}s`;
         }
 
-        function hasPlayerRecentRankIncrease(dataPoints, chart) {
-            if (!dataPoints || dataPoints.length === 0 || !chart || !chart.sortedTimestamps) return false;
-            const now = new Date();
-            const sevenDaysAgo = now.getTime() - 7 * 24 * 60 * 60 * 1000;
-            for (let i = 0; i < dataPoints.length; i++) {
-                const pt = dataPoints[i];
-                const ts = chart.sortedTimestamps[pt.x];
-                if (!ts) continue;
-                const ptTime = parseDate(ts).getTime();
-                if (ptTime >= sevenDaysAgo) {
-                    // Ignore the stretched helper point at the end of the series
-                    if (i === dataPoints.length - 1 && i > 0) {
-                        const prev = dataPoints[i - 1];
-                        if (pt.y === prev.y && Math.abs(ptTime - now.getTime()) < 2000) {
-                            continue;
-                        }
-                    }
-                    if (i === 0) {
-                        if (pt.y > 0) return true;
-                    } else {
-                        const prev = dataPoints[i - 1];
-                        if (pt.y > prev.y) return true;
-                    }
-                }
-            }
-            return false;
+        function hasPlayerRecentRankIncrease(steamId, chart) {
+            return !!(chart.recentRankIncreaseMap && chart.recentRankIncreaseMap[steamId]);
         }
+
 
         const htmlOverlayPlugin = {
             id: 'htmlOverlayPlugin',
@@ -1907,7 +1884,7 @@
 
                     let isRecentPB = false;
                     if (chart.canvas.id === 'timeline-chart') {
-                        isRecentPB = hasPlayerRecentRankIncrease(dataset.data, chart);
+                        isRecentPB = hasPlayerRecentRankIncrease(steamId, chart);
                     } else {
                         isRecentPB = hasPlayerRecentMapPB(steamId, currentScenarioName);
                     }
@@ -4791,6 +4768,20 @@
             });
             // Store sortedTimestamps on the chart instance to allow resolution in htmlOverlayPlugin
             overallProgressChart.sortedTimestamps = sortedTimestamps;
+
+            // Calculate which players had an overall rank percentage increase in the last 7 days
+            const recentRankIncreaseMap = {};
+            configuredPlayers.forEach(p => {
+                const sid = p.steam_id;
+                const playerPoints = allProgressPoints.filter(pt => pt.steamId === sid);
+                const hasRecent = playerPoints.some(pt => {
+                    const diffTime = Math.abs(now - pt.timestamp);
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                    return diffDays <= 7;
+                });
+                recentRankIncreaseMap[sid] = hasRecent;
+            });
+            overallProgressChart.recentRankIncreaseMap = recentRankIncreaseMap;
 
             // Sync card heights after drawing
             syncLayoutHeights();
