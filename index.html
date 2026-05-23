@@ -606,6 +606,12 @@
         /* Detail scores grid style */
         .scen-cell {
             position: relative;
+            transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        .scen-cell:hover {
+            transform: scale(1.05);
+            z-index: 5;
+            box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.08), 0 4px 12px rgba(0, 0, 0, 0.25);
         }
         
         .scen-cell.leader-cell {
@@ -637,30 +643,72 @@
             vertical-align: middle;
             transform: rotate(180deg);
             font-weight: 800;
-            font-size: 0.7rem;
+            font-size: 0.95rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             color: var(--accent-secondary);
             background: rgba(114, 9, 183, 0.08) !important;
             border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-            padding: 12px 4px !important;
+            padding: 16px 6px !important;
             white-space: nowrap;
             text-shadow: 0 0 8px rgba(114, 9, 183, 0.4);
         }
 
         .grid-subcat {
+            writing-mode: vertical-rl;
             text-align: center;
             vertical-align: middle;
-            font-weight: 700;
-            font-size: 0.7rem;
-            letter-spacing: 0.5px;
+            transform: rotate(180deg);
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
             text-transform: uppercase;
             color: var(--accent-primary);
             background: rgba(0, 245, 212, 0.03) !important;
             border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-            padding: 8px !important;
+            padding: 16px 6px !important;
+            white-space: nowrap;
+            text-shadow: 0 0 8px rgba(0, 245, 212, 0.3);
+        }
+
+        #grid-table tbody tr {
+            transition: background 0.15s ease-in-out;
+        }
+
+        #grid-table tbody tr:hover {
+            background: rgba(255, 255, 255, 0.015) !important;
+        }
+
+        #grid-table tbody tr:hover td.grid-scen-name {
+            color: var(--accent-primary) !important;
+            text-shadow: 0 0 8px rgba(0, 245, 212, 0.3);
+        }
+
+        .avatar-dot {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: inline-block;
+            transition: transform 0.2s ease-in-out;
+            box-shadow: 0 0 6px rgba(0, 245, 212, 0.2);
+        }
+
+        .avatar-dot:hover {
+            transform: scale(1.3);
+            z-index: 10;
+        }
+
+        .legend-avatar {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: inline-block;
+            box-shadow: 0 0 4px rgba(0, 245, 212, 0.2);
+            vertical-align: middle;
         }
 
         #grid-table th, #grid-table td {
@@ -2270,13 +2318,18 @@
                 gridLegend.innerHTML = '';
                 configuredPlayers.forEach(p => {
                     const color = getPlayerThemeColor(p.steam_id);
+                    const username = p.username.replace('@', '');
+                    const avatarUrl = `avatars/${username}.png`;
                     const item = document.createElement('div');
                     item.style.display = 'flex';
                     item.style.alignItems = 'center';
                     item.style.gap = '8px';
                     item.style.fontSize = '0.85rem';
                     item.style.fontWeight = '600';
-                    item.innerHTML = `<span style="width: 10px; height: 10px; border-radius: 50%; background: ${color}; box-shadow: 0 0 6px ${color}; display: inline-block;"></span> ${p.username}`;
+                    item.innerHTML = `
+                        <img src="${avatarUrl}" class="legend-avatar" style="border: 1.5px solid ${color}; box-shadow: 0 0 4px ${color};" onerror="this.outerHTML='<span style=\"width: 10px; height: 10px; border-radius: 50%; background: ${color}; box-shadow: 0 0 6px ${color}; display: inline-block;\"></span>'">
+                        ${p.username}
+                    `;
                     gridLegend.appendChild(item);
                 });
             }
@@ -2284,20 +2337,32 @@
             // Grid header
             const headerRow = document.createElement('tr');
             headerRow.innerHTML = `
-                <th style="width: 100px; text-align: center;">Category</th>
-                <th style="width: 120px; text-align: center;">Subcategory</th>
-                <th style="text-align: left;">Scenario Name</th>
+                <th style="width: 45px; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted);">Cat</th>
+                <th style="width: 45px; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted);">Sub</th>
+                <th style="text-align: left; font-size: 0.9rem; letter-spacing: 0.5px;">Scenario Name</th>
             `;
             
             configuredPlayers.forEach((p, idx) => {
                 const th = document.createElement('th');
                 th.style.textAlign = 'center';
+                th.style.verticalAlign = 'middle';
                 let suffix = 'th';
                 const rankNum = idx + 1;
                 if (rankNum === 1) suffix = 'st';
                 else if (rankNum === 2) suffix = 'nd';
                 else if (rankNum === 3) suffix = 'rd';
-                th.innerText = `${rankNum}${suffix}`;
+                
+                let thStyle = '';
+                if (rankNum === 1) {
+                    thStyle = 'color: var(--accent-gold); text-shadow: 0 0 8px rgba(255, 209, 102, 0.45); font-weight: 800; font-size: 0.95rem;';
+                } else if (rankNum === 2) {
+                    thStyle = 'color: #e2e8f0; font-weight: 700; font-size: 0.9rem; text-shadow: 0 0 6px rgba(226, 232, 240, 0.2);';
+                } else if (rankNum === 3) {
+                    thStyle = 'color: #cd7f32; font-weight: 700; font-size: 0.9rem; text-shadow: 0 0 6px rgba(205, 127, 50, 0.2);';
+                } else {
+                    thStyle = 'color: var(--text-muted); font-weight: 600; font-size: 0.85rem;';
+                }
+                th.innerHTML = `<span style="${thStyle}">${rankNum}${suffix}</span>`;
                 headerRow.appendChild(th);
             });
             gridHeader.appendChild(headerRow);
@@ -2504,6 +2569,9 @@
                             
                             const color = getPlayerThemeColor(p.steam_id);
                             
+                            const username = p.username.replace('@', '');
+                            const avatarUrl = `avatars/${username}.png`;
+
                             if (score !== null && score > 0) {
                                 const isLeader = leaders.includes(p.steam_id);
                                 const rankMaxes = (bData.thresholds && bData.thresholds[scen]) || [];
@@ -2513,22 +2581,24 @@
                                 cell.style.background = `linear-gradient(90deg, rgba(${hexToRgb(color)}, 0.15) 0%, rgba(${hexToRgb(color)}, 0.15) ${pct}%, transparent ${pct}%)`;
                                 
                                 let scoreHtml = score.toFixed(2);
+                                let scoreStyle = 'font-weight: 700;';
                                 if (isLeader) {
                                     cell.className += ' leader-cell';
                                     scoreHtml = `<span class="crown-inline">👑</span>${scoreHtml}`;
+                                    scoreStyle = 'font-weight: 800; color: var(--accent-gold); text-shadow: 0 0 8px rgba(255, 209, 102, 0.4);';
                                 }
                                 
                                 cell.innerHTML = `
                                     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 6px 0; min-height: 48px;">
-                                        <span style="font-weight: 700;">${scoreHtml}</span>
-                                        <span style="width: 8px; height: 8px; border-radius: 50%; background: ${color}; box-shadow: 0 0 6px ${color};" title="${p.username}"></span>
+                                        <span style="${scoreStyle}">${scoreHtml}</span>
+                                        <img src="${avatarUrl}" class="avatar-dot" style="border: 2px solid ${color}; box-shadow: 0 0 6px ${color};" onerror="this.outerHTML='<span style=\"width: 10px; height: 10px; border-radius: 50%; background: ${color}; box-shadow: 0 0 6px ${color}; display: inline-block;\"></span>'" title="${p.username}">
                                     </div>
                                 `;
                             } else {
                                 cell.innerHTML = `
                                     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 6px 0; min-height: 48px;">
-                                        <span style="color: var(--text-muted);">-</span>
-                                        <span style="width: 8px; height: 8px; border-radius: 50%; background: ${color}; opacity: 0.25;" title="${p.username} (No Score)"></span>
+                                        <span style="color: var(--text-muted); font-weight: 500;">-</span>
+                                        <img src="${avatarUrl}" class="avatar-dot" style="border: 2px solid ${color}; box-shadow: 0 0 6px ${color}; opacity: 0.25; filter: grayscale(100%);" onerror="this.outerHTML='<span style=\"width: 10px; height: 10px; border-radius: 50%; background: ${color}; opacity: 0.25; display: inline-block;\"></span>'" title="${p.username} (No Score)">
                                     </div>
                                 `;
                             }
