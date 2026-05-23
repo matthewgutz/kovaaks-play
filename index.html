@@ -502,6 +502,74 @@
 
         .rank-unranked { background: rgba(255, 255, 255, 0.05); color: var(--text-muted); border: 1px solid rgba(255, 255, 255, 0.1); }
 
+        /* Timeline styling */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin-top: 10px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 5px;
+            bottom: 5px;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 24px;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 16px;
+            backdrop-filter: blur(10px);
+            transition: var(--transition-smooth);
+        }
+        .timeline-item:hover {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transform: translateY(-2px);
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -27px;
+            top: 18px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--text-muted);
+            border: 2px solid #121214;
+            box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+        }
+        .timeline-dot.pb { background: #00f5d4; box-shadow: 0 0 8px #00f5d4; }
+        .timeline-dot.overtake { background: #f72585; box-shadow: 0 0 8px #f72585; }
+        .timeline-dot.rank_up { background: #e040fb; box-shadow: 0 0 8px #e040fb; }
+        .timeline-dot.crown_change { background: #ffd166; box-shadow: 0 0 8px #ffd166; }
+        .timeline-dot.pain_point { background: #ff9800; box-shadow: 0 0 8px #ff9800; }
+        .timeline-dot.consolidated { background: #00a8fc; box-shadow: 0 0 8px #00a8fc; }
+        
+        .timeline-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            font-size: 0.8rem;
+        }
+        .timeline-time {
+            color: var(--text-muted);
+        }
+        .timeline-player {
+            font-weight: 700;
+            color: var(--accent-secondary);
+        }
+        .timeline-content {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #f8f9fa;
+        }
+
+
         .streak-pill {
             background: rgba(247, 37, 133, 0.15);
             border: 1px solid rgba(247, 37, 133, 0.3);
@@ -1104,10 +1172,19 @@
         <!-- Main Left Column -->
         <main style="display: flex; flex-direction: column; gap: 30px;">
             
-            <!-- Crown Holders Banner -->
-            <div class="crown-cards-grid" id="crowns-banner">
-                <!-- Populated dynamically -->
+            <!-- Main View Toggle Tab Controls -->
+            <div class="main-tabs-toggle" style="display: flex; gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 12px; margin-bottom: -10px;">
+                <button class="main-tab-btn active" onclick="switchMainView('leaderboard', this)" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-size: 0.95rem; font-weight: bold; cursor: pointer; padding: 8px 16px; border-radius: 6px; transition: var(--transition-smooth); font-family: 'Outfit', sans-serif;">🏆 Leaderboard</button>
+                <button class="main-tab-btn" onclick="switchMainView('history', this)" style="background: none; border: 1px solid transparent; color: var(--text-muted); font-size: 0.95rem; font-weight: bold; cursor: pointer; padding: 8px 16px; border-radius: 6px; transition: var(--transition-smooth); font-family: 'Outfit', sans-serif;">📜 History Log</button>
             </div>
+
+            <!-- Leaderboard View Container -->
+            <div id="leaderboard-view" style="display: flex; flex-direction: column; gap: 30px;">
+                
+                <!-- Crown Holders Banner -->
+                <div class="crown-cards-grid" id="crowns-banner">
+                    <!-- Populated dynamically -->
+                </div>
 
             <!-- Active Rivalries Panel -->
             <section class="glass-panel" id="rivalries-section" style="padding: 24px; display: none;">
@@ -1162,6 +1239,21 @@
                     </table>
                 </div>
             </section>
+            
+            </div> <!-- End #leaderboard-view -->
+
+            <!-- History Log View Container -->
+            <div id="history-view" style="display: none; flex-direction: column; gap: 30px;">
+                <section class="glass-panel" style="padding: 24px;">
+                    <h2 class="panel-title">📜 Historical Timeline Feed</h2>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.4;">
+                        Chronological record of recent competition milestones: Personal Bests, Overtakes, Near Misses, Rank Promotions, and Crown shifts.
+                    </p>
+                    <div class="timeline" id="timeline-container">
+                        <!-- Populated dynamically -->
+                    </div>
+                </section>
+            </div>
 
         </main>
 
@@ -1201,6 +1293,7 @@
                         <div class="sim-btn" onclick="simulateEvent('rank_up')">🏆 Rank Up</div>
                         <div class="sim-btn" onclick="simulateEvent('crown_change')">👑 Crown Shift</div>
                         <div class="sim-btn" onclick="simulateEvent('hot_streak')">🔥 Hot Streak</div>
+                        <div class="sim-btn" onclick="simulateWeeklyRecap()" style="grid-column: span 2; background: rgba(255, 209, 102, 0.05); border: 1px solid rgba(255, 209, 102, 0.1); color: var(--accent-gold);">📊 Simulate Weekly Recap</div>
                     </div>
                     <div id="mock-reset-container" style="margin-top: 16px; display: none;">
                         <button onclick="resetMockData()" class="btn-primary" style="width: 100%; justify-content: center; background: linear-gradient(135deg, var(--accent-danger) 0%, rgba(247, 37, 133, 0.7) 100%); box-shadow: 0 4px 15px rgba(247, 37, 133, 0.2); border: none;" id="btn-reset-mock">
@@ -1231,6 +1324,24 @@
                     </div>
                     
                     <div id="weekly-activity-list" style="display: flex; flex-direction: column; gap: 12px;">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Focus Maps Recommendation Widget -->
+            <section class="glass-panel sidebar-panel" id="focus-maps-section">
+                <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                        <h2 class="panel-title" style="margin: 0;">🎯 Focus Maps</h2>
+                        <select id="focus-player-select" style="width: auto; padding: 4px 8px; font-size: 0.85rem; margin: 0; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; color: #fff; cursor: pointer; font-family: 'Outfit', sans-serif;" onchange="renderFocusMaps()">
+                            <!-- Populated dynamically -->
+                        </select>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.3;">
+                        Scenarios with the lowest score relative to the highest rank tier threshold. Time to practice!
+                    </p>
+                    <div id="focus-maps-list" style="display: flex; flex-direction: column; gap: 12px;">
                         <!-- Populated dynamically -->
                     </div>
                 </div>
@@ -1707,6 +1818,8 @@
                 }));
 
                 renderPlayerSettings();
+                renderFocusMapsDropdown();
+                renderFocusMaps();
                 updateServerStatus(true);
             } catch (err) {
                 console.error("Error loading config:", err);
@@ -1871,6 +1984,8 @@
                 renderCrownBanner();
                 renderRivalries();
                 renderWeeklyActivity();
+                renderFocusMapsDropdown();
+                renderFocusMaps();
                 updateServerStatus(true);
             } catch (err) {
                 console.error("Error fetching standings:", err);
@@ -2234,6 +2349,39 @@
             }
         }
 
+        // Trigger simulated weekly recap
+        async function simulateWeeklyRecap() {
+            showToast(`Simulating Weekly Recap...`, '🔄');
+            
+            try {
+                const response = await fetch('/api/test/simulate-recap', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        ...getAdminHeaders()
+                    }
+                });
+
+                if (response.status === 401) {
+                    localStorage.removeItem('admin_token');
+                    updateAdminUIState();
+                    showToast("Unauthorized: Admin Locked", '🔒');
+                    return;
+                }
+
+                const res = await response.json();
+                
+                if (res.success) {
+                    showToast(`Weekly recap simulated! Check discord feed.`, '✅');
+                    await fetchNotifications();
+                } else {
+                    showToast(res.error || "Simulation error", '❌');
+                }
+            } catch (err) {
+                showToast("Connection error while simulating", '❌');
+            }
+        }
+
         // Discord markdown parser
         function parseDiscordMarkdown(text) {
             if (!text) return "";
@@ -2276,6 +2424,8 @@
             try {
                 const response = await fetch(isStatic ? 'notifications.json' : '/api/notifications');
                 const data = await response.json();
+                
+                renderTimeline(data);
                 
                 const feed = document.getElementById('discord-feed');
                 // Store scroll position to keep scrolled to bottom if user is already there
@@ -2768,6 +2918,167 @@
             } catch (err) {
                 console.error("Error fetching active maps:", err);
             }
+        }
+
+        // Populate player dropdown for Focus Maps
+        function renderFocusMapsDropdown() {
+            const select = document.getElementById('focus-player-select');
+            if (!select) return;
+            
+            const previousSelected = select.value;
+            select.innerHTML = '';
+            
+            if (globalPlayers.length === 0) {
+                const opt = document.createElement('option');
+                opt.value = '';
+                opt.innerText = 'No players';
+                select.appendChild(opt);
+                return;
+            }
+            
+            globalPlayers.forEach(p => {
+                const opt = document.createElement('option');
+                opt.value = p.steam_id;
+                opt.innerText = p.username;
+                select.appendChild(opt);
+            });
+            
+            if (previousSelected && globalPlayers.some(p => p.steam_id === previousSelected)) {
+                select.value = previousSelected;
+            } else if (localStorage.getItem('selected_focus_player') && globalPlayers.some(p => p.steam_id === localStorage.getItem('selected_focus_player'))) {
+                select.value = localStorage.getItem('selected_focus_player');
+            } else {
+                select.value = globalPlayers[0].steam_id;
+            }
+        }
+
+        // Render player Focus Maps recommendations
+        function renderFocusMaps() {
+            const select = document.getElementById('focus-player-select');
+            const list = document.getElementById('focus-maps-list');
+            if (!select || !list) return;
+            
+            const selectedPlayerId = select.value;
+            if (!selectedPlayerId) {
+                list.innerHTML = `<div style="color: var(--text-muted); font-size: 0.85rem; padding: 10px 0; text-align: center;">No player selected.</div>`;
+                return;
+            }
+            
+            localStorage.setItem('selected_focus_player', selectedPlayerId);
+            
+            const bData = standingsData[currentBenchmarkId];
+            if (!bData || !bData.thresholds || !bData.scores) {
+                list.innerHTML = `<div style="color: var(--text-muted); font-size: 0.85rem; padding: 10px 0; text-align: center;">No benchmark data.</div>`;
+                return;
+            }
+            
+            const recommendations = [];
+            bData.scenarios.forEach(scenName => {
+                const pScores = bData.scores[scenName] || {};
+                const score = pScores[selectedPlayerId] || 0.0;
+                
+                const thresholds = bData.thresholds[scenName];
+                const maxThreshold = (thresholds && thresholds.length > 0) ? thresholds[thresholds.length - 1] : 1.0;
+                
+                const pct = maxThreshold > 0 ? Math.min(100.0, (score / maxThreshold) * 100.0) : 0.0;
+                
+                recommendations.push({
+                    scenarioName: scenName,
+                    score: score,
+                    maxThreshold: maxThreshold,
+                    pct: pct
+                });
+            });
+            
+            recommendations.sort((a, b) => a.pct - b.pct);
+            const top3 = recommendations.slice(0, 3);
+            
+            list.innerHTML = '';
+            top3.forEach(item => {
+                const playUrl = isStatic ? `https://matthewgutz.github.io/kovaaks-play/?scenario=${encodeURIComponent(item.scenarioName)}` : `/play?scenario=${encodeURIComponent(item.scenarioName)}`;
+                const card = document.createElement('div');
+                card.className = 'player-config-item';
+                card.style.background = 'rgba(255, 255, 255, 0.02)';
+                card.style.border = '1px solid rgba(255, 255, 255, 0.05)';
+                card.style.borderRadius = '8px';
+                card.style.padding = '10px 12px';
+                
+                const pctColor = item.pct < 40 ? 'var(--accent-primary)' : (item.pct < 80 ? '#ff9800' : 'var(--accent-secondary)');
+                
+                card.innerHTML = `
+                    <div class="player-config-info" style="flex: 1; min-width: 0;">
+                        <span class="player-config-name" style="color: #fff; font-size: 0.85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600;" title="${item.scenarioName}">${item.scenarioName}</span>
+                        <div style="display: flex; align-items: center; gap: 8px; margin-top: 4px;">
+                            <span style="font-size: 0.75rem; color: ${pctColor}; font-weight: bold;">${item.pct.toFixed(1)}% complete</span>
+                            <span style="font-size: 0.7rem; color: var(--text-muted);">(${item.score.toFixed(1)} / ${item.maxThreshold.toFixed(1)})</span>
+                        </div>
+                    </div>
+                    <a href="${playUrl}" style="background: rgba(0, 245, 212, 0.1); border: 1px solid rgba(0, 245, 212, 0.2); border-radius: 4px; padding: 6px 10px; color: var(--accent-secondary); font-size: 0.75rem; font-weight: bold; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px; transition: var(--transition-smooth);" onmouseenter="this.style.background='var(--accent-secondary)'; this.style.color='#000';" onmouseleave="this.style.background='rgba(0, 245, 212, 0.1)'; this.style.color='var(--accent-secondary)';">
+                        <span>▶</span> Play
+                    </a>
+                `;
+                list.appendChild(card);
+            });
+        }
+
+        // Toggle main views (Leaderboard Standings vs History Log)
+        function switchMainView(viewName, btn) {
+            document.querySelectorAll('.main-tab-btn').forEach(b => {
+                b.classList.remove('active');
+                b.style.background = 'none';
+                b.style.borderColor = 'transparent';
+                b.style.color = 'var(--text-muted)';
+            });
+            btn.classList.add('active');
+            btn.style.background = 'rgba(255, 255, 255, 0.05)';
+            btn.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            btn.style.color = '#fff';
+            
+            if (viewName === 'leaderboard') {
+                document.getElementById('leaderboard-view').style.display = 'flex';
+                document.getElementById('history-view').style.display = 'none';
+            } else {
+                document.getElementById('leaderboard-view').style.display = 'none';
+                document.getElementById('history-view').style.display = 'flex';
+            }
+        }
+
+        // Render historical achievements timeline
+        function renderTimeline(notifications) {
+            const container = document.getElementById('timeline-container');
+            if (!container) return;
+            
+            container.innerHTML = '';
+            
+            if (!notifications || notifications.length === 0) {
+                container.innerHTML = `<div style="color: var(--text-muted); font-size: 0.85rem; padding: 20px 0; text-align: center;">No achievements logged in history yet.</div>`;
+                return;
+            }
+            
+            notifications.forEach(n => {
+                const item = document.createElement('div');
+                item.className = 'timeline-item';
+                
+                const d = new Date(n.timestamp);
+                const dateStr = d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                
+                let dotClass = 'pb';
+                if (n.event_type === 'overtake') dotClass = 'overtake';
+                else if (n.event_type === 'rank_up') dotClass = 'rank_up';
+                else if (n.event_type === 'crown_change') dotClass = 'crown_change';
+                else if (n.event_type === 'pain_point') dotClass = 'pain_point';
+                else if (n.event_type === 'consolidated') dotClass = 'consolidated';
+                
+                item.innerHTML = `
+                    <div class="timeline-dot ${dotClass}"></div>
+                    <div class="timeline-meta">
+                        <span class="timeline-player">👤 ${n.player_name || 'System'}</span>
+                        <span class="timeline-time">${dateStr}</span>
+                    </div>
+                    <div class="timeline-content">${parseDiscordMarkdown(n.message)}</div>
+                `;
+                container.appendChild(item);
+            });
         }
 
         // Redirect check and modal handlers
