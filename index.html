@@ -1969,7 +1969,12 @@
             if (!dateStr) return new Date();
             if (dateStr instanceof Date) return dateStr;
             if (typeof dateStr === 'string') {
-                return new Date(dateStr.replace(' ', 'T'));
+                let cleanStr = dateStr.trim();
+                // If it is a raw SQL timestamp without offset, treat it as UTC and append 'Z'
+                if (/^\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}:\d{2}(\.\d+)?$/.test(cleanStr)) {
+                    cleanStr = cleanStr.replace(' ', 'T') + 'Z';
+                }
+                return new Date(cleanStr);
             }
             return new Date(dateStr);
         }
@@ -3984,7 +3989,7 @@
                                     const i = Math.round(val);
                                     if (i >= 0 && i < sortedTimestamps.length) {
                                         const d = parseDate(sortedTimestamps[i]);
-                                        return d.toLocaleDateString([], {month: 'short', day: 'numeric', year: 'numeric'}) + ', ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second: '2-digit', hour12: false});
+                                        return d.toLocaleDateString('en-US', {timeZone: 'America/Los_Angeles', month: 'short', day: 'numeric', year: 'numeric'}) + ', ' + d.toLocaleTimeString('en-US', {timeZone: 'America/Los_Angeles', hour: '2-digit', minute:'2-digit', second: '2-digit', hour12: false, timeZoneName: 'short'});
                                     }
                                     return '';
                                 }
@@ -4006,7 +4011,7 @@
                                     const i = Math.round(val);
                                     if (val === i && i >= 0 && i < sortedTimestamps.length) {
                                         const d = parseDate(sortedTimestamps[i]);
-                                        return d.toLocaleDateString([], {month: 'short', day: 'numeric'}) + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false});
+                                        return d.toLocaleDateString('en-US', {timeZone: 'America/Los_Angeles', month: 'short', day: 'numeric'}) + ' ' + d.toLocaleTimeString('en-US', {timeZone: 'America/Los_Angeles', hour: '2-digit', minute:'2-digit', hour12: false});
                                     }
                                     return '';
                                 }
@@ -4056,7 +4061,7 @@
                 last10.forEach(h => {
                     const row = document.createElement('tr');
                     const d = parseDate(h.timestamp);
-                    const dateStr = d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    const dateStr = d.toLocaleDateString('en-US', {timeZone: 'America/Los_Angeles'}) + ' ' + d.toLocaleTimeString('en-US', {timeZone: 'America/Los_Angeles', hour: '2-digit', minute:'2-digit', timeZoneName: 'short'});
                     row.innerHTML = `
                         <td style="padding: 8px 12px; font-weight: 600;">${h.score.toFixed(2)}</td>
                         <td style="padding: 8px 12px; color: var(--text-muted);">${dateStr}</td>
@@ -4205,7 +4210,7 @@
                                     const i = Math.round(val);
                                     if (i >= 0 && i < sortedTimestamps.length) {
                                         const d = parseDate(sortedTimestamps[i]);
-                                        return d.toLocaleDateString([], {month: 'short', day: 'numeric', year: 'numeric'}) + ', ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second: '2-digit', hour12: false});
+                                        return d.toLocaleDateString('en-US', {timeZone: 'America/Los_Angeles', month: 'short', day: 'numeric', year: 'numeric'}) + ', ' + d.toLocaleTimeString('en-US', {timeZone: 'America/Los_Angeles', hour: '2-digit', minute:'2-digit', second: '2-digit', hour12: false, timeZoneName: 'short'});
                                     }
                                     return '';
                                 }
@@ -4227,7 +4232,7 @@
                                     const i = Math.round(val);
                                     if (val === i && i >= 0 && i < sortedTimestamps.length) {
                                         const d = parseDate(sortedTimestamps[i]);
-                                        return d.toLocaleDateString([], {month: 'short', day: 'numeric'}) + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false});
+                                        return d.toLocaleDateString('en-US', {timeZone: 'America/Los_Angeles', month: 'short', day: 'numeric'}) + ' ' + d.toLocaleTimeString('en-US', {timeZone: 'America/Los_Angeles', hour: '2-digit', minute:'2-digit', hour12: false});
                                     }
                                     return '';
                                 }
@@ -4432,7 +4437,7 @@
                 item.className = 'timeline-item-compact';
                 
                 const d = parseDate(n.timestamp);
-                const dateStr = d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                const dateStr = d.toLocaleDateString('en-US', {timeZone: 'America/Los_Angeles'}) + ' ' + d.toLocaleTimeString('en-US', {timeZone: 'America/Los_Angeles', hour: '2-digit', minute:'2-digit', timeZoneName: 'short'});
                 
                 const username = (n.player_name || '').replace('@', '');
                 const avatarUrl = `avatars/${username}.png`;
@@ -4730,7 +4735,7 @@
                                     const i = Math.round(val);
                                     if (i >= 0 && i < sortedTimestamps.length) {
                                         const d = parseDate(sortedTimestamps[i]);
-                                        return d.toLocaleDateString([], {month: 'short', day: 'numeric', year: 'numeric'}) + ', ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second: '2-digit', hour12: false});
+                                        return d.toLocaleDateString('en-US', {timeZone: 'America/Los_Angeles', month: 'short', day: 'numeric', year: 'numeric'}) + ', ' + d.toLocaleTimeString('en-US', {timeZone: 'America/Los_Angeles', hour: '2-digit', minute:'2-digit', second: '2-digit', hour12: false, timeZoneName: 'short'});
                                     }
                                     return '';
                                 },
@@ -4755,7 +4760,7 @@
                                     const i = Math.round(val);
                                     if (val === i && i >= 0 && i < sortedTimestamps.length) {
                                         const d = parseDate(sortedTimestamps[i]);
-                                        return d.toLocaleDateString([], {month: 'short', day: 'numeric'}) + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false});
+                                        return d.toLocaleDateString('en-US', {timeZone: 'America/Los_Angeles', month: 'short', day: 'numeric'}) + ' ' + d.toLocaleTimeString('en-US', {timeZone: 'America/Los_Angeles', hour: '2-digit', minute:'2-digit', hour12: false});
                                     }
                                     return '';
                                 }
