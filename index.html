@@ -1810,8 +1810,12 @@
         }
 
         function hasPlayerRecentRankIncrease(steamId, chart) {
-            return !!(chart.recentRankIncreaseMap && chart.recentRankIncreaseMap[steamId]);
+            const bData = standingsData[currentBenchmarkId];
+            if (!bData || !bData.players) return false;
+            const player = bData.players.find(p => p.steam_id === steamId);
+            return player ? player.weekly_pbs > 0 : false;
         }
+
 
 
         const htmlOverlayPlugin = {
