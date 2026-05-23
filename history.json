@@ -88,6 +88,10 @@
         {
           "score": 7.06,
           "timestamp": "2026-05-23 06:39:41"
+        },
+        {
+          "score": 7.13,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     },
@@ -175,70 +179,6 @@
       ]
     }
   },
-  "686_Controlsphere Far, Far Larger 90%": {
-    "76561198017954362": {
-      "player_name": "@BakaOppai",
-      "history": [
-        {
-          "score": 69.95,
-          "timestamp": "2026-05-23 06:35:57"
-        }
-      ]
-    },
-    "76561198033879793": {
-      "player_name": "@CoachCam",
-      "history": [
-        {
-          "score": 70.3,
-          "timestamp": "2026-05-23 06:35:57"
-        }
-      ]
-    },
-    "76561198348625808": {
-      "player_name": "@Christine",
-      "history": [
-        {
-          "score": 68.37,
-          "timestamp": "2026-05-23 06:36:20"
-        },
-        {
-          "score": 68.83,
-          "timestamp": "2026-05-23 06:39:30"
-        }
-      ]
-    },
-    "76561199164422123": {
-      "player_name": "@Olioli",
-      "history": [
-        {
-          "score": 64.71,
-          "timestamp": "2026-05-23 06:36:20"
-        },
-        {
-          "score": 69.66,
-          "timestamp": "2026-05-23 06:39:41"
-        }
-      ]
-    },
-    "76561198995689034": {
-      "player_name": "@Haruno",
-      "history": [
-        {
-          "score": 70.65,
-          "timestamp": "2026-05-23 06:39:30"
-        }
-      ]
-    },
-    "76561198046477600": {
-      "player_name": "@Laggiing",
-      "history": [
-        {
-          "score": 67.81,
-          "timestamp": "2026-05-23 06:39:41"
-        }
-      ]
-    }
-  },
   "686_Controlsphere OW Long Strafes 90%": {
     "76561198017954362": {
       "player_name": "@BakaOppai",
@@ -282,6 +222,10 @@
         {
           "score": 48.41,
           "timestamp": "2026-05-23 06:39:30"
+        },
+        {
+          "score": 48.6,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     },
@@ -351,70 +295,6 @@
         {
           "score": 56.38,
           "timestamp": "2026-05-23 06:39:41"
-        }
-      ]
-    }
-  },
-  "686_Popcorn MV Novice": {
-    "76561198017954362": {
-      "player_name": "@BakaOppai",
-      "history": [
-        {
-          "score": 0.44,
-          "timestamp": "2026-05-23 06:35:57"
-        }
-      ]
-    },
-    "76561199164422123": {
-      "player_name": "@Olioli",
-      "history": [
-        {
-          "score": 0.46,
-          "timestamp": "2026-05-23 06:35:57"
-        }
-      ]
-    },
-    "76561198033879793": {
-      "player_name": "@CoachCam",
-      "history": [
-        {
-          "score": 0.45,
-          "timestamp": "2026-05-23 06:36:20"
-        }
-      ]
-    },
-    "76561198046477600": {
-      "player_name": "@Laggiing",
-      "history": [
-        {
-          "score": 0.44,
-          "timestamp": "2026-05-23 06:36:20"
-        },
-        {
-          "score": 0.46,
-          "timestamp": "2026-05-23 06:39:30"
-        }
-      ]
-    },
-    "76561198348625808": {
-      "player_name": "@Christine",
-      "history": [
-        {
-          "score": 0.45,
-          "timestamp": "2026-05-23 06:36:20"
-        },
-        {
-          "score": 0.46,
-          "timestamp": "2026-05-23 06:39:41"
-        }
-      ]
-    },
-    "76561198995689034": {
-      "player_name": "@Haruno",
-      "history": [
-        {
-          "score": 0.45,
-          "timestamp": "2026-05-23 06:39:30"
         }
       ]
     }
@@ -502,15 +382,6 @@
         }
       ]
     },
-    "76561199164422123": {
-      "player_name": "@Olioli",
-      "history": [
-        {
-          "score": 51.18,
-          "timestamp": "2026-05-23 06:35:57"
-        }
-      ]
-    },
     "76561198046477600": {
       "player_name": "@Laggiing",
       "history": [
@@ -539,6 +410,19 @@
         {
           "score": 50.15,
           "timestamp": "2026-05-23 06:36:20"
+        },
+        {
+          "score": 54.58,
+          "timestamp": "2026-05-23 06:39:52"
+        }
+      ]
+    },
+    "76561199164422123": {
+      "player_name": "@Olioli",
+      "history": [
+        {
+          "score": 54.25,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     }
@@ -572,6 +456,10 @@
         {
           "score": 27.95,
           "timestamp": "2026-05-23 06:39:41"
+        },
+        {
+          "score": 29.5,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     },
@@ -594,6 +482,10 @@
         {
           "score": 29.18,
           "timestamp": "2026-05-23 06:39:41"
+        },
+        {
+          "score": 29.2,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     },
@@ -603,6 +495,10 @@
         {
           "score": 27.84,
           "timestamp": "2026-05-23 06:36:20"
+        },
+        {
+          "score": 28.34,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     }
@@ -714,6 +610,10 @@
         {
           "score": 0.43,
           "timestamp": "2026-05-23 06:36:20"
+        },
+        {
+          "score": 0.44,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     },
@@ -733,15 +633,6 @@
       "history": [
         {
           "score": 0.52,
-          "timestamp": "2026-05-23 06:35:57"
-        }
-      ]
-    },
-    "76561198995689034": {
-      "player_name": "@Haruno",
-      "history": [
-        {
-          "score": 0.5,
           "timestamp": "2026-05-23 06:35:57"
         }
       ]
@@ -783,6 +674,15 @@
         {
           "score": 0.52,
           "timestamp": "2026-05-23 06:39:30"
+        }
+      ]
+    },
+    "76561198995689034": {
+      "player_name": "@Haruno",
+      "history": [
+        {
+          "score": 0.52,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     }
@@ -847,44 +747,13 @@
       ]
     }
   },
-  "686_Flicker Plaza rAim Easy Less Blinks": {
+  "686_Controlsphere Far, Far Larger 90%": {
     "76561198033879793": {
       "player_name": "@CoachCam",
       "history": [
         {
-          "score": 7.91,
+          "score": 70.3,
           "timestamp": "2026-05-23 06:35:57"
-        }
-      ]
-    },
-    "76561198995689034": {
-      "player_name": "@Haruno",
-      "history": [
-        {
-          "score": 7.82,
-          "timestamp": "2026-05-23 06:35:57"
-        }
-      ]
-    },
-    "76561198017954362": {
-      "player_name": "@BakaOppai",
-      "history": [
-        {
-          "score": 7.68,
-          "timestamp": "2026-05-23 06:36:20"
-        },
-        {
-          "score": 7.78,
-          "timestamp": "2026-05-23 06:39:30"
-        }
-      ]
-    },
-    "76561199164422123": {
-      "player_name": "@Olioli",
-      "history": [
-        {
-          "score": 7.61,
-          "timestamp": "2026-05-23 06:36:20"
         }
       ]
     },
@@ -892,7 +761,37 @@
       "player_name": "@Christine",
       "history": [
         {
-          "score": 7.87,
+          "score": 68.37,
+          "timestamp": "2026-05-23 06:36:20"
+        },
+        {
+          "score": 68.83,
+          "timestamp": "2026-05-23 06:39:30"
+        },
+        {
+          "score": 69.24,
+          "timestamp": "2026-05-23 06:39:52"
+        }
+      ]
+    },
+    "76561199164422123": {
+      "player_name": "@Olioli",
+      "history": [
+        {
+          "score": 64.71,
+          "timestamp": "2026-05-23 06:36:20"
+        },
+        {
+          "score": 69.66,
+          "timestamp": "2026-05-23 06:39:41"
+        }
+      ]
+    },
+    "76561198995689034": {
+      "player_name": "@Haruno",
+      "history": [
+        {
+          "score": 70.65,
           "timestamp": "2026-05-23 06:39:30"
         }
       ]
@@ -901,8 +800,17 @@
       "player_name": "@Laggiing",
       "history": [
         {
-          "score": 7.41,
+          "score": 67.81,
           "timestamp": "2026-05-23 06:39:41"
+        }
+      ]
+    },
+    "76561198017954362": {
+      "player_name": "@BakaOppai",
+      "history": [
+        {
+          "score": 70.53,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     }
@@ -1091,6 +999,10 @@
         {
           "score": 0.46,
           "timestamp": "2026-05-23 06:39:30"
+        },
+        {
+          "score": 0.47,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     }
@@ -1133,6 +1045,10 @@
         {
           "score": 6.73,
           "timestamp": "2026-05-23 06:39:30"
+        },
+        {
+          "score": 6.87,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     },
@@ -1418,15 +1334,6 @@
         }
       ]
     },
-    "76561199164422123": {
-      "player_name": "@Olioli",
-      "history": [
-        {
-          "score": 0.31,
-          "timestamp": "2026-05-23 06:35:57"
-        }
-      ]
-    },
     "76561198017954362": {
       "player_name": "@BakaOppai",
       "history": [
@@ -1453,6 +1360,15 @@
           "timestamp": "2026-05-23 06:39:30"
         }
       ]
+    },
+    "76561199164422123": {
+      "player_name": "@Olioli",
+      "history": [
+        {
+          "score": 0.33,
+          "timestamp": "2026-05-23 06:39:52"
+        }
+      ]
     }
   },
   "686_Air Voltaic Invincible 7 Easy 80%": {
@@ -1471,6 +1387,10 @@
         {
           "score": 6.82,
           "timestamp": "2026-05-23 06:36:20"
+        },
+        {
+          "score": 6.88,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     },
@@ -1510,6 +1430,10 @@
         {
           "score": 6.63,
           "timestamp": "2026-05-23 06:39:41"
+        },
+        {
+          "score": 6.72,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     },
@@ -1529,15 +1453,6 @@
       "history": [
         {
           "score": 7.87,
-          "timestamp": "2026-05-23 06:35:57"
-        }
-      ]
-    },
-    "76561199164422123": {
-      "player_name": "@Olioli",
-      "history": [
-        {
-          "score": 7.37,
           "timestamp": "2026-05-23 06:35:57"
         }
       ]
@@ -1577,68 +1492,13 @@
           "timestamp": "2026-05-23 06:39:30"
         }
       ]
-    }
-  },
-  "686_Whisphere 80%": {
-    "76561198348625808": {
-      "player_name": "@Christine",
-      "history": [
-        {
-          "score": 57.66,
-          "timestamp": "2026-05-23 06:35:57"
-        }
-      ]
-    },
-    "76561198017954362": {
-      "player_name": "@BakaOppai",
-      "history": [
-        {
-          "score": 54.55,
-          "timestamp": "2026-05-23 06:36:20"
-        }
-      ]
-    },
-    "76561198033879793": {
-      "player_name": "@CoachCam",
-      "history": [
-        {
-          "score": 55.42,
-          "timestamp": "2026-05-23 06:36:20"
-        },
-        {
-          "score": 58.27,
-          "timestamp": "2026-05-23 06:39:30"
-        }
-      ]
-    },
-    "76561198046477600": {
-      "player_name": "@Laggiing",
-      "history": [
-        {
-          "score": 58.58,
-          "timestamp": "2026-05-23 06:36:20"
-        }
-      ]
     },
     "76561199164422123": {
       "player_name": "@Olioli",
       "history": [
         {
-          "score": 57.08,
-          "timestamp": "2026-05-23 06:36:20"
-        },
-        {
-          "score": 57.57,
-          "timestamp": "2026-05-23 06:39:30"
-        }
-      ]
-    },
-    "76561198995689034": {
-      "player_name": "@Haruno",
-      "history": [
-        {
-          "score": 54.04,
-          "timestamp": "2026-05-23 06:39:41"
+          "score": 7.55,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     }
@@ -1668,6 +1528,10 @@
         {
           "score": 5.91,
           "timestamp": "2026-05-23 06:36:20"
+        },
+        {
+          "score": 6.04,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     },
@@ -1685,6 +1549,10 @@
         {
           "score": 5.65,
           "timestamp": "2026-05-23 06:39:41"
+        },
+        {
+          "score": 5.93,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     },
@@ -1740,6 +1608,10 @@
         {
           "score": 35.28,
           "timestamp": "2026-05-23 06:39:30"
+        },
+        {
+          "score": 35.54,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     },
@@ -1779,6 +1651,10 @@
         {
           "score": 35.19,
           "timestamp": "2026-05-23 06:36:20"
+        },
+        {
+          "score": 36.03,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     }
@@ -1834,6 +1710,10 @@
         {
           "score": 9.8,
           "timestamp": "2026-05-23 06:36:20"
+        },
+        {
+          "score": 10.18,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     },
@@ -1843,6 +1723,74 @@
         {
           "score": 10.1,
           "timestamp": "2026-05-23 06:39:41"
+        },
+        {
+          "score": 10.11,
+          "timestamp": "2026-05-23 06:39:52"
+        }
+      ]
+    }
+  },
+  "686_Popcorn MV Novice": {
+    "76561199164422123": {
+      "player_name": "@Olioli",
+      "history": [
+        {
+          "score": 0.46,
+          "timestamp": "2026-05-23 06:35:57"
+        }
+      ]
+    },
+    "76561198033879793": {
+      "player_name": "@CoachCam",
+      "history": [
+        {
+          "score": 0.45,
+          "timestamp": "2026-05-23 06:36:20"
+        }
+      ]
+    },
+    "76561198046477600": {
+      "player_name": "@Laggiing",
+      "history": [
+        {
+          "score": 0.44,
+          "timestamp": "2026-05-23 06:36:20"
+        },
+        {
+          "score": 0.46,
+          "timestamp": "2026-05-23 06:39:30"
+        }
+      ]
+    },
+    "76561198348625808": {
+      "player_name": "@Christine",
+      "history": [
+        {
+          "score": 0.45,
+          "timestamp": "2026-05-23 06:36:20"
+        },
+        {
+          "score": 0.46,
+          "timestamp": "2026-05-23 06:39:41"
+        }
+      ]
+    },
+    "76561198995689034": {
+      "player_name": "@Haruno",
+      "history": [
+        {
+          "score": 0.45,
+          "timestamp": "2026-05-23 06:39:30"
+        }
+      ]
+    },
+    "76561198017954362": {
+      "player_name": "@BakaOppai",
+      "history": [
+        {
+          "score": 0.45,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     }
@@ -1881,6 +1829,10 @@
         {
           "score": 7.48,
           "timestamp": "2026-05-23 06:36:23"
+        },
+        {
+          "score": 7.57,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -1963,77 +1915,12 @@
       ]
     }
   },
-  "687_Leaptrack Goated 75% Slightly Larger": {
-    "76561198017954362": {
-      "player_name": "@BakaOppai",
-      "history": [
-        {
-          "score": 12.6,
-          "timestamp": "2026-05-23 06:36:00"
-        }
-      ]
-    },
-    "76561198046477600": {
-      "player_name": "@Laggiing",
-      "history": [
-        {
-          "score": 12.26,
-          "timestamp": "2026-05-23 06:36:00"
-        }
-      ]
-    },
-    "76561198348625808": {
-      "player_name": "@Christine",
-      "history": [
-        {
-          "score": 12.31,
-          "timestamp": "2026-05-23 06:36:23"
-        }
-      ]
-    },
-    "76561198033879793": {
-      "player_name": "@CoachCam",
-      "history": [
-        {
-          "score": 12.67,
-          "timestamp": "2026-05-23 06:39:33"
-        }
-      ]
-    },
-    "76561198995689034": {
-      "player_name": "@Haruno",
-      "history": [
-        {
-          "score": 12.92,
-          "timestamp": "2026-05-23 06:39:33"
-        }
-      ]
-    },
-    "76561199164422123": {
-      "player_name": "@Olioli",
-      "history": [
-        {
-          "score": 12.89,
-          "timestamp": "2026-05-23 06:39:44"
-        }
-      ]
-    }
-  },
   "687_PGTI Voltaic Easy": {
     "76561198017954362": {
       "player_name": "@BakaOppai",
       "history": [
         {
           "score": 7.21,
-          "timestamp": "2026-05-23 06:36:00"
-        }
-      ]
-    },
-    "76561198348625808": {
-      "player_name": "@Christine",
-      "history": [
-        {
-          "score": 7.16,
           "timestamp": "2026-05-23 06:36:00"
         }
       ]
@@ -2075,48 +1962,10 @@
         {
           "score": 6.74,
           "timestamp": "2026-05-23 06:39:44"
-        }
-      ]
-    }
-  },
-  "687_Pasu Angelic 20% Larger": {
-    "76561198017954362": {
-      "player_name": "@BakaOppai",
-      "history": [
-        {
-          "score": 0.62,
-          "timestamp": "2026-05-23 06:36:00"
-        }
-      ]
-    },
-    "76561198995689034": {
-      "player_name": "@Haruno",
-      "history": [
-        {
-          "score": 0.64,
-          "timestamp": "2026-05-23 06:36:00"
-        }
-      ]
-    },
-    "76561198033879793": {
-      "player_name": "@CoachCam",
-      "history": [
-        {
-          "score": 0.64,
-          "timestamp": "2026-05-23 06:36:23"
-        }
-      ]
-    },
-    "76561198046477600": {
-      "player_name": "@Laggiing",
-      "history": [
-        {
-          "score": 0.65,
-          "timestamp": "2026-05-23 06:36:23"
         },
         {
-          "score": 0.66,
-          "timestamp": "2026-05-23 06:39:44"
+          "score": 7.22,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -2124,21 +1973,8 @@
       "player_name": "@Christine",
       "history": [
         {
-          "score": 0.66,
-          "timestamp": "2026-05-23 06:36:23"
-        }
-      ]
-    },
-    "76561199164422123": {
-      "player_name": "@Olioli",
-      "history": [
-        {
-          "score": 0.64,
-          "timestamp": "2026-05-23 06:36:23"
-        },
-        {
-          "score": 0.66,
-          "timestamp": "2026-05-23 06:39:33"
+          "score": 7.36,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     }
@@ -2215,6 +2051,10 @@
         {
           "score": 48.9,
           "timestamp": "2026-05-23 06:39:44"
+        },
+        {
+          "score": 51.08,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     }
@@ -2368,6 +2208,10 @@
         {
           "score": 8.16,
           "timestamp": "2026-05-23 06:36:23"
+        },
+        {
+          "score": 8.17,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -2446,6 +2290,10 @@
         {
           "score": 17.17,
           "timestamp": "2026-05-23 06:39:44"
+        },
+        {
+          "score": 17.59,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -2493,6 +2341,10 @@
         {
           "score": 69.4,
           "timestamp": "2026-05-23 06:39:33"
+        },
+        {
+          "score": 72.1,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -2531,6 +2383,10 @@
         {
           "score": 7.54,
           "timestamp": "2026-05-23 06:36:23"
+        },
+        {
+          "score": 7.92,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -2570,6 +2426,10 @@
         {
           "score": 7.8,
           "timestamp": "2026-05-23 06:39:33"
+        },
+        {
+          "score": 7.84,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -2579,126 +2439,6 @@
         {
           "score": 7.98,
           "timestamp": "2026-05-23 06:39:33"
-        }
-      ]
-    }
-  },
-  "687_Polarized Hell Easy 20% Slower": {
-    "76561198033879793": {
-      "player_name": "@CoachCam",
-      "history": [
-        {
-          "score": 14.68,
-          "timestamp": "2026-05-23 06:36:00"
-        }
-      ]
-    },
-    "76561198017954362": {
-      "player_name": "@BakaOppai",
-      "history": [
-        {
-          "score": 13.89,
-          "timestamp": "2026-05-23 06:36:23"
-        },
-        {
-          "score": 14.64,
-          "timestamp": "2026-05-23 06:39:33"
-        }
-      ]
-    },
-    "76561198046477600": {
-      "player_name": "@Laggiing",
-      "history": [
-        {
-          "score": 13.34,
-          "timestamp": "2026-05-23 06:36:23"
-        },
-        {
-          "score": 14.42,
-          "timestamp": "2026-05-23 06:39:33"
-        }
-      ]
-    },
-    "76561198348625808": {
-      "player_name": "@Christine",
-      "history": [
-        {
-          "score": 14.82,
-          "timestamp": "2026-05-23 06:36:23"
-        }
-      ]
-    },
-    "76561198995689034": {
-      "player_name": "@Haruno",
-      "history": [
-        {
-          "score": 14.74,
-          "timestamp": "2026-05-23 06:36:23"
-        }
-      ]
-    },
-    "76561199164422123": {
-      "player_name": "@Olioli",
-      "history": [
-        {
-          "score": 14.87,
-          "timestamp": "2026-05-23 06:36:23"
-        }
-      ]
-    }
-  },
-  "687_Popcorn MV Intermediate": {
-    "76561198033879793": {
-      "player_name": "@CoachCam",
-      "history": [
-        {
-          "score": 1.36,
-          "timestamp": "2026-05-23 06:36:00"
-        }
-      ]
-    },
-    "76561198046477600": {
-      "player_name": "@Laggiing",
-      "history": [
-        {
-          "score": 1.34,
-          "timestamp": "2026-05-23 06:36:00"
-        }
-      ]
-    },
-    "76561198995689034": {
-      "player_name": "@Haruno",
-      "history": [
-        {
-          "score": 1.34,
-          "timestamp": "2026-05-23 06:36:00"
-        }
-      ]
-    },
-    "76561199164422123": {
-      "player_name": "@Olioli",
-      "history": [
-        {
-          "score": 1.36,
-          "timestamp": "2026-05-23 06:36:00"
-        }
-      ]
-    },
-    "76561198017954362": {
-      "player_name": "@BakaOppai",
-      "history": [
-        {
-          "score": 1.31,
-          "timestamp": "2026-05-23 06:36:23"
-        }
-      ]
-    },
-    "76561198348625808": {
-      "player_name": "@Christine",
-      "history": [
-        {
-          "score": 1.39,
-          "timestamp": "2026-05-23 06:36:23"
         }
       ]
     }
@@ -2759,6 +2499,10 @@
         {
           "score": 15.57,
           "timestamp": "2026-05-23 06:39:33"
+        },
+        {
+          "score": 15.7,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     }
@@ -2806,6 +2550,10 @@
         {
           "score": 51.5,
           "timestamp": "2026-05-23 06:36:23"
+        },
+        {
+          "score": 52.81,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -2898,15 +2646,6 @@
         }
       ]
     },
-    "76561198995689034": {
-      "player_name": "@Haruno",
-      "history": [
-        {
-          "score": 0.75,
-          "timestamp": "2026-05-23 06:36:00"
-        }
-      ]
-    },
     "76561198017954362": {
       "player_name": "@BakaOppai",
       "history": [
@@ -2941,6 +2680,15 @@
           "timestamp": "2026-05-23 06:39:33"
         }
       ]
+    },
+    "76561198995689034": {
+      "player_name": "@Haruno",
+      "history": [
+        {
+          "score": 0.76,
+          "timestamp": "2026-05-23 06:39:56"
+        }
+      ]
     }
   },
   "687_voxTargetClick 20% Small": {
@@ -2959,6 +2707,10 @@
         {
           "score": 0.55,
           "timestamp": "2026-05-23 06:36:23"
+        },
+        {
+          "score": 0.56,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -2986,6 +2738,10 @@
         {
           "score": 0.56,
           "timestamp": "2026-05-23 06:39:44"
+        },
+        {
+          "score": 0.57,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -2995,6 +2751,10 @@
         {
           "score": 0.56,
           "timestamp": "2026-05-23 06:39:44"
+        },
+        {
+          "score": 0.57,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     }
@@ -3005,15 +2765,6 @@
       "history": [
         {
           "score": 0.6,
-          "timestamp": "2026-05-23 06:36:00"
-        }
-      ]
-    },
-    "76561198995689034": {
-      "player_name": "@Haruno",
-      "history": [
-        {
-          "score": 0.59,
           "timestamp": "2026-05-23 06:36:00"
         }
       ]
@@ -3033,6 +2784,10 @@
         {
           "score": 0.58,
           "timestamp": "2026-05-23 06:36:23"
+        },
+        {
+          "score": 0.59,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -3051,6 +2806,15 @@
         {
           "score": 0.6,
           "timestamp": "2026-05-23 06:36:23"
+        }
+      ]
+    },
+    "76561198995689034": {
+      "player_name": "@Haruno",
+      "history": [
+        {
+          "score": 0.61,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     }
@@ -3166,6 +2930,10 @@
         {
           "score": 17.23,
           "timestamp": "2026-05-23 06:36:23"
+        },
+        {
+          "score": 17.73,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -3175,6 +2943,66 @@
         {
           "score": 17.62,
           "timestamp": "2026-05-23 06:36:23"
+        }
+      ]
+    }
+  },
+  "687_Popcorn MV Intermediate": {
+    "76561198046477600": {
+      "player_name": "@Laggiing",
+      "history": [
+        {
+          "score": 1.34,
+          "timestamp": "2026-05-23 06:36:00"
+        }
+      ]
+    },
+    "76561198995689034": {
+      "player_name": "@Haruno",
+      "history": [
+        {
+          "score": 1.34,
+          "timestamp": "2026-05-23 06:36:00"
+        }
+      ]
+    },
+    "76561198017954362": {
+      "player_name": "@BakaOppai",
+      "history": [
+        {
+          "score": 1.31,
+          "timestamp": "2026-05-23 06:36:23"
+        },
+        {
+          "score": 1.39,
+          "timestamp": "2026-05-23 06:39:56"
+        }
+      ]
+    },
+    "76561198348625808": {
+      "player_name": "@Christine",
+      "history": [
+        {
+          "score": 1.39,
+          "timestamp": "2026-05-23 06:36:23"
+        }
+      ]
+    },
+    "76561198033879793": {
+      "player_name": "@CoachCam",
+      "history": [
+        {
+          "score": 1.37,
+          "timestamp": "2026-05-23 06:39:56"
+        }
+      ]
+    },
+    "76561199164422123": {
+      "player_name": "@Olioli",
+      "history": [
+        {
+          "score": 1.37,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     }
@@ -3294,6 +3122,10 @@
         {
           "score": 35.87,
           "timestamp": "2026-05-23 06:39:33"
+        },
+        {
+          "score": 38.21,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -3363,6 +3195,10 @@
         {
           "score": 64.44,
           "timestamp": "2026-05-23 06:39:33"
+        },
+        {
+          "score": 65.61,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     }
@@ -3401,6 +3237,10 @@
         {
           "score": 18.68,
           "timestamp": "2026-05-23 06:39:33"
+        },
+        {
+          "score": 19.12,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -3410,6 +3250,10 @@
         {
           "score": 19.29,
           "timestamp": "2026-05-23 06:39:33"
+        },
+        {
+          "score": 19.37,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -3418,66 +3262,6 @@
       "history": [
         {
           "score": 19.15,
-          "timestamp": "2026-05-23 06:39:33"
-        }
-      ]
-    }
-  },
-  "687_devTS Goated NR Static 5Bot": {
-    "76561198348625808": {
-      "player_name": "@Christine",
-      "history": [
-        {
-          "score": 5.44,
-          "timestamp": "2026-05-23 06:36:00"
-        }
-      ]
-    },
-    "76561198995689034": {
-      "player_name": "@Haruno",
-      "history": [
-        {
-          "score": 4.99,
-          "timestamp": "2026-05-23 06:36:23"
-        },
-        {
-          "score": 5.19,
-          "timestamp": "2026-05-23 06:39:33"
-        }
-      ]
-    },
-    "76561198017954362": {
-      "player_name": "@BakaOppai",
-      "history": [
-        {
-          "score": 5.56,
-          "timestamp": "2026-05-23 06:39:33"
-        }
-      ]
-    },
-    "76561198033879793": {
-      "player_name": "@CoachCam",
-      "history": [
-        {
-          "score": 5.36,
-          "timestamp": "2026-05-23 06:39:33"
-        }
-      ]
-    },
-    "76561198046477600": {
-      "player_name": "@Laggiing",
-      "history": [
-        {
-          "score": 5.38,
-          "timestamp": "2026-05-23 06:39:33"
-        }
-      ]
-    },
-    "76561199164422123": {
-      "player_name": "@Olioli",
-      "history": [
-        {
-          "score": 5.44,
           "timestamp": "2026-05-23 06:39:33"
         }
       ]
@@ -3551,6 +3335,70 @@
       ]
     }
   },
+  "687_Pasu Angelic 20% Larger": {
+    "76561198995689034": {
+      "player_name": "@Haruno",
+      "history": [
+        {
+          "score": 0.64,
+          "timestamp": "2026-05-23 06:36:00"
+        }
+      ]
+    },
+    "76561198033879793": {
+      "player_name": "@CoachCam",
+      "history": [
+        {
+          "score": 0.64,
+          "timestamp": "2026-05-23 06:36:23"
+        }
+      ]
+    },
+    "76561198046477600": {
+      "player_name": "@Laggiing",
+      "history": [
+        {
+          "score": 0.65,
+          "timestamp": "2026-05-23 06:36:23"
+        },
+        {
+          "score": 0.66,
+          "timestamp": "2026-05-23 06:39:44"
+        }
+      ]
+    },
+    "76561198348625808": {
+      "player_name": "@Christine",
+      "history": [
+        {
+          "score": 0.66,
+          "timestamp": "2026-05-23 06:36:23"
+        }
+      ]
+    },
+    "76561199164422123": {
+      "player_name": "@Olioli",
+      "history": [
+        {
+          "score": 0.64,
+          "timestamp": "2026-05-23 06:36:23"
+        },
+        {
+          "score": 0.66,
+          "timestamp": "2026-05-23 06:39:33"
+        }
+      ]
+    },
+    "76561198017954362": {
+      "player_name": "@BakaOppai",
+      "history": [
+        {
+          "score": 0.64,
+          "timestamp": "2026-05-23 06:39:56"
+        }
+      ]
+    }
+  },
   "687_Pokeball Frenzy Auto TE Wide": {
     "76561199164422123": {
       "player_name": "@Olioli",
@@ -3567,6 +3415,10 @@
         {
           "score": 17.71,
           "timestamp": "2026-05-23 06:36:23"
+        },
+        {
+          "score": 18.02,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -3585,6 +3437,10 @@
         {
           "score": 17.06,
           "timestamp": "2026-05-23 06:39:33"
+        },
+        {
+          "score": 18.07,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -3603,62 +3459,6 @@
         {
           "score": 17.76,
           "timestamp": "2026-05-23 06:39:44"
-        }
-      ]
-    }
-  },
-  "687_waldoTS Intermediate": {
-    "76561199164422123": {
-      "player_name": "@Olioli",
-      "history": [
-        {
-          "score": 0.93,
-          "timestamp": "2026-05-23 06:36:00"
-        }
-      ]
-    },
-    "76561198033879793": {
-      "player_name": "@CoachCam",
-      "history": [
-        {
-          "score": 0.99,
-          "timestamp": "2026-05-23 06:36:23"
-        }
-      ]
-    },
-    "76561198046477600": {
-      "player_name": "@Laggiing",
-      "history": [
-        {
-          "score": 0.98,
-          "timestamp": "2026-05-23 06:36:23"
-        }
-      ]
-    },
-    "76561198348625808": {
-      "player_name": "@Christine",
-      "history": [
-        {
-          "score": 0.96,
-          "timestamp": "2026-05-23 06:36:23"
-        }
-      ]
-    },
-    "76561198995689034": {
-      "player_name": "@Haruno",
-      "history": [
-        {
-          "score": 0.95,
-          "timestamp": "2026-05-23 06:36:23"
-        }
-      ]
-    },
-    "76561198017954362": {
-      "player_name": "@BakaOppai",
-      "history": [
-        {
-          "score": 0.97,
-          "timestamp": "2026-05-23 06:39:33"
         }
       ]
     }
@@ -3705,6 +3505,10 @@
         {
           "score": 24.4,
           "timestamp": "2026-05-23 06:39:47"
+        },
+        {
+          "score": 25.22,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     },
@@ -3806,15 +3610,6 @@
         }
       ]
     },
-    "76561199164422123": {
-      "player_name": "@Olioli",
-      "history": [
-        {
-          "score": 7.88,
-          "timestamp": "2026-05-23 06:36:03"
-        }
-      ]
-    },
     "76561198033879793": {
       "player_name": "@CoachCam",
       "history": [
@@ -3847,6 +3642,19 @@
         {
           "score": 7.8,
           "timestamp": "2026-05-23 06:39:47"
+        },
+        {
+          "score": 8.0,
+          "timestamp": "2026-05-23 06:39:59"
+        }
+      ]
+    },
+    "76561199164422123": {
+      "player_name": "@Olioli",
+      "history": [
+        {
+          "score": 8.15,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     }
@@ -4019,6 +3827,10 @@
         {
           "score": 128.66,
           "timestamp": "2026-05-23 06:39:47"
+        },
+        {
+          "score": 129.24,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     }
@@ -4079,6 +3891,10 @@
         {
           "score": 63.2,
           "timestamp": "2026-05-23 06:36:27"
+        },
+        {
+          "score": 66.01,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     }
@@ -4153,15 +3969,6 @@
         }
       ]
     },
-    "76561198348625808": {
-      "player_name": "@Christine",
-      "history": [
-        {
-          "score": 9.99,
-          "timestamp": "2026-05-23 06:36:03"
-        }
-      ]
-    },
     "76561198017954362": {
       "player_name": "@BakaOppai",
       "history": [
@@ -4181,6 +3988,10 @@
         {
           "score": 9.92,
           "timestamp": "2026-05-23 06:39:36"
+        },
+        {
+          "score": 10.22,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     },
@@ -4190,6 +4001,10 @@
         {
           "score": 9.53,
           "timestamp": "2026-05-23 06:36:27"
+        },
+        {
+          "score": 10.05,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     },
@@ -4199,6 +4014,15 @@
         {
           "score": 10.1,
           "timestamp": "2026-05-23 06:39:47"
+        }
+      ]
+    },
+    "76561198348625808": {
+      "player_name": "@Christine",
+      "history": [
+        {
+          "score": 10.01,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     }
@@ -4259,70 +4083,10 @@
         {
           "score": 81.93,
           "timestamp": "2026-05-23 06:39:36"
-        }
-      ]
-    }
-  },
-  "688_Leaptrack Goated 80%": {
-    "76561198033879793": {
-      "player_name": "@CoachCam",
-      "history": [
-        {
-          "score": 22.21,
-          "timestamp": "2026-05-23 06:36:03"
-        }
-      ]
-    },
-    "76561199164422123": {
-      "player_name": "@Olioli",
-      "history": [
-        {
-          "score": 22.83,
-          "timestamp": "2026-05-23 06:36:03"
-        }
-      ]
-    },
-    "76561198017954362": {
-      "player_name": "@BakaOppai",
-      "history": [
-        {
-          "score": 21.38,
-          "timestamp": "2026-05-23 06:36:26"
         },
         {
-          "score": 22.52,
-          "timestamp": "2026-05-23 06:39:36"
-        }
-      ]
-    },
-    "76561198348625808": {
-      "player_name": "@Christine",
-      "history": [
-        {
-          "score": 23.16,
-          "timestamp": "2026-05-23 06:36:26"
-        },
-        {
-          "score": 23.2,
-          "timestamp": "2026-05-23 06:39:36"
-        }
-      ]
-    },
-    "76561198995689034": {
-      "player_name": "@Haruno",
-      "history": [
-        {
-          "score": 21.77,
-          "timestamp": "2026-05-23 06:36:27"
-        }
-      ]
-    },
-    "76561198046477600": {
-      "player_name": "@Laggiing",
-      "history": [
-        {
-          "score": 22.23,
-          "timestamp": "2026-05-23 06:39:36"
+          "score": 82.16,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     }
@@ -4429,6 +4193,10 @@
         {
           "score": 0.93,
           "timestamp": "2026-05-23 06:36:27"
+        },
+        {
+          "score": 0.94,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     },
@@ -4511,6 +4279,10 @@
         {
           "score": 0.79,
           "timestamp": "2026-05-23 06:39:47"
+        },
+        {
+          "score": 0.8,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     }
@@ -4521,15 +4293,6 @@
       "history": [
         {
           "score": 6.95,
-          "timestamp": "2026-05-23 06:36:03"
-        }
-      ]
-    },
-    "76561198995689034": {
-      "player_name": "@Haruno",
-      "history": [
-        {
-          "score": 6.59,
           "timestamp": "2026-05-23 06:36:03"
         }
       ]
@@ -4583,6 +4346,15 @@
         {
           "score": 6.69,
           "timestamp": "2026-05-23 06:39:47"
+        }
+      ]
+    },
+    "76561198995689034": {
+      "player_name": "@Haruno",
+      "history": [
+        {
+          "score": 6.7,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     }
@@ -4711,70 +4483,6 @@
         {
           "score": 0.91,
           "timestamp": "2026-05-23 06:39:36"
-        }
-      ]
-    }
-  },
-  "688_Air Angelic 4 Voltaic": {
-    "76561198348625808": {
-      "player_name": "@Christine",
-      "history": [
-        {
-          "score": 29.65,
-          "timestamp": "2026-05-23 06:36:03"
-        }
-      ]
-    },
-    "76561198017954362": {
-      "player_name": "@BakaOppai",
-      "history": [
-        {
-          "score": 29.33,
-          "timestamp": "2026-05-23 06:36:26"
-        },
-        {
-          "score": 29.56,
-          "timestamp": "2026-05-23 06:39:36"
-        }
-      ]
-    },
-    "76561198033879793": {
-      "player_name": "@CoachCam",
-      "history": [
-        {
-          "score": 28.12,
-          "timestamp": "2026-05-23 06:36:27"
-        },
-        {
-          "score": 30.65,
-          "timestamp": "2026-05-23 06:39:36"
-        }
-      ]
-    },
-    "76561198046477600": {
-      "player_name": "@Laggiing",
-      "history": [
-        {
-          "score": 28.94,
-          "timestamp": "2026-05-23 06:36:27"
-        }
-      ]
-    },
-    "76561198995689034": {
-      "player_name": "@Haruno",
-      "history": [
-        {
-          "score": 29.59,
-          "timestamp": "2026-05-23 06:36:27"
-        }
-      ]
-    },
-    "76561199164422123": {
-      "player_name": "@Olioli",
-      "history": [
-        {
-          "score": 30.28,
-          "timestamp": "2026-05-23 06:36:27"
         }
       ]
     }
@@ -4985,15 +4693,6 @@
         }
       ]
     },
-    "76561199164422123": {
-      "player_name": "@Olioli",
-      "history": [
-        {
-          "score": 25.93,
-          "timestamp": "2026-05-23 06:36:03"
-        }
-      ]
-    },
     "76561198348625808": {
       "player_name": "@Christine",
       "history": [
@@ -5013,6 +4712,10 @@
         {
           "score": 25.59,
           "timestamp": "2026-05-23 06:39:36"
+        },
+        {
+          "score": 26.11,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     },
@@ -5031,6 +4734,15 @@
         {
           "score": 26.39,
           "timestamp": "2026-05-23 06:39:36"
+        }
+      ]
+    },
+    "76561199164422123": {
+      "player_name": "@Olioli",
+      "history": [
+        {
+          "score": 26.11,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     }
@@ -5107,6 +4819,10 @@
         {
           "score": 74.74,
           "timestamp": "2026-05-23 06:36:26"
+        },
+        {
+          "score": 77.06,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     },
@@ -5207,6 +4923,82 @@
         {
           "score": 0.82,
           "timestamp": "2026-05-23 06:39:47"
+        },
+        {
+          "score": 0.86,
+          "timestamp": "2026-05-23 06:39:59"
+        }
+      ]
+    }
+  },
+  "688_Leaptrack Goated 80%": {
+    "76561199164422123": {
+      "player_name": "@Olioli",
+      "history": [
+        {
+          "score": 22.83,
+          "timestamp": "2026-05-23 06:36:03"
+        }
+      ]
+    },
+    "76561198017954362": {
+      "player_name": "@BakaOppai",
+      "history": [
+        {
+          "score": 21.38,
+          "timestamp": "2026-05-23 06:36:26"
+        },
+        {
+          "score": 22.52,
+          "timestamp": "2026-05-23 06:39:36"
+        }
+      ]
+    },
+    "76561198348625808": {
+      "player_name": "@Christine",
+      "history": [
+        {
+          "score": 23.16,
+          "timestamp": "2026-05-23 06:36:26"
+        },
+        {
+          "score": 23.2,
+          "timestamp": "2026-05-23 06:39:36"
+        }
+      ]
+    },
+    "76561198995689034": {
+      "player_name": "@Haruno",
+      "history": [
+        {
+          "score": 21.77,
+          "timestamp": "2026-05-23 06:36:27"
+        },
+        {
+          "score": 22.49,
+          "timestamp": "2026-05-23 06:39:59"
+        }
+      ]
+    },
+    "76561198046477600": {
+      "player_name": "@Laggiing",
+      "history": [
+        {
+          "score": 22.23,
+          "timestamp": "2026-05-23 06:39:36"
+        },
+        {
+          "score": 22.48,
+          "timestamp": "2026-05-23 06:39:59"
+        }
+      ]
+    },
+    "76561198033879793": {
+      "player_name": "@CoachCam",
+      "history": [
+        {
+          "score": 23.17,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     }
@@ -5240,6 +5032,10 @@
         {
           "score": 6.42,
           "timestamp": "2026-05-23 06:36:27"
+        },
+        {
+          "score": 6.56,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     },
@@ -5253,6 +5049,10 @@
         {
           "score": 6.64,
           "timestamp": "2026-05-23 06:39:36"
+        },
+        {
+          "score": 6.69,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     },
@@ -5381,6 +5181,10 @@
         {
           "score": 5.42,
           "timestamp": "2026-05-23 06:36:20"
+        },
+        {
+          "score": 5.45,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     },
@@ -5399,6 +5203,10 @@
         {
           "score": 5.43,
           "timestamp": "2026-05-23 06:39:30"
+        },
+        {
+          "score": 5.52,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     }
@@ -5491,6 +5299,10 @@
         {
           "score": 7.49,
           "timestamp": "2026-05-23 06:36:20"
+        },
+        {
+          "score": 7.87,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     },
@@ -5513,6 +5325,10 @@
         {
           "score": 7.88,
           "timestamp": "2026-05-23 06:39:41"
+        },
+        {
+          "score": 7.94,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     },
@@ -5531,6 +5347,78 @@
         {
           "score": 7.89,
           "timestamp": "2026-05-23 06:39:30"
+        }
+      ]
+    }
+  },
+  "686_Flicker Plaza rAim Easy Less Blinks": {
+    "76561198017954362": {
+      "player_name": "@BakaOppai",
+      "history": [
+        {
+          "score": 7.68,
+          "timestamp": "2026-05-23 06:36:20"
+        },
+        {
+          "score": 7.78,
+          "timestamp": "2026-05-23 06:39:30"
+        },
+        {
+          "score": 7.79,
+          "timestamp": "2026-05-23 06:39:52"
+        }
+      ]
+    },
+    "76561199164422123": {
+      "player_name": "@Olioli",
+      "history": [
+        {
+          "score": 7.61,
+          "timestamp": "2026-05-23 06:36:20"
+        },
+        {
+          "score": 7.67,
+          "timestamp": "2026-05-23 06:39:52"
+        }
+      ]
+    },
+    "76561198348625808": {
+      "player_name": "@Christine",
+      "history": [
+        {
+          "score": 7.87,
+          "timestamp": "2026-05-23 06:39:30"
+        }
+      ]
+    },
+    "76561198046477600": {
+      "player_name": "@Laggiing",
+      "history": [
+        {
+          "score": 7.41,
+          "timestamp": "2026-05-23 06:39:41"
+        },
+        {
+          "score": 7.54,
+          "timestamp": "2026-05-23 06:39:52"
+        }
+      ]
+    },
+    "76561198033879793": {
+      "player_name": "@CoachCam",
+      "history": [
+        {
+          "score": 7.92,
+          "timestamp": "2026-05-23 06:39:52"
+        }
+      ]
+    },
+    "76561198995689034": {
+      "player_name": "@Haruno",
+      "history": [
+        {
+          "score": 7.86,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     }
@@ -5599,6 +5487,70 @@
       ]
     }
   },
+  "686_Whisphere 80%": {
+    "76561198017954362": {
+      "player_name": "@BakaOppai",
+      "history": [
+        {
+          "score": 54.55,
+          "timestamp": "2026-05-23 06:36:20"
+        }
+      ]
+    },
+    "76561198033879793": {
+      "player_name": "@CoachCam",
+      "history": [
+        {
+          "score": 55.42,
+          "timestamp": "2026-05-23 06:36:20"
+        },
+        {
+          "score": 58.27,
+          "timestamp": "2026-05-23 06:39:30"
+        }
+      ]
+    },
+    "76561198046477600": {
+      "player_name": "@Laggiing",
+      "history": [
+        {
+          "score": 58.58,
+          "timestamp": "2026-05-23 06:36:20"
+        }
+      ]
+    },
+    "76561199164422123": {
+      "player_name": "@Olioli",
+      "history": [
+        {
+          "score": 57.08,
+          "timestamp": "2026-05-23 06:36:20"
+        },
+        {
+          "score": 57.57,
+          "timestamp": "2026-05-23 06:39:30"
+        }
+      ]
+    },
+    "76561198995689034": {
+      "player_name": "@Haruno",
+      "history": [
+        {
+          "score": 54.04,
+          "timestamp": "2026-05-23 06:39:41"
+        }
+      ]
+    },
+    "76561198348625808": {
+      "player_name": "@Christine",
+      "history": [
+        {
+          "score": 57.72,
+          "timestamp": "2026-05-23 06:39:52"
+        }
+      ]
+    }
+  },
   "686_waldoTS Novice": {
     "76561198017954362": {
       "player_name": "@BakaOppai",
@@ -5606,6 +5558,10 @@
         {
           "score": 0.54,
           "timestamp": "2026-05-23 06:36:20"
+        },
+        {
+          "score": 0.58,
+          "timestamp": "2026-05-23 06:39:52"
         }
       ]
     },
@@ -5734,6 +5690,10 @@
         {
           "score": 7.4,
           "timestamp": "2026-05-23 06:36:23"
+        },
+        {
+          "score": 7.46,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -5743,6 +5703,10 @@
         {
           "score": 7.6,
           "timestamp": "2026-05-23 06:36:23"
+        },
+        {
+          "score": 7.65,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -5770,6 +5734,10 @@
         {
           "score": 7.33,
           "timestamp": "2026-05-23 06:36:23"
+        },
+        {
+          "score": 7.41,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -5846,6 +5814,10 @@
         {
           "score": 16.64,
           "timestamp": "2026-05-23 06:39:44"
+        },
+        {
+          "score": 16.71,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -5969,6 +5941,10 @@
         {
           "score": 7.69,
           "timestamp": "2026-05-23 06:39:44"
+        },
+        {
+          "score": 7.72,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     },
@@ -5991,6 +5967,74 @@
         {
           "score": 7.54,
           "timestamp": "2026-05-23 06:39:33"
+        }
+      ]
+    }
+  },
+  "687_Polarized Hell Easy 20% Slower": {
+    "76561198017954362": {
+      "player_name": "@BakaOppai",
+      "history": [
+        {
+          "score": 13.89,
+          "timestamp": "2026-05-23 06:36:23"
+        },
+        {
+          "score": 14.64,
+          "timestamp": "2026-05-23 06:39:33"
+        }
+      ]
+    },
+    "76561198046477600": {
+      "player_name": "@Laggiing",
+      "history": [
+        {
+          "score": 13.34,
+          "timestamp": "2026-05-23 06:36:23"
+        },
+        {
+          "score": 14.42,
+          "timestamp": "2026-05-23 06:39:33"
+        },
+        {
+          "score": 14.74,
+          "timestamp": "2026-05-23 06:39:56"
+        }
+      ]
+    },
+    "76561198348625808": {
+      "player_name": "@Christine",
+      "history": [
+        {
+          "score": 14.82,
+          "timestamp": "2026-05-23 06:36:23"
+        }
+      ]
+    },
+    "76561198995689034": {
+      "player_name": "@Haruno",
+      "history": [
+        {
+          "score": 14.74,
+          "timestamp": "2026-05-23 06:36:23"
+        }
+      ]
+    },
+    "76561199164422123": {
+      "player_name": "@Olioli",
+      "history": [
+        {
+          "score": 14.87,
+          "timestamp": "2026-05-23 06:36:23"
+        }
+      ]
+    },
+    "76561198033879793": {
+      "player_name": "@CoachCam",
+      "history": [
+        {
+          "score": 14.85,
+          "timestamp": "2026-05-23 06:39:56"
         }
       ]
     }
@@ -6119,6 +6163,190 @@
       ]
     }
   },
+  "687_waldoTS Intermediate": {
+    "76561198033879793": {
+      "player_name": "@CoachCam",
+      "history": [
+        {
+          "score": 0.99,
+          "timestamp": "2026-05-23 06:36:23"
+        }
+      ]
+    },
+    "76561198046477600": {
+      "player_name": "@Laggiing",
+      "history": [
+        {
+          "score": 0.98,
+          "timestamp": "2026-05-23 06:36:23"
+        }
+      ]
+    },
+    "76561198348625808": {
+      "player_name": "@Christine",
+      "history": [
+        {
+          "score": 0.96,
+          "timestamp": "2026-05-23 06:36:23"
+        },
+        {
+          "score": 0.99,
+          "timestamp": "2026-05-23 06:39:56"
+        }
+      ]
+    },
+    "76561198995689034": {
+      "player_name": "@Haruno",
+      "history": [
+        {
+          "score": 0.95,
+          "timestamp": "2026-05-23 06:36:23"
+        }
+      ]
+    },
+    "76561198017954362": {
+      "player_name": "@BakaOppai",
+      "history": [
+        {
+          "score": 0.97,
+          "timestamp": "2026-05-23 06:39:33"
+        }
+      ]
+    },
+    "76561199164422123": {
+      "player_name": "@Olioli",
+      "history": [
+        {
+          "score": 0.99,
+          "timestamp": "2026-05-23 06:39:56"
+        }
+      ]
+    }
+  },
+  "687_Leaptrack Goated 75% Slightly Larger": {
+    "76561198348625808": {
+      "player_name": "@Christine",
+      "history": [
+        {
+          "score": 12.31,
+          "timestamp": "2026-05-23 06:36:23"
+        },
+        {
+          "score": 12.54,
+          "timestamp": "2026-05-23 06:39:56"
+        }
+      ]
+    },
+    "76561198033879793": {
+      "player_name": "@CoachCam",
+      "history": [
+        {
+          "score": 12.67,
+          "timestamp": "2026-05-23 06:39:33"
+        }
+      ]
+    },
+    "76561198995689034": {
+      "player_name": "@Haruno",
+      "history": [
+        {
+          "score": 12.92,
+          "timestamp": "2026-05-23 06:39:33"
+        }
+      ]
+    },
+    "76561199164422123": {
+      "player_name": "@Olioli",
+      "history": [
+        {
+          "score": 12.89,
+          "timestamp": "2026-05-23 06:39:44"
+        }
+      ]
+    },
+    "76561198017954362": {
+      "player_name": "@BakaOppai",
+      "history": [
+        {
+          "score": 12.89,
+          "timestamp": "2026-05-23 06:39:56"
+        }
+      ]
+    },
+    "76561198046477600": {
+      "player_name": "@Laggiing",
+      "history": [
+        {
+          "score": 12.29,
+          "timestamp": "2026-05-23 06:39:56"
+        }
+      ]
+    }
+  },
+  "687_devTS Goated NR Static 5Bot": {
+    "76561198995689034": {
+      "player_name": "@Haruno",
+      "history": [
+        {
+          "score": 4.99,
+          "timestamp": "2026-05-23 06:36:23"
+        },
+        {
+          "score": 5.19,
+          "timestamp": "2026-05-23 06:39:33"
+        }
+      ]
+    },
+    "76561198017954362": {
+      "player_name": "@BakaOppai",
+      "history": [
+        {
+          "score": 5.56,
+          "timestamp": "2026-05-23 06:39:33"
+        }
+      ]
+    },
+    "76561198033879793": {
+      "player_name": "@CoachCam",
+      "history": [
+        {
+          "score": 5.36,
+          "timestamp": "2026-05-23 06:39:33"
+        }
+      ]
+    },
+    "76561198046477600": {
+      "player_name": "@Laggiing",
+      "history": [
+        {
+          "score": 5.38,
+          "timestamp": "2026-05-23 06:39:33"
+        },
+        {
+          "score": 5.5,
+          "timestamp": "2026-05-23 06:39:56"
+        }
+      ]
+    },
+    "76561199164422123": {
+      "player_name": "@Olioli",
+      "history": [
+        {
+          "score": 5.44,
+          "timestamp": "2026-05-23 06:39:33"
+        }
+      ]
+    },
+    "76561198348625808": {
+      "player_name": "@Christine",
+      "history": [
+        {
+          "score": 5.56,
+          "timestamp": "2026-05-23 06:39:56"
+        }
+      ]
+    }
+  },
   "688_1w2ts Pasu Perfected 30% Smaller": {
     "76561198017954362": {
       "player_name": "@BakaOppai",
@@ -6179,6 +6407,74 @@
       ]
     }
   },
+  "688_Air Angelic 4 Voltaic": {
+    "76561198017954362": {
+      "player_name": "@BakaOppai",
+      "history": [
+        {
+          "score": 29.33,
+          "timestamp": "2026-05-23 06:36:26"
+        },
+        {
+          "score": 29.56,
+          "timestamp": "2026-05-23 06:39:36"
+        }
+      ]
+    },
+    "76561198033879793": {
+      "player_name": "@CoachCam",
+      "history": [
+        {
+          "score": 28.12,
+          "timestamp": "2026-05-23 06:36:27"
+        },
+        {
+          "score": 30.65,
+          "timestamp": "2026-05-23 06:39:36"
+        }
+      ]
+    },
+    "76561198046477600": {
+      "player_name": "@Laggiing",
+      "history": [
+        {
+          "score": 28.94,
+          "timestamp": "2026-05-23 06:36:27"
+        }
+      ]
+    },
+    "76561198995689034": {
+      "player_name": "@Haruno",
+      "history": [
+        {
+          "score": 29.59,
+          "timestamp": "2026-05-23 06:36:27"
+        },
+        {
+          "score": 30.11,
+          "timestamp": "2026-05-23 06:39:59"
+        }
+      ]
+    },
+    "76561199164422123": {
+      "player_name": "@Olioli",
+      "history": [
+        {
+          "score": 30.28,
+          "timestamp": "2026-05-23 06:36:27"
+        }
+      ]
+    },
+    "76561198348625808": {
+      "player_name": "@Christine",
+      "history": [
+        {
+          "score": 29.75,
+          "timestamp": "2026-05-23 06:39:59"
+        }
+      ]
+    }
+  },
   "688_Air CELESTIAL": {
     "76561198017954362": {
       "player_name": "@BakaOppai",
@@ -6213,6 +6509,10 @@
         {
           "score": 7.47,
           "timestamp": "2026-05-23 06:36:27"
+        },
+        {
+          "score": 7.51,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     },
@@ -6268,6 +6568,10 @@
         {
           "score": 7.6,
           "timestamp": "2026-05-23 06:36:27"
+        },
+        {
+          "score": 7.94,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     },
@@ -6345,6 +6649,10 @@
         {
           "score": 63.01,
           "timestamp": "2026-05-23 06:39:36"
+        },
+        {
+          "score": 63.19,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     },
@@ -6464,6 +6772,10 @@
         {
           "score": 74.01,
           "timestamp": "2026-05-23 06:39:47"
+        },
+        {
+          "score": 77.59,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     },
@@ -6771,6 +7083,10 @@
         {
           "score": 0.34,
           "timestamp": "2026-05-23 06:39:47"
+        },
+        {
+          "score": 0.35,
+          "timestamp": "2026-05-23 06:39:59"
         }
       ]
     }
