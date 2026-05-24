@@ -3482,15 +3482,6 @@
                                     borderStyle += ' box-shadow: none;';
                                 }
                                 
-                                if (isLeader) {
-                                    borderStyle = `border: 2.5px solid var(--accent-gold);`;
-                                    if (isRecentPB) {
-                                        borderStyle += ' --pulse-color: var(--accent-gold);';
-                                    } else {
-                                        borderStyle += ' box-shadow: none;';
-                                    }
-                                }
-                                
                                 let opacityStyle = '';
                                 let filterStyle = '';
                                 if (sVal === 0) {
@@ -3606,15 +3597,6 @@
                                     borderStyle += ` --pulse-color: ${themeColor};`;
                                 } else {
                                     borderStyle += ' box-shadow: none;';
-                                }
-                                
-                                if (isLeader) {
-                                    borderStyle = `border: 2.5px solid var(--accent-gold);`;
-                                    if (isRecentPB) {
-                                        borderStyle += ' --pulse-color: var(--accent-gold);';
-                                    } else {
-                                        borderStyle += ' box-shadow: none;';
-                                    }
                                 }
                                 
                                 const tooltipText = `${p.username}: ${sVal.toFixed(2)}${isLeader ? ' (Leader 👑)' : ''}${isRecentPB ? ' (New PB! ⚡)' : ''}`;
