@@ -1,5 +1,33 @@
 [
   {
+    "id": 1671,
+    "player_name": "Christine",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udf89 **PGTI Voltaic**\n- \ud83c\udf89 **Air CELESTIAL**",
+    "timestamp": "2026-05-24 22:41:52"
+  },
+  {
+    "id": 1670,
+    "player_name": "Haruno",
+    "event_type": "pb",
+    "message": "**Whisphere** \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-24 22:41:52"
+  },
+  {
+    "id": 1669,
+    "player_name": "Laggiing",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 BIG RANK! @Laggiing promote to **Celadon** on [Medium](https://matthewgutz.github.io/kovaaks-play). No more bronze scrub!\n- \ud83e\udd0f Almost touch! @Laggiing twitch, miss @CoachCam by tiny bit on [1w3ts reload](https://matthewgutz.github.io/kovaaks-play?scenario=1w3ts%20reload)!",
+    "timestamp": "2026-05-24 22:41:52"
+  },
+  {
+    "id": 1668,
+    "player_name": "Christine",
+    "event_type": "rank_up",
+    "message": "Strange portal! @Christine teleport to **Mammoth** tier on [Easier](https://matthewgutz.github.io/kovaaks-play)! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-24 22:41:52"
+  },
+  {
     "id": 1667,
     "player_name": "Laggiing",
     "event_type": "pb",
@@ -669,34 +697,6 @@
     "player_name": "Laggiing",
     "event_type": "pb",
     "message": "**Pokeball Frenzy Auto TE Wide** \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-24 22:07:09"
-  },
-  {
-    "id": 1571,
-    "player_name": "Olioli",
-    "event_type": "rank_up",
-    "message": "Strange portal! @Olioli teleport to **Lavender** tier on [Medium](https://matthewgutz.github.io/kovaaks-play)! \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-24 22:07:09"
-  },
-  {
-    "id": 1570,
-    "player_name": "Christine",
-    "event_type": "rank_up",
-    "message": "Climb mountain! @Christine stand high as **Lavender** on [Medium](https://matthewgutz.github.io/kovaaks-play)! \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-24 22:07:09"
-  },
-  {
-    "id": 1569,
-    "player_name": "Haruno",
-    "event_type": "rank_up",
-    "message": "BIG RANK! @Haruno promote to **Penguin** on [Easier](https://matthewgutz.github.io/kovaaks-play). No more bronze scrub! \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-24 22:07:09"
-  },
-  {
-    "id": 1568,
-    "player_name": "Laggiing",
-    "event_type": "rank_up",
-    "message": "Strange portal! @Laggiing teleport to **Fox** tier on [Easier](https://matthewgutz.github.io/kovaaks-play)! \ud83d\udd25 Hot Streak!",
     "timestamp": "2026-05-24 22:07:09"
   }
 ]
