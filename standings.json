@@ -174,7 +174,7 @@
         "76561198129757659": 0.0,
         "76561198045952875": 0.0,
         "76561198017954362": 1945.0,
-        "76561198348625808": 417.0,
+        "76561198348625808": 648.0,
         "76561199164422123": 976.0,
         "76561198033879793": 597.0,
         "76561198046477600": 1102.0,
@@ -724,10 +724,10 @@
         "rank_name": "Lemming",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 48.34,
+        "points": 48.62,
         "has_streak": true,
-        "weekly_pbs": 40,
-        "total_pbs": 40,
+        "weekly_pbs": 41,
+        "total_pbs": 41,
         "active_days": 2,
         "position_change": 0
       },
@@ -1147,8 +1147,15 @@
       "Floating Heads Timing 400% Larger": "Linear",
       "voxTargetSwitch Click": "Linear"
     },
-    "recent_overtakes": [],
-    "last_poll": 1779597422.768627,
+    "recent_overtakes": [
+      {
+        "scenario_name": "PGTI Voltaic Easy 80%",
+        "winner_sid": "76561198348625808",
+        "loser_sid": "76561198033879793",
+        "timestamp": "2026-05-24 04:40:08"
+      }
+    ],
+    "last_poll": 1779597621.882199,
     "check_interval": 180
   },
   "687": {
@@ -2300,7 +2307,7 @@
       "voxTargetClick 20% Small": "Linear"
     },
     "recent_overtakes": [],
-    "last_poll": 1779597422.776214,
+    "last_poll": 1779597621.887911,
     "check_interval": 180
   },
   "688": {
@@ -3318,7 +3325,7 @@
       "VoxTargetSwitch Click Small": "Linear"
     },
     "recent_overtakes": [],
-    "last_poll": 1779597422.783602,
+    "last_poll": 1779597621.893812,
     "check_interval": 180
   }
 }
