@@ -62,7 +62,7 @@
         "76561198033879793": 2992.33,
         "76561198046477600": 2851.5,
         "76561198995689034": 2544.56,
-        "76561199164422123": 1006.44
+        "76561199164422123": 1011.59
       },
       "cloverRawControl Easy 80% Speed": {
         "76561198017954362": 6017.26,
@@ -174,7 +174,7 @@
         "76561199164422123": 659.17,
         "76561198033879793": 668.78,
         "76561198995689034": 634.38,
-        "76561198046477600": 326.15
+        "76561198046477600": 326.74
       },
       "tamTargetSwitch Smooth Easy": {
         "76561198017954362": 34.3,
@@ -190,7 +190,7 @@
         "76561199164422123": 127.66,
         "76561198046477600": 94.6,
         "76561198995689034": 101.6,
-        "76561198033879793": 72.05
+        "76561198033879793": 72.06
       },
       "Popcorn MV Novice": {
         "76561198017954362": 295.83,
@@ -254,7 +254,7 @@
         "76561198046477600": 2593.95,
         "76561198995689034": 2777.86,
         "76561198017954362": 1077.08,
-        "76561199164422123": 1063.86
+        "76561199164422123": 1064.1
       },
       "voxTargetSwitch 2 Large": {
         "76561198348625808": 94.75,
@@ -270,7 +270,7 @@
         "76561198033879793": 94.19,
         "76561198046477600": 105.76,
         "76561198017954362": 63.05,
-        "76561198995689034": 58.78
+        "76561198995689034": 59.56
       },
       "domiSwitch Easy Slower": {
         "76561198348625808": 5894.18,
@@ -352,7 +352,7 @@
         "76561198033879793": "2026-05-24 19:34:11",
         "76561198046477600": "2026-05-24 19:34:11",
         "76561198995689034": "2026-05-24 19:34:11",
-        "76561199164422123": "2026-05-24 20:29:12"
+        "76561199164422123": "2026-05-24 20:41:50"
       },
       "cloverRawControl Easy 80% Speed": {
         "76561198017954362": "2026-05-24 19:34:11",
@@ -464,7 +464,7 @@
         "76561199164422123": "2026-05-24 19:34:11",
         "76561198033879793": "2026-05-24 19:34:11",
         "76561198995689034": "2026-05-24 19:34:11",
-        "76561198046477600": "2026-05-24 20:22:53"
+        "76561198046477600": "2026-05-24 20:41:50"
       },
       "tamTargetSwitch Smooth Easy": {
         "76561198017954362": "2026-05-24 19:34:11",
@@ -480,7 +480,7 @@
         "76561199164422123": "2026-05-24 19:34:11",
         "76561198046477600": "2026-05-24 19:34:11",
         "76561198995689034": "2026-05-24 19:34:11",
-        "76561198033879793": "2026-05-24 20:07:06"
+        "76561198033879793": "2026-05-24 20:41:50"
       },
       "Popcorn MV Novice": {
         "76561198017954362": "2026-05-24 19:34:11",
@@ -544,7 +544,7 @@
         "76561198046477600": "2026-05-24 19:34:11",
         "76561198995689034": "2026-05-24 19:34:11",
         "76561198017954362": "2026-05-22 19:34:11",
-        "76561199164422123": "2026-05-24 20:19:44"
+        "76561199164422123": "2026-05-24 20:41:50"
       },
       "voxTargetSwitch 2 Large": {
         "76561198348625808": "2026-05-24 19:34:11",
@@ -560,7 +560,7 @@
         "76561198033879793": "2026-05-24 19:34:11",
         "76561198046477600": "2026-05-24 19:34:11",
         "76561198017954362": "2026-05-08 19:34:11",
-        "76561198995689034": "2026-05-24 20:22:53"
+        "76561198995689034": "2026-05-24 20:41:50"
       },
       "domiSwitch Easy Slower": {
         "76561198348625808": "2026-05-24 19:34:11",
@@ -734,8 +734,8 @@
         "steam_id": "76561198348625808",
         "username": "@Christine",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Fox",
+        "rank_idx": 7,
+        "rank_name": "Orca",
         "crown_count": 17,
         "completed_count": 36,
         "points": 78.09,
@@ -764,14 +764,14 @@
         "steam_id": "76561199164422123",
         "username": "@Olioli",
         "discord_id": "",
-        "rank_idx": 6,
-        "rank_name": "Mammoth",
+        "rank_idx": 5,
+        "rank_name": "Fox",
         "crown_count": 4,
         "completed_count": 36,
         "points": 69.09,
         "has_streak": true,
-        "weekly_pbs": 124,
-        "total_pbs": 221,
+        "weekly_pbs": 126,
+        "total_pbs": 223,
         "active_days": 3,
         "position_change": -2
       },
@@ -779,14 +779,14 @@
         "steam_id": "76561198046477600",
         "username": "@Laggiing",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Fox",
+        "rank_idx": 4,
+        "rank_name": "Penguin",
         "crown_count": 3,
         "completed_count": 36,
         "points": 67.78,
         "has_streak": true,
-        "weekly_pbs": 135,
-        "total_pbs": 212,
+        "weekly_pbs": 136,
+        "total_pbs": 213,
         "active_days": 3,
         "position_change": 0
       },
@@ -794,14 +794,14 @@
         "steam_id": "76561198033879793",
         "username": "@CoachCam",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Fox",
+        "rank_idx": 4,
+        "rank_name": "Penguin",
         "crown_count": 3,
         "completed_count": 36,
         "points": 63.7,
         "has_streak": true,
-        "weekly_pbs": 107,
-        "total_pbs": 221,
+        "weekly_pbs": 108,
+        "total_pbs": 222,
         "active_days": 3,
         "position_change": 0
       },
@@ -813,10 +813,10 @@
         "rank_name": "Penguin",
         "crown_count": 1,
         "completed_count": 36,
-        "points": 65.47,
+        "points": 65.48,
         "has_streak": true,
-        "weekly_pbs": 97,
-        "total_pbs": 187,
+        "weekly_pbs": 98,
+        "total_pbs": 188,
         "active_days": 3,
         "position_change": 0
       }
@@ -7177,7 +7177,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779655127.025823,
+    "last_poll": 1779655316.40136,
     "check_interval": 180
   },
   "687": {
@@ -7915,8 +7915,8 @@
         "steam_id": "76561198348625808",
         "username": "@Christine",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Cerulean",
+        "rank_idx": 7,
+        "rank_name": "Indigo",
         "crown_count": 20,
         "completed_count": 36,
         "points": 78.38,
@@ -7945,8 +7945,8 @@
         "steam_id": "76561199164422123",
         "username": "@Olioli",
         "discord_id": "",
-        "rank_idx": 6,
-        "rank_name": "Lavender",
+        "rank_idx": 4,
+        "rank_name": "Celadon",
         "crown_count": 5,
         "completed_count": 36,
         "points": 72.8,
@@ -7960,8 +7960,8 @@
         "steam_id": "76561198033879793",
         "username": "@CoachCam",
         "discord_id": "",
-        "rank_idx": 4,
-        "rank_name": "Celadon",
+        "rank_idx": 6,
+        "rank_name": "Lavender",
         "crown_count": 4,
         "completed_count": 36,
         "points": 66.62,
@@ -7975,8 +7975,8 @@
         "steam_id": "76561198995689034",
         "username": "@Haruno",
         "discord_id": "",
-        "rank_idx": 3,
-        "rank_name": "Saffron",
+        "rank_idx": 4,
+        "rank_name": "Celadon",
         "crown_count": 1,
         "completed_count": 36,
         "points": 63.92,
@@ -7990,8 +7990,8 @@
         "steam_id": "76561198046477600",
         "username": "@Laggiing",
         "discord_id": "",
-        "rank_idx": 4,
-        "rank_name": "Celadon",
+        "rank_idx": 3,
+        "rank_name": "Saffron",
         "crown_count": 0,
         "completed_count": 36,
         "points": 63.17,
@@ -14282,7 +14282,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779655127.038233,
+    "last_poll": 1779655316.412688,
     "check_interval": 180
   },
   "688": {
@@ -14468,7 +14468,7 @@
         "76561199164422123": 114.87,
         "76561198046477600": 117.38,
         "76561198033879793": 112.4,
-        "76561198995689034": 109.37
+        "76561198995689034": 110.19
       },
       "FloatTS Angelic": {
         "76561198017954362": 91.63,
@@ -14563,7 +14563,7 @@
         "76561199164422123": 102.87,
         "76561198046477600": 107.26,
         "76561198995689034": 96.09,
-        "76561198017954362": 100.39,
+        "76561198017954362": 100.68,
         "76561198033879793": 97.51
       },
       "tamTargetSwitch Smooth": {
@@ -14758,7 +14758,7 @@
         "76561199164422123": "2026-05-24 19:34:11",
         "76561198046477600": "2026-05-24 19:34:11",
         "76561198033879793": "2026-05-24 20:16:40",
-        "76561198995689034": "2026-05-24 19:41:56"
+        "76561198995689034": "2026-05-24 20:41:56"
       },
       "FloatTS Angelic": {
         "76561198017954362": "2026-05-24 20:35:37",
@@ -14853,7 +14853,7 @@
         "76561199164422123": "2026-05-24 19:34:11",
         "76561198046477600": "2026-05-24 19:34:11",
         "76561198995689034": "2026-05-24 19:34:11",
-        "76561198017954362": "2026-05-24 19:45:05",
+        "76561198017954362": "2026-05-24 20:41:56",
         "76561198033879793": "2026-05-24 20:29:18"
       },
       "tamTargetSwitch Smooth": {
@@ -15020,8 +15020,8 @@
         "steam_id": "76561198348625808",
         "username": "@Christine",
         "discord_id": "",
-        "rank_idx": 6,
-        "rank_name": "Silk",
+        "rank_idx": 7,
+        "rank_name": "Unranked",
         "crown_count": 19,
         "completed_count": 36,
         "points": 80.37,
@@ -15035,14 +15035,14 @@
         "steam_id": "76561198017954362",
         "username": "@BakaOppai",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Satin",
+        "rank_idx": 6,
+        "rank_name": "Silk",
         "crown_count": 8,
         "completed_count": 36,
         "points": 78.49,
         "has_streak": true,
-        "weekly_pbs": 186,
-        "total_pbs": 278,
+        "weekly_pbs": 187,
+        "total_pbs": 279,
         "active_days": 3,
         "position_change": -1
       },
@@ -15050,8 +15050,8 @@
         "steam_id": "76561198046477600",
         "username": "@Laggiing",
         "discord_id": "",
-        "rank_idx": 3,
-        "rank_name": "Velvet",
+        "rank_idx": 4,
+        "rank_name": "Chiffon",
         "crown_count": 5,
         "completed_count": 36,
         "points": 74.9,
@@ -15080,8 +15080,8 @@
         "steam_id": "76561198033879793",
         "username": "@CoachCam",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Satin",
+        "rank_idx": 6,
+        "rank_name": "Silk",
         "crown_count": 2,
         "completed_count": 36,
         "points": 74.07,
@@ -15099,10 +15099,10 @@
         "rank_name": "Satin",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 72.79,
+        "points": 72.8,
         "has_streak": true,
-        "weekly_pbs": 124,
-        "total_pbs": 219,
+        "weekly_pbs": 125,
+        "total_pbs": 220,
         "active_days": 3,
         "position_change": 0
       }
@@ -22479,7 +22479,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779655127.051169,
+    "last_poll": 1779655316.426359,
     "check_interval": 180
   }
 }
