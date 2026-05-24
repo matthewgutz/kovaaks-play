@@ -3103,18 +3103,19 @@
                 setInterval(fetchNotifications, 3000);
             }
 
-            // Initialize ResizeObserver on app-container to drive container-based responsive layout tiers
+            // Initialize ResizeObserver on document.body to drive responsive layout tiers
             const container = document.querySelector('.app-container');
             if (container) {
                 const observer = new ResizeObserver(entries => {
                     for (let entry of entries) {
-                        const width = entry.contentRect.width;
+                        const width = window.innerWidth;
                         
-                        container.classList.remove('layout-stacked', 'layout-2-col', 'layout-3-col');
+                        container.classList.remove('layout-stacked', 'layout-single-column', 'layout-2-col', 'layout-3-col');
                         
-                        if (width < 1120) {
+                        if (width < 1200) {
                             container.classList.add('layout-stacked');
-                        } else if (width < 1720) {
+                            container.classList.add('layout-single-column');
+                        } else if (width < 1800) {
                             container.classList.add('layout-2-col');
                         } else {
                             container.classList.add('layout-3-col');
@@ -3124,7 +3125,7 @@
                         setTimeout(drawConnectingLines, 50);
                     }
                 });
-                observer.observe(container);
+                observer.observe(document.body);
             }
         });
 
