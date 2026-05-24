@@ -48,7 +48,7 @@
         "76561198129757659": 0.0,
         "76561198045952875": 0.0,
         "76561198017954362": 12570.0,
-        "76561198348625808": 3768.0,
+        "76561198348625808": 3969.0,
         "76561199164422123": 7998.0,
         "76561198033879793": 5484.0,
         "76561198046477600": 9990.0,
@@ -62,7 +62,7 @@
         "76561198129757659": 0.0,
         "76561198045952875": 0.0,
         "76561198017954362": 15570.0,
-        "76561198348625808": 5290.0,
+        "76561198348625808": 5350.0,
         "76561199164422123": 8790.0,
         "76561198033879793": 6888.0,
         "76561198046477600": 11350.0,
@@ -684,7 +684,7 @@
         "weekly_pbs": 5,
         "total_pbs": 5,
         "active_days": 1,
-        "position_change": 3
+        "position_change": 0
       },
       {
         "steam_id": "76561199164422123",
@@ -724,12 +724,12 @@
         "rank_name": "Lemming",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 47.23,
+        "points": 47.29,
         "has_streak": true,
-        "weekly_pbs": 28,
-        "total_pbs": 28,
-        "active_days": 1,
-        "position_change": -3
+        "weekly_pbs": 30,
+        "total_pbs": 30,
+        "active_days": 2,
+        "position_change": 0
       },
       {
         "steam_id": "76561198995689034",
@@ -1149,30 +1149,6 @@
     },
     "recent_overtakes": [
       {
-        "scenario_name": "Leaptrack Goated 60% Larger",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198995689034",
-        "timestamp": "2026-05-23 03:26:40"
-      },
-      {
-        "scenario_name": "Controlsphere rAim Easy 90%",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198995689034",
-        "timestamp": "2026-05-23 03:31:58"
-      },
-      {
-        "scenario_name": "cloverRawControl Easy 80% Speed",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-23 03:37:18"
-      },
-      {
-        "scenario_name": "Controlsphere Far, Far Larger 90%",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-23 03:37:18"
-      },
-      {
         "scenario_name": "Pokeball Frenzy Auto TE Wide",
         "winner_sid": "76561198348625808",
         "loser_sid": "76561198046477600",
@@ -1191,7 +1167,7 @@
         "timestamp": "2026-05-23 04:28:05"
       }
     ],
-    "last_poll": 1779587696.107725,
+    "last_poll": 1779594870.019676,
     "check_interval": 180
   },
   "687": {
@@ -1894,7 +1870,7 @@
         "weekly_pbs": 1,
         "total_pbs": 1,
         "active_days": 1,
-        "position_change": 1
+        "position_change": 0
       },
       {
         "steam_id": "76561198046477600",
@@ -1909,7 +1885,7 @@
         "weekly_pbs": 1,
         "total_pbs": 1,
         "active_days": 1,
-        "position_change": 1
+        "position_change": 0
       },
       {
         "steam_id": "76561198348625808",
@@ -1924,7 +1900,7 @@
         "weekly_pbs": 4,
         "total_pbs": 4,
         "active_days": 1,
-        "position_change": -2
+        "position_change": 0
       },
       {
         "steam_id": "76561198995689034",
@@ -2350,7 +2326,7 @@
         "timestamp": "2026-05-23 03:57:42"
       }
     ],
-    "last_poll": 1779587696.111027,
+    "last_poll": 1779594870.027418,
     "check_interval": 180
   },
   "688": {
@@ -2957,7 +2933,7 @@
         "crown_count": 5,
         "completed_count": 5,
         "points": 5.89,
-        "has_streak": true,
+        "has_streak": false,
         "weekly_pbs": 3,
         "total_pbs": 3,
         "active_days": 2,
@@ -3375,7 +3351,7 @@
         "timestamp": "2026-05-23 03:57:54"
       }
     ],
-    "last_poll": 1779587696.114187,
+    "last_poll": 1779594870.034825,
     "check_interval": 180
   }
 }
