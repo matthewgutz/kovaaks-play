@@ -2986,27 +2986,37 @@
                 const targetUsername = item.target_name.replace('@', '');
                 const targetAvatarUrl = `avatars/${targetUsername}.png`;
 
-                let chaserSize = 36;
-                let targetSize = 36;
-                if (item.chaser_overtakes_target > item.target_overtakes_chaser) {
-                    chaserSize = 45;
-                    targetSize = 36;
-                } else if (item.target_overtakes_chaser > item.chaser_overtakes_target) {
-                    chaserSize = 36;
-                    targetSize = 45;
+                // Determine left and right players based on who has more overtakes (leader on the left)
+                // If overtakes are tied, the target (player with higher current score) goes on the left.
+                const leftIsChaser = item.chaser_overtakes_target > item.target_overtakes_chaser;
+
+                const leftName = leftIsChaser ? item.chaser_name : item.target_name;
+                const leftSid = leftIsChaser ? item.chaser_sid : item.target_sid;
+                const leftColor = leftIsChaser ? chaserColor : targetColor;
+                const leftAvatarUrl = leftIsChaser ? chaserAvatarUrl : targetAvatarUrl;
+
+                const rightName = leftIsChaser ? item.target_name : item.chaser_name;
+                const rightSid = leftIsChaser ? item.target_sid : item.chaser_sid;
+                const rightColor = leftIsChaser ? targetColor : chaserColor;
+                const rightAvatarUrl = leftIsChaser ? targetAvatarUrl : chaserAvatarUrl;
+
+                const leftOvertakes = leftIsChaser ? item.chaser_overtakes_target : item.target_overtakes_chaser;
+                const rightOvertakes = leftIsChaser ? item.target_overtakes_chaser : item.chaser_overtakes_target;
+
+                let leftSize = 36;
+                let rightSize = 36;
+                if (leftOvertakes > rightOvertakes) {
+                    leftSize = 45;
+                    rightSize = 36;
                 }
 
                 let statusText = '';
-                if (item.target_overtakes_chaser === 0 && item.chaser_overtakes_target > 0) {
-                    statusText = `${item.chaser_name} is dominating this rivalry (${item.chaser_overtakes_target} - 0)`;
-                } else if (item.chaser_overtakes_target === 0 && item.target_overtakes_chaser > 0) {
-                    statusText = `${item.target_name} is dominating this rivalry (${item.target_overtakes_chaser} - 0)`;
-                } else if (item.chaser_overtakes_target > item.target_overtakes_chaser) {
-                    statusText = `${item.chaser_name} leads this rivalry ${item.chaser_overtakes_target} to ${item.target_overtakes_chaser}`;
-                } else if (item.chaser_overtakes_target === item.target_overtakes_chaser) {
-                    statusText = `${item.chaser_name} and ${item.target_name} are deadlocked at ${item.chaser_overtakes_target} - ${item.target_overtakes_chaser}`;
+                if (rightOvertakes === 0 && leftOvertakes > 0) {
+                    statusText = `${leftName} is dominating this rivalry (${leftOvertakes} - 0)`;
+                } else if (leftOvertakes > rightOvertakes) {
+                    statusText = `${leftName} leads this rivalry ${leftOvertakes} to ${rightOvertakes}`;
                 } else {
-                    statusText = `${item.target_name} leads this rivalry ${item.target_overtakes_chaser} to ${item.chaser_overtakes_target}`;
+                    statusText = `${leftName} and ${rightName} are deadlocked at ${leftOvertakes} - ${rightOvertakes}`;
                 }
 
                 const card = document.createElement('div');
@@ -3022,12 +3032,12 @@
                     <div style="display: flex; align-items: center; gap: 12px; width: 100%;">
                         <!-- Left side: Face-off avatars -->
                         <div style="display: flex; align-items: center; justify-content: center; gap: 6px; flex-shrink: 0; width: 100px; height: 50px; position: relative;">
-                            <!-- Chaser Avatar -->
-                            <img src="${chaserAvatarUrl}" style="width: ${chaserSize}px; height: ${chaserSize}px; border-radius: 50%; border: 2.2px solid ${chaserColor}; object-fit: cover; transition: all 0.2s; box-shadow: none;" title="${item.chaser_name}" onerror="this.onerror=null; this.outerHTML=\`<span style='width: ${chaserSize}px; height: ${chaserSize}px; border-radius: 50%; border: 2.2px solid ${chaserColor}; background: rgba(255,255,255,0.05); display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: bold; color: #fff;'>${item.chaser_name.substring(0,2).toUpperCase()}</span>\`;">
+                            <!-- Left Avatar (Leader/Challenger) -->
+                            <img src="${leftAvatarUrl}" style="width: ${leftSize}px; height: ${leftSize}px; border-radius: 50%; border: 2.2px solid ${leftColor}; object-fit: cover; transition: all 0.2s; box-shadow: none;" title="${leftName}" onerror="this.onerror=null; this.outerHTML=\`<span style='width: ${leftSize}px; height: ${leftSize}px; border-radius: 50%; border: 2.2px solid ${leftColor}; background: rgba(255,255,255,0.05); display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: bold; color: #fff;'>${leftName.substring(0,2).toUpperCase()}</span>\`;">
                             <!-- Crossed Swords -->
                             <span style="font-size: 1.1rem; color: var(--text-muted); z-index: 2; margin: 0 -2px;">⚔️</span>
-                            <!-- Target Avatar -->
-                            <img src="${targetAvatarUrl}" style="width: ${targetSize}px; height: ${targetSize}px; border-radius: 50%; border: 2.2px solid ${targetColor}; object-fit: cover; transition: all 0.2s; box-shadow: none;" title="${item.target_name}" onerror="this.onerror=null; this.outerHTML=\`<span style='width: ${targetSize}px; height: ${targetSize}px; border-radius: 50%; border: 2.2px solid ${targetColor}; background: rgba(255,255,255,0.05); display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: bold; color: #fff;'>${item.target_name.substring(0,2).toUpperCase()}</span>\`;">
+                            <!-- Right Avatar (Trailing/Opponent) -->
+                            <img src="${rightAvatarUrl}" style="width: ${rightSize}px; height: ${rightSize}px; border-radius: 50%; border: 2.2px solid ${rightColor}; object-fit: cover; transition: all 0.2s; box-shadow: none;" title="${rightName}" onerror="this.onerror=null; this.outerHTML=\`<span style='width: ${rightSize}px; height: ${rightSize}px; border-radius: 50%; border: 2.2px solid ${rightColor}; background: rgba(255,255,255,0.05); display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: bold; color: #fff;'>${rightName.substring(0,2).toUpperCase()}</span>\`;">
                         </div>
                         <!-- Right side: Phrasing & Launch Button -->
                         <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; flex-grow: 1; min-width: 0; gap: 8px;">
@@ -3036,7 +3046,7 @@
                                     ${aimIcon} ${item.scenario_name}
                                 </span>
                                 <span style="font-size: 0.75rem; font-weight: 600; color: var(--text-muted); margin-top: 1px;">
-                                    ${item.chaser_name} vs ${item.target_name}
+                                    ${leftName} vs ${rightName}
                                 </span>
                                 <span style="font-size: 0.75rem; font-weight: 600; color: var(--accent-gold); margin-top: 3px; line-height: 1.2;">
                                     ${statusText}
