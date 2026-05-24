@@ -73,7 +73,7 @@
         }
 
         /* Layout */
-        /* Default: Tier 1 - Stacked Mobile Layout (< 1200px) */
+        /* Default: Tier 1 - Stacked Mobile Layout (< 1350px) */
         .app-container {
             max-width: 1800px;
             width: 96%;
@@ -90,10 +90,10 @@
             min-width: 0;
         }
 
-        /* Tier 2: Medium Desktop Layout (1200px - 1799px) */
+        /* Tier 2: Medium Desktop Layout (1350px - 1799px) */
         .app-container.layout-2-col {
-            grid-template-columns: 2.5fr 1.2fr;
-            max-width: 1500px;
+            grid-template-columns: 3fr 1.1fr;
+            max-width: 1600px;
             width: 98%;
         }
         .app-container.layout-2-col .header-full {
@@ -508,6 +508,7 @@
         .table-container {
             width: 100%;
             overflow-x: auto;
+            overflow-y: hidden;
             margin-bottom: 30px;
         }
 
@@ -3112,7 +3113,7 @@
                         
                         container.classList.remove('layout-stacked', 'layout-single-column', 'layout-2-col', 'layout-3-col');
                         
-                        if (width < 1200) {
+                        if (width < 1350) {
                             container.classList.add('layout-stacked');
                             container.classList.add('layout-single-column');
                         } else if (width < 1800) {
@@ -5098,7 +5099,7 @@
                 if (aside) aside.style.display = 'none';
                 if (main) {
                     const container = document.querySelector('.app-container');
-                    const isSingleColumn = container ? container.classList.contains('layout-stacked') : window.innerWidth < 1200;
+                    const isSingleColumn = container ? container.classList.contains('layout-stacked') : window.innerWidth < 1350;
                     if (!isSingleColumn) {
                         main.style.gridColumn = '1 / 3';
                     } else {
