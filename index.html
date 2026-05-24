@@ -754,7 +754,7 @@
             background: rgba(114, 9, 183, 0.08) !important;
             border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-            padding: 16px 6px !important;
+            padding: 16px 3px !important;
             white-space: nowrap;
             text-shadow: 0 0 8px rgba(114, 9, 183, 0.4);
         }
@@ -772,7 +772,7 @@
             background: rgba(0, 245, 212, 0.03) !important;
             border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-            padding: 16px 6px !important;
+            padding: 16px 3px !important;
             white-space: nowrap;
             text-shadow: 0 0 8px rgba(0, 245, 212, 0.3);
         }
@@ -1512,14 +1512,14 @@
         }
         #standings-table thead tr {
             display: grid;
-            grid-template-columns: 70px 2.5fr 1.5fr 1.2fr 1.2fr 1fr;
+            grid-template-columns: 45px 2fr 1.2fr 1.4fr 1.2fr 0.8fr;
             padding: 12px 16px;
             width: 100%;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         #standings-table tbody tr.player-row {
             display: grid;
-            grid-template-columns: 70px 2.5fr 1.5fr 1.2fr 1.2fr 1fr;
+            grid-template-columns: 45px 2fr 1.2fr 1.4fr 1.2fr 0.8fr;
             align-items: center;
             background: var(--bg-surface);
             border: 1px solid rgba(255, 255, 255, 0.06);
@@ -1765,6 +1765,7 @@
                         <div class="sim-btn" onclick="simulateEvent('rank_up')">🏆 Rank Up</div>
                         <div class="sim-btn" onclick="simulateEvent('crown_change')">👑 Crown Shift</div>
                         <div class="sim-btn" onclick="simulateEvent('hot_streak')">🔥 Hot Streak</div>
+                        <div class="sim-btn" onclick="simulateEvent('nemesis')" style="grid-column: span 2; background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.15); color: #ef4444;">👹 Simulate Arch-Nemesis</div>
                         <div class="sim-btn" onclick="simulateWeeklyRecap()" style="grid-column: span 2; background: rgba(255, 209, 102, 0.05); border: 1px solid rgba(255, 209, 102, 0.1); color: var(--accent-gold);">📊 Simulate Weekly Recap</div>
                     </div>
                     <div id="mock-reset-container" style="margin-top: 16px; display: none;">
@@ -2110,10 +2111,6 @@
                     syncAllComponentsAfterFilterChange();
                 };
                 
-                // Sync radar chart highlighting on hover
-                label.addEventListener('mouseenter', () => updateRadarChart(p.steam_id));
-                label.addEventListener('mouseleave', () => updateRadarChart(null));
-                
                 container.appendChild(label);
             });
         }
@@ -2278,6 +2275,16 @@
                 case "Linear": return "📏";
                 default: return "🎯";
             }
+        }
+
+        // Format score dynamically (conditionally remove decimals if whole number)
+        function formatScore(val) {
+            if (val === undefined || val === null || isNaN(val)) return '-';
+            const num = Number(val);
+            if (num % 1 === 0) {
+                return num.toString();
+            }
+            return num.toFixed(2);
         }
 
         // Hex to RGB converter helper
@@ -3626,7 +3633,7 @@
                         </a>
                     </td>
                     <td><span class="rank-badge rank-${lowerRankName}">${p.rank_name}</span></td>
-                    <td>${p.crown_count > 0 ? `<span class="crown-pill">👑 ${p.crown_count} / ${p.completed_count}</span>` : `<span style="color: var(--text-muted)">0 / ${p.completed_count}</span>`}</td>
+                    <td style="white-space: nowrap;">${p.crown_count > 0 ? `<span class="crown-pill">👑 ${p.crown_count} / ${p.completed_count}</span>` : `<span style="color: var(--text-muted)">0 / ${p.completed_count}</span>`}</td>
                     <td style="font-weight: 600; color: #fff;">${p.points ? p.points.toFixed(1) : '0.0'}%</td>
                     <td>${p.total_pbs}</td>
                 `;
@@ -3664,9 +3671,9 @@
             // Grid header
             const headerRow = document.createElement('tr');
             headerRow.innerHTML = `
-                <th style="width: 3.5%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted);">Cat</th>
-                <th style="width: 4.5%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted);">Sub</th>
-                <th style="width: 23%; text-align: left; font-size: 0.9rem; letter-spacing: 0.5px;">Scenario Name</th>
+                <th style="width: 1.5%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted); writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 2px; height: 60px;">Cat</th>
+                <th style="width: 2.0%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted); writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 2px; height: 60px;">Sub</th>
+                <th style="width: 27.5%; text-align: left; font-size: 0.9rem; letter-spacing: 0.5px;">Scenario</th>
                 <th style="width: 7%; text-align: center; font-size: 0.85rem; letter-spacing: 0.5px; color: var(--accent-gold);">Best Score</th>
             `;
             
@@ -3856,7 +3863,7 @@
                         });
                         
                         const bestScoreHtml = bestScoreVal > 0 
-                            ? `<span style="font-weight: 800; color: var(--accent-gold); text-shadow: 0 0 8px rgba(255, 209, 102, 0.4);"><span class="crown-inline">👑</span>${bestScoreVal.toFixed(2)}</span>`
+                            ? `<span style="font-weight: 800; color: var(--accent-gold); text-shadow: 0 0 8px rgba(255, 209, 102, 0.4);"><span class="crown-inline">👑</span>${formatScore(bestScoreVal)}</span>`
                             : `<span style="color: var(--text-muted)">-</span>`;
                         
                         row.innerHTML = `
@@ -4022,7 +4029,7 @@
                                     pulseClass = '';
                                 }
                                 
-                                const scoreStr = sVal > 0 ? sVal.toFixed(2) : 'No score';
+                                const scoreStr = sVal > 0 ? formatScore(sVal) : 'No score';
                                 const tooltipText = `${p.username}: ${scoreStr}${isLeader ? ' (Leader 👑)' : ''}${isRecentPB ? ' (New PB! ⚡)' : ''}`;
                                 
                                 pinsHtml += `
@@ -4142,7 +4149,7 @@
                                     pulseClass = '';
                                 }
                                 
-                                const tooltipText = `${p.username}: ${sVal.toFixed(2)}${isLeader ? ' (Leader 👑)' : ''}${isRecentPB ? ' (New PB! ⚡)' : ''}`;
+                                const tooltipText = `${p.username}: ${formatScore(sVal)}${isLeader ? ' (Leader 👑)' : ''}${isRecentPB ? ' (New PB! ⚡)' : ''}`;
                                 
                                 pinsHtml += `
                                     <img src="${avatarUrl}" class="grid-pin ${pulseClass}" data-steam-id="${p.steam_id}"
@@ -4623,7 +4630,7 @@
                 pctText = (pct >= 0 ? '+' : '') + pct.toFixed(1) + '%';
             }
             
-            document.getElementById('stat-pb').innerText = pb > 0 ? pb.toFixed(2) : '-';
+            document.getElementById('stat-pb').innerText = pb > 0 ? formatScore(pb) : '-';
             document.getElementById('stat-pb-count').innerText = pbCount + ' PB' + (pbCount !== 1 ? 's' : '');
             document.getElementById('stat-improvement').innerText = pctText;
             
@@ -4637,7 +4644,7 @@
                     const row = document.createElement('tr');
                     const dateStr = formatDateTimePST(h.timestamp, false, false, true);
                     row.innerHTML = `
-                        <td style="padding: 8px 12px; font-weight: 600;">${h.score.toFixed(2)}</td>
+                        <td style="padding: 8px 12px; font-weight: 600;">${formatScore(h.score)}</td>
                         <td style="padding: 8px 12px; color: var(--text-muted);">${dateStr}</td>
                     `;
                     tbody.appendChild(row);
