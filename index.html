@@ -1430,8 +1430,9 @@
             position: absolute !important;
             top: 50% !important;
             left: 50% !important;
-            width: 250% !important;
-            height: 500% !important;
+            width: 150% !important;
+            height: auto !important;
+            aspect-ratio: 1 / 1 !important;
             background: conic-gradient(
                 from 0deg,
                 rgba(255, 209, 102, 0.25) 0deg,
@@ -1457,6 +1458,16 @@
         .selected-highlight > * {
             position: relative !important;
             z-index: 2 !important;
+        }
+
+        /* Scenario comparison grid connecting lines flowing flow animations */
+        @keyframes grid-line-march {
+            to {
+                stroke-dashoffset: -20;
+            }
+        }
+        .grid-connecting-path {
+            animation: grid-line-march 1.5s linear infinite;
         }
 
         /* Rank targets hover transition & overlapping legibility fixes */
@@ -2140,23 +2151,15 @@
                     }
                 });
                 
-                // 1. Draw solid translucent white casing path underneath for high contrast
-                const casingPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                casingPath.setAttribute('d', pathD);
-                casingPath.setAttribute('fill', 'none');
-                casingPath.setAttribute('stroke', '#ffffff');
-                casingPath.setAttribute('stroke-width', '4.0');
-                casingPath.setAttribute('opacity', '0.45');
-                svg.appendChild(casingPath);
-
-                // 2. Draw colored dashed path on top
+                // Draw colored dashed path with marching animation class
                 const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                path.setAttribute('class', 'grid-connecting-path');
                 path.setAttribute('d', pathD);
                 path.setAttribute('fill', 'none');
                 path.setAttribute('stroke', color);
                 path.setAttribute('stroke-width', '2.0');
                 path.setAttribute('stroke-dasharray', '6,4');
-                path.setAttribute('opacity', '0.85');
+                path.setAttribute('opacity', '0.90');
                 path.setAttribute('filter', 'url(#glow-filter)');
                 svg.appendChild(path);
             });
