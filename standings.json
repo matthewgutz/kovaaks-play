@@ -1155,7 +1155,7 @@
         "timestamp": "2026-05-24 04:40:08"
       }
     ],
-    "last_poll": 1779598250.24902,
+    "last_poll": 1779598251.110253,
     "check_interval": 180
   },
   "687": {
@@ -2307,7 +2307,7 @@
       "voxTargetClick 20% Small": "Linear"
     },
     "recent_overtakes": [],
-    "last_poll": 1779598250.256776,
+    "last_poll": 1779598251.118126,
     "check_interval": 180
   },
   "688": {
@@ -3325,7 +3325,7 @@
       "VoxTargetSwitch Click Small": "Linear"
     },
     "recent_overtakes": [],
-    "last_poll": 1779598250.265866,
+    "last_poll": 1779598251.123917,
     "check_interval": 180
   }
 }
