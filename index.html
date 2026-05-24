@@ -1534,6 +1534,56 @@
             padding: 4px 8px !important;
             text-align: left !important;
         }
+
+        @media (max-width: 1023px) {
+            main, aside, .filter-column {
+                display: contents !important;
+            }
+            #leaderboard-view {
+                display: contents !important;
+            }
+            
+            /* Order definitions on mobile grid */
+            .header-full {
+                order: 1 !important;
+            }
+            #player-filter-section {
+                order: 2 !important;
+            }
+            #timeline-section {
+                order: 3 !important;
+            }
+            #radar-chart-section {
+                order: 4 !important;
+            }
+            #grid-section {
+                order: 5 !important;
+            }
+            #history-view {
+                order: 6 !important;
+            }
+            #standings-section {
+                order: 7 !important;
+            }
+            #weekly-activity-section {
+                order: 8 !important;
+            }
+            #focus-maps-section {
+                order: 9 !important;
+            }
+            #rivalries-section {
+                order: 10 !important;
+            }
+            #simulator-section {
+                order: 11 !important;
+            }
+            #player-management-section {
+                order: 12 !important;
+            }
+            #webhook-section {
+                order: 13 !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1615,7 +1665,7 @@
                 </section>
 
                 <!-- Scenario Matrix Section -->
-                <section class="glass-panel" style="padding: 24px;">
+                <section class="glass-panel" id="grid-section" style="padding: 24px;">
                     <h2 class="panel-title">📊 Scenario Comparison Grid</h2>
                     <div class="table-container" style="position: relative;">
                         <!-- SVG overlay to draw connecting paths for selected players -->
@@ -1693,7 +1743,7 @@
 
             <!-- Active Rivalries Panel -->
             <section class="glass-panel" id="rivalries-section" style="padding: 24px; display: none;">
-                <h2 class="panel-title">🎯 Active Rivalries & Chases</h2>
+                <h2 class="panel-title">🎯 Active Rivalries</h2>
                 <div style="max-height: 480px; overflow-y: auto; padding-right: 6px; scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.1) transparent;">
                     <div class="crown-cards-grid" id="rivalries-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 0;">
                         <!-- Populated dynamically -->
@@ -2002,6 +2052,10 @@
                     });
                     overallProgressChart.update();
                 }
+            }
+            // Trigger redraw on the history log feed
+            if (typeof lastFetchedNotifications !== 'undefined' && lastFetchedNotifications.length > 0) {
+                renderTimeline(lastFetchedNotifications);
             }
         }
 
@@ -3410,23 +3464,29 @@
                     rightSize = 36;
                 }
 
-                let statusText = '';
-                if (rightOvertakes === 0 && leftOvertakes > 0) {
-                    statusText = `${leftName} is dominating this rivalry (${leftOvertakes} - 0)`;
-                } else if (leftOvertakes > rightOvertakes) {
-                    statusText = `${leftName} leads this rivalry ${leftOvertakes} to ${rightOvertakes}`;
-                } else {
-                    statusText = `${leftName} and ${rightName} are deadlocked at ${leftOvertakes} - ${rightOvertakes}`;
-                }
+                // Unified Overtakes status text format
+                const statusText = `Overtakes: ${leftName} (${leftOvertakes}) | ${rightName} (${rightOvertakes})`;
+
+                // Arch-Nemesis check (reciprocal overtakes: both players have >= 1 overtake on this scenario)
+                const isNemesis = item.chaser_overtakes_target >= 1 && item.target_overtakes_chaser >= 1;
 
                 const card = document.createElement('div');
                 card.className = 'glass-panel crown-card rivalry-item';
                 card.style.padding = '14px 18px';
                 card.style.gap = '14px';
+                if (isNemesis) {
+                    card.style.borderColor = 'rgba(239, 68, 68, 0.4)';
+                    card.style.boxShadow = '0 0 12px rgba(239, 68, 68, 0.2)';
+                }
                 
                 const escapedScenName = item.scenario_name.replace(/'/g, "\\'");
                 const aimIcon = getAimCategoryIcon(item.scenario_name);
                 const playUrl = `steam://run/824270/?action=jump-to-scenario;name=${encodeURIComponent(item.scenario_name)}`;
+
+                let nemesisBadge = '';
+                if (isNemesis) {
+                    nemesisBadge = `<span style="font-size: 0.65rem; font-weight: 700; color: #fff; background: #ef4444; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; margin-left: 8px; vertical-align: middle; box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);">Arch-Nemesis ⚔️</span>`;
+                }
 
                 card.innerHTML = `
                     <div style="display: flex; align-items: center; gap: 12px; width: 100%;">
@@ -3443,7 +3503,7 @@
                         <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; flex-grow: 1; min-width: 0; gap: 8px;">
                             <div style="display: flex; flex-direction: column; min-width: 0;">
                                 <span onclick="showScenarioHistory('${escapedScenName}')" style="font-size: 0.85rem; font-weight: 700; color: #fff; cursor: pointer; text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="Click to view history trend">
-                                    ${aimIcon} ${item.scenario_name}
+                                    ${aimIcon} ${item.scenario_name}${nemesisBadge}
                                 </span>
                                 <span style="font-size: 0.75rem; font-weight: 600; color: var(--text-muted); margin-top: 1px;">
                                     ${leftName} vs ${rightName}
@@ -4272,6 +4332,7 @@
                 const response = await fetch(isStatic ? `notifications.json?_t=${Date.now()}` : '/api/notifications');
                 const data = await response.json();
                 
+                lastFetchedNotifications = data;
                 renderTimeline(data);
                 updateServerStatus(true);
             } catch (err) {
@@ -4906,6 +4967,7 @@
         }
 
         // Toggle main views (Leaderboard Standings vs History Log)
+        // Toggle main views (Leaderboard Standings vs History Log)
         function switchMainView(viewName, btn) {
             document.querySelectorAll('.main-tab-btn').forEach(b => {
                 b.classList.remove('active');
@@ -4932,9 +4994,18 @@
                 document.getElementById('leaderboard-view').style.display = 'none';
                 document.getElementById('history-view').style.display = 'flex';
                 if (aside) aside.style.display = 'none';
-                if (main) main.style.gridColumn = '1 / -1';
+                if (main) {
+                    if (window.innerWidth >= 1024) {
+                        main.style.gridColumn = '1 / 3';
+                    } else {
+                        main.style.gridColumn = '';
+                    }
+                }
             }
         }
+
+        // Cache for notifications to support filtering without refetching
+        let lastFetchedNotifications = [];
 
         // Render historical achievements timeline
         function renderTimeline(notifications) {
@@ -4943,12 +5014,24 @@
             
             container.innerHTML = '';
             
-            if (!notifications || notifications.length === 0) {
-                container.innerHTML = `<div style="color: var(--text-muted); font-size: 0.85rem; padding: 20px 0; text-align: center;">No achievements logged in history yet.</div>`;
+            const isCompareAll = document.getElementById('filter-compare-all')?.checked;
+            
+            // Filter notifications by selected players
+            const filtered = (notifications || []).filter(n => {
+                if (isCompareAll) return true;
+                const username = (n.player_name || '').replace('@', '');
+                if (!username) return true; // Show system notifications
+                const playerObj = globalPlayers.find(p => p.username.replace('@', '') === username);
+                if (!playerObj) return true; // Show unrecognized players (e.g. system logs)
+                return selectedPlayers.has(playerObj.steam_id);
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<div style="color: var(--text-muted); font-size: 0.85rem; padding: 20px 0; text-align: center;">No achievements logged in history for selected players.</div>`;
                 return;
             }
             
-            notifications.forEach(n => {
+            filtered.forEach(n => {
                 const item = document.createElement('div');
                 item.className = 'timeline-item-compact';
                 
@@ -5072,6 +5155,17 @@
         window.addEventListener('resize', () => {
             syncLayoutHeights();
             drawConnectingLines();
+            
+            // Adjust main grid-column layout if History tab is active
+            const main = document.querySelector('main');
+            const historyView = document.getElementById('history-view');
+            if (historyView && historyView.style.display !== 'none' && main) {
+                if (window.innerWidth >= 1024) {
+                    main.style.gridColumn = '1 / 3';
+                } else {
+                    main.style.gridColumn = '';
+                }
+            }
         });
         
         function renderOverallProgressChart(historyData) {
