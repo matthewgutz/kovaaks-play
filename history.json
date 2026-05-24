@@ -5015,62 +5015,6 @@
       ]
     }
   },
-  "688_Leaptrack Goated 80%": {
-    "76561198017954362": {
-      "player_name": "@BakaOppai",
-      "history": [
-        {
-          "score": 0.0,
-          "timestamp": "2026-05-13 14:27:00"
-        }
-      ]
-    },
-    "76561198033879793": {
-      "player_name": "@CoachCam",
-      "history": [
-        {
-          "score": 0.0,
-          "timestamp": "2026-05-13 14:27:00"
-        }
-      ]
-    },
-    "76561198046477600": {
-      "player_name": "@Laggiing",
-      "history": [
-        {
-          "score": 0.0,
-          "timestamp": "2026-05-13 14:27:00"
-        }
-      ]
-    },
-    "76561198995689034": {
-      "player_name": "@Haruno",
-      "history": [
-        {
-          "score": 0.0,
-          "timestamp": "2026-05-13 14:27:00"
-        }
-      ]
-    },
-    "76561199164422123": {
-      "player_name": "@Olioli",
-      "history": [
-        {
-          "score": 0.0,
-          "timestamp": "2026-05-13 14:27:00"
-        }
-      ]
-    },
-    "76561198348625808": {
-      "player_name": "@Christine",
-      "history": [
-        {
-          "score": 0.0,
-          "timestamp": "2026-05-23 01:11:40"
-        }
-      ]
-    }
-  },
   "688_PGTI Voltaic": {
     "76561198017954362": {
       "player_name": "@BakaOppai",
@@ -6023,6 +5967,62 @@
         {
           "score": 0.0,
           "timestamp": "2026-05-23 01:11:40"
+        }
+      ]
+    }
+  },
+  "688_Leaptrack Goated 80%": {
+    "76561198033879793": {
+      "player_name": "@CoachCam",
+      "history": [
+        {
+          "score": 0.0,
+          "timestamp": "2026-05-13 14:27:00"
+        }
+      ]
+    },
+    "76561198046477600": {
+      "player_name": "@Laggiing",
+      "history": [
+        {
+          "score": 0.0,
+          "timestamp": "2026-05-13 14:27:00"
+        }
+      ]
+    },
+    "76561198995689034": {
+      "player_name": "@Haruno",
+      "history": [
+        {
+          "score": 0.0,
+          "timestamp": "2026-05-13 14:27:00"
+        }
+      ]
+    },
+    "76561199164422123": {
+      "player_name": "@Olioli",
+      "history": [
+        {
+          "score": 0.0,
+          "timestamp": "2026-05-13 14:27:00"
+        }
+      ]
+    },
+    "76561198348625808": {
+      "player_name": "@Christine",
+      "history": [
+        {
+          "score": 0.0,
+          "timestamp": "2026-05-23 01:11:40"
+        }
+      ]
+    },
+    "76561198017954362": {
+      "player_name": "@BakaOppai",
+      "history": [
+        {
+          "score": 181.0,
+          "timestamp": "2026-05-24 06:22:28"
         }
       ]
     }
