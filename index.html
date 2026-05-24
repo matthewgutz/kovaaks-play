@@ -163,6 +163,12 @@
             }
         }
 
+        header.header-full {
+            background: linear-gradient(rgba(18, 18, 20, 0.6), rgba(18, 18, 20, 0.6)), url('header.png') no-repeat center center;
+            background-size: cover;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
         .header-title-area h1 {
             font-family: var(--font-heading);
             font-size: 2.2rem;
@@ -1371,10 +1377,10 @@
         <header class="glass-panel header-full" style="display: flex; flex-direction: column; gap: 12px;">
             <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap; gap: 12px;">
                 <div class="header-title-area">
-                    <h1>
-                        <span style="font-size: 2.2rem">🎯</span> Kovaak's Rivals
+                    <h1 style="margin: 0; display: flex; align-items: center;">
+                        <img src="logo.png" alt="Kovaak's Rivals" style="height: 50px; width: auto; object-fit: contain;">
                     </h1>
-                    <p>Viscose Benchmarks Aim Tracker & Live Leaderboard Dashboard</p>
+                    <p style="margin-top: 6px;">Viscose Benchmarks Aim Tracker & Live Leaderboard Dashboard</p>
                 </div>
                 
                 <div class="controls-row">
