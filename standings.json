@@ -254,7 +254,7 @@
         "76561198046477600": 2593.95,
         "76561198995689034": 2777.86,
         "76561198017954362": 1077.08,
-        "76561199164422123": 1064.1
+        "76561199164422123": 1065.24
       },
       "voxTargetSwitch 2 Large": {
         "76561198348625808": 94.75,
@@ -292,7 +292,7 @@
         "76561198348625808": 80.1,
         "76561199164422123": 83.94,
         "76561198995689034": 78.27,
-        "76561198017954362": 56.63,
+        "76561198017954362": 56.76,
         "76561198033879793": 54.25,
         "76561198046477600": 54.34
       },
@@ -544,7 +544,7 @@
         "76561198046477600": "2026-05-24 19:34:11",
         "76561198995689034": "2026-05-24 19:34:11",
         "76561198017954362": "2026-05-22 19:34:11",
-        "76561199164422123": "2026-05-24 20:41:50"
+        "76561199164422123": "2026-05-24 21:35:29"
       },
       "voxTargetSwitch 2 Large": {
         "76561198348625808": "2026-05-24 19:34:11",
@@ -582,7 +582,7 @@
         "76561198348625808": "2026-05-24 19:34:11",
         "76561199164422123": "2026-05-24 19:34:11",
         "76561198995689034": "2026-05-24 19:34:11",
-        "76561198017954362": "2026-05-24 20:03:56",
+        "76561198017954362": "2026-05-24 21:35:29",
         "76561198033879793": "2026-05-24 20:29:12",
         "76561198046477600": "2026-05-24 20:51:18"
       },
@@ -753,10 +753,10 @@
         "rank_name": "Orca",
         "crown_count": 8,
         "completed_count": 36,
-        "points": 71.42,
+        "points": 71.43,
         "has_streak": true,
-        "weekly_pbs": 113,
-        "total_pbs": 213,
+        "weekly_pbs": 114,
+        "total_pbs": 214,
         "active_days": 3,
         "position_change": 1
       },
@@ -764,14 +764,14 @@
         "steam_id": "76561199164422123",
         "username": "@Olioli",
         "discord_id": "",
-        "rank_idx": 4,
-        "rank_name": "Penguin",
+        "rank_idx": 5,
+        "rank_name": "Fox",
         "crown_count": 4,
         "completed_count": 36,
         "points": 69.13,
         "has_streak": true,
-        "weekly_pbs": 134,
-        "total_pbs": 231,
+        "weekly_pbs": 135,
+        "total_pbs": 232,
         "active_days": 3,
         "position_change": -2
       },
@@ -779,8 +779,8 @@
         "steam_id": "76561198046477600",
         "username": "@Laggiing",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Fox",
+        "rank_idx": 4,
+        "rank_name": "Penguin",
         "crown_count": 3,
         "completed_count": 36,
         "points": 67.79,
@@ -809,8 +809,8 @@
         "steam_id": "76561198995689034",
         "username": "@Haruno",
         "discord_id": "",
-        "rank_idx": 3,
-        "rank_name": "Ermine",
+        "rank_idx": 5,
+        "rank_name": "Fox",
         "crown_count": 1,
         "completed_count": 36,
         "points": 65.54,
@@ -7195,7 +7195,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779658346.561441,
+    "last_poll": 1779658535.892812,
     "check_interval": 180
   },
   "687": {
@@ -7297,11 +7297,11 @@
       },
       "Flicker Plaza rAim Easy": {
         "76561198017954362": 840.61,
-        "76561198033879793": 814.98,
+        "76561198033879793": 816.74,
         "76561198995689034": 793.8,
         "76561198348625808": 858.57,
         "76561199164422123": 832.21,
-        "76561198046477600": 807.16
+        "76561198046477600": 807.92
       },
       "Air Pure Intermediate": {
         "76561198017954362": 829.2,
@@ -7587,11 +7587,11 @@
       },
       "Flicker Plaza rAim Easy": {
         "76561198017954362": "2026-05-24 21:16:36",
-        "76561198033879793": "2026-05-24 19:57:40",
+        "76561198033879793": "2026-05-24 21:35:32",
         "76561198995689034": "2026-05-24 20:10:18",
         "76561198348625808": "2026-05-24 21:10:17",
         "76561199164422123": "2026-05-24 20:26:06",
-        "76561198046477600": "2026-05-24 19:41:53"
+        "76561198046477600": "2026-05-24 21:35:32"
       },
       "Air Pure Intermediate": {
         "76561198017954362": "2026-05-24 20:13:27",
@@ -7933,8 +7933,8 @@
         "steam_id": "76561198348625808",
         "username": "@Christine",
         "discord_id": "",
-        "rank_idx": 7,
-        "rank_name": "Indigo",
+        "rank_idx": 6,
+        "rank_name": "Lavender",
         "crown_count": 20,
         "completed_count": 36,
         "points": 78.44,
@@ -7948,8 +7948,8 @@
         "steam_id": "76561198017954362",
         "username": "@BakaOppai",
         "discord_id": "",
-        "rank_idx": 7,
-        "rank_name": "Indigo",
+        "rank_idx": 5,
+        "rank_name": "Cerulean",
         "crown_count": 6,
         "completed_count": 36,
         "points": 69.45,
@@ -7963,8 +7963,8 @@
         "steam_id": "76561199164422123",
         "username": "@Olioli",
         "discord_id": "",
-        "rank_idx": 4,
-        "rank_name": "Celadon",
+        "rank_idx": 5,
+        "rank_name": "Cerulean",
         "crown_count": 5,
         "completed_count": 36,
         "points": 72.84,
@@ -7978,14 +7978,14 @@
         "steam_id": "76561198033879793",
         "username": "@CoachCam",
         "discord_id": "",
-        "rank_idx": 4,
-        "rank_name": "Celadon",
+        "rank_idx": 5,
+        "rank_name": "Cerulean",
         "crown_count": 4,
         "completed_count": 36,
-        "points": 66.64,
+        "points": 66.65,
         "has_streak": true,
-        "weekly_pbs": 128,
-        "total_pbs": 223,
+        "weekly_pbs": 129,
+        "total_pbs": 224,
         "active_days": 3,
         "position_change": -1
       },
@@ -7993,8 +7993,8 @@
         "steam_id": "76561198995689034",
         "username": "@Haruno",
         "discord_id": "",
-        "rank_idx": 4,
-        "rank_name": "Celadon",
+        "rank_idx": 5,
+        "rank_name": "Cerulean",
         "crown_count": 1,
         "completed_count": 36,
         "points": 63.94,
@@ -8008,14 +8008,14 @@
         "steam_id": "76561198046477600",
         "username": "@Laggiing",
         "discord_id": "",
-        "rank_idx": 4,
-        "rank_name": "Celadon",
+        "rank_idx": 5,
+        "rank_name": "Cerulean",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 63.25,
+        "points": 63.26,
         "has_streak": true,
-        "weekly_pbs": 108,
-        "total_pbs": 205,
+        "weekly_pbs": 109,
+        "total_pbs": 206,
         "active_days": 3,
         "position_change": -1
       }
@@ -14300,7 +14300,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779658346.571265,
+    "last_poll": 1779658535.905679,
     "check_interval": 180
   },
   "688": {
@@ -14406,7 +14406,7 @@
         "76561199164422123": 9868.27,
         "76561198033879793": 8163.62,
         "76561198995689034": 8218.09,
-        "76561198046477600": 8052.64
+        "76561198046477600": 8053.25
       },
       "Air CELESTIAL": {
         "76561198017954362": 843.86,
@@ -14441,11 +14441,11 @@
         "76561198995689034": 7027.24
       },
       "Flicker Plaza": {
-        "76561198017954362": 867.94,
+        "76561198017954362": 871.87,
         "76561198033879793": 844.36,
         "76561198348625808": 887.0,
         "76561199164422123": 863.23,
-        "76561198046477600": 833.31,
+        "76561198046477600": 833.45,
         "76561198995689034": 824.99
       },
       "Air Pure": {
@@ -14498,7 +14498,7 @@
       },
       "waldoTS": {
         "76561198017954362": 143.01,
-        "76561199164422123": 139.7,
+        "76561199164422123": 139.78,
         "76561198046477600": 138.95,
         "76561198348625808": 144.1,
         "76561198033879793": 136.54,
@@ -14621,7 +14621,7 @@
         "76561199164422123": 99.53,
         "76561198995689034": 83.05,
         "76561198017954362": 87.95,
-        "76561198033879793": 84.13,
+        "76561198033879793": 84.66,
         "76561198046477600": 84.54
       },
       "PGTI Voltaic": {
@@ -14696,7 +14696,7 @@
         "76561199164422123": "2026-05-24 19:34:11",
         "76561198033879793": "2026-05-24 20:22:59",
         "76561198995689034": "2026-05-24 19:34:11",
-        "76561198046477600": "2026-05-24 20:35:37"
+        "76561198046477600": "2026-05-24 21:35:35"
       },
       "Air CELESTIAL": {
         "76561198017954362": "2026-05-24 21:19:49",
@@ -14731,11 +14731,11 @@
         "76561198995689034": "2026-05-24 19:34:11"
       },
       "Flicker Plaza": {
-        "76561198017954362": "2026-05-24 20:35:37",
+        "76561198017954362": "2026-05-24 21:35:35",
         "76561198033879793": "2026-05-24 19:57:43",
         "76561198348625808": "2026-05-24 20:29:18",
         "76561199164422123": "2026-05-24 19:38:47",
-        "76561198046477600": "2026-05-24 20:04:02",
+        "76561198046477600": "2026-05-24 21:35:35",
         "76561198995689034": "2026-05-24 19:57:43"
       },
       "Air Pure": {
@@ -14788,7 +14788,7 @@
       },
       "waldoTS": {
         "76561198017954362": "2026-05-24 19:34:11",
-        "76561199164422123": "2026-05-24 19:51:24",
+        "76561199164422123": "2026-05-24 21:35:35",
         "76561198046477600": "2026-05-24 19:34:11",
         "76561198348625808": "2026-05-24 21:29:17",
         "76561198033879793": "2026-05-24 20:10:21",
@@ -14911,7 +14911,7 @@
         "76561199164422123": "2026-05-24 19:34:11",
         "76561198995689034": "2026-05-24 21:19:49",
         "76561198017954362": "2026-05-24 20:13:31",
-        "76561198033879793": "2026-05-08 19:34:11",
+        "76561198033879793": "2026-05-24 21:35:35",
         "76561198046477600": "2026-05-24 20:13:31"
       },
       "PGTI Voltaic": {
@@ -15038,8 +15038,8 @@
         "steam_id": "76561198348625808",
         "username": "@Christine",
         "discord_id": "",
-        "rank_idx": 7,
-        "rank_name": "Unranked",
+        "rank_idx": 5,
+        "rank_name": "Satin",
         "crown_count": 19,
         "completed_count": 36,
         "points": 80.48,
@@ -15057,10 +15057,10 @@
         "rank_name": "Satin",
         "crown_count": 8,
         "completed_count": 36,
-        "points": 78.52,
+        "points": 78.54,
         "has_streak": true,
-        "weekly_pbs": 193,
-        "total_pbs": 285,
+        "weekly_pbs": 194,
+        "total_pbs": 286,
         "active_days": 3,
         "position_change": -1
       },
@@ -15068,14 +15068,14 @@
         "steam_id": "76561198046477600",
         "username": "@Laggiing",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Satin",
+        "rank_idx": 4,
+        "rank_name": "Chiffon",
         "crown_count": 5,
         "completed_count": 36,
         "points": 74.96,
         "has_streak": true,
-        "weekly_pbs": 154,
-        "total_pbs": 245,
+        "weekly_pbs": 156,
+        "total_pbs": 247,
         "active_days": 3,
         "position_change": 2
       },
@@ -15083,14 +15083,14 @@
         "steam_id": "76561199164422123",
         "username": "@Olioli",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Satin",
+        "rank_idx": 4,
+        "rank_name": "Chiffon",
         "crown_count": 2,
         "completed_count": 36,
         "points": 77.3,
         "has_streak": true,
-        "weekly_pbs": 188,
-        "total_pbs": 275,
+        "weekly_pbs": 189,
+        "total_pbs": 276,
         "active_days": 3,
         "position_change": -1
       },
@@ -15102,10 +15102,10 @@
         "rank_name": "Satin",
         "crown_count": 2,
         "completed_count": 36,
-        "points": 74.14,
+        "points": 74.16,
         "has_streak": true,
-        "weekly_pbs": 176,
-        "total_pbs": 268,
+        "weekly_pbs": 177,
+        "total_pbs": 269,
         "active_days": 3,
         "position_change": -1
       },
@@ -15113,8 +15113,8 @@
         "steam_id": "76561198995689034",
         "username": "@Haruno",
         "discord_id": "",
-        "rank_idx": 3,
-        "rank_name": "Velvet",
+        "rank_idx": 4,
+        "rank_name": "Chiffon",
         "crown_count": 0,
         "completed_count": 36,
         "points": 72.85,
@@ -17931,6 +17931,12 @@
         "winner_sid": "76561198348625808",
         "loser_sid": "76561199164422123",
         "timestamp": "2026-05-24 21:16:39"
+      },
+      {
+        "scenario_name": "VoxTargetSwitch Click Small",
+        "winner_sid": "76561198033879793",
+        "loser_sid": "76561198046477600",
+        "timestamp": "2026-05-24 21:35:35"
       }
     ],
     "active_rivalries": [
@@ -21355,6 +21361,16 @@
         "total_overtakes": 2
       },
       {
+        "chaser_sid": "76561198046477600",
+        "chaser_name": "@Laggiing",
+        "target_sid": "76561198033879793",
+        "target_name": "@CoachCam",
+        "scenario_name": "VoxTargetSwitch Click Small",
+        "chaser_overtakes_target": 1,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 2
+      },
+      {
         "chaser_sid": "76561198033879793",
         "chaser_name": "@CoachCam",
         "target_sid": "76561199164422123",
@@ -22455,16 +22471,6 @@
         "total_overtakes": 1
       },
       {
-        "chaser_sid": "76561198033879793",
-        "chaser_name": "@CoachCam",
-        "target_sid": "76561198046477600",
-        "target_name": "@Laggiing",
-        "scenario_name": "VoxTargetSwitch Click Small",
-        "chaser_overtakes_target": 0,
-        "target_overtakes_chaser": 1,
-        "total_overtakes": 1
-      },
-      {
         "chaser_sid": "76561198995689034",
         "chaser_name": "@Haruno",
         "target_sid": "76561198033879793",
@@ -22515,7 +22521,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779658346.583618,
+    "last_poll": 1779658535.919868,
     "check_interval": 180
   }
 }
