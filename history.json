@@ -1272,21 +1272,21 @@
         }
       ]
     },
-    "76561198348625808": {
-      "player_name": "@Christine",
-      "history": [
-        {
-          "score": 937.0,
-          "timestamp": "2026-05-23 01:11:31"
-        }
-      ]
-    },
     "76561198046477600": {
       "player_name": "@Laggiing",
       "history": [
         {
           "score": 1735.0,
           "timestamp": "2026-05-23 04:43:52"
+        }
+      ]
+    },
+    "76561198348625808": {
+      "player_name": "@Christine",
+      "history": [
+        {
+          "score": 939.0,
+          "timestamp": "2026-05-24 05:11:26"
         }
       ]
     }
