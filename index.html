@@ -1749,6 +1749,61 @@
         let adminKeySet = false;
         let countdownInterval = null;
 
+        // Helper to get mechanic-specific aim category icon
+        function getAimCategoryIcon(scenName) {
+            if (!scenName) return "🎯";
+            const scenLower = scenName.toLowerCase();
+            
+            // Priority overrides for air/flyers and bouncing/jumping
+            if (scenLower.includes("air") || scenLower.includes("pgti")) {
+                return "🦅"; // Flying
+            }
+            if (scenLower.includes("popcorn") || scenLower.includes("pasu") || scenLower.includes("bounce")) {
+                return "🦘"; // Jumping
+            }
+            
+            const bData = (typeof standingsData !== 'undefined' && typeof currentBenchmarkId !== 'undefined') ? standingsData[currentBenchmarkId] : null;
+            const scenToSubcat = (bData && bData.categories) ? bData.categories : {};
+            
+            const subcat = scenToSubcat[scenName];
+            if (!subcat) {
+                // Fallback to name keywords if subcat is missing
+                if (scenLower.includes("whisphere") || scenLower.includes("smoothbot")) return "💪"; // Arm
+                if (scenLower.includes("leaptrack")) return "🖐️"; // Wrist
+                if (scenLower.includes("clover")) return "🤏"; // Fingertip
+                if (scenLower.includes("celestial") || scenLower.includes("floating heads")) return "🌀"; // Blending
+                if (scenLower.includes("ground plaza") || scenLower.includes("controlsphere")) return "🕹️"; // Control
+                if (scenLower.includes("flicker plaza") || scenLower.includes("polarized hell")) return "🏎️"; // Speed Track
+                if (scenLower.includes("pure") || scenLower.includes("voltaic") || scenLower.includes("angelic")) return "📖"; // Reading Track
+                if (scenLower.includes("pokeball") || scenLower.includes("voxtargetswitch") || scenLower.includes("1w3ts") || scenLower.includes("1w2ts")) return "⚡"; // Speed
+                if (scenLower.includes("beants") || scenLower.includes("floatts")) return "⚖️"; // Stability
+                if (scenLower.includes("waldots") || scenLower.includes("devts")) return "🔬"; // Micro
+                if (scenLower.includes("domiswitch") || scenLower.includes("tamtargetswitch")) return "🥷"; // Evasive
+                if (scenLower.includes("bounceshot")) return "👁️"; // Reading
+                if (scenLower.includes("linear")) return "📏"; // Linear
+                return "🎯"; // Default Clicking
+            }
+            
+            // Map based on explicit subcategory
+            switch (subcat) {
+                case "Arm": return "💪";
+                case "Wrist": return "🖐️";
+                case "Fingertip": return "🤏";
+                case "Blending": return "🌀";
+                case "Control": return "🕹️";
+                case "Speed Track": return "🏎️";
+                case "Reading Track": return "📖";
+                case "Speed": return "⚡";
+                case "Stability": return "⚖️";
+                case "Micro": return "🔬";
+                case "Evasive": return "🥷";
+                case "Reading": return "👁️";
+                case "Precision": return "🎯";
+                case "Linear": return "📏";
+                default: return "🎯";
+            }
+        }
+
         // Hex to RGB converter helper
         function hexToRgb(hex) {
             const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
@@ -3191,28 +3246,6 @@
                 "FLICK TECH": ["Speed", "Stability", "Micro", "Evasive"],
                 "DYNAMIC CLICKING": ["Reading", "Precision", "Linear"]
             };
-            const PARENT_EMOJIS = {
-                "CONTROL TRACKING": "🔄",
-                "REACTIVE TRACKING": "⚡",
-                "FLICK TECH": "💥",
-                "DYNAMIC CLICKING": "🖱️"
-            };
-            const SUBCAT_EMOJIS = {
-                "Arm": "💪",
-                "Wrist": "🖐️",
-                "Fingertip": "🤏",
-                "Blending": "🌀",
-                "Control": "🕹️",
-                "Speed Track": "🏎️",
-                "Reading Track": "📖",
-                "Speed": "⚡",
-                "Stability": "⚖️",
-                "Micro": "🔬",
-                "Evasive": "🥷",
-                "Reading": "👁️",
-                "Precision": "🎯",
-                "Linear": "📏"
-            };
             const SUBCAT_DISPLAY_NAMES = {
                 "Reading Track": "Reading",
                 "Speed Track": "Speed",
@@ -3248,56 +3281,6 @@
             // Map each scenario to its subcat/parent and populate groups
             const scenToSubcat = bData.categories || {};
 
-            // Helper to get mechanic-specific aim category icon
-            function getAimCategoryIcon(scenName) {
-                const scenLower = scenName.toLowerCase();
-                
-                // Priority overrides for air/flyers and bouncing/jumping
-                if (scenLower.includes("air") || scenLower.includes("pgti")) {
-                    return "🦅"; // Flying
-                }
-                if (scenLower.includes("popcorn") || scenLower.includes("pasu") || scenLower.includes("bounce")) {
-                    return "🦘"; // Jumping
-                }
-                
-                const subcat = scenToSubcat[scenName];
-                if (!subcat) {
-                    // Fallback to name keywords if subcat is missing
-                    if (scenLower.includes("whisphere") || scenLower.includes("smoothbot")) return "💪"; // Arm
-                    if (scenLower.includes("leaptrack")) return "🖐️"; // Wrist
-                    if (scenLower.includes("clover")) return "🤏"; // Fingertip
-                    if (scenLower.includes("celestial") || scenLower.includes("floating heads")) return "🌀"; // Blending
-                    if (scenLower.includes("ground plaza") || scenLower.includes("controlsphere")) return "🕹️"; // Control
-                    if (scenLower.includes("flicker plaza") || scenLower.includes("polarized hell")) return "🏎️"; // Speed Track
-                    if (scenLower.includes("pure") || scenLower.includes("voltaic") || scenLower.includes("angelic")) return "📖"; // Reading Track
-                    if (scenLower.includes("pokeball") || scenLower.includes("voxtargetswitch") || scenLower.includes("1w3ts") || scenLower.includes("1w2ts")) return "⚡"; // Speed
-                    if (scenLower.includes("beants") || scenLower.includes("floatts")) return "⚖️"; // Stability
-                    if (scenLower.includes("waldots") || scenLower.includes("devts")) return "🔬"; // Micro
-                    if (scenLower.includes("domiswitch") || scenLower.includes("tamtargetswitch")) return "🥷"; // Evasive
-                    if (scenLower.includes("bounceshot")) return "👁️"; // Reading
-                    if (scenLower.includes("linear")) return "📏"; // Linear
-                    return "🎯"; // Default Clicking
-                }
-                
-                // Map based on explicit subcategory
-                switch (subcat) {
-                    case "Arm": return "💪";
-                    case "Wrist": return "🖐️";
-                    case "Fingertip": return "🤏";
-                    case "Blending": return "🌀";
-                    case "Control": return "🕹️";
-                    case "Speed Track": return "🏎️";
-                    case "Reading Track": return "📖";
-                    case "Speed": return "⚡";
-                    case "Stability": return "⚖️";
-                    case "Micro": return "🔬";
-                    case "Evasive": return "🥷";
-                    case "Reading": return "👁️";
-                    case "Precision": return "🎯";
-                    case "Linear": return "📏";
-                    default: return "🎯";
-                }
-            }
 
             bData.scenarios.forEach(scen => {
                 let subcat = scenToSubcat[scen];
@@ -3387,15 +3370,13 @@
                         
                         let parentTdHtml = '';
                         if (sIdx === 0 && scenIdx === 0) {
-                            const pEmoji = PARENT_EMOJIS[pInfo.name] || '🎯';
-                            parentTdHtml = `<td rowspan="${pInfo.totalRows}" class="grid-parent-cat">${pEmoji} ${pInfo.name}</td>`;
+                            parentTdHtml = `<td rowspan="${pInfo.totalRows}" class="grid-parent-cat">${pInfo.name}</td>`;
                         }
                         
                         let subcatTdHtml = '';
                         if (scenIdx === 0) {
                             const displayName = SUBCAT_DISPLAY_NAMES[subcatInfo.name] || subcatInfo.name;
-                            const sEmoji = SUBCAT_EMOJIS[subcatInfo.name] || '';
-                            subcatTdHtml = `<td rowspan="${subcatInfo.scenarios.length}" class="grid-subcat">${sEmoji} ${displayName}</td>`;
+                            subcatTdHtml = `<td rowspan="${subcatInfo.scenarios.length}" class="grid-subcat">${displayName}</td>`;
                         }
                         
                         // Calculate Best Score
