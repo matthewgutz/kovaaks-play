@@ -1,5 +1,12 @@
 [
   {
+    "id": 211,
+    "player_name": "BakaOppai",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udf89 **Whisphere Small & Slow**\n- \ud83c\udf89 **SmoothBot Invincible Goated Smaller**",
+    "timestamp": "2026-05-24 01:54:54"
+  },
+  {
     "id": 210,
     "player_name": "BakaOppai",
     "event_type": "rank_up",
