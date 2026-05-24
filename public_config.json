@@ -37,6 +37,6 @@
       "color": "#4caf50"
     }
   ],
-  "use_mock_data": false,
+  "use_mock_data": true,
   "admin_key_set": true
 }
