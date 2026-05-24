@@ -1526,8 +1526,10 @@
             <!-- Active Rivalries Panel -->
             <section class="glass-panel" id="rivalries-section" style="padding: 24px; display: none;">
                 <h2 class="panel-title">🎯 Active Rivalries & Chases</h2>
-                <div class="crown-cards-grid" id="rivalries-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 0;">
-                    <!-- Populated dynamically -->
+                <div style="max-height: 480px; overflow-y: auto; padding-right: 6px; scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.1) transparent;">
+                    <div class="crown-cards-grid" id="rivalries-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 0;">
+                        <!-- Populated dynamically -->
+                    </div>
                 </div>
             </section>
 
@@ -2753,8 +2755,12 @@
             });
             btnElement.classList.add('active');
 
-            // Render tables
+            // Render tables and other sections
             renderLeaderboard();
+            renderRivalries();
+            renderWeeklyActivity();
+            renderFocusMapsDropdown();
+            renderFocusMaps();
         }
 
         // Fetch config parameters
@@ -2965,7 +2971,7 @@
             
             grid.innerHTML = '';
             
-            const rivalries = (bData.active_rivalries || []).slice(0, 6);
+            const rivalries = (bData.active_rivalries || []).slice(0, 12);
             if (rivalries.length === 0) {
                 section.style.display = 'none';
                 return;
@@ -3008,6 +3014,10 @@
                 card.style.padding = '14px 18px';
                 card.style.gap = '14px';
                 
+                const escapedScenName = item.scenario_name.replace(/'/g, "\\'");
+                const aimIcon = getAimCategoryIcon(item.scenario_name);
+                const playUrl = `steam://run/824270/?action=jump-to-scenario;name=${encodeURIComponent(item.scenario_name)}`;
+
                 card.innerHTML = `
                     <div style="display: flex; align-items: center; gap: 12px; width: 100%;">
                         <!-- Left side: Face-off avatars -->
@@ -3019,15 +3029,25 @@
                             <!-- Target Avatar -->
                             <img src="${targetAvatarUrl}" style="width: ${targetSize}px; height: ${targetSize}px; border-radius: 50%; border: 2.2px solid ${targetColor}; object-fit: cover; transition: all 0.2s; box-shadow: none;" title="${item.target_name}" onerror="this.onerror=null; this.outerHTML=\`<span style='width: ${targetSize}px; height: ${targetSize}px; border-radius: 50%; border: 2.2px solid ${targetColor}; background: rgba(255,255,255,0.05); display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: bold; color: #fff;'>${item.target_name.substring(0,2).toUpperCase()}</span>\`;">
                         </div>
-                        <!-- Right side: Phrasing -->
-                        <div style="display: flex; flex-direction: column; flex-grow: 1; min-width: 0;">
-                            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: bold; color: var(--text-muted);">Rivalry Matchup</span>
-                            <span style="font-size: 0.95rem; font-weight: 700; color: #fff; line-height: 1.2; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                ${item.chaser_name} vs ${item.target_name}
-                            </span>
-                            <span style="font-size: 0.8rem; font-weight: 600; color: var(--accent-gold); margin-top: 4px; line-height: 1.3;">
-                                ${statusText}
-                            </span>
+                        <!-- Right side: Phrasing & Launch Button -->
+                        <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; flex-grow: 1; min-width: 0; gap: 8px;">
+                            <div style="display: flex; flex-direction: column; min-width: 0;">
+                                <span onclick="showScenarioHistory('${escapedScenName}')" style="font-size: 0.85rem; font-weight: 700; color: #fff; cursor: pointer; text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="Click to view history trend">
+                                    ${aimIcon} ${item.scenario_name}
+                                </span>
+                                <span style="font-size: 0.75rem; font-weight: 600; color: var(--text-muted); margin-top: 1px;">
+                                    ${item.chaser_name} vs ${item.target_name}
+                                </span>
+                                <span style="font-size: 0.75rem; font-weight: 600; color: var(--accent-gold); margin-top: 3px; line-height: 1.2;">
+                                    ${statusText}
+                                </span>
+                            </div>
+                            <!-- Launch Kovaaks Button -->
+                            <a href="${playUrl}" title="Launch Kovaak's & Play Scenario" style="color: #00ff88; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; opacity: 0.7; transition: var(--transition-smooth); flex-shrink: 0;" onmouseover="this.style.opacity=1; this.style.transform='scale(1.25)';" onmouseout="this.style.opacity=0.7; this.style.transform='scale(1)';" onclick="event.stopPropagation();">
+                                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 `;
@@ -4018,11 +4038,11 @@
                     }
                 });
 
-                // Carry first score backward to x = 0 to ensure it starts at the far left
+                // Insert a virtual starting score of 0 at x = 0 to show the initial jump from 0
                 if (dataPoints.length > 0 && dataPoints[0].x > 0) {
                     dataPoints.unshift({
                         x: 0,
-                        y: dataPoints[0].y,
+                        y: 0,
                         isBoundary: true
                     });
                 }
@@ -4184,11 +4204,11 @@
                 }
             });
 
-            // Carry first score backward to x = 0
+            // Insert a virtual starting score of 0 at x = 0 to show the initial jump from 0
             if (dataPoints.length > 0 && dataPoints[0].x > 0) {
                 dataPoints.unshift({
                     x: 0,
-                    y: dataPoints[0].y,
+                    y: 0,
                     isBoundary: true
                 });
             }
