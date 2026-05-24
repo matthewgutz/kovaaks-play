@@ -131,7 +131,7 @@
       "Air Pure Intermediate Slower No UFO": {
         "76561198017954362": 841.81,
         "76561198348625808": 858.64,
-        "76561198046477600": 802.85,
+        "76561198046477600": 807.26,
         "76561198995689034": 794.13,
         "76561199164422123": 833.27,
         "76561198033879793": 816.5
@@ -325,7 +325,7 @@
         "76561198995689034": 63.3,
         "76561198017954362": 25.4,
         "76561198348625808": 25.98,
-        "76561198033879793": 24.47,
+        "76561198033879793": 24.57,
         "76561198046477600": 24.43
       }
     },
@@ -421,7 +421,7 @@
       "Air Pure Intermediate Slower No UFO": {
         "76561198017954362": "2026-05-24 21:22:52",
         "76561198348625808": "2026-05-24 21:16:33",
-        "76561198046477600": "2026-05-24 20:00:47",
+        "76561198046477600": "2026-05-24 22:03:54",
         "76561198995689034": "2026-05-24 20:57:37",
         "76561199164422123": "2026-05-24 19:44:59",
         "76561198033879793": "2026-05-24 20:03:56"
@@ -615,7 +615,7 @@
         "76561198995689034": "2026-05-24 19:34:11",
         "76561198017954362": "2026-05-24 20:10:15",
         "76561198348625808": "2026-05-24 21:19:42",
-        "76561198033879793": "2026-05-24 21:13:24",
+        "76561198033879793": "2026-05-24 22:03:54",
         "76561198046477600": "2026-05-24 20:48:08"
       }
     },
@@ -734,8 +734,8 @@
         "steam_id": "76561198348625808",
         "username": "@Christine",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Fox",
+        "rank_idx": 7,
+        "rank_name": "Orca",
         "crown_count": 17,
         "completed_count": 36,
         "points": 78.14,
@@ -749,8 +749,8 @@
         "steam_id": "76561198017954362",
         "username": "@BakaOppai",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Fox",
+        "rank_idx": 6,
+        "rank_name": "Mammoth",
         "crown_count": 8,
         "completed_count": 36,
         "points": 71.44,
@@ -779,14 +779,14 @@
         "steam_id": "76561198046477600",
         "username": "@Laggiing",
         "discord_id": "",
-        "rank_idx": 3,
-        "rank_name": "Ermine",
+        "rank_idx": 4,
+        "rank_name": "Penguin",
         "crown_count": 3,
         "completed_count": 36,
-        "points": 67.79,
+        "points": 67.8,
         "has_streak": true,
-        "weekly_pbs": 141,
-        "total_pbs": 218,
+        "weekly_pbs": 142,
+        "total_pbs": 219,
         "active_days": 3,
         "position_change": 0
       },
@@ -794,14 +794,14 @@
         "steam_id": "76561198033879793",
         "username": "@CoachCam",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Fox",
+        "rank_idx": 6,
+        "rank_name": "Mammoth",
         "crown_count": 3,
         "completed_count": 36,
         "points": 63.75,
         "has_streak": true,
-        "weekly_pbs": 122,
-        "total_pbs": 236,
+        "weekly_pbs": 123,
+        "total_pbs": 237,
         "active_days": 3,
         "position_change": 0
       },
@@ -809,8 +809,8 @@
         "steam_id": "76561198995689034",
         "username": "@Haruno",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Fox",
+        "rank_idx": 3,
+        "rank_name": "Ermine",
         "crown_count": 1,
         "completed_count": 36,
         "points": 65.54,
@@ -7201,7 +7201,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779660050.89018,
+    "last_poll": 1779660240.318899,
     "check_interval": 180
   },
   "687": {
@@ -7346,7 +7346,7 @@
         "76561198348625808": 142.27,
         "76561198046477600": 96.44,
         "76561198995689034": 116.81,
-        "76561199164422123": 85.17,
+        "76561199164422123": 85.19,
         "76561198033879793": 83.22
       },
       "waldoTS Intermediate": {
@@ -7498,7 +7498,7 @@
         "76561199164422123": 708.99,
         "76561198995689034": 605.34,
         "76561198017954362": 587.37,
-        "76561198033879793": 568.11,
+        "76561198033879793": 569.85,
         "76561198046477600": 563.48
       },
       "1wall5targets_pasu Reload": {
@@ -7522,7 +7522,7 @@
         "76561198033879793": 1188.87,
         "76561198046477600": 1122.62,
         "76561198995689034": 1242.07,
-        "76561198017954362": 878.53,
+        "76561198017954362": 878.76,
         "76561198348625808": 899.19
       },
       "Air Voltaic Easy Invincible 4": {
@@ -7636,7 +7636,7 @@
         "76561198348625808": "2026-05-24 19:34:11",
         "76561198046477600": "2026-05-24 19:34:11",
         "76561198995689034": "2026-05-24 19:34:11",
-        "76561199164422123": "2026-05-24 20:35:34",
+        "76561199164422123": "2026-05-24 22:03:57",
         "76561198033879793": "2026-05-24 20:07:09"
       },
       "waldoTS Intermediate": {
@@ -7788,7 +7788,7 @@
         "76561199164422123": "2026-05-24 19:34:11",
         "76561198995689034": "2026-05-24 19:34:11",
         "76561198017954362": "2026-05-24 20:38:43",
-        "76561198033879793": "2026-05-24 20:45:02",
+        "76561198033879793": "2026-05-24 22:03:57",
         "76561198046477600": "2026-05-24 21:10:17"
       },
       "1wall5targets_pasu Reload": {
@@ -7812,7 +7812,7 @@
         "76561198033879793": "2026-05-24 19:34:11",
         "76561198046477600": "2026-05-24 19:34:11",
         "76561198995689034": "2026-05-24 19:34:11",
-        "76561198017954362": "2026-05-24 21:29:14",
+        "76561198017954362": "2026-05-24 22:03:57",
         "76561198348625808": "2026-05-24 21:19:45"
       },
       "Air Voltaic Easy Invincible 4": {
@@ -7960,8 +7960,8 @@
         "completed_count": 36,
         "points": 69.46,
         "has_streak": true,
-        "weekly_pbs": 163,
-        "total_pbs": 252,
+        "weekly_pbs": 164,
+        "total_pbs": 253,
         "active_days": 3,
         "position_change": 0
       },
@@ -7969,14 +7969,14 @@
         "steam_id": "76561199164422123",
         "username": "@Olioli",
         "discord_id": "",
-        "rank_idx": 6,
-        "rank_name": "Lavender",
+        "rank_idx": 4,
+        "rank_name": "Celadon",
         "crown_count": 5,
         "completed_count": 36,
         "points": 72.84,
         "has_streak": true,
-        "weekly_pbs": 134,
-        "total_pbs": 228,
+        "weekly_pbs": 135,
+        "total_pbs": 229,
         "active_days": 3,
         "position_change": 1
       },
@@ -7984,14 +7984,14 @@
         "steam_id": "76561198033879793",
         "username": "@CoachCam",
         "discord_id": "",
-        "rank_idx": 4,
-        "rank_name": "Celadon",
+        "rank_idx": 6,
+        "rank_name": "Lavender",
         "crown_count": 4,
         "completed_count": 36,
-        "points": 66.65,
+        "points": 66.66,
         "has_streak": true,
-        "weekly_pbs": 130,
-        "total_pbs": 225,
+        "weekly_pbs": 131,
+        "total_pbs": 226,
         "active_days": 3,
         "position_change": -1
       },
@@ -8014,8 +8014,8 @@
         "steam_id": "76561198046477600",
         "username": "@Laggiing",
         "discord_id": "",
-        "rank_idx": 3,
-        "rank_name": "Saffron",
+        "rank_idx": 4,
+        "rank_name": "Celadon",
         "crown_count": 0,
         "completed_count": 36,
         "points": 63.26,
@@ -14306,7 +14306,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779660050.900695,
+    "last_poll": 1779660240.32986,
     "check_interval": 180
   },
   "688": {
@@ -14555,7 +14555,7 @@
         "76561198348625808": 79.8,
         "76561198046477600": 70.48,
         "76561199164422123": 72.66,
-        "76561198033879793": 71.03,
+        "76561198033879793": 71.11,
         "76561198995689034": 69.65
       },
       "1w3ts Pasu Perfected Micro Goated": {
@@ -14845,7 +14845,7 @@
         "76561198348625808": "2026-05-24 19:34:11",
         "76561198046477600": "2026-05-24 19:41:56",
         "76561199164422123": "2026-05-24 20:48:15",
-        "76561198033879793": "2026-05-24 21:10:20",
+        "76561198033879793": "2026-05-24 22:04:00",
         "76561198995689034": "2026-05-24 21:57:41"
       },
       "1w3ts Pasu Perfected Micro Goated": {
@@ -15044,8 +15044,8 @@
         "steam_id": "76561198348625808",
         "username": "@Christine",
         "discord_id": "",
-        "rank_idx": 6,
-        "rank_name": "Silk",
+        "rank_idx": 7,
+        "rank_name": "Unranked",
         "crown_count": 19,
         "completed_count": 36,
         "points": 80.49,
@@ -15059,8 +15059,8 @@
         "steam_id": "76561198017954362",
         "username": "@BakaOppai",
         "discord_id": "",
-        "rank_idx": 6,
-        "rank_name": "Silk",
+        "rank_idx": 7,
+        "rank_name": "Unranked",
         "crown_count": 8,
         "completed_count": 36,
         "points": 78.54,
@@ -15074,8 +15074,8 @@
         "steam_id": "76561198046477600",
         "username": "@Laggiing",
         "discord_id": "",
-        "rank_idx": 3,
-        "rank_name": "Velvet",
+        "rank_idx": 5,
+        "rank_name": "Satin",
         "crown_count": 5,
         "completed_count": 36,
         "points": 74.97,
@@ -15104,14 +15104,14 @@
         "steam_id": "76561198033879793",
         "username": "@CoachCam",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Satin",
+        "rank_idx": 4,
+        "rank_name": "Chiffon",
         "crown_count": 2,
         "completed_count": 36,
         "points": 74.18,
         "has_streak": true,
-        "weekly_pbs": 182,
-        "total_pbs": 274,
+        "weekly_pbs": 183,
+        "total_pbs": 275,
         "active_days": 3,
         "position_change": -1
       },
@@ -22533,7 +22533,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779660050.911083,
+    "last_poll": 1779660240.340873,
     "check_interval": 180
   }
 }
