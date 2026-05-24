@@ -76,7 +76,7 @@
         "76561198129757659": 0.0,
         "76561198045952875": 0.0,
         "76561198017954362": 3588.0,
-        "76561198348625808": 1434.0,
+        "76561198348625808": 1458.0,
         "76561199164422123": 2298.0,
         "76561198033879793": 1758.0,
         "76561198046477600": 3084.0,
@@ -90,7 +90,7 @@
         "76561198129757659": 0.0,
         "76561198045952875": 0.0,
         "76561198017954362": 2622.0,
-        "76561198348625808": 1132.0,
+        "76561198348625808": 1267.0,
         "76561199164422123": 1997.0,
         "76561198033879793": 1550.0,
         "76561198046477600": 2152.0,
@@ -724,10 +724,10 @@
         "rank_name": "Lemming",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 47.43,
+        "points": 47.6,
         "has_streak": true,
-        "weekly_pbs": 31,
-        "total_pbs": 31,
+        "weekly_pbs": 33,
+        "total_pbs": 33,
         "active_days": 2,
         "position_change": 0
       },
@@ -1155,7 +1155,7 @@
         "timestamp": "2026-05-23 04:28:05"
       }
     ],
-    "last_poll": 1779595064.960488,
+    "last_poll": 1779595263.834899,
     "check_interval": 180
   },
   "687": {
@@ -2307,7 +2307,7 @@
       "voxTargetClick 20% Small": "Linear"
     },
     "recent_overtakes": [],
-    "last_poll": 1779595064.96613,
+    "last_poll": 1779595263.842541,
     "check_interval": 180
   },
   "688": {
@@ -3324,15 +3324,8 @@
       "Floating Heads Timing 400% FIXED": "Linear",
       "VoxTargetSwitch Click Small": "Linear"
     },
-    "recent_overtakes": [
-      {
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198046477600",
-        "timestamp": "2026-05-23 03:57:54"
-      }
-    ],
-    "last_poll": 1779595064.971409,
+    "recent_overtakes": [],
+    "last_poll": 1779595263.84985,
     "check_interval": 180
   }
 }
