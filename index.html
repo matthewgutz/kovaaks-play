@@ -3118,10 +3118,11 @@
 
         // Render current benchmark leaderboard and score grid
         function renderLeaderboard() {
-            const bData = standingsData[currentBenchmarkId];
-            if (!bData) return;
+            try {
+                const bData = standingsData[currentBenchmarkId];
+                if (!bData) return;
 
-            const globalDelay = getSyncedAnimationDelay();
+                const globalDelay = getSyncedAnimationDelay();
 
             // Render standings table
             const tbody = document.getElementById('standings-body');
@@ -3718,6 +3719,9 @@
             
             // Fetch and render overall progress timeline chart at the top
             fetchOverallHistoryAndRenderChart();
+            } catch (err) {
+                console.error("LEADERBOARD_ERROR:", err);
+            }
         }
 
         // Trigger immediate check/poll
