@@ -1,5 +1,89 @@
 [
   {
+    "id": 1690,
+    "player_name": "CoachCam",
+    "event_type": "pain_point",
+    "message": "Trash panda angry! @CoachCam almost beat @Laggiing on [waldoTS](https://matthewgutz.github.io/kovaaks-play?scenario=waldoTS)! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-24 22:48:11"
+  },
+  {
+    "id": 1689,
+    "player_name": "Olioli",
+    "event_type": "rank_up",
+    "message": "BIG RANK! @Olioli promote to **Silk** on [Hard](https://matthewgutz.github.io/kovaaks-play). No more bronze scrub! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-24 22:48:11"
+  },
+  {
+    "id": 1688,
+    "player_name": "Christine",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Strange portal! @Christine teleport to **Unknown** tier on [Hard](https://matthewgutz.github.io/kovaaks-play)!\n- \ud83c\udf89 **Pasu Reload Goated**",
+    "timestamp": "2026-05-24 22:48:11"
+  },
+  {
+    "id": 1687,
+    "player_name": "BakaOppai",
+    "event_type": "rank_up",
+    "message": "Climb mountain! @BakaOppai stand high as **Unknown** on [Hard](https://matthewgutz.github.io/kovaaks-play)! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-24 22:48:11"
+  },
+  {
+    "id": 1686,
+    "player_name": "Haruno",
+    "event_type": "consolidated",
+    "message": "Consolidated [3 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 BIG RANK! @Haruno promote to **Celadon** on [Medium](https://matthewgutz.github.io/kovaaks-play). No more bronze scrub!\n- \ud83c\udf89 **PGTI Voltaic Easy**\n- \ud83c\udf89 **Polarized Hell Easy 20% Slower**",
+    "timestamp": "2026-05-24 22:48:11"
+  },
+  {
+    "id": 1685,
+    "player_name": "Laggiing",
+    "event_type": "pb",
+    "message": "**Whisphere Small & Slow 75%** \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-24 22:48:11"
+  },
+  {
+    "id": 1684,
+    "player_name": "CoachCam",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Strange portal! @CoachCam teleport to **Lavender** tier on [Medium](https://matthewgutz.github.io/kovaaks-play)!\n- \ud83c\udf89 **Air CELESTIAL No UFO Easy**",
+    "timestamp": "2026-05-24 22:48:11"
+  },
+  {
+    "id": 1683,
+    "player_name": "Olioli",
+    "event_type": "rank_up",
+    "message": "Climb mountain! @Olioli stand high as **Cerulean** on [Medium](https://matthewgutz.github.io/kovaaks-play)! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-24 22:48:11"
+  },
+  {
+    "id": 1682,
+    "player_name": "BakaOppai",
+    "event_type": "rank_up",
+    "message": "BIG RANK! @BakaOppai promote to **Indigo** on [Medium](https://matthewgutz.github.io/kovaaks-play). No more bronze scrub! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-24 22:48:11"
+  },
+  {
+    "id": 1681,
+    "player_name": "Haruno",
+    "event_type": "rank_up",
+    "message": "Strange portal! @Haruno teleport to **Fox** tier on [Easier](https://matthewgutz.github.io/kovaaks-play)! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-24 22:48:11"
+  },
+  {
+    "id": 1680,
+    "player_name": "Laggiing",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Climb mountain! @Laggiing stand high as **Fox** on [Easier](https://matthewgutz.github.io/kovaaks-play)!\n- \ud83c\udf89 **FloatTS Angelic Easy Larger**",
+    "timestamp": "2026-05-24 22:48:11"
+  },
+  {
+    "id": 1679,
+    "player_name": "BakaOppai",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udf89 **Air CELESTIAL No UFO Easy Slowed**\n- \ud83c\udf89 **Flicker Plaza rAim Easy Less Blinks**",
+    "timestamp": "2026-05-24 22:48:11"
+  },
+  {
     "id": 1678,
     "player_name": "CoachCam",
     "event_type": "consolidated",
@@ -614,89 +698,5 @@
     "event_type": "pb",
     "message": "**domiSwitch** \ud83d\udd25 Hot Streak!",
     "timestamp": "2026-05-24 22:13:28"
-  },
-  {
-    "id": 1590,
-    "player_name": "Christine",
-    "event_type": "rank_up",
-    "message": "Strange portal! @Christine teleport to **Silk** tier on [Hard](https://matthewgutz.github.io/kovaaks-play)! \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-24 22:13:28"
-  },
-  {
-    "id": 1589,
-    "player_name": "Haruno",
-    "event_type": "pb",
-    "message": "**Air Voltaic Easy Invincible 4** \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-24 22:13:28"
-  },
-  {
-    "id": 1588,
-    "player_name": "BakaOppai",
-    "event_type": "consolidated",
-    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Climb mountain! @BakaOppai stand high as **Lavender** on [Medium](https://matthewgutz.github.io/kovaaks-play)!\n- \ud83c\udf89 **Air CELESTIAL No UFO Easy**",
-    "timestamp": "2026-05-24 22:13:28"
-  },
-  {
-    "id": 1587,
-    "player_name": "Haruno",
-    "event_type": "consolidated",
-    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 BIG RANK! @Haruno promote to **Penguin** on [Easier](https://matthewgutz.github.io/kovaaks-play). No more bronze scrub!\n- \ud83c\udf89 **Popcorn MV Novice**",
-    "timestamp": "2026-05-24 22:13:28"
-  },
-  {
-    "id": 1586,
-    "player_name": "Haruno",
-    "event_type": "consolidated",
-    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udfc6 Strange portal! @Haruno teleport to **Satin** tier on [Hard](https://matthewgutz.github.io/kovaaks-play)!\n- \ud83c\udf89 **beanTS 30% Smaller**",
-    "timestamp": "2026-05-24 22:10:19"
-  },
-  {
-    "id": 1585,
-    "player_name": "Laggiing",
-    "event_type": "rank_up",
-    "message": "Climb mountain! @Laggiing stand high as **Satin** on [Hard](https://matthewgutz.github.io/kovaaks-play)! \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-24 22:10:19"
-  },
-  {
-    "id": 1584,
-    "player_name": "CoachCam",
-    "event_type": "pb",
-    "message": "**tamTargetSwitch Smooth** \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-24 22:10:19"
-  },
-  {
-    "id": 1583,
-    "player_name": "Olioli",
-    "event_type": "rank_up",
-    "message": "BIG RANK! @Olioli promote to **Silk** on [Hard](https://matthewgutz.github.io/kovaaks-play). No more bronze scrub! \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-24 22:10:19"
-  },
-  {
-    "id": 1582,
-    "player_name": "BakaOppai",
-    "event_type": "rank_up",
-    "message": "Strange portal! @BakaOppai teleport to **Unknown** tier on [Hard](https://matthewgutz.github.io/kovaaks-play)! \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-24 22:10:19"
-  },
-  {
-    "id": 1581,
-    "player_name": "CoachCam",
-    "event_type": "rank_up",
-    "message": "Climb mountain! @CoachCam stand high as **Lavender** on [Medium](https://matthewgutz.github.io/kovaaks-play)! \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-24 22:10:19"
-  },
-  {
-    "id": 1580,
-    "player_name": "Christine",
-    "event_type": "rank_up",
-    "message": "BIG RANK! @Christine promote to **Indigo** on [Medium](https://matthewgutz.github.io/kovaaks-play). No more bronze scrub! \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-24 22:10:19"
-  },
-  {
-    "id": 1579,
-    "player_name": "BakaOppai",
-    "event_type": "pb",
-    "message": "**SmoothBot Invincible Goated** \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-24 22:10:18"
   }
 ]
