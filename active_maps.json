@@ -6,16 +6,16 @@
     "update_count": 43
   },
   {
+    "benchmark_id": "687",
+    "benchmark_name": "Medium",
+    "scenario_name": "Air Pure Intermediate",
+    "update_count": 42
+  },
+  {
     "benchmark_id": "688",
     "benchmark_name": "Hard",
     "scenario_name": "FloatTS Angelic",
     "update_count": 42
-  },
-  {
-    "benchmark_id": "687",
-    "benchmark_name": "Medium",
-    "scenario_name": "Air Pure Intermediate",
-    "update_count": 40
   },
   {
     "benchmark_id": "688",
