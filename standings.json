@@ -62,7 +62,7 @@
         "76561198129757659": 0.0,
         "76561198045952875": 0.0,
         "76561198017954362": 15570.0,
-        "76561198348625808": 5350.0,
+        "76561198348625808": 6090.0,
         "76561199164422123": 8790.0,
         "76561198033879793": 6888.0,
         "76561198046477600": 11350.0,
@@ -724,10 +724,10 @@
         "rank_name": "Lemming",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 47.29,
+        "points": 47.43,
         "has_streak": true,
-        "weekly_pbs": 30,
-        "total_pbs": 30,
+        "weekly_pbs": 31,
+        "total_pbs": 31,
         "active_days": 2,
         "position_change": 0
       },
@@ -1149,25 +1149,13 @@
     },
     "recent_overtakes": [
       {
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198046477600",
-        "timestamp": "2026-05-23 03:57:38"
-      },
-      {
-        "scenario_name": "1w3ts reload Larger",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198046477600",
-        "timestamp": "2026-05-23 03:57:38"
-      },
-      {
         "scenario_name": "Leaptrack Goated 60% Larger",
         "winner_sid": "76561198046477600",
         "loser_sid": "76561199164422123",
         "timestamp": "2026-05-23 04:28:05"
       }
     ],
-    "last_poll": 1779594870.019676,
+    "last_poll": 1779595064.960488,
     "check_interval": 180
   },
   "687": {
@@ -1896,7 +1884,7 @@
         "crown_count": 0,
         "completed_count": 5,
         "points": 4.15,
-        "has_streak": true,
+        "has_streak": false,
         "weekly_pbs": 4,
         "total_pbs": 4,
         "active_days": 1,
@@ -2318,15 +2306,8 @@
       "Floating Heads Timing 400% Larger": "Linear",
       "voxTargetClick 20% Small": "Linear"
     },
-    "recent_overtakes": [
-      {
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198046477600",
-        "timestamp": "2026-05-23 03:57:42"
-      }
-    ],
-    "last_poll": 1779594870.027418,
+    "recent_overtakes": [],
+    "last_poll": 1779595064.96613,
     "check_interval": 180
   },
   "688": {
@@ -3351,7 +3332,7 @@
         "timestamp": "2026-05-23 03:57:54"
       }
     ],
-    "last_poll": 1779594870.034825,
+    "last_poll": 1779595064.971409,
     "check_interval": 180
   }
 }
