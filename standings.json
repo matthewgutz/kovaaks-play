@@ -132,7 +132,7 @@
         "76561198129757659": 0.0,
         "76561198045952875": 0.0,
         "76561198017954362": 3835.0,
-        "76561198348625808": 1946.0,
+        "76561198348625808": 1949.0,
         "76561199164422123": 2926.0,
         "76561198033879793": 2392.0,
         "76561198046477600": 3120.0,
@@ -726,8 +726,8 @@
         "completed_count": 36,
         "points": 48.32,
         "has_streak": true,
-        "weekly_pbs": 38,
-        "total_pbs": 38,
+        "weekly_pbs": 39,
+        "total_pbs": 39,
         "active_days": 2,
         "position_change": 0
       },
@@ -1155,7 +1155,7 @@
         "timestamp": "2026-05-23 04:28:05"
       }
     ],
-    "last_poll": 1779596052.595505,
+    "last_poll": 1779596250.671918,
     "check_interval": 180
   },
   "687": {
@@ -2307,7 +2307,7 @@
       "voxTargetClick 20% Small": "Linear"
     },
     "recent_overtakes": [],
-    "last_poll": 1779596052.603739,
+    "last_poll": 1779596250.679471,
     "check_interval": 180
   },
   "688": {
@@ -3325,7 +3325,7 @@
       "VoxTargetSwitch Click Small": "Linear"
     },
     "recent_overtakes": [],
-    "last_poll": 1779596052.609308,
+    "last_poll": 1779596250.686854,
     "check_interval": 180
   }
 }
