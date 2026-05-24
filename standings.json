@@ -734,8 +734,8 @@
         "steam_id": "76561198348625808",
         "username": "@Christine",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Fox",
+        "rank_idx": 7,
+        "rank_name": "Orca",
         "crown_count": 17,
         "completed_count": 36,
         "points": 78.14,
@@ -764,8 +764,8 @@
         "steam_id": "76561199164422123",
         "username": "@Olioli",
         "discord_id": "",
-        "rank_idx": 4,
-        "rank_name": "Penguin",
+        "rank_idx": 6,
+        "rank_name": "Mammoth",
         "crown_count": 4,
         "completed_count": 36,
         "points": 69.14,
@@ -779,8 +779,8 @@
         "steam_id": "76561198046477600",
         "username": "@Laggiing",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Fox",
+        "rank_idx": 4,
+        "rank_name": "Penguin",
         "crown_count": 3,
         "completed_count": 36,
         "points": 67.79,
@@ -809,8 +809,8 @@
         "steam_id": "76561198995689034",
         "username": "@Haruno",
         "discord_id": "",
-        "rank_idx": 4,
-        "rank_name": "Penguin",
+        "rank_idx": 3,
+        "rank_name": "Ermine",
         "crown_count": 1,
         "completed_count": 36,
         "points": 65.54,
@@ -7201,7 +7201,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779659672.080195,
+    "last_poll": 1779659861.445875,
     "check_interval": 180
   },
   "687": {
@@ -7387,7 +7387,7 @@
         "76561199164422123": 50.1,
         "76561198033879793": 41.63,
         "76561198046477600": 50.03,
-        "76561198995689034": 24.91
+        "76561198995689034": 24.95
       },
       "Popcorn MV Intermediate": {
         "76561198017954362": 381.83,
@@ -7677,7 +7677,7 @@
         "76561199164422123": "2026-05-24 19:34:11",
         "76561198033879793": "2026-05-24 19:34:11",
         "76561198046477600": "2026-05-24 19:34:11",
-        "76561198995689034": "2026-05-24 21:10:17"
+        "76561198995689034": "2026-05-24 21:57:38"
       },
       "Popcorn MV Intermediate": {
         "76561198017954362": "2026-05-24 19:34:11",
@@ -7954,8 +7954,8 @@
         "steam_id": "76561198017954362",
         "username": "@BakaOppai",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Cerulean",
+        "rank_idx": 6,
+        "rank_name": "Lavender",
         "crown_count": 6,
         "completed_count": 36,
         "points": 69.46,
@@ -7969,8 +7969,8 @@
         "steam_id": "76561199164422123",
         "username": "@Olioli",
         "discord_id": "",
-        "rank_idx": 6,
-        "rank_name": "Lavender",
+        "rank_idx": 4,
+        "rank_name": "Celadon",
         "crown_count": 5,
         "completed_count": 36,
         "points": 72.84,
@@ -7984,8 +7984,8 @@
         "steam_id": "76561198033879793",
         "username": "@CoachCam",
         "discord_id": "",
-        "rank_idx": 6,
-        "rank_name": "Lavender",
+        "rank_idx": 4,
+        "rank_name": "Celadon",
         "crown_count": 4,
         "completed_count": 36,
         "points": 66.65,
@@ -7999,14 +7999,14 @@
         "steam_id": "76561198995689034",
         "username": "@Haruno",
         "discord_id": "",
-        "rank_idx": 3,
-        "rank_name": "Saffron",
+        "rank_idx": 5,
+        "rank_name": "Cerulean",
         "crown_count": 1,
         "completed_count": 36,
         "points": 63.95,
         "has_streak": true,
-        "weekly_pbs": 106,
-        "total_pbs": 197,
+        "weekly_pbs": 107,
+        "total_pbs": 198,
         "active_days": 3,
         "position_change": 1
       },
@@ -8014,8 +8014,8 @@
         "steam_id": "76561198046477600",
         "username": "@Laggiing",
         "discord_id": "",
-        "rank_idx": 3,
-        "rank_name": "Saffron",
+        "rank_idx": 5,
+        "rank_name": "Cerulean",
         "crown_count": 0,
         "completed_count": 36,
         "points": 63.26,
@@ -14306,7 +14306,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779659672.0889,
+    "last_poll": 1779659861.460485,
     "check_interval": 180
   },
   "688": {
@@ -14556,7 +14556,7 @@
         "76561198046477600": 70.48,
         "76561199164422123": 72.66,
         "76561198033879793": 71.03,
-        "76561198995689034": 69.55
+        "76561198995689034": 69.65
       },
       "1w3ts Pasu Perfected Micro Goated": {
         "76561198017954362": 1300.93,
@@ -14603,7 +14603,7 @@
         "76561199164422123": 122.0,
         "76561198033879793": 117.48,
         "76561198017954362": 107.49,
-        "76561198046477600": 103.13,
+        "76561198046477600": 103.16,
         "76561198995689034": 102.29
       },
       "Controlsphere Click Smaller": {
@@ -14846,7 +14846,7 @@
         "76561198046477600": "2026-05-24 19:41:56",
         "76561199164422123": "2026-05-24 20:48:15",
         "76561198033879793": "2026-05-24 21:10:20",
-        "76561198995689034": "2026-05-24 20:51:24"
+        "76561198995689034": "2026-05-24 21:57:41"
       },
       "1w3ts Pasu Perfected Micro Goated": {
         "76561198017954362": "2026-05-24 19:34:11",
@@ -14893,7 +14893,7 @@
         "76561199164422123": "2026-05-24 19:34:11",
         "76561198033879793": "2026-05-24 19:34:11",
         "76561198017954362": "2026-05-24 19:45:05",
-        "76561198046477600": "2026-05-24 19:38:47",
+        "76561198046477600": "2026-05-24 21:57:41",
         "76561198995689034": "2026-05-24 19:48:15"
       },
       "Controlsphere Click Smaller": {
@@ -15044,8 +15044,8 @@
         "steam_id": "76561198348625808",
         "username": "@Christine",
         "discord_id": "",
-        "rank_idx": 7,
-        "rank_name": "Unranked",
+        "rank_idx": 5,
+        "rank_name": "Satin",
         "crown_count": 19,
         "completed_count": 36,
         "points": 80.49,
@@ -15059,8 +15059,8 @@
         "steam_id": "76561198017954362",
         "username": "@BakaOppai",
         "discord_id": "",
-        "rank_idx": 7,
-        "rank_name": "Unranked",
+        "rank_idx": 6,
+        "rank_name": "Silk",
         "crown_count": 8,
         "completed_count": 36,
         "points": 78.54,
@@ -15074,14 +15074,14 @@
         "steam_id": "76561198046477600",
         "username": "@Laggiing",
         "discord_id": "",
-        "rank_idx": 3,
-        "rank_name": "Velvet",
+        "rank_idx": 4,
+        "rank_name": "Chiffon",
         "crown_count": 5,
         "completed_count": 36,
         "points": 74.97,
         "has_streak": true,
-        "weekly_pbs": 159,
-        "total_pbs": 250,
+        "weekly_pbs": 160,
+        "total_pbs": 251,
         "active_days": 3,
         "position_change": 2
       },
@@ -15089,8 +15089,8 @@
         "steam_id": "76561199164422123",
         "username": "@Olioli",
         "discord_id": "",
-        "rank_idx": 6,
-        "rank_name": "Silk",
+        "rank_idx": 5,
+        "rank_name": "Satin",
         "crown_count": 2,
         "completed_count": 36,
         "points": 77.31,
@@ -15104,8 +15104,8 @@
         "steam_id": "76561198033879793",
         "username": "@CoachCam",
         "discord_id": "",
-        "rank_idx": 4,
-        "rank_name": "Chiffon",
+        "rank_idx": 6,
+        "rank_name": "Silk",
         "crown_count": 2,
         "completed_count": 36,
         "points": 74.18,
@@ -15119,14 +15119,14 @@
         "steam_id": "76561198995689034",
         "username": "@Haruno",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Satin",
+        "rank_idx": 4,
+        "rank_name": "Chiffon",
         "crown_count": 0,
         "completed_count": 36,
         "points": 72.86,
         "has_streak": true,
-        "weekly_pbs": 138,
-        "total_pbs": 233,
+        "weekly_pbs": 139,
+        "total_pbs": 234,
         "active_days": 3,
         "position_change": 0
       }
@@ -22533,7 +22533,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779659672.099608,
+    "last_poll": 1779659861.476052,
     "check_interval": 180
   }
 }
