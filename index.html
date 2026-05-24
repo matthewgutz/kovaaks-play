@@ -714,7 +714,7 @@
         }
         .scen-cell:hover {
             transform: scale(1.05);
-            z-index: 5;
+            z-index: 80;
             box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.08), 0 4px 12px rgba(0, 0, 0, 0.25);
         }
         
@@ -1442,7 +1442,7 @@
             ) !important;
             animation: border-spin 4s linear infinite !important;
             z-index: -2 !important;
-            transform: translate(-50%, -50%) !important;
+            transform: translate(-50%, -50%);
         }
 
         .selected-highlight::after {
@@ -1476,7 +1476,7 @@
         .scen-cell:hover .cell-target {
             transform: scale(1.15);
             opacity: 1 !important;
-            z-index: 10 !important;
+            z-index: 90 !important;
             text-shadow: 0 0 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(255, 255, 255, 0.3);
         }
         
@@ -1501,14 +1501,14 @@
         }
         #standings-table thead tr {
             display: grid;
-            grid-template-columns: 60px 2fr 1.5fr 1fr 1fr 1fr 1fr;
+            grid-template-columns: 70px 2.5fr 1.5fr 1.2fr 1.2fr 1fr;
             padding: 12px 16px;
             width: 100%;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         #standings-table tbody tr.player-row {
             display: grid;
-            grid-template-columns: 60px 2fr 1.5fr 1fr 1fr 1fr 1fr;
+            grid-template-columns: 70px 2.5fr 1.5fr 1.2fr 1.2fr 1fr;
             align-items: center;
             background: var(--bg-surface);
             border: 1px solid rgba(255, 255, 255, 0.06);
@@ -1606,9 +1606,6 @@
                 <!-- Scenario Matrix Section -->
                 <section class="glass-panel" style="padding: 24px;">
                     <h2 class="panel-title">📊 Scenario Comparison Grid</h2>
-                    <div id="grid-legend" style="display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 20px; padding: 12px 16px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px;">
-                        <!-- Populated dynamically -->
-                    </div>
                     <div class="table-container" style="position: relative;">
                         <!-- SVG overlay to draw connecting paths for selected players -->
                         <svg id="grid-svg-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 4;"></svg>
@@ -1669,10 +1666,9 @@
                                 <th>Pos</th>
                                 <th>Player</th>
                                 <th>Overall Rank</th>
-                                <th>Crowns 👑</th>
-                                <th>Completed Scenarios</th>
+                                <th>👑</th>
                                 <th>Max Rank %</th>
-                                <th>Total PBs 📈</th>
+                                <th>PBs</th>
                             </tr>
                         </thead>
                         <tbody id="standings-body">
@@ -2027,11 +2023,14 @@
             configuredPlayers.forEach(p => {
                 const color = getPlayerThemeColor(p.steam_id);
                 const isChecked = selectedPlayers.has(p.steam_id);
+                const usernameName = p.username.replace('@', '');
+                const avatarUrl = `avatars/${usernameName}.png`;
                 
                 const label = document.createElement('label');
                 label.className = 'filter-checkbox-label';
                 label.innerHTML = `
                     <input type="checkbox" data-steam-id="${p.steam_id}" ${isChecked ? 'checked' : ''} style="accent-color: ${color};">
+                    <img src="${avatarUrl}" class="legend-avatar" style="border: 1.5px solid ${color}; box-shadow: 0 0 4px ${color}; margin-left: 2px;" onerror="this.onerror=null; this.outerHTML=\`<span style='width: 10px; height: 10px; border-radius: 50%; background: ${color}; box-shadow: 0 0 6px ${color}; display: inline-block; margin-left: 2px;'></span>\`;">
                     <span style="color: ${isChecked ? '#fff' : 'var(--text-muted)'}; font-weight: 500;">${p.username}</span>
                 `;
                 
@@ -2045,6 +2044,10 @@
                     saveFilterState();
                     syncAllComponentsAfterFilterChange();
                 };
+                
+                // Sync radar chart highlighting on hover
+                label.addEventListener('mouseenter', () => updateRadarChart(p.steam_id));
+                label.addEventListener('mouseleave', () => updateRadarChart(null));
                 
                 container.appendChild(label);
             });
@@ -2137,6 +2140,16 @@
                     }
                 });
                 
+                // 1. Draw solid translucent white casing path underneath for high contrast
+                const casingPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                casingPath.setAttribute('d', pathD);
+                casingPath.setAttribute('fill', 'none');
+                casingPath.setAttribute('stroke', '#ffffff');
+                casingPath.setAttribute('stroke-width', '4.0');
+                casingPath.setAttribute('opacity', '0.45');
+                svg.appendChild(casingPath);
+
+                // 2. Draw colored dashed path on top
                 const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
                 path.setAttribute('d', pathD);
                 path.setAttribute('fill', 'none');
@@ -2653,8 +2666,6 @@
                         borderOpacity = 1.0;
                         borderWidth = 3.5;
                         pointRadius = 4;
-                        bgOpacity = 0.04;
-                        fillVal = true;
                     } else {
                         borderOpacity = 0.08;
                         borderWidth = 1.5;
@@ -2668,14 +2679,10 @@
                         borderOpacity = 1.0;
                         borderWidth = 3.5;
                         pointRadius = 4;
-                        bgOpacity = 0.04;
-                        fillVal = true;
                     } else {
                         borderOpacity = 0.08;
                         borderWidth = 1.5;
                         pointRadius = 0;
-                        bgOpacity = 0.0;
-                        fillVal = false;
                     }
                 }
                 
@@ -3465,12 +3472,14 @@
             
             list.innerHTML = '';
             
+            const isCompareAll = document.getElementById('filter-compare-all')?.checked;
             const sortedPlayers = [...bData.players].sort((a, b) => b.weekly_pbs - a.weekly_pbs);
-            const maxPBs = Math.max(...sortedPlayers.map(p => p.weekly_pbs), 1);
+            const filteredPlayers = isCompareAll ? sortedPlayers : sortedPlayers.filter(p => selectedPlayers.has(p.steam_id));
+            const maxPBs = Math.max(...filteredPlayers.map(p => p.weekly_pbs), 1);
             
-            // Populate highlights
-            const mostActive = sortedPlayers[0];
-            const slacking = [...sortedPlayers].reverse().find(p => p.weekly_pbs === 0);
+            // Populate highlights based on filtered players
+            const mostActive = filteredPlayers[0];
+            const slacking = [...filteredPlayers].reverse().find(p => p.weekly_pbs === 0);
             
             document.getElementById('highlight-most-active').innerText = mostActive && mostActive.weekly_pbs > 0 
                 ? `${mostActive.username} (${mostActive.weekly_pbs} PB${mostActive.weekly_pbs !== 1 ? 's' : ''})` 
@@ -3479,18 +3488,13 @@
                 ? `${slacking.username} (0 PBs)` 
                 : 'None! All Active 🙌';
             
-            sortedPlayers.forEach(p => {
+            filteredPlayers.forEach(p => {
                 const item = document.createElement('div');
                 item.className = 'player-config-item';
                 item.style.flexDirection = 'column';
                 item.style.alignItems = 'stretch';
                 item.style.gap = '8px';
                 item.style.padding = '12px';
-                
-                const isCompareAll = document.getElementById('filter-compare-all')?.checked;
-                if (!isCompareAll && selectedPlayers.has(p.steam_id)) {
-                    item.classList.add('selected-highlight');
-                }
                 
                 const pct = (p.weekly_pbs / maxPBs) * 100;
                 const daysText = p.active_days > 0 ? `Active ${p.active_days}/7 days` : 'Inactive this week';
@@ -3552,15 +3556,14 @@
                 }
                 
                 row.innerHTML = `
-                    <td style="font-weight: bold; width: 85px;">#${idx + 1}${changeHtml}</td>
+                    <td style="font-weight: bold;">#${idx + 1}${changeHtml}</td>
                     <td style="font-weight: 600;">
                         <a href="https://steamcommunity.com/profiles/${p.steam_id}" target="_blank" style="color: #fff; text-decoration: none; display: flex; align-items: center; gap: 6px;">
                             ${p.username} ${activityBadge}
                         </a>
                     </td>
                     <td><span class="rank-badge rank-${lowerRankName}">${p.rank_name}</span></td>
-                    <td>${p.crown_count > 0 ? `<span class="crown-pill">👑 ${p.crown_count}</span>` : `<span style="color: var(--text-muted)">0</span>`}</td>
-                    <td>${p.completed_count}</td>
+                    <td>${p.crown_count > 0 ? `<span class="crown-pill">👑 ${p.crown_count} / ${p.completed_count}</span>` : `<span style="color: var(--text-muted)">0 / ${p.completed_count}</span>`}</td>
                     <td style="font-weight: 600; color: #fff;">${p.points ? p.points.toFixed(1) : '0.0'}%</td>
                     <td>${p.total_pbs}</td>
                 `;
@@ -3575,7 +3578,6 @@
             // Render scenario comparison grid
             const gridHeader = document.getElementById('grid-header');
             const gridBody = document.getElementById('grid-body');
-            const gridLegend = document.getElementById('grid-legend');
             gridHeader.innerHTML = '';
             gridBody.innerHTML = '';
 
@@ -3585,30 +3587,6 @@
             }
 
             const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
-
-            // Populate Legend
-            if (gridLegend) {
-                gridLegend.innerHTML = '';
-                configuredPlayers.forEach(p => {
-                    const color = getPlayerThemeColor(p.steam_id);
-                    const username = p.username.replace('@', '');
-                    const avatarUrl = `avatars/${username}.png`;
-                    const item = document.createElement('div');
-                    item.style.display = 'flex';
-                    item.style.alignItems = 'center';
-                    item.style.gap = '8px';
-                    item.style.fontSize = '0.85rem';
-                    item.style.fontWeight = '600';
-                    item.style.cursor = 'pointer';
-                    item.innerHTML = `
-                        <img src="${avatarUrl}" class="legend-avatar" style="border: 1.5px solid ${color}; box-shadow: 0 0 4px ${color};" onerror="this.onerror=null; this.outerHTML=\`<span style='width: 10px; height: 10px; border-radius: 50%; background: ${color}; box-shadow: 0 0 6px ${color}; display: inline-block;'></span>\`;">
-                        ${p.username}
-                    `;
-                    item.addEventListener('mouseenter', () => updateRadarChart(p.steam_id));
-                    item.addEventListener('mouseleave', () => updateRadarChart(null));
-                    gridLegend.appendChild(item);
-                });
-            }
 
             // Update Radar Chart
             updateRadarChart();
