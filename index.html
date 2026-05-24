@@ -3568,10 +3568,6 @@
                     <td>${p.total_pbs}</td>
                 `;
                 
-                // Radar chart sync on hover
-                row.addEventListener('mouseenter', () => updateRadarChart(p.steam_id));
-                row.addEventListener('mouseleave', () => updateRadarChart(null));
-                
                 tbody.appendChild(row);
             });
 
