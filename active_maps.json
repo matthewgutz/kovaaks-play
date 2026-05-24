@@ -14,6 +14,12 @@
   {
     "benchmark_id": "686",
     "benchmark_name": "Easier",
+    "scenario_name": "Air CELESTIAL No UFO Easy Slowed",
+    "update_count": 4
+  },
+  {
+    "benchmark_id": "686",
+    "benchmark_name": "Easier",
     "scenario_name": "Controlsphere rAim Easy 90%",
     "update_count": 4
   },
@@ -21,12 +27,6 @@
     "benchmark_id": "686",
     "benchmark_name": "Easier",
     "scenario_name": "Air Angelic 4 Voltaic Easy 80% (Good Version)",
-    "update_count": 3
-  },
-  {
-    "benchmark_id": "686",
-    "benchmark_name": "Easier",
-    "scenario_name": "Air CELESTIAL No UFO Easy Slowed",
     "update_count": 3
   }
 ]
