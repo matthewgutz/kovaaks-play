@@ -1,15 +1,15 @@
 [
   {
+    "benchmark_id": "686",
+    "benchmark_name": "Easier",
+    "scenario_name": "Leaptrack Goated 60% Larger",
+    "update_count": 5
+  },
+  {
     "benchmark_id": "687",
     "benchmark_name": "Medium",
     "scenario_name": "WhisphereRawControl",
     "update_count": 5
-  },
-  {
-    "benchmark_id": "686",
-    "benchmark_name": "Easier",
-    "scenario_name": "Leaptrack Goated 60% Larger",
-    "update_count": 4
   },
   {
     "benchmark_id": "686",
@@ -20,13 +20,13 @@
   {
     "benchmark_id": "686",
     "benchmark_name": "Easier",
-    "scenario_name": "Whisphere 80%",
+    "scenario_name": "Controlsphere rAim Easy 90%",
     "update_count": 3
   },
   {
     "benchmark_id": "686",
     "benchmark_name": "Easier",
-    "scenario_name": "Controlsphere rAim Easy 90%",
-    "update_count": 2
+    "scenario_name": "Whisphere 80%",
+    "update_count": 3
   }
 ]
