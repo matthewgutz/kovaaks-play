@@ -1367,6 +1367,118 @@
         .rank-chiffon-text { color: #14b8a6; text-shadow: 0 0 6px rgba(20, 184, 166, 0.2); }
         .rank-satin-text { color: #8b5cf6; text-shadow: 0 0 6px rgba(139, 92, 246, 0.2); }
         .rank-silk-text { color: #ef4444; text-shadow: 0 0 6px rgba(239, 68, 68, 0.2); }
+        
+        /* Player Filter Styling */
+        .sticky-filter-panel {
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            padding: 12px 16px !important;
+            gap: 8px !important;
+        }
+        .filter-checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+        .filter-checkbox-label:hover {
+            color: var(--text-main);
+        }
+        .filter-checkbox-label input {
+            accent-color: var(--accent-primary);
+            cursor: pointer;
+            width: 14px;
+            height: 14px;
+        }
+
+        /* Animated Rotating Highlight Border Card */
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .selected-highlight {
+            position: relative !important;
+            border: none !important;
+            background: transparent !important;
+            z-index: 1 !important;
+            overflow: hidden !important;
+        }
+
+        .selected-highlight::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            width: 250% !important;
+            height: 500% !important;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                transparent 140deg,
+                var(--accent-gold) 180deg,
+                transparent 220deg,
+                transparent 360deg
+            ) !important;
+            animation: spin 4s linear infinite !important;
+            z-index: -2 !important;
+            transform: translate(-50%, -50%) !important;
+        }
+
+        .selected-highlight::after {
+            content: '' !important;
+            position: absolute !important;
+            inset: 1px !important;
+            background: var(--bg-surface-solid) !important;
+            border-radius: inherit !important;
+            z-index: -1 !important;
+        }
+
+        .selected-highlight > * {
+            position: relative !important;
+            z-index: 2 !important;
+        }
+
+        /* Standings Table Grid Card Conversion */
+        #standings-table {
+            display: block;
+            width: 100%;
+        }
+        #standings-table thead {
+            display: block;
+            width: 100%;
+        }
+        #standings-table tbody {
+            display: block;
+            width: 100%;
+        }
+        #standings-table thead tr {
+            display: grid;
+            grid-template-columns: 60px 2fr 1.5fr 1fr 1fr 1fr 1fr;
+            padding: 12px 16px;
+            width: 100%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        #standings-table tbody tr.player-row {
+            display: grid;
+            grid-template-columns: 60px 2fr 1.5fr 1fr 1fr 1fr 1fr;
+            align-items: center;
+            background: var(--bg-surface);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-bottom: 12px;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+        #standings-table td, #standings-table th {
+            border-bottom: none !important;
+            padding: 4px 8px !important;
+        }
     </style>
 </head>
 <body>
@@ -1453,7 +1565,9 @@
                     <div id="grid-legend" style="display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 20px; padding: 12px 16px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px;">
                         <!-- Populated dynamically -->
                     </div>
-                    <div class="table-container">
+                    <div class="table-container" style="position: relative;">
+                        <!-- SVG overlay to draw connecting paths for selected players -->
+                        <svg id="grid-svg-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 4;"></svg>
                         <table id="grid-table">
                             <thead id="grid-header">
                                 <!-- Populated dynamically -->
@@ -1485,18 +1599,28 @@
         <!-- Sidebar Area (Rendered on Left on Desktop) -->
         <aside style="display: flex; flex-direction: column; gap: 30px;">
             
+            <!-- Sticky Unified Player Filter Widget -->
+            <section class="glass-panel sidebar-panel sticky-filter-panel" id="player-filter-section" style="border-color: rgba(0, 245, 212, 0.3);">
+                <h2 class="panel-title" style="margin: 0 0 10px 0; font-size: 1.1rem; border-bottom: none; padding-bottom: 0; display: flex; align-items: center; gap: 8px;">👥 Player Filter</h2>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <label class="filter-checkbox-label" style="font-weight: 600; color: #fff;">
+                        <input type="checkbox" id="filter-compare-all" checked>
+                        Compare All
+                    </label>
+                    <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); margin: 2px 0;"></div>
+                    <div id="filter-players-list" style="display: flex; flex-direction: column; gap: 8px; max-height: 180px; overflow-y: auto; padding-right: 4px; scrollbar-width: thin;">
+                        <!-- Checkboxes populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
             <!-- Subcategory Performance Radar Chart Panel -->
             <section class="glass-panel sidebar-panel" id="radar-chart-section" style="padding: 24px; display: flex; flex-direction: column; gap: 16px;">
                 <h2 class="panel-title" style="margin: 0; border-bottom: none; padding-bottom: 0; font-size: 1.25rem; font-weight: 700; color: #fff;">Radar Chart Overview</h2>
                 
                 <div style="display: flex; gap: 16px; align-items: stretch; justify-content: space-between; min-height: 320px; position: relative; width: 100%;">
-                    <!-- Player Selection Checklist (Left of chart) -->
-                    <div id="radar-player-list" style="display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; color: var(--text-muted); width: 155px; flex-shrink: 0; border-right: 1px solid rgba(255,255,255,0.05); padding-right: 12px;">
-                        <!-- Populated dynamically -->
-                    </div>
-                    
-                    <!-- Radar Canvas -->
-                    <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; position: relative; min-height: 320px;">
+                    <!-- Radar Canvas Container (Expanded) -->
+                    <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; position: relative; min-height: 320px; width: 100%;">
                         <canvas id="radar-chart" style="width: 100%; height: 100%;"></canvas>
                     </div>
                 </div>
@@ -1594,9 +1718,6 @@
                 <div>
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                         <h2 class="panel-title" style="margin: 0;">🎯 Focus Maps</h2>
-                        <select id="focus-player-select" style="width: auto; padding: 4px 8px; font-size: 0.85rem; margin: 0; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; color: #fff; cursor: pointer; font-family: 'Outfit', sans-serif;" onchange="renderFocusMaps()">
-                            <!-- Populated dynamically -->
-                        </select>
                     </div>
                     <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.3;">
                         Scenarios with the lowest score relative to the highest rank tier threshold. Time to practice!
@@ -1750,6 +1871,213 @@
         let historyChart = null;
         let overallProgressChart = null;
         let timelineFilter = 'ALL';
+
+        // =========================================================================
+        // GLOBAL PLAYER FILTER STATE
+        // =========================================================================
+        let selectedPlayers = new Set();
+
+        function loadFilterState() {
+            try {
+                const saved = localStorage.getItem('selectedPlayers');
+                if (saved) {
+                    const array = JSON.parse(saved);
+                    selectedPlayers = new Set(array);
+                } else {
+                    selectAllPlayers();
+                }
+            } catch (e) {
+                console.error("Error loading filter state:", e);
+                selectAllPlayers();
+            }
+        }
+
+        function saveFilterState() {
+            try {
+                const array = Array.from(selectedPlayers);
+                localStorage.setItem('selectedPlayers', JSON.stringify(array));
+            } catch (e) {
+                console.error("Error saving filter state:", e);
+            }
+        }
+
+        function selectAllPlayers() {
+            const bData = standingsData[currentBenchmarkId];
+            if (!bData) return;
+            const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
+            configuredPlayers.forEach(p => selectedPlayers.add(p.steam_id));
+        }
+
+        function syncAllComponentsAfterFilterChange() {
+            renderPlayerFilterCard();
+            renderLeaderboard();
+            renderRivalries();
+            renderWeeklyActivity();
+            renderFocusMaps();
+            // Trigger redraw on the progress timeline chart if it exists
+            if (overallProgressChart) {
+                // We re-render the chart by updating its datasets with new visual styles
+                const bData = standingsData[currentBenchmarkId];
+                if (bData && overallProgressChart.data.datasets) {
+                    const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
+                    const isCompareAll = document.getElementById('filter-compare-all')?.checked;
+                    
+                    overallProgressChart.data.datasets.forEach(dataset => {
+                        const sid = dataset.steamId;
+                        const isSelected = isCompareAll || selectedPlayers.has(sid);
+                        const baseColor = getPlayerThemeColor(sid);
+                        
+                        if (isSelected) {
+                            dataset.borderColor = baseColor;
+                            dataset.borderWidth = 2.5;
+                            dataset.pointHoverRadius = 4;
+                        } else {
+                            dataset.borderColor = getGrayscaleColor(baseColor, 0.08);
+                            dataset.borderWidth = 1.0;
+                            dataset.pointHoverRadius = 0;
+                        }
+                    });
+                    overallProgressChart.update();
+                }
+            }
+        }
+
+        // Grayscale conversion helper for faded datasets
+        function getGrayscaleColor(hexColor, opacity) {
+            const rgb = hexToRgb(hexColor);
+            if (!rgb) return `rgba(128, 128, 128, ${opacity})`;
+            const parts = rgb.split(',').map(Number);
+            const gray = Math.round(0.299 * parts[0] + 0.587 * parts[1] + 0.114 * parts[2]);
+            return `rgba(${gray}, ${gray}, ${gray}, ${opacity})`;
+        }
+
+        function renderPlayerFilterCard() {
+            const container = document.getElementById('filter-players-list');
+            if (!container) return;
+            
+            container.innerHTML = '';
+            
+            const bData = standingsData[currentBenchmarkId];
+            if (!bData) return;
+            const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
+            
+            const allSelected = configuredPlayers.every(p => selectedPlayers.has(p.steam_id));
+            
+            const compareAllCheckbox = document.getElementById('filter-compare-all');
+            if (compareAllCheckbox) {
+                compareAllCheckbox.checked = allSelected;
+            }
+            
+            configuredPlayers.forEach(p => {
+                const color = getPlayerThemeColor(p.steam_id);
+                const isChecked = selectedPlayers.has(p.steam_id);
+                
+                const label = document.createElement('label');
+                label.className = 'filter-checkbox-label';
+                label.innerHTML = `
+                    <input type="checkbox" data-steam-id="${p.steam_id}" ${isChecked ? 'checked' : ''} style="accent-color: ${color};">
+                    <span style="color: ${isChecked ? '#fff' : 'var(--text-muted)'}; font-weight: 500;">${p.username}</span>
+                `;
+                
+                const checkbox = label.querySelector('input');
+                checkbox.onchange = (e) => {
+                    if (e.target.checked) {
+                        selectedPlayers.add(p.steam_id);
+                    } else {
+                        selectedPlayers.delete(p.steam_id);
+                    }
+                    saveFilterState();
+                    syncAllComponentsAfterFilterChange();
+                };
+                
+                container.appendChild(label);
+            });
+        }
+
+        function initFilterEvents() {
+            const compareAllCheckbox = document.getElementById('filter-compare-all');
+            if (compareAllCheckbox) {
+                compareAllCheckbox.onchange = (e) => {
+                    const bData = standingsData[currentBenchmarkId];
+                    if (!bData) return;
+                    const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
+                    
+                    if (e.target.checked) {
+                        configuredPlayers.forEach(p => selectedPlayers.add(p.steam_id));
+                    } else {
+                        selectedPlayers.clear();
+                    }
+                    saveFilterState();
+                    syncAllComponentsAfterFilterChange();
+                };
+            }
+        }
+
+        function drawConnectingLines() {
+            const table = document.getElementById('grid-table');
+            const svg = document.getElementById('grid-svg-overlay');
+            if (!table || !svg) return;
+            
+            // Wipe clean
+            svg.innerHTML = '';
+            
+            // Bind absolute scroll sizes
+            const w = table.scrollWidth;
+            const h = table.scrollHeight;
+            svg.setAttribute('width', w);
+            svg.setAttribute('height', h);
+            svg.style.width = w + 'px';
+            svg.style.height = h + 'px';
+            
+            const tableRect = table.getBoundingClientRect();
+            
+            const bData = standingsData[currentBenchmarkId];
+            if (!bData) return;
+            
+            const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
+            const isCompareAll = document.getElementById('filter-compare-all')?.checked;
+            
+            const activePlayers = isCompareAll 
+                ? configuredPlayers 
+                : configuredPlayers.filter(p => selectedPlayers.has(p.steam_id));
+                
+            activePlayers.forEach(player => {
+                const steamId = player.steam_id;
+                const color = getPlayerThemeColor(steamId);
+                
+                // Retrieve all DOM pin instances for this player
+                const pins = Array.from(table.querySelectorAll(`[data-steam-id="${steamId}"]`));
+                
+                // Order top-to-bottom relative to viewport tops
+                pins.sort((a, b) => {
+                    return a.getBoundingClientRect().top - b.getBoundingClientRect().top;
+                });
+                
+                if (pins.length < 2) return;
+                
+                let pathD = '';
+                pins.forEach((pin, index) => {
+                    const pinRect = pin.getBoundingClientRect();
+                    const cx = pinRect.left - tableRect.left + (pinRect.width / 2);
+                    const cy = pinRect.top - tableRect.top + (pinRect.height / 2);
+                    
+                    if (index === 0) {
+                        pathD = `M ${cx} ${cy}`;
+                    } else {
+                        pathD += ` L ${cx} ${cy}`;
+                    }
+                });
+                
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                path.setAttribute('d', pathD);
+                path.setAttribute('fill', 'none');
+                path.setAttribute('stroke', color);
+                path.setAttribute('stroke-width', '1.5');
+                path.setAttribute('stroke-dasharray', '5,5');
+                path.setAttribute('opacity', '0.6');
+                svg.appendChild(path);
+            });
+        }
 
         let adminKeySet = false;
         let countdownInterval = null;
@@ -1998,10 +2326,20 @@
                     overlay.style.left = `${lastPoint.x}px`;
                     overlay.style.top = `${lastPoint.y}px`;
                     
-                    let borderStyle = `2.2px solid ${themeColor}`;
-                    overlay.style.border = borderStyle;
+                    const isCompareAll = document.getElementById('filter-compare-all')?.checked;
+                    const isSelected = isCompareAll || selectedPlayers.has(steamId);
+                    
+                    if (isSelected) {
+                        overlay.style.opacity = '1.0';
+                        overlay.style.filter = 'none';
+                        overlay.style.border = `2.2px solid ${themeColor}`;
+                    } else {
+                        overlay.style.opacity = '0.08';
+                        overlay.style.filter = 'grayscale(100%)';
+                        overlay.style.border = `2.2px solid #555`;
+                    }
 
-                    if (isRecentPB) {
+                    if (isRecentPB && isSelected) {
                         overlay.classList.add('recent-pb-pulse');
                         overlay.style.setProperty('--pulse-color', themeColor);
                         overlay.style.animationDelay = globalDelay;
@@ -2217,76 +2555,6 @@
             };
         }
 
-        function populateRadarPlayerList(configuredPlayers) {
-            const list = document.getElementById('radar-player-list');
-            if (!list) return;
-            
-            list.innerHTML = '';
-            
-            // Add 'Compare All' option
-            const allItem = document.createElement('div');
-            allItem.className = 'radar-player-item';
-            allItem.style.display = 'flex';
-            allItem.style.alignItems = 'center';
-            allItem.style.gap = '10px';
-            allItem.style.padding = '8px 12px';
-            allItem.style.borderRadius = '6px';
-            allItem.style.cursor = 'pointer';
-            allItem.style.transition = 'var(--transition-smooth)';
-            allItem.style.background = selectedRadarPlayerId === 'all' ? 'rgba(255,255,255,0.06)' : 'transparent';
-            allItem.style.border = selectedRadarPlayerId === 'all' ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent';
-            
-            allItem.innerHTML = `
-                <div style="width: 14px; height: 14px; border-radius: 3px; border: 1.5px solid #9fa6b2; background: ${selectedRadarPlayerId === 'all' ? '#9fa6b2' : 'transparent'}; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; color: #000; font-weight: bold;">
-                    ${selectedRadarPlayerId === 'all' ? '✓' : ''}
-                </div>
-                <span style="font-weight: 600; color: ${selectedRadarPlayerId === 'all' ? '#fff' : 'var(--text-muted)'};">Compare All</span>
-            `;
-            allItem.onclick = () => {
-                selectedRadarPlayerId = 'all';
-                populateRadarPlayerList(configuredPlayers);
-                updateRadarChart();
-            };
-            list.appendChild(allItem);
-            
-            // Add players
-            configuredPlayers.forEach(p => {
-                const color = getPlayerThemeColor(p.steam_id);
-                const isSelected = selectedRadarPlayerId === p.steam_id;
-                const pItem = document.createElement('div');
-                pItem.className = 'radar-player-item';
-                pItem.style.display = 'flex';
-                pItem.style.alignItems = 'center';
-                pItem.style.gap = '10px';
-                pItem.style.padding = '8px 12px';
-                pItem.style.borderRadius = '6px';
-                pItem.style.cursor = 'pointer';
-                pItem.style.transition = 'var(--transition-smooth)';
-                
-                if (isSelected) {
-                    pItem.style.background = 'rgba(' + hexToRgb(color) + ', 0.1)';
-                    pItem.style.border = '1px solid ' + color;
-                    pItem.style.boxShadow = '0 0 10px rgba(' + hexToRgb(color) + ', 0.15)';
-                } else {
-                    pItem.style.background = 'transparent';
-                    pItem.style.border = '1px solid transparent';
-                }
-                
-                pItem.innerHTML = `
-                    <div style="width: 14px; height: 14px; border-radius: 3px; border: 1.5px solid ${color}; background: ${isSelected ? color : 'transparent'}; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; color: #000; font-weight: bold;">
-                        ${isSelected ? '✓' : ''}
-                    </div>
-                    <span style="font-weight: 600; color: ${isSelected ? '#fff' : 'var(--text-muted)'};">${p.username}</span>
-                `;
-                pItem.onclick = () => {
-                    selectedRadarPlayerId = p.steam_id;
-                    populateRadarPlayerList(configuredPlayers);
-                    updateRadarChart();
-                };
-                list.appendChild(pItem);
-            });
-        }
-
         function updateRadarChart(hoveredPlayerSteamId = null) {
             const bData = standingsData[currentBenchmarkId];
             if (!bData) return;
@@ -2297,8 +2565,6 @@
             const ranksList = radarInfo.ranks;
             
             const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
-            const selectedVal = selectedRadarPlayerId;
-            
             const datasets = [];
             
             configuredPlayers.forEach(p => {
@@ -2324,8 +2590,11 @@
                         borderWidth = 1.5;
                         pointRadius = 0;
                     }
-                } else if (selectedVal !== 'all') {
-                    if (selectedVal === sid) {
+                } else {
+                    const isCompareAll = document.getElementById('filter-compare-all')?.checked;
+                    const isSelected = isCompareAll || selectedPlayers.has(sid);
+                    
+                    if (isSelected) {
                         borderOpacity = 1.0;
                         borderWidth = 3.5;
                         pointRadius = 4;
@@ -2335,6 +2604,8 @@
                         borderOpacity = 0.08;
                         borderWidth = 1.5;
                         pointRadius = 0;
+                        bgOpacity = 0.0;
+                        fillVal = false;
                     }
                 }
                 
@@ -2387,82 +2658,46 @@
             
             const canvasEl = document.getElementById('radar-chart');
             if (!canvasEl) return;
-            const ctx = canvasEl.getContext('2d');
             
-            const canUpdateInPlace = radarChart && lastLoadedBenchmarkId === currentBenchmarkId;
-            
-            if (canUpdateInPlace) {
+            if (radarChart && lastLoadedBenchmarkId === currentBenchmarkId) {
                 radarChart.data.labels = activeSubcats;
                 radarChart.data.datasets = datasets;
                 radarChart.options.scales.r.max = ranksList.length;
                 radarChart.options.scales.r.grid.color = gridColors;
                 radarChart.update('none');
             } else {
-                if (radarChart) {
-                    radarChart.destroy();
-                }
-                
+                if (radarChart) radarChart.destroy();
                 lastLoadedBenchmarkId = currentBenchmarkId;
                 
-                radarChart = new Chart(ctx, {
+                radarChart = new Chart(canvasEl.getContext('2d'), {
                     type: 'radar',
-                    data: {
-                        labels: activeSubcats,
-                        datasets: datasets
-                    },
+                    data: { labels: activeSubcats, datasets: datasets },
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
-                        animation: {
-                            duration: 500,
-                            easing: 'easeOutQuart'
+                        scales: {
+                            r: {
+                                angleLines: { color: 'rgba(255, 255, 255, 0.06)' },
+                                grid: { color: gridColors },
+                                ticks: { display: false, stepSize: 1 },
+                                pointLabels: {
+                                    color: '#9fa6b2',
+                                    font: { family: "'Outfit', sans-serif", size: 10, weight: '600' }
+                                },
+                                min: 0,
+                                max: ranksList.length
+                            }
                         },
                         plugins: {
-                            legend: {
-                                display: false
-                            },
+                            legend: { display: false },
                             tooltip: {
                                 callbacks: {
                                     label: function(context) {
-                                        const val = context.raw;
-                                        let rankName = 'Unranked';
-                                        let progressPct = 0;
-                                        if (val >= ranksList.length) {
-                                            rankName = ranksList[ranksList.length - 1];
-                                            progressPct = 100;
-                                        } else if (val >= 1) {
-                                            const rIdx = Math.floor(val) - 1;
-                                            rankName = ranksList[rIdx];
-                                            progressPct = Math.round((val - Math.floor(val)) * 100);
-                                        } else if (val > 0) {
-                                            rankName = 'Unranked';
-                                            progressPct = Math.round(val * 100);
-                                        }
-                                        return `${context.dataset.label}: ${rankName} (+${progressPct}%)`;
-                                    }
-                                }
-                            }
-                        },
-                        scales: {
-                            r: {
-                                min: 0,
-                                max: ranksList.length,
-                                ticks: {
-                                    stepSize: 1,
-                                    display: false
-                                },
-                                grid: {
-                                    color: gridColors
-                                },
-                                angleLines: {
-                                    color: 'rgba(255, 255, 255, 0.05)'
-                                },
-                                pointLabels: {
-                                    color: '#9fa6b2',
-                                    font: {
-                                        family: "'Outfit', sans-serif",
-                                        size: 9,
-                                        weight: '600'
+                                        const rVal = context.raw;
+                                        const rInt = Math.floor(rVal);
+                                        const rFrac = rVal - rInt;
+                                        const rankName = rInt > 0 && rInt <= ranksList.length ? ranksList[rInt - 1] : 'Unranked';
+                                        return `${context.dataset.label}: ${rankName} (+${(rFrac * 100).toFixed(0)}%)`;
                                     }
                                 }
                             }
@@ -2470,7 +2705,6 @@
                     }
                 });
             }
-            syncLayoutHeights();
         }
 
         function getAdminHeaders() {
@@ -2525,7 +2759,7 @@
                 if (modeSelector) modeSelector.style.display = 'inline-flex';
                 if (pollBtn) pollBtn.style.display = 'inline-block';
                 if (simSection) simSection.style.display = 'block';
-                if (playerMgmtSection) playerMgmtSection.style.display = 'block';
+                if (playerMgmtSection) simSection.style.display = 'block';
                 if (webhookSection) webhookSection.style.display = 'block';
             } else {
                 if (lockBadge) {
@@ -3005,6 +3239,20 @@
                 const response = await fetch(isStatic ? `standings.json?_t=${Date.now()}` : '/api/standings');
                 standingsData = await response.json();
                 
+                // Initialize selectedPlayers from localStorage or defaults once standings are loaded
+                const bData = standingsData[currentBenchmarkId];
+                if (bData) {
+                    const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
+                    
+                    // Load filter state
+                    loadFilterState();
+                    
+                    if (selectedPlayers.size === 0) {
+                        configuredPlayers.forEach(p => selectedPlayers.add(p.steam_id));
+                        saveFilterState();
+                    }
+                }
+                
                 // Extract last poll and check interval for countdown
                 let lastPoll = null;
                 let checkInterval = 300;
@@ -3016,11 +3264,10 @@
                 }
                 startCountdown(lastPoll, checkInterval);
                 
-                renderLeaderboard();
-                renderRivalries();
-                renderWeeklyActivity();
-                renderFocusMapsDropdown();
-                renderFocusMaps();
+                // Initial render of all components
+                syncAllComponentsAfterFilterChange();
+                initFilterEvents();
+                
                 updateServerStatus(true);
             } catch (err) {
                 console.error("Error fetching standings:", err);
@@ -3039,7 +3286,14 @@
             
             grid.innerHTML = '';
             
-            const rivalries = (bData.active_rivalries || []).slice(0, 12);
+            const isCompareAll = document.getElementById('filter-compare-all')?.checked;
+            
+            const rivalries = (bData.active_rivalries || []).filter(item => {
+                const chaserSelected = isCompareAll || selectedPlayers.has(item.chaser_sid);
+                const targetSelected = isCompareAll || selectedPlayers.has(item.target_sid);
+                return chaserSelected || targetSelected;
+            }).slice(0, 12);
+            
             if (rivalries.length === 0) {
                 section.style.display = 'none';
                 return;
@@ -3088,7 +3342,7 @@
                 }
 
                 const card = document.createElement('div');
-                card.className = 'glass-panel crown-card rivalry-item';
+                card.className = 'glass-panel crown-card rivalry-item selected-highlight';
                 card.style.padding = '14px 18px';
                 card.style.gap = '14px';
                 
@@ -3165,6 +3419,11 @@
                 item.style.gap = '8px';
                 item.style.padding = '12px';
                 
+                const isCompareAll = document.getElementById('filter-compare-all')?.checked;
+                if (isCompareAll || selectedPlayers.has(p.steam_id)) {
+                    item.classList.add('selected-highlight');
+                }
+                
                 const pct = (p.weekly_pbs / maxPBs) * 100;
                 const daysText = p.active_days > 0 ? `Active ${p.active_days}/7 days` : 'Inactive this week';
                 
@@ -3199,6 +3458,12 @@
             bData.players.forEach((p, idx) => {
                 const row = document.createElement('tr');
                 row.className = 'player-row';
+                
+                // Apply highlight class if leader and selected
+                const isCompareAll = document.getElementById('filter-compare-all')?.checked;
+                if (idx === 0 && (isCompareAll || selectedPlayers.has(p.steam_id))) {
+                    row.classList.add('selected-highlight');
+                }
                 
                 const lowerRankName = p.rank_name.toLowerCase();
                 
@@ -3525,7 +3790,7 @@
                             
                             const thresholdVal = rankMaxes[rIdx];
                             const thresholdHtml = thresholdVal !== undefined && thresholdVal > 0 
-                                ? `<div style="position: absolute; bottom: 3px; right: 6px; font-size: 0.65rem; color: var(--text-muted); opacity: 0.4; pointer-events: none; font-weight: bold;">${thresholdVal}</div>`
+                                ? `<div class="cell-target" style="position: absolute; bottom: 3px; right: 6px; font-size: 0.65rem; color: #ffffff; opacity: 0.8; pointer-events: none; font-weight: bold;">${thresholdVal}</div>`
                                 : '';
                             
                             // Background progress fill up to the leader's score
@@ -3636,9 +3901,17 @@
                                     borderStyle += ' box-shadow: none;';
                                 }
                                 
+                                const isCompareAll = document.getElementById('filter-compare-all')?.checked;
+                                const isSelected = isCompareAll || selectedPlayers.has(p.steam_id);
+                                
                                 let opacityStyle = '';
                                 let filterStyle = '';
-                                if (sVal === 0) {
+                                if (!isSelected) {
+                                    opacityStyle = 'opacity: 0.05;';
+                                    filterStyle = 'filter: grayscale(100%);';
+                                    borderStyle = `border: 1.5px solid rgba(255,255,255,0.1); box-shadow: none;`;
+                                    pulseClass = '';
+                                } else if (sVal === 0) {
                                     opacityStyle = 'opacity: 0.25;';
                                     filterStyle = 'filter: grayscale(100%);';
                                     borderStyle = `border: 1.5px solid rgba(255,255,255,0.2); box-shadow: none;`;
@@ -3649,11 +3922,11 @@
                                 const tooltipText = `${p.username}: ${scoreStr}${isLeader ? ' (Leader 👑)' : ''}${isRecentPB ? ' (New PB! ⚡)' : ''}`;
                                 
                                 pinsHtml += `
-                                    <img src="${avatarUrl}" class="grid-pin ${pulseClass}" 
+                                    <img src="${avatarUrl}" class="grid-pin ${pulseClass}" data-steam-id="${p.steam_id}"
                                          style="position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; ${borderStyle} ${opacityStyle} ${filterStyle} ${delayStyle} z-index: ${5 + pIdx};" 
                                          title="${tooltipText}" 
-                                         onerror="this.onerror=null; this.outerHTML=\`<span class='grid-pin ${pulseClass}' style='position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; width: 26px; height: 26px; border-radius: 50%; background: ${themeColor}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: #fff; ${borderStyle} ${delayStyle} z-index: ${5 + pIdx};'>${p.username.substring(0,2).toUpperCase()}</span>\`;"
-                                         onmouseenter="updateRadarChart('${p.steam_id}')"
+                                         onerror="this.onerror=null; this.outerHTML=\`<span class='grid-pin ${pulseClass}' data-steam-id='${p.steam_id}' style='position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; width: 26px; height: 26px; border-radius: 50%; background: ${themeColor}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: #fff; ${borderStyle} ${delayStyle} z-index: ${5 + pIdx};'>${p.username.substring(0,2).toUpperCase()}</span>\`;"
+                                         ${isSelected ? `onmouseenter="updateRadarChart('${p.steam_id}')"` : ''}
                                          onmouseleave="updateRadarChart(null)">
                                 `;
                             });
@@ -3753,14 +4026,26 @@
                                     borderStyle += ' box-shadow: none;';
                                 }
                                 
+                                const isCompareAll = document.getElementById('filter-compare-all')?.checked;
+                                const isSelected = isCompareAll || selectedPlayers.has(p.steam_id);
+                                
+                                let opacityStyle = '';
+                                let filterStyle = '';
+                                if (!isSelected) {
+                                    opacityStyle = 'opacity: 0.05;';
+                                    filterStyle = 'filter: grayscale(100%);';
+                                    borderStyle = `border: 1.5px solid rgba(255,255,255,0.1); box-shadow: none;`;
+                                    pulseClass = '';
+                                }
+                                
                                 const tooltipText = `${p.username}: ${sVal.toFixed(2)}${isLeader ? ' (Leader 👑)' : ''}${isRecentPB ? ' (New PB! ⚡)' : ''}`;
                                 
                                 pinsHtml += `
-                                    <img src="${avatarUrl}" class="grid-pin ${pulseClass}" 
-                                         style="position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; ${borderStyle} ${delayStyle} z-index: ${5 + pIdx};" 
+                                    <img src="${avatarUrl}" class="grid-pin ${pulseClass}" data-steam-id="${p.steam_id}"
+                                         style="position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; ${borderStyle} ${opacityStyle} ${filterStyle} ${delayStyle} z-index: ${5 + pIdx};" 
                                          title="${tooltipText}" 
-                                         onerror="this.onerror=null; this.outerHTML=\`<span class='grid-pin ${pulseClass}' style='position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; width: 26px; height: 26px; border-radius: 50%; background: ${themeColor}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: #fff; ${borderStyle} ${delayStyle} z-index: ${5 + pIdx};'>${p.username.substring(0,2).toUpperCase()}</span>\`;"
-                                         onmouseenter="updateRadarChart('${p.steam_id}')"
+                                         onerror="this.onerror=null; this.outerHTML=\`<span class='grid-pin ${pulseClass}' data-steam-id='${p.steam_id}' style='position: absolute; left: calc(${pctVal}% - 13px); top: ${topOffset}px; width: 26px; height: 26px; border-radius: 50%; background: ${themeColor}; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: #fff; ${borderStyle} ${delayStyle} z-index: ${5 + pIdx};'>${p.username.substring(0,2).toUpperCase()}</span>\`;"
+                                         ${isSelected ? `onmouseenter="updateRadarChart('${p.steam_id}')"` : ''}
                                          onmouseleave="updateRadarChart(null)">
                                 `;
                             });
@@ -3787,6 +4072,7 @@
             
             // Fetch and render overall progress timeline chart at the top
             fetchOverallHistoryAndRenderChart();
+            setTimeout(drawConnectingLines, 0);
             } catch (err) {
                 console.error("LEADERBOARD_ERROR:", err);
             }
@@ -4474,104 +4760,104 @@
             }
         }
 
-        // Populate player dropdown for Focus Maps
-        function renderFocusMapsDropdown() {
-            const select = document.getElementById('focus-player-select');
-            if (!select) return;
-            
-            const previousSelected = select.value;
-            select.innerHTML = '';
-            
-            if (globalPlayers.length === 0) {
-                const opt = document.createElement('option');
-                opt.value = '';
-                opt.innerText = 'No players';
-                select.appendChild(opt);
-                return;
-            }
-            
-            globalPlayers.forEach(p => {
-                const opt = document.createElement('option');
-                opt.value = p.steam_id;
-                opt.innerText = p.username;
-                select.appendChild(opt);
-            });
-            
-            if (previousSelected && globalPlayers.some(p => p.steam_id === previousSelected)) {
-                select.value = previousSelected;
-            } else if (localStorage.getItem('selected_focus_player') && globalPlayers.some(p => p.steam_id === localStorage.getItem('selected_focus_player'))) {
-                select.value = localStorage.getItem('selected_focus_player');
-            } else {
-                select.value = globalPlayers[0].steam_id;
-            }
-        }
-
         // Render player Focus Maps recommendations
         function renderFocusMaps() {
-            const select = document.getElementById('focus-player-select');
             const list = document.getElementById('focus-maps-list');
-            if (!select || !list) return;
-            
-            const selectedPlayerId = select.value;
-            if (!selectedPlayerId) {
-                list.innerHTML = `<div style="color: var(--text-muted); font-size: 0.85rem; padding: 10px 0; text-align: center;">No player selected.</div>`;
-                return;
-            }
-            
-            localStorage.setItem('selected_focus_player', selectedPlayerId);
+            if (!list) return;
             
             const bData = standingsData[currentBenchmarkId];
             if (!bData || !bData.thresholds || !bData.scores) {
                 list.innerHTML = `<div style="color: var(--text-muted); font-size: 0.85rem; padding: 10px 0; text-align: center;">No benchmark data.</div>`;
                 return;
             }
+
+            const isCompareAll = document.getElementById('filter-compare-all')?.checked;
+            const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
             
-            const recommendations = [];
-            bData.scenarios.forEach(scenName => {
-                const pScores = bData.scores[scenName] || {};
-                const score = pScores[selectedPlayerId] || 0.0;
+            // Filter target players to display focus maps for
+            const targetPlayers = isCompareAll 
+                ? configuredPlayers 
+                : configuredPlayers.filter(p => selectedPlayers.has(p.steam_id));
                 
-                const thresholds = bData.thresholds[scenName];
-                const maxThreshold = (thresholds && thresholds.length > 0) ? thresholds[thresholds.length - 1] : 1.0;
-                
-                const pct = maxThreshold > 0 ? Math.min(100.0, (score / maxThreshold) * 100.0) : 0.0;
-                
-                recommendations.push({
-                    scenarioName: scenName,
-                    score: score,
-                    maxThreshold: maxThreshold,
-                    pct: pct
-                });
-            });
-            
-            recommendations.sort((a, b) => a.pct - b.pct);
-            const top3 = recommendations.slice(0, 3);
-            
             list.innerHTML = '';
-            top3.forEach(item => {
-                const playUrl = isStatic ? `https://matthewgutz.github.io/kovaaks-play/?scenario=${encodeURIComponent(item.scenarioName)}` : `/play?scenario=${encodeURIComponent(item.scenarioName)}`;
-                const card = document.createElement('div');
-                card.className = 'player-config-item';
-                card.style.background = 'rgba(255, 255, 255, 0.02)';
-                card.style.border = '1px solid rgba(255, 255, 255, 0.05)';
-                card.style.borderRadius = '8px';
-                card.style.padding = '10px 12px';
+            
+            if (targetPlayers.length === 0) {
+                list.innerHTML = `<div style="color: var(--text-muted); font-size: 0.85rem; padding: 10px 0; text-align: center;">No active players selected.</div>`;
+                return;
+            }
+            
+            targetPlayers.forEach((player, pIdx) => {
+                const selectedPlayerId = player.steam_id;
+                const playerColor = getPlayerThemeColor(selectedPlayerId);
+                const playerUsername = player.username.replace('@', '');
+                const playerAvatarUrl = `avatars/${playerUsername}.png`;
                 
-                const pctColor = getPlayerThemeColor(selectedPlayerId);
+                // Render Player Header Block
+                const headerDiv = document.createElement('div');
+                headerDiv.style.display = 'flex';
+                headerDiv.style.alignItems = 'center';
+                headerDiv.style.gap = '8px';
+                headerDiv.style.marginTop = pIdx > 0 ? '16px' : '0px';
+                headerDiv.style.marginBottom = '8px';
                 
-                card.innerHTML = `
-                    <div class="player-config-info" style="flex: 1; min-width: 0;">
-                        <span class="player-config-name" style="color: #fff; font-size: 0.85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600;" title="${item.scenarioName}">${getAimCategoryIcon(item.scenarioName)} ${item.scenarioName}</span>
-                        <div style="display: flex; align-items: center; gap: 8px; margin-top: 4px;">
-                            <span style="font-size: 0.75rem; color: ${pctColor}; font-weight: bold;">${item.pct.toFixed(1)}% complete</span>
-                            <span style="font-size: 0.7rem; color: var(--text-muted);">(${item.score.toFixed(1)} / ${item.maxThreshold.toFixed(1)})</span>
-                        </div>
-                    </div>
-                    <a href="${playUrl}" style="background: rgba(0, 255, 136, 0.1); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 4px; padding: 6px 10px; color: #00ff88; font-size: 0.75rem; font-weight: bold; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px; transition: var(--transition-smooth);" onmouseenter="this.style.background='#00ff88'; this.style.color='#000';" onmouseleave="this.style.background='rgba(0, 255, 136, 0.1)'; this.style.color='#00ff88';">
-                        <span>▶</span> Play
-                    </a>
+                headerDiv.innerHTML = `
+                    <img src="${playerAvatarUrl}" style="width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid ${playerColor}; object-fit: cover;" onerror="this.onerror=null; this.outerHTML=\`<span style='width: 24px; height: 24px; border-radius: 50%; background: ${playerColor}; display: inline-block;'></span>\`;">
+                    <span style="font-weight: 700; font-size: 0.85rem; color: #fff;">${player.username}'s Focus Maps</span>
                 `;
-                list.appendChild(card);
+                list.appendChild(headerDiv);
+                
+                const recommendations = [];
+                bData.scenarios.forEach(scenName => {
+                    const pScores = bData.scores[scenName] || {};
+                    const score = pScores[selectedPlayerId] || 0.0;
+                    
+                    const thresholds = bData.thresholds[scenName];
+                    const maxThreshold = (thresholds && thresholds.length > 0) ? thresholds[thresholds.length - 1] : 1.0;
+                    
+                    const pct = maxThreshold > 0 ? Math.min(100.0, (score / maxThreshold) * 100.0) : 0.0;
+                    
+                    recommendations.push({
+                        scenarioName: scenName,
+                        score: score,
+                        maxThreshold: maxThreshold,
+                        pct: pct
+                    });
+                });
+                
+                recommendations.sort((a, b) => a.pct - b.pct);
+                const top3 = recommendations.slice(0, 3);
+                
+                top3.forEach(item => {
+                    const playUrl = isStatic ? `https://matthewgutz.github.io/kovaaks-play/?scenario=${encodeURIComponent(item.scenarioName)}` : `/play?scenario=${encodeURIComponent(item.scenarioName)}`;
+                    const card = document.createElement('div');
+                    card.className = 'player-config-item';
+                    card.style.background = 'rgba(255, 255, 255, 0.02)';
+                    card.style.border = '1px solid rgba(255, 255, 255, 0.05)';
+                    card.style.borderRadius = '8px';
+                    card.style.padding = '10px 12px';
+                    
+                    card.innerHTML = `
+                        <div class="player-config-info" style="flex: 1; min-width: 0;">
+                            <span class="player-config-name" style="color: #fff; font-size: 0.85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600;" title="${item.scenarioName}">${getAimCategoryIcon(item.scenarioName)} ${item.scenarioName}</span>
+                            <div style="display: flex; align-items: center; gap: 8px; margin-top: 4px;">
+                                <span style="font-size: 0.75rem; color: ${playerColor}; font-weight: bold;">${item.pct.toFixed(1)}% complete</span>
+                                <span style="font-size: 0.7rem; color: var(--text-muted);">(${item.score.toFixed(1)} / ${item.maxThreshold.toFixed(1)})</span>
+                            </div>
+                        </div>
+                        <a href="${playUrl}" style="background: rgba(0, 255, 136, 0.1); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 4px; padding: 6px 10px; color: #00ff88; font-size: 0.75rem; font-weight: bold; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px; transition: var(--transition-smooth);" onmouseenter="this.style.background='#00ff88'; this.style.color='#000';" onmouseleave="this.style.background='rgba(0, 255, 136, 0.1)'; this.style.color='#00ff88';">
+                            <span>▶</span> Play
+                        </a>
+                    `;
+                    list.appendChild(card);
+                });
+                
+                // Add separator divider
+                if (pIdx < targetPlayers.length - 1) {
+                    const divider = document.createElement('div');
+                    divider.style.borderTop = '1px dashed rgba(255, 255, 255, 0.15)';
+                    divider.style.margin = '16px 0 8px 0';
+                    list.appendChild(divider);
+                }
             });
         }
 
@@ -4597,6 +4883,7 @@
                 if (aside) aside.style.display = '';
                 if (main) main.style.gridColumn = '';
                 setTimeout(syncLayoutHeights, 100);
+                setTimeout(drawConnectingLines, 150);
             } else {
                 document.getElementById('leaderboard-view').style.display = 'none';
                 document.getElementById('history-view').style.display = 'flex';
@@ -4738,7 +5025,10 @@
                 }
             }
         }
-        window.addEventListener('resize', syncLayoutHeights);
+        window.addEventListener('resize', () => {
+            syncLayoutHeights();
+            drawConnectingLines();
+        });
         
         function renderOverallProgressChart(historyData) {
             const canvas = document.getElementById('timeline-chart');
@@ -4875,17 +5165,30 @@
                     });
                 }
 
+                const isCompareAll = document.getElementById('filter-compare-all')?.checked;
+                const isSelected = isCompareAll || selectedPlayers.has(sid);
                 const color = getPlayerThemeColor(sid);
+                
+                let lineColor;
+                let lineWidth;
+                if (isSelected) {
+                    lineColor = color;
+                    lineWidth = 2.5;
+                } else {
+                    lineColor = getGrayscaleColor(color, 0.08);
+                    lineWidth = 1.0;
+                }
+
                 datasets.push({
                     label: p.username,
                     steamId: sid,
                     data: series,
-                    borderColor: color,
-                    backgroundColor: color + '10',
-                    borderWidth: 2.5,
+                    borderColor: lineColor,
+                    backgroundColor: lineColor + '10',
+                    borderWidth: lineWidth,
                     tension: 0, // linear line rendering
                     pointRadius: 0,
-                    pointHoverRadius: 4,
+                    pointHoverRadius: isSelected ? 4 : 0,
                     fill: false
                 });
             });
