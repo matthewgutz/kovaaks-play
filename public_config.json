@@ -3,32 +3,38 @@
     {
       "steam_id": "76561198017954362",
       "discord_username": "@BakaOppai",
-      "discord_id": ""
+      "discord_id": "",
+      "color": "#00f5d4"
     },
     {
       "steam_id": "76561198348625808",
       "discord_username": "@Christine",
-      "discord_id": ""
+      "discord_id": "",
+      "color": "#f72585"
     },
     {
       "steam_id": "76561199164422123",
       "discord_username": "@Olioli",
-      "discord_id": ""
+      "discord_id": "",
+      "color": "#ff9800"
     },
     {
       "steam_id": "76561198033879793",
       "discord_username": "@CoachCam",
-      "discord_id": ""
+      "discord_id": "",
+      "color": "#00a8fc"
     },
     {
       "steam_id": "76561198046477600",
       "discord_username": "@Laggiing",
-      "discord_id": ""
+      "discord_id": "",
+      "color": "#7209b7"
     },
     {
       "steam_id": "76561198995689034",
       "discord_username": "@Haruno",
-      "discord_id": ""
+      "discord_id": "",
+      "color": "#4caf50"
     }
   ],
   "use_mock_data": false,
