@@ -310,7 +310,7 @@
         "76561198046477600": 2843.97,
         "76561198995689034": 2630.38,
         "76561198017954362": 1763.18,
-        "76561198348625808": 1795.33
+        "76561198348625808": 1798.92
       },
       "Air CELESTIAL No UFO Easy Slowed": {
         "76561199164422123": 791.6,
@@ -324,7 +324,7 @@
         "76561199164422123": 72.74,
         "76561198995689034": 63.3,
         "76561198017954362": 25.4,
-        "76561198348625808": 25.9,
+        "76561198348625808": 25.98,
         "76561198033879793": 24.47,
         "76561198046477600": 24.43
       }
@@ -600,7 +600,7 @@
         "76561198046477600": "2026-05-24 19:34:11",
         "76561198995689034": "2026-05-24 19:34:11",
         "76561198017954362": "2026-05-24 20:03:56",
-        "76561198348625808": "2026-05-24 20:16:34"
+        "76561198348625808": "2026-05-24 21:19:42"
       },
       "Air CELESTIAL No UFO Easy Slowed": {
         "76561199164422123": "2026-05-24 21:10:14",
@@ -614,7 +614,7 @@
         "76561199164422123": "2026-05-24 19:34:11",
         "76561198995689034": "2026-05-24 19:34:11",
         "76561198017954362": "2026-05-24 20:10:15",
-        "76561198348625808": "2026-05-24 20:19:44",
+        "76561198348625808": "2026-05-24 21:19:42",
         "76561198033879793": "2026-05-24 21:13:24",
         "76561198046477600": "2026-05-24 20:48:08"
       }
@@ -734,14 +734,14 @@
         "steam_id": "76561198348625808",
         "username": "@Christine",
         "discord_id": "",
-        "rank_idx": 7,
-        "rank_name": "Orca",
+        "rank_idx": 5,
+        "rank_name": "Fox",
         "crown_count": 17,
         "completed_count": 36,
         "points": 78.14,
         "has_streak": true,
-        "weekly_pbs": 122,
-        "total_pbs": 214,
+        "weekly_pbs": 124,
+        "total_pbs": 216,
         "active_days": 3,
         "position_change": 1
       },
@@ -764,8 +764,8 @@
         "steam_id": "76561199164422123",
         "username": "@Olioli",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Fox",
+        "rank_idx": 4,
+        "rank_name": "Penguin",
         "crown_count": 4,
         "completed_count": 36,
         "points": 69.13,
@@ -779,8 +779,8 @@
         "steam_id": "76561198046477600",
         "username": "@Laggiing",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Fox",
+        "rank_idx": 3,
+        "rank_name": "Ermine",
         "crown_count": 3,
         "completed_count": 36,
         "points": 67.79,
@@ -794,8 +794,8 @@
         "steam_id": "76561198033879793",
         "username": "@CoachCam",
         "discord_id": "",
-        "rank_idx": 5,
-        "rank_name": "Fox",
+        "rank_idx": 4,
+        "rank_name": "Penguin",
         "crown_count": 3,
         "completed_count": 36,
         "points": 63.72,
@@ -809,8 +809,8 @@
         "steam_id": "76561198995689034",
         "username": "@Haruno",
         "discord_id": "",
-        "rank_idx": 4,
-        "rank_name": "Penguin",
+        "rank_idx": 5,
+        "rank_name": "Fox",
         "crown_count": 1,
         "completed_count": 36,
         "points": 65.54,
@@ -7195,7 +7195,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779657399.796457,
+    "last_poll": 1779657589.168833,
     "check_interval": 180
   },
   "687": {
@@ -7457,7 +7457,7 @@
       },
       "Air CELESTIAL No UFO Easy": {
         "76561198348625808": 822.61,
-        "76561199164422123": 796.04,
+        "76561199164422123": 799.5,
         "76561198046477600": 774.92,
         "76561198017954362": 804.21,
         "76561198033879793": 782.38,
@@ -7517,7 +7517,7 @@
         "76561198046477600": 1122.62,
         "76561198995689034": 1242.07,
         "76561198017954362": 871.98,
-        "76561198348625808": 882.89
+        "76561198348625808": 899.19
       },
       "Air Voltaic Easy Invincible 4": {
         "76561198033879793": 3526.55,
@@ -7747,7 +7747,7 @@
       },
       "Air CELESTIAL No UFO Easy": {
         "76561198348625808": "2026-05-24 20:29:15",
-        "76561199164422123": "2026-05-24 21:16:36",
+        "76561199164422123": "2026-05-24 21:19:45",
         "76561198046477600": "2026-05-24 20:48:11",
         "76561198017954362": "2026-05-24 19:51:21",
         "76561198033879793": "2026-05-24 21:00:49",
@@ -7807,7 +7807,7 @@
         "76561198046477600": "2026-05-24 19:34:11",
         "76561198995689034": "2026-05-24 19:34:11",
         "76561198017954362": "2026-05-24 19:57:40",
-        "76561198348625808": "2026-05-24 20:22:56"
+        "76561198348625808": "2026-05-24 21:19:45"
       },
       "Air Voltaic Easy Invincible 4": {
         "76561198033879793": "2026-05-24 19:34:11",
@@ -7937,10 +7937,10 @@
         "rank_name": "Lavender",
         "crown_count": 20,
         "completed_count": 36,
-        "points": 78.41,
+        "points": 78.44,
         "has_streak": true,
-        "weekly_pbs": 134,
-        "total_pbs": 239,
+        "weekly_pbs": 135,
+        "total_pbs": 240,
         "active_days": 3,
         "position_change": 0
       },
@@ -7963,14 +7963,14 @@
         "steam_id": "76561199164422123",
         "username": "@Olioli",
         "discord_id": "",
-        "rank_idx": 6,
-        "rank_name": "Lavender",
+        "rank_idx": 4,
+        "rank_name": "Celadon",
         "crown_count": 5,
         "completed_count": 36,
-        "points": 72.83,
+        "points": 72.84,
         "has_streak": true,
-        "weekly_pbs": 133,
-        "total_pbs": 227,
+        "weekly_pbs": 134,
+        "total_pbs": 228,
         "active_days": 3,
         "position_change": 1
       },
@@ -7978,8 +7978,8 @@
         "steam_id": "76561198033879793",
         "username": "@CoachCam",
         "discord_id": "",
-        "rank_idx": 6,
-        "rank_name": "Lavender",
+        "rank_idx": 4,
+        "rank_name": "Celadon",
         "crown_count": 4,
         "completed_count": 36,
         "points": 66.64,
@@ -7993,8 +7993,8 @@
         "steam_id": "76561198995689034",
         "username": "@Haruno",
         "discord_id": "",
-        "rank_idx": 3,
-        "rank_name": "Saffron",
+        "rank_idx": 5,
+        "rank_name": "Cerulean",
         "crown_count": 1,
         "completed_count": 36,
         "points": 63.93,
@@ -8008,8 +8008,8 @@
         "steam_id": "76561198046477600",
         "username": "@Laggiing",
         "discord_id": "",
-        "rank_idx": 3,
-        "rank_name": "Saffron",
+        "rank_idx": 5,
+        "rank_name": "Cerulean",
         "crown_count": 0,
         "completed_count": 36,
         "points": 63.25,
@@ -14300,7 +14300,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779657399.809122,
+    "last_poll": 1779657589.181955,
     "check_interval": 180
   },
   "688": {
@@ -14409,8 +14409,8 @@
         "76561198046477600": 8052.64
       },
       "Air CELESTIAL": {
-        "76561198017954362": 839.7,
-        "76561199164422123": 836.49,
+        "76561198017954362": 843.86,
+        "76561199164422123": 839.51,
         "76561198033879793": 823.04,
         "76561198046477600": 814.66,
         "76561198995689034": 804.56,
@@ -14619,7 +14619,7 @@
       "VoxTargetSwitch Click Small": {
         "76561198348625808": 102.55,
         "76561199164422123": 99.53,
-        "76561198995689034": 82.8,
+        "76561198995689034": 83.05,
         "76561198017954362": 87.95,
         "76561198033879793": 84.13,
         "76561198046477600": 84.54
@@ -14699,8 +14699,8 @@
         "76561198046477600": "2026-05-24 20:35:37"
       },
       "Air CELESTIAL": {
-        "76561198017954362": "2026-05-24 20:29:18",
-        "76561199164422123": "2026-05-24 19:51:24",
+        "76561198017954362": "2026-05-24 21:19:49",
+        "76561199164422123": "2026-05-24 21:19:49",
         "76561198033879793": "2026-05-24 20:19:50",
         "76561198046477600": "2026-05-24 20:45:05",
         "76561198995689034": "2026-05-24 20:04:02",
@@ -14909,7 +14909,7 @@
       "VoxTargetSwitch Click Small": {
         "76561198348625808": "2026-05-24 19:34:11",
         "76561199164422123": "2026-05-24 19:34:11",
-        "76561198995689034": "2026-05-24 21:16:39",
+        "76561198995689034": "2026-05-24 21:19:49",
         "76561198017954362": "2026-05-24 20:13:31",
         "76561198033879793": "2026-05-08 19:34:11",
         "76561198046477600": "2026-05-24 20:13:31"
@@ -15038,8 +15038,8 @@
         "steam_id": "76561198348625808",
         "username": "@Christine",
         "discord_id": "",
-        "rank_idx": 6,
-        "rank_name": "Silk",
+        "rank_idx": 5,
+        "rank_name": "Satin",
         "crown_count": 19,
         "completed_count": 36,
         "points": 80.45,
@@ -15053,14 +15053,14 @@
         "steam_id": "76561198017954362",
         "username": "@BakaOppai",
         "discord_id": "",
-        "rank_idx": 7,
-        "rank_name": "Unranked",
+        "rank_idx": 6,
+        "rank_name": "Silk",
         "crown_count": 8,
         "completed_count": 36,
-        "points": 78.51,
+        "points": 78.52,
         "has_streak": true,
-        "weekly_pbs": 191,
-        "total_pbs": 283,
+        "weekly_pbs": 192,
+        "total_pbs": 284,
         "active_days": 3,
         "position_change": -1
       },
@@ -15068,8 +15068,8 @@
         "steam_id": "76561198046477600",
         "username": "@Laggiing",
         "discord_id": "",
-        "rank_idx": 4,
-        "rank_name": "Chiffon",
+        "rank_idx": 5,
+        "rank_name": "Satin",
         "crown_count": 5,
         "completed_count": 36,
         "points": 74.94,
@@ -15083,14 +15083,14 @@
         "steam_id": "76561199164422123",
         "username": "@Olioli",
         "discord_id": "",
-        "rank_idx": 6,
-        "rank_name": "Silk",
+        "rank_idx": 5,
+        "rank_name": "Satin",
         "crown_count": 2,
         "completed_count": 36,
-        "points": 77.27,
+        "points": 77.28,
         "has_streak": true,
-        "weekly_pbs": 184,
-        "total_pbs": 271,
+        "weekly_pbs": 185,
+        "total_pbs": 272,
         "active_days": 3,
         "position_change": -1
       },
@@ -15117,10 +15117,10 @@
         "rank_name": "Velvet",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 72.83,
+        "points": 72.84,
         "has_streak": true,
-        "weekly_pbs": 132,
-        "total_pbs": 227,
+        "weekly_pbs": 133,
+        "total_pbs": 228,
         "active_days": 3,
         "position_change": 0
       }
@@ -22515,7 +22515,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779657399.822747,
+    "last_poll": 1779657589.196675,
     "check_interval": 180
   }
 }
