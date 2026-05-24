@@ -1,32 +1,32 @@
 [
   {
-    "benchmark_id": "686",
-    "benchmark_name": "Easier",
-    "scenario_name": "Leaptrack Goated 60% Larger",
-    "update_count": 5
+    "benchmark_id": "687",
+    "benchmark_name": "Medium",
+    "scenario_name": "Pokeball Frenzy Auto TE Wide",
+    "update_count": 23
   },
   {
     "benchmark_id": "687",
     "benchmark_name": "Medium",
-    "scenario_name": "WhisphereRawControl",
-    "update_count": 5
+    "scenario_name": "voxTargetSwitch 2",
+    "update_count": 22
   },
   {
-    "benchmark_id": "686",
-    "benchmark_name": "Easier",
-    "scenario_name": "Air CELESTIAL No UFO Easy Slowed",
-    "update_count": 4
+    "benchmark_id": "687",
+    "benchmark_name": "Medium",
+    "scenario_name": "1w2ts Pasu Perfected",
+    "update_count": 21
   },
   {
-    "benchmark_id": "686",
-    "benchmark_name": "Easier",
-    "scenario_name": "Controlsphere rAim Easy 90%",
-    "update_count": 4
+    "benchmark_id": "687",
+    "benchmark_name": "Medium",
+    "scenario_name": "FloatTS Angelic Easy",
+    "update_count": 21
   },
   {
-    "benchmark_id": "686",
-    "benchmark_name": "Easier",
-    "scenario_name": "Air Angelic 4 Voltaic Easy 80% (Good Version)",
-    "update_count": 3
+    "benchmark_id": "687",
+    "benchmark_name": "Medium",
+    "scenario_name": "PGTI Voltaic Easy",
+    "update_count": 21
   }
 ]
