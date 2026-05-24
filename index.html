@@ -119,6 +119,7 @@
         #grid-table {
             table-layout: fixed;
             width: 100%;
+            min-width: 1100px;
         }
         @keyframes pb-glow-pulse {
             0% {
@@ -3690,15 +3691,15 @@
             const ranksList = benchmarkRanks[currentBenchmarkId] || [];
 
             // Calculate equal width for each rank
-            const rankColWidth = (57.0 / ranksList.length).toFixed(2) + '%';
+            const rankColWidth = (54.5 / ranksList.length).toFixed(2) + '%';
 
             // Grid header
             const headerRow = document.createElement('tr');
             headerRow.innerHTML = `
-                <th style="width: 1.5%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted); writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 2px; height: 60px; min-width: 32px;">Cat</th>
-                <th style="width: 2.0%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted); writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 2px; height: 60px; min-width: 36px;">Sub</th>
-                <th style="width: 27.5%; text-align: left; font-size: 0.9rem; letter-spacing: 0.5px; min-width: 230px;">Scenario</th>
-                <th style="width: 7%; text-align: center; font-size: 0.85rem; letter-spacing: 0.5px; color: var(--accent-gold); min-width: 90px;">Best Score</th>
+                <th style="width: 3.0%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted); writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 2px; height: 60px; min-width: 32px;">Cat</th>
+                <th style="width: 3.5%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted); writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 2px; height: 60px; min-width: 36px;">Sub</th>
+                <th style="width: 25.0%; text-align: left; font-size: 0.9rem; letter-spacing: 0.5px; min-width: 230px;">Scenario</th>
+                <th style="width: 9.0%; text-align: center; font-size: 0.85rem; letter-spacing: 0.5px; color: var(--accent-gold); min-width: 90px;">Best Score</th>
             `;
             
             ranksList.forEach(r => {
