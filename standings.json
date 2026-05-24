@@ -216,7 +216,7 @@
         "76561198129757659": 0.0,
         "76561198045952875": 0.0,
         "76561198017954362": 3022.0,
-        "76561198348625808": 1412.0,
+        "76561198348625808": 1562.0,
         "76561199164422123": 1984.0,
         "76561198033879793": 1907.0,
         "76561198046477600": 2556.0,
@@ -724,10 +724,10 @@
         "rank_name": "Lemming",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 48.85,
+        "points": 48.99,
         "has_streak": true,
-        "weekly_pbs": 43,
-        "total_pbs": 43,
+        "weekly_pbs": 44,
+        "total_pbs": 44,
         "active_days": 2,
         "position_change": 0
       },
@@ -1153,9 +1153,15 @@
         "winner_sid": "76561198348625808",
         "loser_sid": "76561198033879793",
         "timestamp": "2026-05-24 04:40:08"
+      },
+      {
+        "scenario_name": "Air Voltaic Invincible 7 Easy 80%",
+        "winner_sid": "76561198348625808",
+        "loser_sid": "76561198995689034",
+        "timestamp": "2026-05-24 04:54:01"
       }
     ],
-    "last_poll": 1779598251.110253,
+    "last_poll": 1779598461.259782,
     "check_interval": 180
   },
   "687": {
@@ -2307,7 +2313,7 @@
       "voxTargetClick 20% Small": "Linear"
     },
     "recent_overtakes": [],
-    "last_poll": 1779598251.118126,
+    "last_poll": 1779598461.265175,
     "check_interval": 180
   },
   "688": {
@@ -3325,7 +3331,7 @@
       "VoxTargetSwitch Click Small": "Linear"
     },
     "recent_overtakes": [],
-    "last_poll": 1779598251.123917,
+    "last_poll": 1779598461.270808,
     "check_interval": 180
   }
 }
