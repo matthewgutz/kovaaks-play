@@ -84,10 +84,12 @@
 
         @media (min-width: 1024px) {
             .app-container {
-                grid-template-columns: 3fr 1.3fr;
+                grid-template-columns: 3fr 1.3fr 170px;
+                max-width: 1920px;
+                width: 98%;
             }
             .header-full {
-                grid-column: span 2;
+                grid-column: span 3;
             }
             main {
                 grid-column: 1;
@@ -97,6 +99,20 @@
                 grid-column: 2;
                 grid-row: 2;
             }
+            .filter-column {
+                grid-column: 3;
+                grid-row: 2;
+                display: block;
+            }
+        }
+        .filter-column {
+            width: 100%;
+        }
+        .sticky-filter-panel {
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            padding: 12px 10px !important;
         }
 
 
@@ -1418,11 +1434,11 @@
             height: 500% !important;
             background: conic-gradient(
                 from 0deg,
-                transparent 0deg,
-                transparent 140deg,
+                rgba(255, 209, 102, 0.25) 0deg,
+                rgba(255, 209, 102, 0.25) 140deg,
                 var(--accent-gold) 180deg,
-                transparent 220deg,
-                transparent 360deg
+                rgba(255, 209, 102, 0.25) 220deg,
+                rgba(255, 209, 102, 0.25) 360deg
             ) !important;
             animation: spin 4s linear infinite !important;
             z-index: -2 !important;
@@ -1432,7 +1448,7 @@
         .selected-highlight::after {
             content: '' !important;
             position: absolute !important;
-            inset: 1px !important;
+            inset: 2px !important;
             background: var(--bg-surface-solid) !important;
             border-radius: inherit !important;
             z-index: -1 !important;
@@ -1599,20 +1615,7 @@
         <!-- Sidebar Area (Rendered on Left on Desktop) -->
         <aside style="display: flex; flex-direction: column; gap: 30px;">
             
-            <!-- Sticky Unified Player Filter Widget -->
-            <section class="glass-panel sidebar-panel sticky-filter-panel" id="player-filter-section" style="border-color: rgba(0, 245, 212, 0.3);">
-                <h2 class="panel-title" style="margin: 0 0 10px 0; font-size: 1.1rem; border-bottom: none; padding-bottom: 0; display: flex; align-items: center; gap: 8px;">👥 Player Filter</h2>
-                <div style="display: flex; flex-direction: column; gap: 8px;">
-                    <label class="filter-checkbox-label" style="font-weight: 600; color: #fff;">
-                        <input type="checkbox" id="filter-compare-all" checked>
-                        Compare All
-                    </label>
-                    <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); margin: 2px 0;"></div>
-                    <div id="filter-players-list" style="display: flex; flex-direction: column; gap: 8px; max-height: 180px; overflow-y: auto; padding-right: 4px; scrollbar-width: thin;">
-                        <!-- Checkboxes populated dynamically -->
-                    </div>
-                </div>
-            </section>
+
 
             <!-- Subcategory Performance Radar Chart Panel -->
             <section class="glass-panel sidebar-panel" id="radar-chart-section" style="padding: 24px; display: flex; flex-direction: column; gap: 16px;">
@@ -1776,6 +1779,23 @@
             </section>
 
         </aside>
+
+        <div class="filter-column">
+            <!-- Sticky Unified Player Filter Widget -->
+            <section class="glass-panel sidebar-panel sticky-filter-panel" id="player-filter-section" style="border-color: rgba(0, 245, 212, 0.3);">
+                <h2 class="panel-title" style="margin: 0 0 10px 0; font-size: 1.1rem; border-bottom: none; padding-bottom: 0; display: flex; align-items: center; gap: 8px;">👥 Player Filter</h2>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <label class="filter-checkbox-label" style="font-weight: 600; color: #fff;">
+                        <input type="checkbox" id="filter-compare-all" checked>
+                        Compare All
+                    </label>
+                    <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); margin: 2px 0;"></div>
+                    <div id="filter-players-list" style="display: flex; flex-direction: column; gap: 8px; overflow-y: auto; padding-right: 4px; scrollbar-width: thin;">
+                        <!-- Checkboxes populated dynamically -->
+                    </div>
+                </div>
+            </section>
+        </div>
 
     </div>
 
@@ -2618,8 +2638,8 @@
                     pointBackgroundColor: `rgba(${hexToRgb(color)}, ${borderOpacity})`,
                     pointBorderColor: '#121214',
                     pointHoverBackgroundColor: color,
-                    pointRadius: 0,
-                    pointHoverRadius: 0,
+                    pointRadius: pointRadius,
+                    pointHoverRadius: pointRadius > 0 ? pointRadius + 2 : 0,
                     tension: 0.15,
                     fill: fillVal
                 });
@@ -3061,7 +3081,6 @@
             renderLeaderboard();
             renderRivalries();
             renderWeeklyActivity();
-            renderFocusMapsDropdown();
             renderFocusMaps();
         }
 
@@ -3087,7 +3106,6 @@
                 }));
 
                 renderPlayerSettings();
-                renderFocusMapsDropdown();
                 renderFocusMaps();
                 updateServerStatus(true);
             } catch (err) {
@@ -3459,9 +3477,9 @@
                 const row = document.createElement('tr');
                 row.className = 'player-row';
                 
-                // Apply highlight class if leader and selected
+                // Apply highlight class if player is selected
                 const isCompareAll = document.getElementById('filter-compare-all')?.checked;
-                if (idx === 0 && (isCompareAll || selectedPlayers.has(p.steam_id))) {
+                if (isCompareAll || selectedPlayers.has(p.steam_id)) {
                     row.classList.add('selected-highlight');
                 }
                 
@@ -3542,8 +3560,7 @@
                 });
             }
 
-            // Radar player checklist population
-            populateRadarPlayerList(configuredPlayers);
+            // Update Radar Chart
             updateRadarChart();
 
             // Benchmark ranks configuration
@@ -5178,13 +5195,14 @@
                     lineColor = getGrayscaleColor(color, 0.08);
                     lineWidth = 1.0;
                 }
+                const bgColor = isSelected ? color + '10' : 'transparent';
 
                 datasets.push({
                     label: p.username,
                     steamId: sid,
                     data: series,
                     borderColor: lineColor,
-                    backgroundColor: lineColor + '10',
+                    backgroundColor: bgColor,
                     borderWidth: lineWidth,
                     tension: 0, // linear line rendering
                     pointRadius: 0,
