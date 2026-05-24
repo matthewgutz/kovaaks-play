@@ -73,6 +73,7 @@
         }
 
         /* Layout */
+        /* Default: Tier 1 - Stacked Mobile Layout (< 1200px) */
         .app-container {
             max-width: 1800px;
             width: 96%;
@@ -83,30 +84,66 @@
             gap: 30px;
         }
 
-        @media (min-width: 1800px) {
-            .app-container {
-                grid-template-columns: 3fr 1.3fr 170px;
-                max-width: 1920px;
-                width: 98%;
-            }
-            .header-full {
-                grid-column: span 3;
-            }
-            main {
-                grid-column: 1;
-                grid-row: 2;
-                min-width: 0;
-            }
-            aside {
-                grid-column: 2;
-                grid-row: 2;
-                min-width: 0;
-            }
-            .filter-column {
-                grid-column: 3;
-                grid-row: 2;
-                display: block;
-            }
+        .app-container > main,
+        .app-container > aside,
+        .app-container > .filter-column {
+            min-width: 0;
+        }
+
+        /* Tier 2: Medium Desktop Layout (1200px - 1799px) */
+        .app-container.layout-2-col {
+            grid-template-columns: 2.5fr 1.2fr;
+            max-width: 1500px;
+            width: 98%;
+        }
+        .app-container.layout-2-col .header-full {
+            grid-column: span 2;
+        }
+        .app-container.layout-2-col main {
+            grid-column: 1;
+            grid-row: 2 / span 2;
+        }
+        .app-container.layout-2-col .filter-column {
+            grid-column: 2;
+            grid-row: 2;
+            display: block;
+        }
+        .app-container.layout-2-col .sticky-filter-panel {
+            position: static !important;
+            padding: 12px 10px !important;
+        }
+        .app-container.layout-2-col aside {
+            grid-column: 2;
+            grid-row: 3;
+        }
+
+        /* Tier 3: Wide Desktop Layout (>= 1800px) */
+        .app-container.layout-3-col {
+            grid-template-columns: 3fr 1.3fr 170px;
+            max-width: 1920px;
+            width: 98%;
+        }
+        .app-container.layout-3-col .header-full {
+            grid-column: span 3;
+        }
+        .app-container.layout-3-col main {
+            grid-column: 1;
+            grid-row: 2;
+        }
+        .app-container.layout-3-col aside {
+            grid-column: 2;
+            grid-row: 2;
+        }
+        .app-container.layout-3-col .filter-column {
+            grid-column: 3;
+            grid-row: 2;
+            display: block;
+        }
+        .app-container.layout-3-col .sticky-filter-panel {
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            padding: 12px 10px !important;
         }
         .filter-column {
             width: 100%;
@@ -122,7 +159,7 @@
         #grid-table {
             table-layout: fixed;
             width: 100%;
-            min-width: 1100px;
+            min-width: 950px;
         }
         @keyframes pb-glow-pulse {
             0% {
@@ -1551,60 +1588,60 @@
             text-align: left !important;
         }
 
-        @media (max-width: 1799px) {
-            main, aside, .filter-column {
-                display: contents !important;
-            }
-            #leaderboard-view {
-                display: contents !important;
-            }
-            
-            /* Order definitions on mobile grid */
-            .header-full {
-                order: 1 !important;
-            }
-            #player-filter-section {
-                order: 2 !important;
-            }
-            #timeline-section {
-                order: 3 !important;
-            }
-            #radar-chart-section {
-                order: 4 !important;
-            }
-            #grid-section {
-                order: 5 !important;
-            }
-            #history-view {
-                order: 6 !important;
-            }
-            #standings-section {
-                order: 7 !important;
-            }
-            #weekly-activity-section {
-                order: 8 !important;
-            }
-            #focus-maps-section {
-                order: 9 !important;
-            }
-            #rivalries-section {
-                order: 10 !important;
-            }
-            #simulator-section {
-                order: 11 !important;
-            }
-            #player-management-section {
-                order: 12 !important;
-            }
-            #webhook-section {
-                order: 13 !important;
-            }
+        .app-container.layout-stacked main,
+        .app-container.layout-stacked aside,
+        .app-container.layout-stacked .filter-column {
+            display: contents !important;
+        }
+        .app-container.layout-stacked #leaderboard-view {
+            display: contents !important;
+        }
+        
+        /* Order definitions on mobile grid */
+        .app-container.layout-stacked .header-full {
+            order: 1 !important;
+        }
+        .app-container.layout-stacked #player-filter-section {
+            order: 2 !important;
+        }
+        .app-container.layout-stacked #timeline-section {
+            order: 3 !important;
+        }
+        .app-container.layout-stacked #radar-chart-section {
+            order: 4 !important;
+        }
+        .app-container.layout-stacked #grid-section {
+            order: 5 !important;
+        }
+        .app-container.layout-stacked #history-view {
+            order: 6 !important;
+        }
+        .app-container.layout-stacked #standings-section {
+            order: 7 !important;
+        }
+        .app-container.layout-stacked #weekly-activity-section {
+            order: 8 !important;
+        }
+        .app-container.layout-stacked #focus-maps-section {
+            order: 9 !important;
+        }
+        .app-container.layout-stacked #rivalries-section {
+            order: 10 !important;
+        }
+        .app-container.layout-stacked #simulator-section {
+            order: 11 !important;
+        }
+        .app-container.layout-stacked #player-management-section {
+            order: 12 !important;
+        }
+        .app-container.layout-stacked #webhook-section {
+            order: 13 !important;
         }
     </style>
 </head>
 <body>
 
-    <div class="app-container">
+    <div class="app-container layout-3-col">
         
         <!-- Header row -->
         <header class="glass-panel header-full" style="display: flex; flex-direction: column; gap: 12px;">
@@ -3065,6 +3102,30 @@
                 }, 5000);
                 setInterval(fetchNotifications, 3000);
             }
+
+            // Initialize ResizeObserver on app-container to drive container-based responsive layout tiers
+            const container = document.querySelector('.app-container');
+            if (container) {
+                const observer = new ResizeObserver(entries => {
+                    for (let entry of entries) {
+                        const width = entry.contentRect.width;
+                        
+                        container.classList.remove('layout-stacked', 'layout-2-col', 'layout-3-col');
+                        
+                        if (width < 1120) {
+                            container.classList.add('layout-stacked');
+                        } else if (width < 1720) {
+                            container.classList.add('layout-2-col');
+                        } else {
+                            container.classList.add('layout-3-col');
+                        }
+                        
+                        syncLayoutHeights();
+                        setTimeout(drawConnectingLines, 50);
+                    }
+                });
+                observer.observe(container);
+            }
         });
 
         // Server online/offline status badge toggler
@@ -3694,15 +3755,15 @@
             const ranksList = benchmarkRanks[currentBenchmarkId] || [];
 
             // Calculate equal width for each rank
-            const rankColWidth = (54.5 / ranksList.length).toFixed(2) + '%';
+            const rankColWidth = (63.5 / ranksList.length).toFixed(2) + '%';
 
             // Grid header
             const headerRow = document.createElement('tr');
             headerRow.innerHTML = `
                 <th style="width: 3.0%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted); writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 2px; height: 60px; min-width: 32px;">Cat</th>
                 <th style="width: 3.5%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted); writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 2px; height: 60px; min-width: 36px;">Sub</th>
-                <th style="width: 25.0%; text-align: left; font-size: 0.9rem; letter-spacing: 0.5px; min-width: 230px;">Scenario</th>
-                <th style="width: 9.0%; text-align: center; font-size: 0.85rem; letter-spacing: 0.5px; color: var(--accent-gold); min-width: 90px;">Best Score</th>
+                <th style="width: 18.0%; text-align: left; font-size: 0.9rem; letter-spacing: 0.5px; min-width: 170px;">Scenario</th>
+                <th style="width: 7.0%; text-align: center; font-size: 0.85rem; letter-spacing: 0.5px; color: var(--accent-gold); min-width: 70px;">Best</th>
             `;
             
             ranksList.forEach(r => {
@@ -3893,14 +3954,17 @@
                         });
                         
                         const bestScoreHtml = bestScoreVal > 0 
-                            ? `<span style="font-weight: 800; color: var(--accent-gold); text-shadow: 0 0 8px rgba(255, 209, 102, 0.4);"><span class="crown-inline">👑</span>${formatScore(bestScoreVal)}</span>`
+                            ? `<div style="display: flex; flex-direction: column; align-items: center; gap: 2px;">
+                                   <span style="font-size: 0.95rem; line-height: 1;">👑</span>
+                                   <span style="font-weight: 800; color: var(--accent-gold); text-shadow: 0 0 8px rgba(255, 209, 102, 0.4); font-size: 0.9rem;">${formatScore(bestScoreVal)}</span>
+                               </div>`
                             : `<span style="color: var(--text-muted)">-</span>`;
                         
                         row.innerHTML = `
                             ${parentTdHtml}
                             ${subcatTdHtml}
                             <td class="grid-scen-name" style="cursor: pointer; padding: 0;" title="Click scenario name to view history graph">
-                                <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 14px 12px; width: 100%; box-sizing: border-box; min-width: 0;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 8px; width: 100%; box-sizing: border-box; min-width: 0;">
                                     <span onclick="showScenarioHistory('${escapedScenName}')" style="font-weight: 600; word-break: break-word; min-width: 0; flex-grow: 1; padding-right: 8px;">
                                         ${scenarioLabelHtml}
                                     </span>
@@ -3911,7 +3975,7 @@
                                     </a>
                                 </div>
                             </td>
-                            <td class="best-score-cell" style="text-align: center; vertical-align: middle; font-weight: bold; background: rgba(255,255,255,0.01); min-width: 90px;">${bestScoreHtml}</td>
+                            <td class="best-score-cell" style="text-align: center; vertical-align: middle; font-weight: bold; background: rgba(255,255,255,0.01); min-width: 70px;">${bestScoreHtml}</td>
                         `;
                         
                         const rankMaxes = (bData.thresholds && bData.thresholds[scen]) || [];
@@ -5032,7 +5096,9 @@
                 document.getElementById('history-view').style.display = 'flex';
                 if (aside) aside.style.display = 'none';
                 if (main) {
-                    if (window.innerWidth >= 1800) {
+                    const container = document.querySelector('.app-container');
+                    const isSingleColumn = container ? container.classList.contains('layout-stacked') : window.innerWidth < 1200;
+                    if (!isSingleColumn) {
                         main.style.gridColumn = '1 / 3';
                     } else {
                         main.style.gridColumn = '';
@@ -5174,7 +5240,8 @@
             if (radarCard && timelineCard) {
                 const leaderboardView = document.getElementById('leaderboard-view');
                 if (leaderboardView && leaderboardView.style.display !== 'none') {
-                    if (window.innerWidth >= 1800) {
+                    const container = document.querySelector('.app-container');
+                    if (container && container.classList.contains('layout-3-col')) {
                         const radarHeight = radarCard.getBoundingClientRect().height;
                         if (radarHeight > 0) {
                             timelineCard.style.height = `${radarHeight}px`;
@@ -5190,14 +5257,13 @@
             }
         }
         window.addEventListener('resize', () => {
-            syncLayoutHeights();
-            drawConnectingLines();
-            
-            // Adjust main grid-column layout if History tab is active
+            // Keep window resize fallback for SVG line updates, but let ResizeObserver handle main layout adjustments
+            const container = document.querySelector('.app-container');
             const main = document.querySelector('main');
             const historyView = document.getElementById('history-view');
-            if (historyView && historyView.style.display !== 'none' && main) {
-                if (window.innerWidth >= 1800) {
+            if (historyView && historyView.style.display !== 'none' && main && container) {
+                const isSingleColumn = container.classList.contains('layout-stacked');
+                if (!isSingleColumn) {
                     main.style.gridColumn = '1 / 3';
                 } else {
                     main.style.gridColumn = '';
