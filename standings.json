@@ -276,7 +276,7 @@
         "76561199164422123": 890.47,
         "76561198033879793": 881.75,
         "76561198046477600": 903.36,
-        "76561198995689034": 0.0
+        "76561198995689034": 830.84
       },
       "Air Voltaic Easy Invincible 4 80%": {
         "76561198000452332": 0.0,
@@ -782,7 +782,7 @@
         "76561199164422123": "2000-01-01 00:00:00",
         "76561198033879793": "2000-01-01 00:00:00",
         "76561198046477600": "2000-01-01 00:00:00",
-        "76561198995689034": "2000-01-01 00:00:00"
+        "76561198995689034": "2026-05-24 06:51:39"
       },
       "Air Voltaic Easy Invincible 4 80%": {
         "76561198000452332": "2000-01-01 00:00:00",
@@ -1244,12 +1244,12 @@
         "rank_idx": 0,
         "rank_name": "Unranked",
         "crown_count": 0,
-        "completed_count": 10,
-        "points": 8.14,
+        "completed_count": 11,
+        "points": 10.66,
         "has_streak": false,
-        "weekly_pbs": 0,
-        "total_pbs": 0,
-        "active_days": 0,
+        "weekly_pbs": 1,
+        "total_pbs": 1,
+        "active_days": 1,
         "position_change": 0
       }
     ],
@@ -1677,6 +1677,12 @@
         "winner_sid": "76561198348625808",
         "loser_sid": "76561198033879793",
         "timestamp": "2026-05-24 05:48:21"
+      },
+      {
+        "scenario_name": "Air Pure Intermediate Slower No UFO",
+        "winner_sid": "76561198995689034",
+        "loser_sid": "76561198348625808",
+        "timestamp": "2026-05-24 06:51:39"
       }
     ],
     "active_rivalries": [
@@ -1751,6 +1757,16 @@
         "total_overtakes": 1
       },
       {
+        "chaser_sid": "76561198348625808",
+        "chaser_name": "@Christine",
+        "target_sid": "76561198995689034",
+        "target_name": "@Haruno",
+        "scenario_name": "Air Pure Intermediate Slower No UFO",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
+      },
+      {
         "chaser_sid": "76561198046477600",
         "chaser_name": "@Laggiing",
         "target_sid": "76561198348625808",
@@ -1791,7 +1807,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779605232.379951,
+    "last_poll": 1779605510.285825,
     "check_interval": 180
   },
   "687": {
@@ -3478,7 +3494,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779605232.384261,
+    "last_poll": 1779605510.292947,
     "check_interval": 180
   },
   "688": {
@@ -5016,7 +5032,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779605232.389672,
+    "last_poll": 1779605510.300023,
     "check_interval": 180
   }
 }
