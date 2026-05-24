@@ -2492,6 +2492,16 @@
             const playerMgmtSection = document.getElementById('player-management-section');
             const webhookSection = document.getElementById('webhook-section');
             
+            if (isStatic) {
+                if (lockBadge) lockBadge.style.display = 'none';
+                if (modeSelector) modeSelector.style.display = 'none';
+                if (pollBtn) pollBtn.style.display = 'none';
+                if (simSection) simSection.style.display = 'none';
+                if (playerMgmtSection) playerMgmtSection.style.display = 'none';
+                if (webhookSection) webhookSection.style.display = 'none';
+                return;
+            }
+            
             if (!adminKeySet) {
                 if (lockBadge) lockBadge.style.display = 'none';
                 if (modeSelector) modeSelector.style.display = 'inline-flex';
