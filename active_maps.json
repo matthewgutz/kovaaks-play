@@ -1,32 +1,32 @@
 [
   {
-    "benchmark_id": "688",
-    "benchmark_name": "Hard",
-    "scenario_name": "Air CELESTIAL",
-    "update_count": 55
-  },
-  {
-    "benchmark_id": "688",
-    "benchmark_name": "Hard",
-    "scenario_name": "FloatTS Angelic",
-    "update_count": 49
-  },
-  {
-    "benchmark_id": "688",
-    "benchmark_name": "Hard",
-    "scenario_name": "Air Pure",
-    "update_count": 48
+    "benchmark_id": "686",
+    "benchmark_name": "Easier",
+    "scenario_name": "Leaptrack Goated 60% Larger",
+    "update_count": 5
   },
   {
     "benchmark_id": "687",
     "benchmark_name": "Medium",
-    "scenario_name": "Air CELESTIAL No UFO Easy",
-    "update_count": 47
+    "scenario_name": "WhisphereRawControl",
+    "update_count": 5
   },
   {
-    "benchmark_id": "687",
-    "benchmark_name": "Medium",
-    "scenario_name": "Air Pure Intermediate",
-    "update_count": 47
+    "benchmark_id": "686",
+    "benchmark_name": "Easier",
+    "scenario_name": "Air CELESTIAL No UFO Easy Slowed",
+    "update_count": 4
+  },
+  {
+    "benchmark_id": "686",
+    "benchmark_name": "Easier",
+    "scenario_name": "Controlsphere rAim Easy 90%",
+    "update_count": 4
+  },
+  {
+    "benchmark_id": "686",
+    "benchmark_name": "Easier",
+    "scenario_name": "Air Angelic 4 Voltaic Easy 80% (Good Version)",
+    "update_count": 3
   }
 ]
