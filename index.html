@@ -1753,6 +1753,9 @@
 
         let adminKeySet = false;
         let countdownInterval = null;
+        let lastCheckedCycle = null;
+        let staticWaitingForUpdate = false;
+        let staticWaitingStart = null;
 
         // Helper to get mechanic-specific aim category icon
         function getAimCategoryIcon(scenName) {
@@ -2563,6 +2566,15 @@
                 return;
             }
             
+            const lastPollNum = Math.floor(lastPoll);
+            const checkIntervalNum = Math.floor(checkInterval);
+            
+            // Initialize lastCheckedCycle on first call or when lastPoll resets
+            const nowSecondsInit = Math.floor(Date.now() / 1000);
+            const diffInit = Math.max(0, nowSecondsInit - lastPollNum);
+            lastCheckedCycle = Math.floor(diffInit / checkIntervalNum);
+            staticWaitingForUpdate = false;
+            
             function updateTimer() {
                 if (badge.classList.contains('offline')) {
                     text.innerText = 'Server Offline';
@@ -2570,13 +2582,53 @@
                 }
                 
                 const nowSeconds = Math.floor(Date.now() / 1000);
-                const elapsed = nowSeconds - Math.floor(lastPoll);
-                const remaining = checkInterval - elapsed;
                 
                 if (isStatic) {
-                    text.innerText = 'Public Leaderboard';
+                    const diff = Math.max(0, nowSeconds - lastPollNum);
+                    const currentCycle = Math.floor(diff / checkIntervalNum);
+                    const elapsed = diff % checkIntervalNum;
+                    const remaining = checkIntervalNum - elapsed;
+                    
+                    if (staticWaitingForUpdate) {
+                        const secondsWaiting = nowSeconds - staticWaitingStart;
+                        if (secondsWaiting >= 65) {
+                            // Give up waiting for this cycle and resume normal countdown
+                            staticWaitingForUpdate = false;
+                        } else {
+                            text.innerText = `Tracking Active (Syncing...)`;
+                            return;
+                        }
+                    }
+                    
+                    // Detect if we crossed into a new cycle
+                    if (currentCycle > lastCheckedCycle) {
+                        lastCheckedCycle = currentCycle;
+                        staticWaitingForUpdate = true;
+                        staticWaitingStart = nowSeconds;
+                        text.innerText = `Tracking Active (Syncing...)`;
+                        
+                        // Wait 5 seconds after countdown reaches 0 to fetch, to let deploy run
+                        setTimeout(async () => {
+                            try {
+                                await fetchStandings();
+                                await fetchNotifications();
+                            } catch (e) {
+                                console.error("Error refreshing standings on countdown end:", e);
+                            }
+                        }, 5000);
+                        return;
+                    }
+                    
+                    const minutes = Math.floor(remaining / 60);
+                    const seconds = remaining % 60;
+                    const secondsStr = seconds < 10 ? '0' + seconds : seconds;
+                    text.innerText = `Tracking Active (${minutes}:${secondsStr})`;
                     return;
                 }
+                
+                // Non-static (dynamic local Flask) logic:
+                const elapsed = nowSeconds - lastPollNum;
+                const remaining = checkIntervalNum - elapsed;
                 
                 if (remaining <= 0) {
                     text.innerText = 'Tracking Active (Polling...)';
