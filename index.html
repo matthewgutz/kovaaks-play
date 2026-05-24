@@ -3139,14 +3139,14 @@
             const ranksList = benchmarkRanks[currentBenchmarkId] || [];
 
             // Calculate equal width for each rank
-            const rankColWidth = (60.0 / ranksList.length).toFixed(2) + '%';
+            const rankColWidth = (57.0 / ranksList.length).toFixed(2) + '%';
 
             // Grid header
             const headerRow = document.createElement('tr');
             headerRow.innerHTML = `
                 <th style="width: 3.5%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted);">Cat</th>
                 <th style="width: 4.5%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted);">Sub</th>
-                <th style="width: 20%; text-align: left; font-size: 0.9rem; letter-spacing: 0.5px;">Scenario Name</th>
+                <th style="width: 23%; text-align: left; font-size: 0.9rem; letter-spacing: 0.5px;">Scenario Name</th>
                 <th style="width: 7%; text-align: center; font-size: 0.85rem; letter-spacing: 0.5px; color: var(--accent-gold);">Best Score</th>
             `;
             
@@ -3191,6 +3191,28 @@
                 "FLICK TECH": ["Speed", "Stability", "Micro", "Evasive"],
                 "DYNAMIC CLICKING": ["Reading", "Precision", "Linear"]
             };
+            const PARENT_EMOJIS = {
+                "CONTROL TRACKING": "🔄",
+                "REACTIVE TRACKING": "⚡",
+                "FLICK TECH": "💥",
+                "DYNAMIC CLICKING": "🖱️"
+            };
+            const SUBCAT_EMOJIS = {
+                "Arm": "💪",
+                "Wrist": "🖐️",
+                "Fingertip": "🤏",
+                "Blending": "🌀",
+                "Control": "🕹️",
+                "Speed Track": "🏎️",
+                "Reading Track": "📖",
+                "Speed": "⚡",
+                "Stability": "⚖️",
+                "Micro": "🔬",
+                "Evasive": "🥷",
+                "Reading": "👁️",
+                "Precision": "🎯",
+                "Linear": "📏"
+            };
             const SUBCAT_DISPLAY_NAMES = {
                 "Reading Track": "Reading",
                 "Speed Track": "Speed",
@@ -3225,6 +3247,58 @@
 
             // Map each scenario to its subcat/parent and populate groups
             const scenToSubcat = bData.categories || {};
+
+            // Helper to get mechanic-specific aim category icon
+            function getAimCategoryIcon(scenName) {
+                const scenLower = scenName.toLowerCase();
+                
+                // Priority overrides for air/flyers and bouncing/jumping
+                if (scenLower.includes("air") || scenLower.includes("pgti")) {
+                    return "🦅"; // Flying
+                }
+                if (scenLower.includes("popcorn") || scenLower.includes("pasu") || scenLower.includes("bounce")) {
+                    return "🦘"; // Jumping
+                }
+                
+                const subcat = scenToSubcat[scenName];
+                if (!subcat) {
+                    // Fallback to name keywords if subcat is missing
+                    if (scenLower.includes("whisphere") || scenLower.includes("smoothbot")) return "💪"; // Arm
+                    if (scenLower.includes("leaptrack")) return "🖐️"; // Wrist
+                    if (scenLower.includes("clover")) return "🤏"; // Fingertip
+                    if (scenLower.includes("celestial") || scenLower.includes("floating heads")) return "🌀"; // Blending
+                    if (scenLower.includes("ground plaza") || scenLower.includes("controlsphere")) return "🕹️"; // Control
+                    if (scenLower.includes("flicker plaza") || scenLower.includes("polarized hell")) return "🏎️"; // Speed Track
+                    if (scenLower.includes("pure") || scenLower.includes("voltaic") || scenLower.includes("angelic")) return "📖"; // Reading Track
+                    if (scenLower.includes("pokeball") || scenLower.includes("voxtargetswitch") || scenLower.includes("1w3ts") || scenLower.includes("1w2ts")) return "⚡"; // Speed
+                    if (scenLower.includes("beants") || scenLower.includes("floatts")) return "⚖️"; // Stability
+                    if (scenLower.includes("waldots") || scenLower.includes("devts")) return "🔬"; // Micro
+                    if (scenLower.includes("domiswitch") || scenLower.includes("tamtargetswitch")) return "🥷"; // Evasive
+                    if (scenLower.includes("bounceshot")) return "👁️"; // Reading
+                    if (scenLower.includes("linear")) return "📏"; // Linear
+                    return "🎯"; // Default Clicking
+                }
+                
+                // Map based on explicit subcategory
+                switch (subcat) {
+                    case "Arm": return "💪";
+                    case "Wrist": return "🖐️";
+                    case "Fingertip": return "🤏";
+                    case "Blending": return "🌀";
+                    case "Control": return "🕹️";
+                    case "Speed Track": return "🏎️";
+                    case "Reading Track": return "📖";
+                    case "Speed": return "⚡";
+                    case "Stability": return "⚖️";
+                    case "Micro": return "🔬";
+                    case "Evasive": return "🥷";
+                    case "Reading": return "👁️";
+                    case "Precision": return "🎯";
+                    case "Linear": return "📏";
+                    default: return "🎯";
+                }
+            }
+
             bData.scenarios.forEach(scen => {
                 let subcat = scenToSubcat[scen];
                 if (!subcat) {
@@ -3303,7 +3377,8 @@
                         const overtakes = scenarioOvertakes[scen] || [];
                         const isRecentOvertake = overtakes.length > 0;
                         
-                        let scenarioLabelHtml = `📈 ${scen}`;
+                        const aimIcon = getAimCategoryIcon(scen);
+                        let scenarioLabelHtml = `${aimIcon} ${scen}`;
                         if (isRecentOvertake) {
                             scenarioLabelHtml += ` <span class="overtake-icon" title="Overtake occurred in the last 24 hours!">⚔️</span>`;
                         }
@@ -3312,13 +3387,15 @@
                         
                         let parentTdHtml = '';
                         if (sIdx === 0 && scenIdx === 0) {
-                            parentTdHtml = `<td rowspan="${pInfo.totalRows}" class="grid-parent-cat">${pInfo.name}</td>`;
+                            const pEmoji = PARENT_EMOJIS[pInfo.name] || '🎯';
+                            parentTdHtml = `<td rowspan="${pInfo.totalRows}" class="grid-parent-cat">${pEmoji} ${pInfo.name}</td>`;
                         }
                         
                         let subcatTdHtml = '';
                         if (scenIdx === 0) {
                             const displayName = SUBCAT_DISPLAY_NAMES[subcatInfo.name] || subcatInfo.name;
-                            subcatTdHtml = `<td rowspan="${subcatInfo.scenarios.length}" class="grid-subcat">${displayName}</td>`;
+                            const sEmoji = SUBCAT_EMOJIS[subcatInfo.name] || '';
+                            subcatTdHtml = `<td rowspan="${subcatInfo.scenarios.length}" class="grid-subcat">${sEmoji} ${displayName}</td>`;
                         }
                         
                         // Calculate Best Score
@@ -3340,11 +3417,11 @@
                             ${parentTdHtml}
                             ${subcatTdHtml}
                             <td class="grid-scen-name" style="cursor: pointer; padding: 0;" title="Click scenario name to view history graph">
-                                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; width: 100%; box-sizing: border-box;">
-                                    <span onclick="showScenarioHistory('${escapedScenName}')" style="flex-grow: 1; font-weight: 600;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 12px; width: 100%; box-sizing: border-box;">
+                                    <span onclick="showScenarioHistory('${escapedScenName}')" style="flex-grow: 1; font-weight: 600; word-break: break-word;">
                                         ${scenarioLabelHtml}
                                     </span>
-                                    <a href="${playUrl}" title="Launch Kovaak's & Play Scenario" style="color: #00ff88; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; opacity: 0.7; transition: var(--transition-smooth);" onmouseover="this.style.opacity=1; this.style.transform='scale(1.25)';" onmouseout="this.style.opacity=0.7; this.style.transform='scale(1)';" onclick="event.stopPropagation();">
+                                    <a href="${playUrl}" title="Launch Kovaak's & Play Scenario" style="color: #00ff88; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; opacity: 0.7; transition: var(--transition-smooth); flex-shrink: 0;" onmouseover="this.style.opacity=1; this.style.transform='scale(1.25)';" onmouseout="this.style.opacity=0.7; this.style.transform='scale(1)';" onclick="event.stopPropagation();">
                                         <svg viewBox="0 0 24 24" fill="currentColor" style="width: 22px; height: 22px;">
                                             <path d="M8 5v14l11-7z"/>
                                         </svg>
@@ -3831,7 +3908,8 @@
             currentScenarioName = scenarioName;
             activeDrawerTab = 'all';
             openDrawer();
-            document.getElementById('drawer-title').innerText = `📊 Details: ${scenarioName}`;
+            const aimIcon = getAimCategoryIcon(scenarioName);
+            document.getElementById('drawer-title').innerText = `${aimIcon} Details: ${scenarioName}`;
             
             // Clean up old chart
             const ctx = document.getElementById('history-chart').getContext('2d');
@@ -4403,7 +4481,7 @@
                 
                 card.innerHTML = `
                     <div class="player-config-info" style="flex: 1; min-width: 0;">
-                        <span class="player-config-name" style="color: #fff; font-size: 0.85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600;" title="${item.scenarioName}">${item.scenarioName}</span>
+                        <span class="player-config-name" style="color: #fff; font-size: 0.85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600;" title="${item.scenarioName}">${getAimCategoryIcon(item.scenarioName)} ${item.scenarioName}</span>
                         <div style="display: flex; align-items: center; gap: 8px; margin-top: 4px;">
                             <span style="font-size: 0.75rem; color: ${pctColor}; font-weight: bold;">${item.pct.toFixed(1)}% complete</span>
                             <span style="font-size: 0.7rem; color: var(--text-muted);">(${item.score.toFixed(1)} / ${item.maxThreshold.toFixed(1)})</span>
