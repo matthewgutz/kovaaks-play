@@ -1412,7 +1412,7 @@
         }
 
         /* Animated Rotating Highlight Border Card */
-        @keyframes spin {
+        @keyframes border-spin {
             0% { transform: translate(-50%, -50%) rotate(0deg); }
             100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
@@ -1440,7 +1440,7 @@
                 rgba(255, 209, 102, 0.25) 220deg,
                 rgba(255, 209, 102, 0.25) 360deg
             ) !important;
-            animation: spin 4s linear infinite !important;
+            animation: border-spin 4s linear infinite !important;
             z-index: -2 !important;
             transform: translate(-50%, -50%) !important;
         }
@@ -1457,6 +1457,33 @@
         .selected-highlight > * {
             position: relative !important;
             z-index: 2 !important;
+        }
+
+        /* Rank targets hover transition & overlapping legibility fixes */
+        .cell-target {
+            position: absolute;
+            bottom: 3px;
+            right: 6px;
+            font-size: 0.65rem;
+            color: #ffffff;
+            opacity: 0.55;
+            pointer-events: none;
+            font-weight: bold;
+            transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out, text-shadow 0.2s ease-in-out;
+            z-index: 3;
+        }
+        
+        .scen-cell:hover .cell-target {
+            transform: scale(1.15);
+            opacity: 1 !important;
+            z-index: 10 !important;
+            text-shadow: 0 0 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* If hovering over any avatar inside the cell, fade out the target score */
+        .scen-cell:hover:has(.grid-pin:hover) .cell-target {
+            opacity: 0.15 !important;
+            transform: scale(0.9);
         }
 
         /* Standings Table Grid Card Conversion */
@@ -1494,6 +1521,7 @@
         #standings-table td, #standings-table th {
             border-bottom: none !important;
             padding: 4px 8px !important;
+            text-align: left !important;
         }
     </style>
 </head>
@@ -1897,8 +1925,16 @@
         // =========================================================================
         let selectedPlayers = new Set();
 
+        let isFirstLoad = true;
+
         function loadFilterState() {
             try {
+                if (isFirstLoad) {
+                    selectAllPlayers();
+                    isFirstLoad = false;
+                    saveFilterState();
+                    return;
+                }
                 const saved = localStorage.getItem('selectedPlayers');
                 if (saved) {
                     const array = JSON.parse(saved);
@@ -2041,6 +2077,9 @@
             // Wipe clean
             svg.innerHTML = '';
             
+            const isCompareAll = document.getElementById('filter-compare-all')?.checked;
+            if (isCompareAll) return;
+            
             // Bind absolute scroll sizes
             const w = table.scrollWidth;
             const h = table.scrollHeight;
@@ -2049,17 +2088,27 @@
             svg.style.width = w + 'px';
             svg.style.height = h + 'px';
             
+            // Add glow filter defs
+            const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+            defs.innerHTML = `
+                <filter id="glow-filter" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="3.5" result="blur" />
+                    <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+            `;
+            svg.appendChild(defs);
+            
             const tableRect = table.getBoundingClientRect();
             
             const bData = standingsData[currentBenchmarkId];
             if (!bData) return;
             
             const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
-            const isCompareAll = document.getElementById('filter-compare-all')?.checked;
             
-            const activePlayers = isCompareAll 
-                ? configuredPlayers 
-                : configuredPlayers.filter(p => selectedPlayers.has(p.steam_id));
+            const activePlayers = configuredPlayers.filter(p => selectedPlayers.has(p.steam_id));
                 
             activePlayers.forEach(player => {
                 const steamId = player.steam_id;
@@ -2092,9 +2141,10 @@
                 path.setAttribute('d', pathD);
                 path.setAttribute('fill', 'none');
                 path.setAttribute('stroke', color);
-                path.setAttribute('stroke-width', '1.5');
-                path.setAttribute('stroke-dasharray', '5,5');
-                path.setAttribute('opacity', '0.6');
+                path.setAttribute('stroke-width', '2.0');
+                path.setAttribute('stroke-dasharray', '6,4');
+                path.setAttribute('opacity', '0.85');
+                path.setAttribute('filter', 'url(#glow-filter)');
                 svg.appendChild(path);
             });
         }
@@ -2638,8 +2688,8 @@
                     pointBackgroundColor: `rgba(${hexToRgb(color)}, ${borderOpacity})`,
                     pointBorderColor: '#121214',
                     pointHoverBackgroundColor: color,
-                    pointRadius: pointRadius,
-                    pointHoverRadius: pointRadius > 0 ? pointRadius + 2 : 0,
+                    pointRadius: 0,
+                    pointHoverRadius: 0,
                     tension: 0.15,
                     fill: fillVal
                 });
@@ -3360,7 +3410,7 @@
                 }
 
                 const card = document.createElement('div');
-                card.className = 'glass-panel crown-card rivalry-item selected-highlight';
+                card.className = 'glass-panel crown-card rivalry-item';
                 card.style.padding = '14px 18px';
                 card.style.gap = '14px';
                 
@@ -3438,7 +3488,7 @@
                 item.style.padding = '12px';
                 
                 const isCompareAll = document.getElementById('filter-compare-all')?.checked;
-                if (isCompareAll || selectedPlayers.has(p.steam_id)) {
+                if (!isCompareAll && selectedPlayers.has(p.steam_id)) {
                     item.classList.add('selected-highlight');
                 }
                 
@@ -3477,9 +3527,9 @@
                 const row = document.createElement('tr');
                 row.className = 'player-row';
                 
-                // Apply highlight class if player is selected
+                // Apply highlight class if player is selected (not on Compare All)
                 const isCompareAll = document.getElementById('filter-compare-all')?.checked;
-                if (isCompareAll || selectedPlayers.has(p.steam_id)) {
+                if (!isCompareAll && selectedPlayers.has(p.steam_id)) {
                     row.classList.add('selected-highlight');
                 }
                 
@@ -3511,7 +3561,7 @@
                     <td><span class="rank-badge rank-${lowerRankName}">${p.rank_name}</span></td>
                     <td>${p.crown_count > 0 ? `<span class="crown-pill">👑 ${p.crown_count}</span>` : `<span style="color: var(--text-muted)">0</span>`}</td>
                     <td>${p.completed_count}</td>
-                    <td style="font-weight: 600; color: var(--accent-primary);">${p.points ? p.points.toFixed(1) : '0.0'}%</td>
+                    <td style="font-weight: 600; color: #fff;">${p.points ? p.points.toFixed(1) : '0.0'}%</td>
                     <td>${p.total_pbs}</td>
                 `;
                 
@@ -3807,7 +3857,7 @@
                             
                             const thresholdVal = rankMaxes[rIdx];
                             const thresholdHtml = thresholdVal !== undefined && thresholdVal > 0 
-                                ? `<div class="cell-target" style="position: absolute; bottom: 3px; right: 6px; font-size: 0.65rem; color: #ffffff; opacity: 0.8; pointer-events: none; font-weight: bold;">${thresholdVal}</div>`
+                                ? `<div class="cell-target">${thresholdVal}</div>`
                                 : '';
                             
                             // Background progress fill up to the leader's score
