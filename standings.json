@@ -680,7 +680,7 @@
         "crown_count": 0,
         "completed_count": 36,
         "points": 75.9,
-        "has_streak": true,
+        "has_streak": false,
         "weekly_pbs": 5,
         "total_pbs": 5,
         "active_days": 1,
@@ -1147,15 +1147,8 @@
       "Floating Heads Timing 400% Larger": "Linear",
       "voxTargetSwitch Click": "Linear"
     },
-    "recent_overtakes": [
-      {
-        "scenario_name": "Leaptrack Goated 60% Larger",
-        "winner_sid": "76561198046477600",
-        "loser_sid": "76561199164422123",
-        "timestamp": "2026-05-23 04:28:05"
-      }
-    ],
-    "last_poll": 1779596445.522239,
+    "recent_overtakes": [],
+    "last_poll": 1779597422.768627,
     "check_interval": 180
   },
   "687": {
@@ -2307,7 +2300,7 @@
       "voxTargetClick 20% Small": "Linear"
     },
     "recent_overtakes": [],
-    "last_poll": 1779596445.529706,
+    "last_poll": 1779597422.776214,
     "check_interval": 180
   },
   "688": {
@@ -3325,7 +3318,7 @@
       "VoxTargetSwitch Click Small": "Linear"
     },
     "recent_overtakes": [],
-    "last_poll": 1779596445.536964,
+    "last_poll": 1779597422.783602,
     "check_interval": 180
   }
 }
