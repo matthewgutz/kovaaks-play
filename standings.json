@@ -202,7 +202,7 @@
         "76561198129757659": 0.0,
         "76561198045952875": 0.0,
         "76561198017954362": 13940.0,
-        "76561198348625808": 6750.0,
+        "76561198348625808": 7030.0,
         "76561199164422123": 9440.0,
         "76561198033879793": 8530.0,
         "76561198046477600": 12030.0,
@@ -724,10 +724,10 @@
         "rank_name": "Lemming",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 48.8,
+        "points": 48.85,
         "has_streak": true,
-        "weekly_pbs": 42,
-        "total_pbs": 42,
+        "weekly_pbs": 43,
+        "total_pbs": 43,
         "active_days": 2,
         "position_change": 0
       },
@@ -1155,7 +1155,7 @@
         "timestamp": "2026-05-24 04:40:08"
       }
     ],
-    "last_poll": 1779598041.563925,
+    "last_poll": 1779598250.24902,
     "check_interval": 180
   },
   "687": {
@@ -2307,7 +2307,7 @@
       "voxTargetClick 20% Small": "Linear"
     },
     "recent_overtakes": [],
-    "last_poll": 1779598041.569293,
+    "last_poll": 1779598250.256776,
     "check_interval": 180
   },
   "688": {
@@ -3325,7 +3325,7 @@
       "VoxTargetSwitch Click Small": "Linear"
     },
     "recent_overtakes": [],
-    "last_poll": 1779598041.574388,
+    "last_poll": 1779598250.265866,
     "check_interval": 180
   }
 }
