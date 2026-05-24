@@ -757,6 +757,7 @@
             padding: 16px 3px !important;
             white-space: nowrap;
             text-shadow: 0 0 8px rgba(114, 9, 183, 0.4);
+            min-width: 32px;
         }
 
         .grid-subcat {
@@ -775,6 +776,7 @@
             padding: 16px 3px !important;
             white-space: nowrap;
             text-shadow: 0 0 8px rgba(0, 245, 212, 0.3);
+            min-width: 36px;
         }
 
         #grid-table tbody tr {
@@ -829,7 +831,17 @@
         #grid-table td.grid-scen-name {
             text-align: left;
             border-right: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 14px 18px;
+            padding: 0 !important;
+            min-width: 230px;
+        }
+        .scen-cell {
+            min-width: 75px;
+        }
+        .overflow-cell {
+            min-width: 45px;
+        }
+        .best-score-cell {
+            min-width: 90px;
         }
 
         /* Admin Panels & Sidebar */
@@ -3427,10 +3439,18 @@
             
             const isCompareAll = document.getElementById('filter-compare-all')?.checked;
             
+            const checkIsNemesis = (item) => item.chaser_overtakes_target >= 1 && item.target_overtakes_chaser >= 1;
+            
             const rivalries = (bData.active_rivalries || []).filter(item => {
                 const chaserSelected = isCompareAll || selectedPlayers.has(item.chaser_sid);
                 const targetSelected = isCompareAll || selectedPlayers.has(item.target_sid);
                 return chaserSelected || targetSelected;
+            }).sort((a, b) => {
+                const aNem = checkIsNemesis(a);
+                const bNem = checkIsNemesis(b);
+                if (aNem && !bNem) return -1;
+                if (!aNem && bNem) return 1;
+                return b.total_overtakes - a.total_overtakes;
             }).slice(0, 12);
             
             if (rivalries.length === 0) {
@@ -3474,7 +3494,6 @@
                 // Unified Overtakes status text format
                 const statusText = `Overtakes: ${leftName} (${leftOvertakes}) | ${rightName} (${rightOvertakes})`;
 
-                // Arch-Nemesis check (reciprocal overtakes: both players have >= 1 overtake on this scenario)
                 const isNemesis = item.chaser_overtakes_target >= 1 && item.target_overtakes_chaser >= 1;
 
                 const card = document.createElement('div');
@@ -3482,8 +3501,10 @@
                 card.style.padding = '14px 18px';
                 card.style.gap = '14px';
                 if (isNemesis) {
-                    card.style.borderColor = 'rgba(239, 68, 68, 0.4)';
-                    card.style.boxShadow = '0 0 12px rgba(239, 68, 68, 0.2)';
+                    card.style.borderLeft = '4px solid #ef4444';
+                    card.style.borderColor = 'rgba(239, 68, 68, 0.3) rgba(239, 68, 68, 0.15) rgba(239, 68, 68, 0.15) rgba(239, 68, 68, 0.3)';
+                    card.style.background = 'linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(20, 20, 25, 0.6) 100%)';
+                    card.style.boxShadow = '0 0 15px rgba(239, 68, 68, 0.15)';
                 }
                 
                 const escapedScenName = item.scenario_name.replace(/'/g, "\\'");
@@ -3492,7 +3513,7 @@
 
                 let nemesisBadge = '';
                 if (isNemesis) {
-                    nemesisBadge = `<span style="font-size: 0.65rem; font-weight: 700; color: #fff; background: #ef4444; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; margin-left: 8px; vertical-align: middle; box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);">Arch-Nemesis ⚔️</span>`;
+                    nemesisBadge = `<span style="font-size: 0.65rem; font-weight: 700; color: #fff; background: #ef4444; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; margin-left: 0; vertical-align: middle; box-shadow: 0 0 8px rgba(239, 68, 68, 0.6); flex-shrink: 0; white-space: nowrap;">Arch-Nemesis ⚔️</span>`;
                 }
 
                 card.innerHTML = `
@@ -3508,10 +3529,13 @@
                         </div>
                         <!-- Right side: Phrasing & Launch Button -->
                         <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; flex-grow: 1; min-width: 0; gap: 8px;">
-                            <div style="display: flex; flex-direction: column; min-width: 0;">
-                                <span onclick="showScenarioHistory('${escapedScenName}')" style="font-size: 0.85rem; font-weight: 700; color: #fff; cursor: pointer; text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="Click to view history trend">
-                                    ${aimIcon} ${item.scenario_name}${nemesisBadge}
-                                </span>
+                            <div style="display: flex; flex-direction: column; min-width: 0; width: 100%;">
+                                <div style="display: flex; align-items: center; gap: 8px; min-width: 0; width: 100%;">
+                                    <span onclick="showScenarioHistory('${escapedScenName}')" style="font-size: 0.85rem; font-weight: 700; color: #fff; cursor: pointer; text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="Click to view history trend">
+                                        ${aimIcon} ${item.scenario_name}
+                                    </span>
+                                    ${nemesisBadge}
+                                </div>
                                 <span style="font-size: 0.75rem; font-weight: 600; color: var(--text-muted); margin-top: 1px;">
                                     ${leftName} vs ${rightName}
                                 </span>
@@ -3671,10 +3695,10 @@
             // Grid header
             const headerRow = document.createElement('tr');
             headerRow.innerHTML = `
-                <th style="width: 1.5%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted); writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 2px; height: 60px;">Cat</th>
-                <th style="width: 2.0%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted); writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 2px; height: 60px;">Sub</th>
-                <th style="width: 27.5%; text-align: left; font-size: 0.9rem; letter-spacing: 0.5px;">Scenario</th>
-                <th style="width: 7%; text-align: center; font-size: 0.85rem; letter-spacing: 0.5px; color: var(--accent-gold);">Best Score</th>
+                <th style="width: 1.5%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted); writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 2px; height: 60px; min-width: 32px;">Cat</th>
+                <th style="width: 2.0%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted); writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 2px; height: 60px; min-width: 36px;">Sub</th>
+                <th style="width: 27.5%; text-align: left; font-size: 0.9rem; letter-spacing: 0.5px; min-width: 230px;">Scenario</th>
+                <th style="width: 7%; text-align: center; font-size: 0.85rem; letter-spacing: 0.5px; color: var(--accent-gold); min-width: 90px;">Best Score</th>
             `;
             
             ranksList.forEach(r => {
@@ -3682,6 +3706,7 @@
                 th.style.textAlign = 'center';
                 th.style.verticalAlign = 'middle';
                 th.style.width = rankColWidth;
+                th.style.minWidth = '75px';
                 
                 const lowerRank = r.toLowerCase();
                 const spanStyle = `font-family: var(--font-heading); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.5px;`;
@@ -3694,6 +3719,7 @@
             overflowTh.style.textAlign = 'center';
             overflowTh.style.verticalAlign = 'middle';
             overflowTh.style.width = '5%';
+            overflowTh.style.minWidth = '45px';
             overflowTh.innerHTML = `<span style="font-family: var(--font-heading); font-weight: 700; font-size: 0.85rem; color: var(--accent-gold);">+</span>`;
             headerRow.appendChild(overflowTh);
 
@@ -3870,8 +3896,8 @@
                             ${parentTdHtml}
                             ${subcatTdHtml}
                             <td class="grid-scen-name" style="cursor: pointer; padding: 0;" title="Click scenario name to view history graph">
-                                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 12px; width: 100%; box-sizing: border-box;">
-                                    <span onclick="showScenarioHistory('${escapedScenName}')" style="flex-grow: 1; font-weight: 600; word-break: break-word;">
+                                <div style="display: flex; align-items: center; justify-content: flex-start; gap: 8px; padding: 14px 12px; width: 100%; box-sizing: border-box; min-width: 0;">
+                                    <span onclick="showScenarioHistory('${escapedScenName}')" style="font-weight: 600; word-break: break-word;">
                                         ${scenarioLabelHtml}
                                     </span>
                                     <a href="${playUrl}" title="Launch Kovaak's & Play Scenario" style="color: #00ff88; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; opacity: 0.7; transition: var(--transition-smooth); flex-shrink: 0;" onmouseover="this.style.opacity=1; this.style.transform='scale(1.25)';" onmouseout="this.style.opacity=0.7; this.style.transform='scale(1)';" onclick="event.stopPropagation();">
@@ -3881,7 +3907,7 @@
                                     </a>
                                 </div>
                             </td>
-                            <td style="text-align: center; vertical-align: middle; font-weight: bold; background: rgba(255,255,255,0.01);">${bestScoreHtml}</td>
+                            <td class="best-score-cell" style="text-align: center; vertical-align: middle; font-weight: bold; background: rgba(255,255,255,0.01); min-width: 90px;">${bestScoreHtml}</td>
                         `;
                         
                         const rankMaxes = (bData.thresholds && bData.thresholds[scen]) || [];
