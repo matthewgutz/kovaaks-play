@@ -73,7 +73,7 @@
         }
 
         /* Layout */
-        /* Default: Tier 1 - Stacked Mobile Layout (< 1350px) */
+        /* Default: Tier 1 - Stacked Mobile Layout (< 1400px) */
         .app-container {
             max-width: 1800px;
             width: 96%;
@@ -90,9 +90,9 @@
             min-width: 0;
         }
 
-        /* Tier 2: Medium Desktop Layout (1350px - 1799px) */
+        /* Tier 2: Medium Desktop Layout (1400px - 1799px) */
         .app-container.layout-2-col {
-            grid-template-columns: 3fr 1.1fr;
+            grid-template-columns: 3fr 1fr;
             max-width: 1600px;
             width: 98%;
         }
@@ -1719,7 +1719,7 @@
                 </section>
 
                 <!-- Scenario Matrix Section -->
-                <section class="glass-panel" id="grid-section" style="padding: 24px;">
+                <section class="glass-panel" id="grid-section" style="padding: 24px 16px;">
                     <h2 class="panel-title">📊 Scenario Comparison Grid</h2>
                     <div class="table-container" style="position: relative;">
                         <!-- SVG overlay to draw connecting paths for selected players -->
@@ -3113,7 +3113,7 @@
                         
                         container.classList.remove('layout-stacked', 'layout-single-column', 'layout-2-col', 'layout-3-col');
                         
-                        if (width < 1350) {
+                        if (width < 1400) {
                             container.classList.add('layout-stacked');
                             container.classList.add('layout-single-column');
                         } else if (width < 1800) {
@@ -5099,7 +5099,7 @@
                 if (aside) aside.style.display = 'none';
                 if (main) {
                     const container = document.querySelector('.app-container');
-                    const isSingleColumn = container ? container.classList.contains('layout-stacked') : window.innerWidth < 1350;
+                    const isSingleColumn = container ? container.classList.contains('layout-stacked') : window.innerWidth < 1400;
                     if (!isSingleColumn) {
                         main.style.gridColumn = '1 / 3';
                     } else {
