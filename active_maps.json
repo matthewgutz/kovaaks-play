@@ -3,30 +3,30 @@
     "benchmark_id": "686",
     "benchmark_name": "Easier",
     "scenario_name": "Air CELESTIAL No UFO Easy Slowed",
-    "update_count": 5
+    "update_count": 17
   },
   {
     "benchmark_id": "686",
     "benchmark_name": "Easier",
     "scenario_name": "Leaptrack Goated 60% Larger",
-    "update_count": 5
+    "update_count": 17
   },
   {
     "benchmark_id": "686",
     "benchmark_name": "Easier",
     "scenario_name": "beanTS Larger",
-    "update_count": 5
-  },
-  {
-    "benchmark_id": "687",
-    "benchmark_name": "Medium",
-    "scenario_name": "WhisphereRawControl",
-    "update_count": 5
+    "update_count": 17
   },
   {
     "benchmark_id": "686",
     "benchmark_name": "Easier",
     "scenario_name": "Controlsphere rAim Easy 90%",
-    "update_count": 4
+    "update_count": 16
+  },
+  {
+    "benchmark_id": "686",
+    "benchmark_name": "Easier",
+    "scenario_name": "Whisphere Small & Slow 55%",
+    "update_count": 16
   }
 ]

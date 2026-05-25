@@ -92,7 +92,7 @@
 
         /* Tier 2: Medium Desktop Layout (1600px - 1799px) */
         .app-container.layout-2-col {
-            grid-template-columns: 3fr 1fr;
+            grid-template-columns: 1fr 450px;
             max-width: 1600px;
             width: 98%;
         }
@@ -119,7 +119,7 @@
 
         /* Tier 3: Wide Desktop Layout (>= 1800px) */
         .app-container.layout-3-col {
-            grid-template-columns: 3fr 1.3fr 170px;
+            grid-template-columns: 1fr 450px 170px;
             max-width: 1920px;
             width: 98%;
         }
@@ -1596,6 +1596,18 @@
             text-align: left !important;
         }
 
+        /* Collapsed empty spacer columns */
+        #standings-table td:empty,
+        #standings-table th:empty,
+        #standings-table td:nth-child(3),
+        #standings-table th:nth-child(3),
+        #standings-table td:nth-child(5),
+        #standings-table th:nth-child(5) {
+            padding: 0 !important;
+            width: 0 !important;
+            min-width: 0 !important;
+        }
+
         .app-container.layout-stacked main,
         .app-container.layout-stacked aside,
         .app-container.layout-stacked .filter-column {
@@ -1611,6 +1623,39 @@
         }
         .app-container.layout-stacked #player-filter-section {
             order: 2 !important;
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            gap: 16px !important;
+            padding: 8px 16px !important;
+            flex-wrap: wrap;
+        }
+        .app-container.layout-stacked #player-filter-section .panel-title {
+            margin: 0 !important;
+            font-size: 1.0rem !important;
+            border-bottom: none !important;
+            padding-bottom: 0 !important;
+        }
+        .app-container.layout-stacked #player-filter-section > div {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            gap: 16px !important;
+            flex-wrap: wrap;
+            flex-grow: 1;
+        }
+        .app-container.layout-stacked #player-filter-section > div > div:nth-child(2) {
+            border-top: none !important;
+            border-left: 1px solid rgba(255, 255, 255, 0.15) !important;
+            height: 20px !important;
+            margin: 0 4px !important;
+            width: 0 !important;
+        }
+        .app-container.layout-stacked #filter-players-list {
+            flex-direction: row !important;
+            flex-wrap: wrap;
+            gap: 12px !important;
+            overflow: visible !important;
         }
         .app-container.layout-stacked #timeline-section {
             order: 3 !important;
