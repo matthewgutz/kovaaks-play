@@ -2058,6 +2058,18 @@
                 if (saved) {
                     const array = JSON.parse(saved);
                     selectedPlayers = new Set(array);
+                    
+                    // Safeguard: Check if there is any overlap between saved IDs and current benchmark players.
+                    // If no selected players are active, clear the stale selections and default to select all.
+                    const bData = standingsData[currentBenchmarkId];
+                    if (bData) {
+                        const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
+                        const hasOverlap = configuredPlayers.some(p => selectedPlayers.has(p.steam_id));
+                        if (!hasOverlap) {
+                            selectedPlayers.clear();
+                            selectAllPlayers();
+                        }
+                    }
                 } else {
                     selectAllPlayers();
                 }
