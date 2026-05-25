@@ -204,7 +204,7 @@
         "76561198017954362": 13940.0,
         "76561198348625808": 7030.0,
         "76561199164422123": 9440.0,
-        "76561198033879793": 8610.0,
+        "76561198033879793": 8620.0,
         "76561198046477600": 12030.0,
         "76561198995689034": 0.0
       },
@@ -427,7 +427,7 @@
         "76561198045952875": 0.0,
         "76561198017954362": 133.0,
         "76561198348625808": 62.0,
-        "76561199164422123": 85.0,
+        "76561199164422123": 99.0,
         "76561198033879793": 100.0,
         "76561198046477600": 102.0,
         "76561198995689034": 0.0
@@ -710,7 +710,7 @@
         "76561198017954362": "2000-01-01 00:00:00",
         "76561198348625808": "2026-05-24 04:50:30",
         "76561199164422123": "2000-01-01 00:00:00",
-        "76561198033879793": "2026-05-25 04:06:40",
+        "76561198033879793": "2026-05-25 04:09:57",
         "76561198046477600": "2000-01-01 00:00:00",
         "76561198995689034": "2000-01-01 00:00:00"
       },
@@ -933,7 +933,7 @@
         "76561198045952875": "2000-01-01 00:00:00",
         "76561198017954362": "2000-01-01 00:00:00",
         "76561198348625808": "2026-05-24 05:53:09",
-        "76561199164422123": "2000-01-01 00:00:00",
+        "76561199164422123": "2026-05-25 04:09:57",
         "76561198033879793": "2000-01-01 00:00:00",
         "76561198046477600": "2000-01-01 00:00:00",
         "76561198995689034": "2000-01-01 00:00:00"
@@ -1166,11 +1166,11 @@
         "steam_id": "76561198017954362",
         "username": "@BakaOppai",
         "discord_id": "",
-        "rank_idx": 7,
-        "rank_name": "Orca",
+        "rank_idx": 6,
+        "rank_name": "Mammoth",
         "crown_count": 36,
         "completed_count": 36,
-        "points": 95.28,
+        "points": 92.35,
         "has_streak": true,
         "weekly_pbs": 5,
         "total_pbs": 5,
@@ -1181,11 +1181,11 @@
         "steam_id": "76561198046477600",
         "username": "@Laggiing",
         "discord_id": "",
-        "rank_idx": 4,
-        "rank_name": "Penguin",
+        "rank_idx": 2,
+        "rank_name": "Hare",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 75.9,
+        "points": 58.3,
         "has_streak": false,
         "weekly_pbs": 5,
         "total_pbs": 5,
@@ -1196,14 +1196,14 @@
         "steam_id": "76561199164422123",
         "username": "@Olioli",
         "discord_id": "",
-        "rank_idx": 3,
-        "rank_name": "Ermine",
+        "rank_idx": 0,
+        "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 67.32,
-        "has_streak": false,
-        "weekly_pbs": 2,
-        "total_pbs": 2,
+        "points": 42.42,
+        "has_streak": true,
+        "weekly_pbs": 3,
+        "total_pbs": 3,
         "active_days": 1,
         "position_change": 0
       },
@@ -1211,14 +1211,14 @@
         "steam_id": "76561198033879793",
         "username": "@CoachCam",
         "discord_id": "",
-        "rank_idx": 2,
-        "rank_name": "Hare",
+        "rank_idx": 0,
+        "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 59.97,
+        "points": 34.05,
         "has_streak": false,
-        "weekly_pbs": 3,
-        "total_pbs": 3,
+        "weekly_pbs": 4,
+        "total_pbs": 4,
         "active_days": 2,
         "position_change": 0
       },
@@ -1226,12 +1226,12 @@
         "steam_id": "76561198348625808",
         "username": "@Christine",
         "discord_id": "",
-        "rank_idx": 1,
-        "rank_name": "Lemming",
+        "rank_idx": 0,
+        "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 51.27,
-        "has_streak": true,
+        "points": 23.95,
+        "has_streak": false,
         "weekly_pbs": 63,
         "total_pbs": 63,
         "active_days": 2,
@@ -1245,7 +1245,7 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 11,
-        "points": 10.66,
+        "points": 3.52,
         "has_streak": false,
         "weekly_pbs": 1,
         "total_pbs": 1,
@@ -1653,38 +1653,7 @@
       "Floating Heads Timing 400% Larger": "Linear",
       "voxTargetSwitch Click": "Linear"
     },
-    "recent_overtakes": [
-      {
-        "scenario_name": "PGTI Voltaic Easy 80%",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-24 04:40:08"
-      },
-      {
-        "scenario_name": "Air Voltaic Invincible 7 Easy 80%",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198995689034",
-        "timestamp": "2026-05-24 04:54:01"
-      },
-      {
-        "scenario_name": "waldoTS Novice",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561199164422123",
-        "timestamp": "2026-05-24 05:38:33"
-      },
-      {
-        "scenario_name": "tamTargetSwitch Smooth Easy",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-24 05:48:21"
-      },
-      {
-        "scenario_name": "Air Pure Intermediate Slower No UFO",
-        "winner_sid": "76561198995689034",
-        "loser_sid": "76561198348625808",
-        "timestamp": "2026-05-24 06:51:39"
-      }
-    ],
+    "recent_overtakes": [],
     "active_rivalries": [
       {
         "chaser_sid": "76561199164422123",
@@ -1807,7 +1776,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779682012.596778,
+    "last_poll": 1779727990.416207,
     "check_interval": 180
   },
   "687": {
@@ -2977,11 +2946,11 @@
         "steam_id": "76561198017954362",
         "username": "@BakaOppai",
         "discord_id": "",
-        "rank_idx": 3,
-        "rank_name": "Saffron",
+        "rank_idx": 1,
+        "rank_name": "Cinnabar",
         "crown_count": 36,
         "completed_count": 36,
-        "points": 69.16,
+        "points": 40.68,
         "has_streak": false,
         "weekly_pbs": 0,
         "total_pbs": 0,
@@ -2996,7 +2965,7 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 6,
-        "points": 6.58,
+        "points": 1.89,
         "has_streak": false,
         "weekly_pbs": 1,
         "total_pbs": 1,
@@ -3011,7 +2980,7 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 5,
-        "points": 5.62,
+        "points": 1.76,
         "has_streak": false,
         "weekly_pbs": 1,
         "total_pbs": 1,
@@ -3026,7 +2995,7 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 5,
-        "points": 5.59,
+        "points": 1.61,
         "has_streak": false,
         "weekly_pbs": 1,
         "total_pbs": 1,
@@ -3041,8 +3010,8 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 5,
-        "points": 4.77,
-        "has_streak": true,
+        "points": 1.12,
+        "has_streak": false,
         "weekly_pbs": 9,
         "total_pbs": 9,
         "active_days": 2,
@@ -3056,7 +3025,7 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 1,
-        "points": 0.01,
+        "points": 0.0,
         "has_streak": false,
         "weekly_pbs": 0,
         "total_pbs": 1,
@@ -3464,14 +3433,7 @@
       "Floating Heads Timing 400% Larger": "Linear",
       "voxTargetClick 20% Small": "Linear"
     },
-    "recent_overtakes": [
-      {
-        "scenario_name": "tamTargetSwitch Smooth Easy",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-24 05:48:30"
-      }
-    ],
+    "recent_overtakes": [],
     "active_rivalries": [
       {
         "chaser_sid": "76561198046477600",
@@ -3494,7 +3456,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779682012.60442,
+    "last_poll": 1779727990.434392,
     "check_interval": 180
   },
   "688": {
@@ -4608,7 +4570,7 @@
         "rank_name": "Unranked",
         "crown_count": 6,
         "completed_count": 6,
-        "points": 6.05,
+        "points": 1.41,
         "has_streak": false,
         "weekly_pbs": 4,
         "total_pbs": 4,
@@ -4623,7 +4585,7 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 1,
-        "points": 1.57,
+        "points": 0.31,
         "has_streak": false,
         "weekly_pbs": 0,
         "total_pbs": 0,
@@ -4638,7 +4600,7 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 1,
-        "points": 1.37,
+        "points": 0.27,
         "has_streak": false,
         "weekly_pbs": 0,
         "total_pbs": 0,
@@ -4653,7 +4615,7 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 1,
-        "points": 1.31,
+        "points": 0.26,
         "has_streak": false,
         "weekly_pbs": 2,
         "total_pbs": 2,
@@ -4668,7 +4630,7 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 1,
-        "points": 1.09,
+        "points": 0.22,
         "has_streak": false,
         "weekly_pbs": 0,
         "total_pbs": 0,
@@ -5032,7 +4994,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779682012.612011,
+    "last_poll": 1779727990.448305,
     "check_interval": 180
   }
 }
