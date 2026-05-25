@@ -511,6 +511,11 @@
             overflow-y: hidden;
             margin-bottom: 30px;
         }
+        @media (min-width: 1030px) {
+            #grid-section .table-container {
+                overflow-x: hidden;
+            }
+        }
 
         table {
             width: 100%;
@@ -799,7 +804,7 @@
             padding: 16px 3px !important;
             white-space: nowrap;
             text-shadow: 0 0 8px rgba(114, 9, 183, 0.4);
-            min-width: 32px;
+            min-width: 24px;
         }
 
         .grid-subcat {
@@ -818,7 +823,7 @@
             padding: 16px 3px !important;
             white-space: nowrap;
             text-shadow: 0 0 8px rgba(0, 245, 212, 0.3);
-            min-width: 36px;
+            min-width: 24px;
         }
 
         #grid-table tbody tr {
@@ -3767,15 +3772,15 @@
             const ranksList = benchmarkRanks[currentBenchmarkId] || [];
 
             // Calculate equal width for each rank
-            const rankColWidth = (63.5 / ranksList.length).toFixed(2) + '%';
+            const rankColWidth = (63.5 / ranksList.length) + '%';
 
             // Grid header
             const headerRow = document.createElement('tr');
             headerRow.innerHTML = `
-                <th style="width: 3.0%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted); writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 2px; height: 60px; min-width: 32px;">Cat</th>
-                <th style="width: 3.5%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted); writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 2px; height: 60px; min-width: 36px;">Sub</th>
+                <th style="width: 3.0%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted); writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 2px; height: 60px; min-width: 24px;">Cat</th>
+                <th style="width: 3.5%; text-align: center; font-size: 0.8rem; letter-spacing: 0.5px; color: var(--text-muted); writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 2px; height: 60px; min-width: 24px;">Sub</th>
                 <th style="width: 18.0%; text-align: left; font-size: 0.9rem; letter-spacing: 0.5px; min-width: 170px;">Scenario</th>
-                <th style="width: 7.0%; text-align: center; font-size: 0.85rem; letter-spacing: 0.5px; color: var(--accent-gold); min-width: 70px;">Best</th>
+                <th style="width: 7.0%; text-align: center; font-size: 0.85rem; letter-spacing: 0.5px; color: var(--accent-gold); min-width: 65px;">Best</th>
             `;
             
             ranksList.forEach(r => {
@@ -3987,7 +3992,7 @@
                                     </a>
                                 </div>
                             </td>
-                            <td class="best-score-cell" style="text-align: center; vertical-align: middle; font-weight: bold; background: rgba(255,255,255,0.01); min-width: 70px;">${bestScoreHtml}</td>
+                            <td class="best-score-cell" style="text-align: center; vertical-align: middle; font-weight: bold; background: rgba(255,255,255,0.01); min-width: 65px;">${bestScoreHtml}</td>
                         `;
                         
                         const rankMaxes = (bData.thresholds && bData.thresholds[scen]) || [];
