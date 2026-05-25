@@ -5351,8 +5351,29 @@
                 scenarios.forEach(scen => {
                     const score = currentScores[sid][scen] || 0.0;
                     const rankMaxes = bData.thresholds[scen] || [];
-                    const threshold = rankMaxes[rankMaxes.length - 1] || 1.0;
-                    const pct = Math.min(100.0, (score / threshold) * 100.0);
+                    const N = rankMaxes.length;
+                    const rankWeight = N > 0 ? 100.0 / N : 10.0;
+                    let pct = 0.0;
+                    
+                    if (N === 0) {
+                        pct = 0.0;
+                    } else if (score < rankMaxes[0]) {
+                        const tMin = rankMaxes[0];
+                        pct = tMin > 0.0 ? (score / tMin) * rankWeight : 0.0;
+                    } else if (score >= rankMaxes[N - 1]) {
+                        pct = 100.0;
+                    } else {
+                        pct = rankWeight;
+                        for (let i = 0; i < N - 1; i++) {
+                            const low = rankMaxes[i];
+                            const high = rankMaxes[i + 1];
+                            if (score >= low && score < high) {
+                                pct += i * rankWeight + ((score - low) / (high - low)) * rankWeight;
+                                break;
+                            }
+                        }
+                    }
+                    pct = Math.min(100.0, pct);
                     totalPct += pct;
                 });
                 return totalPct / (scenarios.length || 1);
