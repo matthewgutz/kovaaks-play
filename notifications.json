@@ -1,5 +1,19 @@
 [
   {
+    "id": 255,
+    "player_name": "CoachCam",
+    "event_type": "pb",
+    "message": "**Whisphere Small & Slow 55%**",
+    "timestamp": "2026-05-25 04:10:06"
+  },
+  {
+    "id": 254,
+    "player_name": "Olioli",
+    "event_type": "pain_point",
+    "message": "Trash panda angry! @Olioli almost beat @CoachCam on [1wall5targets_pasu slow](https://matthewgutz.github.io/kovaaks-play?scenario=1wall5targets_pasu%20slow)! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-25 04:10:06"
+  },
+  {
     "id": 253,
     "player_name": "CoachCam",
     "event_type": "pb",
@@ -683,20 +697,6 @@
     "player_name": "Laggiing",
     "event_type": "rank_up",
     "message": "[Silent Run] \ud83c\udfc6 RANK UP! @Laggiing has promoted to **Cinnabar** (Rank 1) on the **Medium** benchmark! From Bronze scrubs to Grandmasters! (Previous: Unranked)",
-    "timestamp": "2026-05-23 02:36:56"
-  },
-  {
-    "id": 155,
-    "player_name": "CoachCam",
-    "event_type": "rank_up",
-    "message": "[Silent Run] \ud83c\udfc6 Doctor Strange portals to the next tier! @CoachCam promoted to **Cinnabar** on **Medium**!",
-    "timestamp": "2026-05-23 02:36:56"
-  },
-  {
-    "id": 154,
-    "player_name": "Olioli",
-    "event_type": "rank_up",
-    "message": "[Silent Run] \ud83c\udfc6 Look who's climbing! @Olioli is now a certified **Cinnabar** on **Medium**!",
     "timestamp": "2026-05-23 02:36:56"
   }
 ]
