@@ -1671,66 +1671,6 @@
       ]
     }
   },
-  "686_beanTS Larger": {
-    "76561198017954362": {
-      "player_name": "@BakaOppai",
-      "history": [
-        {
-          "score": 121.55,
-          "timestamp": "2026-05-13 14:27:00"
-        }
-      ]
-    },
-    "76561198033879793": {
-      "player_name": "@CoachCam",
-      "history": [
-        {
-          "score": 93.0,
-          "timestamp": "2026-05-13 14:27:00"
-        }
-      ]
-    },
-    "76561198046477600": {
-      "player_name": "@Laggiing",
-      "history": [
-        {
-          "score": 102.0,
-          "timestamp": "2026-05-13 14:27:00"
-        }
-      ]
-    },
-    "76561198995689034": {
-      "player_name": "@Haruno",
-      "history": [
-        {
-          "score": 0.0,
-          "timestamp": "2026-05-13 14:27:00"
-        }
-      ]
-    },
-    "76561199164422123": {
-      "player_name": "@Olioli",
-      "history": [
-        {
-          "score": 92.0,
-          "timestamp": "2026-05-13 14:27:00"
-        }
-      ]
-    },
-    "76561198348625808": {
-      "player_name": "@Christine",
-      "history": [
-        {
-          "score": 77.0,
-          "timestamp": "2026-05-23 04:07:00"
-        },
-        {
-          "score": 78.0,
-          "timestamp": "2026-05-24 05:31:49"
-        }
-      ]
-    }
-  },
   "686_cloverRawControl Easy 80% Speed": {
     "76561198017954362": {
       "player_name": "@BakaOppai",
@@ -5967,6 +5907,66 @@
         {
           "score": 0.0,
           "timestamp": "2026-05-23 01:11:40"
+        }
+      ]
+    }
+  },
+  "686_beanTS Larger": {
+    "76561198033879793": {
+      "player_name": "@CoachCam",
+      "history": [
+        {
+          "score": 93.0,
+          "timestamp": "2026-05-13 14:27:00"
+        }
+      ]
+    },
+    "76561198046477600": {
+      "player_name": "@Laggiing",
+      "history": [
+        {
+          "score": 102.0,
+          "timestamp": "2026-05-13 14:27:00"
+        }
+      ]
+    },
+    "76561198995689034": {
+      "player_name": "@Haruno",
+      "history": [
+        {
+          "score": 0.0,
+          "timestamp": "2026-05-13 14:27:00"
+        }
+      ]
+    },
+    "76561199164422123": {
+      "player_name": "@Olioli",
+      "history": [
+        {
+          "score": 92.0,
+          "timestamp": "2026-05-13 14:27:00"
+        }
+      ]
+    },
+    "76561198348625808": {
+      "player_name": "@Christine",
+      "history": [
+        {
+          "score": 77.0,
+          "timestamp": "2026-05-23 04:07:00"
+        },
+        {
+          "score": 78.0,
+          "timestamp": "2026-05-24 05:31:49"
+        }
+      ]
+    },
+    "76561198017954362": {
+      "player_name": "@BakaOppai",
+      "history": [
+        {
+          "score": 122.0,
+          "timestamp": "2026-05-25 02:40:41"
         }
       ]
     }
