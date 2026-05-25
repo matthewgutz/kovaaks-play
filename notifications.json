@@ -1,5 +1,19 @@
 [
   {
+    "id": 253,
+    "player_name": "CoachCam",
+    "event_type": "pb",
+    "message": "**Whisphere Small & Slow 55%**",
+    "timestamp": "2026-05-25 04:06:48"
+  },
+  {
+    "id": 252,
+    "player_name": "Olioli",
+    "event_type": "pb",
+    "message": "**Controlsphere OW Long Strafes 90%**",
+    "timestamp": "2026-05-25 04:06:48"
+  },
+  {
     "id": 251,
     "player_name": "Olioli",
     "event_type": "pb",
@@ -683,20 +697,6 @@
     "player_name": "Olioli",
     "event_type": "rank_up",
     "message": "[Silent Run] \ud83c\udfc6 Look who's climbing! @Olioli is now a certified **Cinnabar** on **Medium**!",
-    "timestamp": "2026-05-23 02:36:56"
-  },
-  {
-    "id": 153,
-    "player_name": "Christine",
-    "event_type": "rank_up",
-    "message": "[Silent Run] \ud83c\udfc6 RANK UP! @Christine has promoted to **Cinnabar** (Rank 1) on the **Medium** benchmark! From Bronze scrubs to Grandmasters! (Previous: Unranked)",
-    "timestamp": "2026-05-23 02:36:56"
-  },
-  {
-    "id": 152,
-    "player_name": "Haruno",
-    "event_type": "rank_up",
-    "message": "[Silent Run] \ud83c\udfc6 Doctor Strange portals to the next tier! @Haruno promoted to **Lemming** on **Easier**!",
     "timestamp": "2026-05-23 02:36:56"
   }
 ]
