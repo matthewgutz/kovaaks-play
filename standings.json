@@ -1807,7 +1807,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779669622.678771,
+    "last_poll": 1779674150.45134,
     "check_interval": 180
   },
   "687": {
@@ -3494,7 +3494,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779669622.690645,
+    "last_poll": 1779674150.466177,
     "check_interval": 180
   },
   "688": {
@@ -4609,7 +4609,7 @@
         "crown_count": 6,
         "completed_count": 6,
         "points": 6.05,
-        "has_streak": true,
+        "has_streak": false,
         "weekly_pbs": 4,
         "total_pbs": 4,
         "active_days": 2,
@@ -4628,7 +4628,7 @@
         "weekly_pbs": 0,
         "total_pbs": 0,
         "active_days": 0,
-        "position_change": 1
+        "position_change": 0
       },
       {
         "steam_id": "76561198033879793",
@@ -4643,7 +4643,7 @@
         "weekly_pbs": 0,
         "total_pbs": 0,
         "active_days": 0,
-        "position_change": 1
+        "position_change": 0
       },
       {
         "steam_id": "76561198348625808",
@@ -4658,7 +4658,7 @@
         "weekly_pbs": 2,
         "total_pbs": 2,
         "active_days": 2,
-        "position_change": -2
+        "position_change": 0
       },
       {
         "steam_id": "76561198046477600",
@@ -5032,7 +5032,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779669622.701234,
+    "last_poll": 1779674150.480835,
     "check_interval": 180
   }
 }
