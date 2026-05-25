@@ -73,7 +73,7 @@
         }
 
         /* Layout */
-        /* Default: Tier 1 - Stacked Mobile Layout (< 1400px) */
+        /* Default: Tier 1 - Stacked Mobile Layout (< 1600px) */
         .app-container {
             max-width: 1800px;
             width: 96%;
@@ -90,7 +90,7 @@
             min-width: 0;
         }
 
-        /* Tier 2: Medium Desktop Layout (1400px - 1799px) */
+        /* Tier 2: Medium Desktop Layout (1600px - 1799px) */
         .app-container.layout-2-col {
             grid-template-columns: 3fr 1fr;
             max-width: 1600px;
@@ -1566,14 +1566,14 @@
         }
         #standings-table thead tr {
             display: grid;
-            grid-template-columns: 45px 2fr 1.2fr 1.4fr 1.2fr 0.8fr;
+            grid-template-columns: 45px 1fr 45px 60px 95px;
             padding: 12px 16px;
             width: 100%;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         #standings-table tbody tr.player-row {
             display: grid;
-            grid-template-columns: 45px 2fr 1.2fr 1.4fr 1.2fr 0.8fr;
+            grid-template-columns: 45px 1fr 45px 60px 95px;
             align-items: center;
             background: var(--bg-surface);
             border: 1px solid rgba(255, 255, 255, 0.06);
@@ -1778,12 +1778,11 @@
                     <table id="standings-table">
                         <thead>
                             <tr>
-                                <th>Pos</th>
-                                <th>Player</th>
-                                <th>Overall Rank</th>
-                                <th>👑</th>
-                                <th>Max Rank %</th>
-                                <th>PBs</th>
+                                <th style="text-align: center !important; display: flex; align-items: center; justify-content: center; padding: 0 !important;">Pos</th>
+                                <th style="text-align: left !important; display: flex; align-items: center; justify-content: flex-start; padding: 0 4px !important;">Player</th>
+                                <th style="text-align: center !important; display: flex; align-items: center; justify-content: center; padding: 0 !important;">PBs</th>
+                                <th style="text-align: center !important; display: flex; align-items: center; justify-content: center; padding: 0 !important;">Max %</th>
+                                <th style="text-align: right !important; display: flex; align-items: center; justify-content: flex-end; padding: 0 !important;">👑 Progress</th>
                             </tr>
                         </thead>
                         <tbody id="standings-body">
@@ -3113,7 +3112,7 @@
                         
                         container.classList.remove('layout-stacked', 'layout-single-column', 'layout-2-col', 'layout-3-col');
                         
-                        if (width < 1400) {
+                        if (width < 1600) {
                             container.classList.add('layout-stacked');
                             container.classList.add('layout-single-column');
                         } else if (width < 1800) {
@@ -3702,11 +3701,11 @@
                 
                 let changeHtml = '';
                 if (p.position_change > 0) {
-                    changeHtml = `<span class="trend-up" style="margin-left: 6px; font-size: 0.8rem;">▲${p.position_change}</span>`;
+                    changeHtml = `<span class="trend-up" style="font-size: 0.75rem; display: block; margin-top: 2px;">▲${p.position_change}</span>`;
                 } else if (p.position_change < 0) {
-                    changeHtml = `<span class="trend-down" style="margin-left: 6px; font-size: 0.8rem;">▼${Math.abs(p.position_change)}</span>`;
+                    changeHtml = `<span class="trend-down" style="font-size: 0.75rem; display: block; margin-top: 2px;">▼${Math.abs(p.position_change)}</span>`;
                 } else {
-                    changeHtml = `<span class="trend-neutral" style="margin-left: 6px; font-size: 0.8rem;">-</span>`;
+                    changeHtml = `<span class="trend-neutral" style="font-size: 0.75rem; display: block; margin-top: 2px;">-</span>`;
                 }
                 
                 let activityBadge = '';
@@ -3716,17 +3715,28 @@
                     activityBadge = '<span class="status-badge-hibernating" title="Hibernating (0 PBs this week)" style="cursor: help;">💤</span>';
                 }
                 
+                const rankBadgeHtml = `<span class="rank-badge rank-${lowerRankName}" style="font-size: 0.7rem; padding: 2px 6px; margin-top: 4px; display: inline-block;">${p.rank_name}</span>`;
+                
+                const progressPillHtml = p.crown_count > 0 
+                    ? `<span class="crown-pill">👑 ${p.crown_count} / ${p.completed_count}</span>` 
+                    : `<span class="crown-pill" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-muted);">👑 0 / ${p.completed_count}</span>`;
+                
                 row.innerHTML = `
-                    <td style="font-weight: bold;">#${idx + 1}${changeHtml}</td>
-                    <td style="font-weight: 600;">
-                        <a href="https://steamcommunity.com/profiles/${p.steam_id}" target="_blank" style="color: #fff; text-decoration: none; display: flex; align-items: center; gap: 6px;">
+                    <td style="font-weight: bold; text-align: center !important; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 !important;">
+                        <span>#${idx + 1}</span>
+                        ${changeHtml}
+                    </td>
+                    <td style="font-weight: 600; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 0 4px !important;">
+                        <a href="https://steamcommunity.com/profiles/${p.steam_id}" target="_blank" style="color: #fff; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
                             ${p.username} ${activityBadge}
                         </a>
+                        ${rankBadgeHtml}
                     </td>
-                    <td><span class="rank-badge rank-${lowerRankName}">${p.rank_name}</span></td>
-                    <td style="white-space: nowrap;">${p.crown_count > 0 ? `<span class="crown-pill">👑 ${p.crown_count} / ${p.completed_count}</span>` : `<span style="color: var(--text-muted)">0 / ${p.completed_count}</span>`}</td>
-                    <td style="font-weight: 600; color: #fff;">${p.points ? p.points.toFixed(1) : '0.0'}%</td>
-                    <td>${p.total_pbs}</td>
+                    <td style="text-align: center !important; display: flex; align-items: center; justify-content: center; padding: 0 !important;">${p.total_pbs}</td>
+                    <td style="font-weight: 600; color: #fff; text-align: center !important; display: flex; align-items: center; justify-content: center; padding: 0 !important;">${p.points ? p.points.toFixed(1) : '0.0'}%</td>
+                    <td style="white-space: nowrap; text-align: right !important; display: flex; align-items: center; justify-content: flex-end; padding: 0 !important;">
+                        ${progressPillHtml}
+                    </td>
                 `;
                 
                 tbody.appendChild(row);
@@ -5099,7 +5109,7 @@
                 if (aside) aside.style.display = 'none';
                 if (main) {
                     const container = document.querySelector('.app-container');
-                    const isSingleColumn = container ? container.classList.contains('layout-stacked') : window.innerWidth < 1400;
+                    const isSingleColumn = container ? container.classList.contains('layout-stacked') : window.innerWidth < 1600;
                     if (!isSingleColumn) {
                         main.style.gridColumn = '1 / 3';
                     } else {
