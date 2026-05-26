@@ -1,5 +1,12 @@
 [
   {
+    "id": 256,
+    "player_name": "Laggiing",
+    "event_type": "pb",
+    "message": "**WhisphereRawControl Larger + Slowed**",
+    "timestamp": "2026-05-26 00:33:38"
+  },
+  {
     "id": 255,
     "player_name": "CoachCam",
     "event_type": "pb",
@@ -690,13 +697,6 @@
     "player_name": "Haruno",
     "event_type": "rank_up",
     "message": "[Silent Run] \ud83c\udfc6 Look who's climbing! @Haruno is now a certified **Cinnabar** on **Medium**!",
-    "timestamp": "2026-05-23 02:36:56"
-  },
-  {
-    "id": 156,
-    "player_name": "Laggiing",
-    "event_type": "rank_up",
-    "message": "[Silent Run] \ud83c\udfc6 RANK UP! @Laggiing has promoted to **Cinnabar** (Rank 1) on the **Medium** benchmark! From Bronze scrubs to Grandmasters! (Previous: Unranked)",
     "timestamp": "2026-05-23 02:36:56"
   }
 ]
