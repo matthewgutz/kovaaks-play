@@ -373,7 +373,7 @@
         "76561198348625808": 93.7,
         "76561199164422123": 90.15,
         "76561198033879793": 105.39,
-        "76561198046477600": 102.2,
+        "76561198046477600": 121.2,
         "76561198995689034": 0.0
       },
       "devTS Goated NR Static 5Bot": {
@@ -387,7 +387,7 @@
         "76561198348625808": 550.0,
         "76561199164422123": 561.0,
         "76561198033879793": 632.0,
-        "76561198046477600": 564.0,
+        "76561198046477600": 654.0,
         "76561198995689034": 0.0
       },
       "domiSwitch Easy Slower": {
@@ -879,7 +879,7 @@
         "76561198348625808": "2026-05-24 05:38:33",
         "76561199164422123": "2026-05-13 14:27:00",
         "76561198033879793": "2026-05-13 14:27:00",
-        "76561198046477600": "2026-05-13 14:27:00",
+        "76561198046477600": "2026-05-26 01:42:10",
         "76561198995689034": "2026-05-13 14:27:00"
       },
       "devTS Goated NR Static 5Bot": {
@@ -893,7 +893,7 @@
         "76561198348625808": "2026-05-24 05:45:06",
         "76561199164422123": "2026-05-13 14:27:00",
         "76561198033879793": "2026-05-13 14:27:00",
-        "76561198046477600": "2026-05-13 14:27:00",
+        "76561198046477600": "2026-05-26 01:42:10",
         "76561198995689034": "2026-05-13 14:27:00"
       },
       "domiSwitch Easy Slower": {
@@ -1185,10 +1185,10 @@
         "rank_name": "Hare",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 62.17,
+        "points": 63.55,
         "has_streak": true,
-        "weekly_pbs": 21,
-        "total_pbs": 57,
+        "weekly_pbs": 23,
+        "total_pbs": 59,
         "active_days": 2,
         "position_change": 0
       },
@@ -1707,6 +1707,18 @@
         "winner_sid": "76561198046477600",
         "loser_sid": "76561198033879793",
         "timestamp": "2026-05-26 01:38:35"
+      },
+      {
+        "scenario_name": "waldoTS Novice",
+        "winner_sid": "76561198046477600",
+        "loser_sid": "76561198033879793",
+        "timestamp": "2026-05-26 01:42:10"
+      },
+      {
+        "scenario_name": "devTS Goated NR Static 5Bot",
+        "winner_sid": "76561198046477600",
+        "loser_sid": "76561198033879793",
+        "timestamp": "2026-05-26 01:42:10"
       }
     ],
     "active_rivalries": [
@@ -1881,11 +1893,31 @@
         "total_overtakes": 1
       },
       {
+        "chaser_sid": "76561198033879793",
+        "chaser_name": "@CoachCam",
+        "target_sid": "76561198046477600",
+        "target_name": "@Laggiing",
+        "scenario_name": "waldoTS Novice",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
+      },
+      {
         "chaser_sid": "76561199164422123",
         "chaser_name": "@Olioli",
         "target_sid": "76561198348625808",
         "target_name": "@Christine",
         "scenario_name": "waldoTS Novice",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
+      },
+      {
+        "chaser_sid": "76561198033879793",
+        "chaser_name": "@CoachCam",
+        "target_sid": "76561198046477600",
+        "target_name": "@Laggiing",
+        "scenario_name": "devTS Goated NR Static 5Bot",
         "chaser_overtakes_target": 0,
         "target_overtakes_chaser": 1,
         "total_overtakes": 1
@@ -1901,7 +1933,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779759541.840954,
+    "last_poll": 1779759755.319353,
     "check_interval": 180
   },
   "687": {
@@ -2292,7 +2324,7 @@
         "76561198348625808": 550.0,
         "76561199164422123": 561.0,
         "76561198033879793": 632.0,
-        "76561198046477600": 564.0,
+        "76561198046477600": 654.0,
         "76561198995689034": 0.0
       },
       "domiSwitch Easy": {
@@ -2798,7 +2830,7 @@
         "76561198348625808": "2026-05-24 05:45:11",
         "76561199164422123": "2026-05-13 14:27:00",
         "76561198033879793": "2026-05-13 14:27:00",
-        "76561198046477600": "2026-05-13 14:27:00",
+        "76561198046477600": "2026-05-26 01:42:20",
         "76561198995689034": "2026-05-13 14:27:00"
       },
       "domiSwitch Easy": {
@@ -3105,10 +3137,10 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 5,
-        "points": 2.25,
+        "points": 2.65,
         "has_streak": true,
-        "weekly_pbs": 6,
-        "total_pbs": 42,
+        "weekly_pbs": 7,
+        "total_pbs": 43,
         "active_days": 2,
         "position_change": 1
       },
@@ -3576,6 +3608,12 @@
         "winner_sid": "76561198046477600",
         "loser_sid": "76561198348625808",
         "timestamp": "2026-05-26 00:55:28"
+      },
+      {
+        "scenario_name": "devTS Goated NR Static 5Bot",
+        "winner_sid": "76561198046477600",
+        "loser_sid": "76561198033879793",
+        "timestamp": "2026-05-26 01:42:20"
       }
     ],
     "active_rivalries": [
@@ -3612,6 +3650,16 @@
       {
         "chaser_sid": "76561198033879793",
         "chaser_name": "@CoachCam",
+        "target_sid": "76561198046477600",
+        "target_name": "@Laggiing",
+        "scenario_name": "devTS Goated NR Static 5Bot",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
+      },
+      {
+        "chaser_sid": "76561198033879793",
+        "chaser_name": "@CoachCam",
         "target_sid": "76561198348625808",
         "target_name": "@Christine",
         "scenario_name": "tamTargetSwitch Smooth Easy",
@@ -3620,7 +3668,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779759541.865778,
+    "last_poll": 1779759755.341589,
     "check_interval": 180
   },
   "688": {
@@ -5197,7 +5245,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779759541.89011,
+    "last_poll": 1779759755.362623,
     "check_interval": 180
   }
 }
