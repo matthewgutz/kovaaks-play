@@ -8,6 +8,12 @@
   {
     "benchmark_id": "686",
     "benchmark_name": "Easier",
+    "scenario_name": "1wall5targets_pasu slow",
+    "update_count": 16
+  },
+  {
+    "benchmark_id": "686",
+    "benchmark_name": "Easier",
     "scenario_name": "Air CELESTIAL No UFO Easy Slowed",
     "update_count": 16
   },
@@ -20,12 +26,6 @@
   {
     "benchmark_id": "686",
     "benchmark_name": "Easier",
-    "scenario_name": "Pokeball Frenzy Auto TE Wide",
-    "update_count": 16
-  },
-  {
-    "benchmark_id": "687",
-    "benchmark_name": "Medium",
     "scenario_name": "Pokeball Frenzy Auto TE Wide",
     "update_count": 16
   }
