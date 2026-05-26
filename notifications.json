@@ -1,17 +1,24 @@
 [
   {
+    "id": 291,
+    "player_name": "Olioli",
+    "event_type": "pain_point",
+    "message": "So close! @Olioli smell @CoachCam butt on [Polarized Hell Easy 40% Slower](https://matthewgutz.github.io/kovaaks-play?scenario=Polarized%20Hell%20Easy%2040%25%20Slower)! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-26 04:01:30"
+  },
+  {
     "id": 290,
     "player_name": "CoachCam",
     "event_type": "pain_point",
-    "message": "Trash panda angry! @CoachCam almost beat @Olioli on [Flicker Plaza rAim Easy Less Blinks](https://matthewgutz.github.io/kovaaks-play?scenario=Flicker%20Plaza%20rAim%20Easy%20Less%20Blinks)! \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-26 03:58:13"
+    "message": "Trash panda angry! @CoachCam almost beat @Olioli on [Flicker Plaza rAim Easy Less Blinks](https://matthewgutz.github.io/kovaaks-play/?scenario=Flicker%20Plaza%20rAim%20Easy%20Less%20Blinks)! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-26 03:58:22"
   },
   {
     "id": 289,
     "player_name": "Olioli",
     "event_type": "pb",
     "message": "**Flicker Plaza rAim Easy Less Blinks** \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-26 03:58:13"
+    "timestamp": "2026-05-26 03:58:22"
   },
   {
     "id": 288,
@@ -691,12 +698,5 @@
     "event_type": "pb",
     "message": "\ud83c\udf89 Thor-level thunder! @CoachCam struck down their old score with a massive PB of 831.9 on **Air CELESTIAL No UFO Easy Slowed** - <https://matthewgutz.github.io/kovaaks-play?scenario=Air%20CELESTIAL%20No%20UFO%20Easy%20Slowed>!",
     "timestamp": "2026-05-23 04:59:46"
-  },
-  {
-    "id": 191,
-    "player_name": "Laggiing",
-    "event_type": "pb",
-    "message": "\ud83c\udf89 Aim training is paying off! @Laggiing pushed their **Polarized Hell Easy 40% Slower** - <https://matthewgutz.github.io/kovaaks-play?scenario=Polarized%20Hell%20Easy%2040%25%20Slower> record up to 1735.0! \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-23 04:44:01"
   }
 ]
