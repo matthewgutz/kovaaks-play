@@ -155,6 +155,36 @@
             padding: 12px 10px !important;
         }
 
+        /* Tier 2 & 3 overrides when History View is active */
+        @media (min-width: 1600px) {
+            .app-container.view-history {
+                grid-template-columns: 1fr 280px !important;
+                max-width: 1900px !important;
+            }
+            .app-container.view-history .header-full {
+                grid-column: span 2 !important;
+            }
+            .app-container.view-history main {
+                grid-column: 1 !important;
+                grid-row: 2 !important;
+                width: 100% !important;
+            }
+            .app-container.view-history aside {
+                display: none !important;
+            }
+            .app-container.view-history .filter-column {
+                grid-column: 2 !important;
+                grid-row: 2 !important;
+                display: block !important;
+            }
+        }
+
+        /* General overrides when History View is active */
+        .app-container.view-history aside,
+        .app-container.view-history #leaderboard-view,
+        .app-container.view-history #weekly-charts-section {
+            display: none !important;
+        }
 
         #grid-table {
             table-layout: fixed;
@@ -1608,13 +1638,20 @@
             min-width: 0 !important;
         }
 
-        .app-container.layout-stacked main,
-        .app-container.layout-stacked aside,
-        .app-container.layout-stacked .filter-column {
+        .app-container.layout-stacked:not(.view-history) main,
+        .app-container.layout-stacked:not(.view-history) aside,
+        .app-container.layout-stacked:not(.view-history) .filter-column {
             display: contents !important;
         }
-        .app-container.layout-stacked #leaderboard-view {
+        .app-container.layout-stacked:not(.view-history) #leaderboard-view {
             display: contents !important;
+        }
+        
+        .app-container.view-history.layout-stacked main {
+            order: 3 !important;
+        }
+        .app-container.view-history.layout-stacked .filter-column {
+            order: 2 !important;
         }
         
         /* Order definitions on mobile grid */
@@ -1660,35 +1697,38 @@
         .app-container.layout-stacked #timeline-section {
             order: 3 !important;
         }
-        .app-container.layout-stacked #radar-chart-section {
+        .app-container.layout-stacked #weekly-charts-section {
             order: 4 !important;
         }
-        .app-container.layout-stacked #grid-section {
+        .app-container.layout-stacked #radar-chart-section {
             order: 5 !important;
         }
-        .app-container.layout-stacked #history-view {
+        .app-container.layout-stacked #grid-section {
             order: 6 !important;
         }
-        .app-container.layout-stacked #standings-section {
+        .app-container.layout-stacked #history-view {
             order: 7 !important;
         }
-        .app-container.layout-stacked #weekly-activity-section {
+        .app-container.layout-stacked #standings-section {
             order: 8 !important;
         }
-        .app-container.layout-stacked #focus-maps-section {
+        .app-container.layout-stacked #weekly-activity-section {
             order: 9 !important;
         }
-        .app-container.layout-stacked #rivalries-section {
+        .app-container.layout-stacked #focus-maps-section {
             order: 10 !important;
         }
-        .app-container.layout-stacked #simulator-section {
+        .app-container.layout-stacked #rivalries-section {
             order: 11 !important;
         }
-        .app-container.layout-stacked #player-management-section {
+        .app-container.layout-stacked #simulator-section {
             order: 12 !important;
         }
-        .app-container.layout-stacked #webhook-section {
+        .app-container.layout-stacked #player-management-section {
             order: 13 !important;
+        }
+        .app-container.layout-stacked #webhook-section {
+            order: 14 !important;
         }
     </style>
 </head>
@@ -1767,6 +1807,26 @@
                     </div>
                     <div style="flex-grow: 1; min-height: 250px; position: relative; width: 100%;">
                         <canvas id="timeline-chart"></canvas>
+                    </div>
+                </section>
+
+                <!-- Weekly Activity & Growth Section -->
+                <section class="glass-panel" id="weekly-charts-section" style="padding: 24px;">
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
+                        <!-- Weekly PBs Chart -->
+                        <div>
+                            <h2 class="panel-title" style="margin-bottom: 8px; border-bottom: none; padding-bottom: 0; font-size: 1.1rem;">📊 Personal Bests in Filtered Period</h2>
+                            <div style="height: 65px; position: relative; width: 100%;">
+                                <canvas id="weekly-pbs-chart"></canvas>
+                            </div>
+                        </div>
+                        <!-- Growth Chart -->
+                        <div>
+                            <h2 class="panel-title" style="margin-bottom: 8px; border-bottom: none; padding-bottom: 0; font-size: 1.1rem;">📈 Progress Growth in Filtered Period</h2>
+                            <div style="height: 85px; position: relative; width: 100%;">
+                                <canvas id="growth-chart"></canvas>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
@@ -2172,6 +2232,56 @@
                     overallProgressChart.update();
                 }
             }
+
+            // Trigger update on weekly PBs chart
+            if (window.weeklyPbsChartInstance && window.weeklyPbsChartInstance.data.datasets) {
+                const isCompareAll = document.getElementById('filter-compare-all')?.checked;
+                window.weeklyPbsChartInstance.data.datasets.forEach(dataset => {
+                    const sid = dataset.steamId;
+                    const isSelected = isCompareAll || selectedPlayers.has(sid);
+                    const baseColor = getPlayerThemeColor(sid);
+                    
+                    dataset.backgroundColor = isSelected ? baseColor : getGrayscaleColor(baseColor, 0.1);
+                    dataset.borderColor = isSelected ? baseColor : 'rgba(255, 255, 255, 0.05)';
+                    dataset.borderWidth = isSelected ? 1 : 0.5;
+                });
+                window.weeklyPbsChartInstance.update();
+            }
+
+            // Trigger update on growth chart
+            if (window.growthChartInstance && window.growthChartInstance.data.datasets && window.growthChartInstance.data.datasets[0]) {
+                const isCompareAll = document.getElementById('filter-compare-all')?.checked;
+                const bData = standingsData[currentBenchmarkId];
+                if (bData) {
+                    const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
+                    const dataset = window.growthChartInstance.data.datasets[0];
+                    
+                    const bgColors = [];
+                    const borderColors = [];
+                    const radii = [];
+                    const hoverRadii = [];
+                    
+                    configuredPlayers.forEach(p => {
+                        const sid = p.steam_id;
+                        const isSelected = isCompareAll || selectedPlayers.has(sid);
+                        const baseColor = getPlayerThemeColor(sid);
+                        
+                        const dotColor = isSelected ? baseColor : getGrayscaleColor(baseColor, 0.1);
+                        bgColors.push(dotColor);
+                        borderColors.push(isSelected ? baseColor : 'rgba(255, 255, 255, 0.05)');
+                        radii.push(isSelected ? 6 : 4);
+                        hoverRadii.push(isSelected ? 8 : 0);
+                    });
+                    
+                    dataset.pointBackgroundColor = bgColors;
+                    dataset.pointBorderColor = borderColors;
+                    dataset.pointRadius = radii;
+                    dataset.pointHoverRadius = hoverRadii;
+                    
+                    window.growthChartInstance.update();
+                }
+            }
+
             // Trigger redraw on the history log feed
             if (typeof lastFetchedNotifications !== 'undefined' && lastFetchedNotifications.length > 0) {
                 renderTimeline(lastFetchedNotifications);
@@ -5170,7 +5280,6 @@
         }
 
         // Toggle main views (Leaderboard Standings vs History Log)
-        // Toggle main views (Leaderboard Standings vs History Log)
         function switchMainView(viewName, btn) {
             document.querySelectorAll('.main-tab-btn').forEach(b => {
                 b.classList.remove('active');
@@ -5185,8 +5294,10 @@
             
             const aside = document.querySelector('aside');
             const main = document.querySelector('main');
+            const container = document.querySelector('.app-container');
             
             if (viewName === 'leaderboard') {
+                if (container) container.classList.remove('view-history');
                 document.getElementById('leaderboard-view').style.display = 'flex';
                 document.getElementById('history-view').style.display = 'none';
                 if (aside) aside.style.display = '';
@@ -5194,17 +5305,13 @@
                 setTimeout(syncLayoutHeights, 100);
                 setTimeout(drawConnectingLines, 150);
             } else {
+                if (container) container.classList.add('view-history');
                 document.getElementById('leaderboard-view').style.display = 'none';
                 document.getElementById('history-view').style.display = 'flex';
                 if (aside) aside.style.display = 'none';
                 if (main) {
-                    const container = document.querySelector('.app-container');
-                    const isSingleColumn = container ? container.classList.contains('layout-stacked') : window.innerWidth < 1600;
-                    if (!isSingleColumn) {
-                        main.style.gridColumn = '1 / 3';
-                    } else {
-                        main.style.gridColumn = '';
-                    }
+                    const isSingleColumn = container && container.classList.contains('layout-stacked');
+                    main.style.gridColumn = isSingleColumn ? '' : '1';
                 }
             }
         }
@@ -5249,15 +5356,15 @@
                 const color = playerObj ? getPlayerThemeColor(playerObj.steam_id) : '#9e9e9e';
                 
                 item.innerHTML = `
-                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%;">
-                        <div style="display: flex; align-items: center; gap: 12px; min-width: 0; flex-grow: 1;">
-                            <img src="${avatarUrl}" class="avatar-dot" style="width: 28px; height: 28px; border: 2px solid ${color}; box-shadow: 0 0 6px ${color}; flex-shrink: 0;" onerror="this.onerror=null; this.outerHTML=\`<span style='width: 28px; height: 28px; border-radius: 50%; background: ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; border: 2px solid ${color}; box-shadow: 0 0 6px ${color}; flex-shrink: 0; color: #fff;'>👤</span>\`;">
-                            <span style="font-size: 0.85rem; color: #f3f4f6; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; line-height: 1.4;">
+                    <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; width: 100%;">
+                        <div style="display: flex; align-items: flex-start; gap: 12px; min-width: 0; flex-grow: 1;">
+                            <img src="${avatarUrl}" class="avatar-dot" style="width: 28px; height: 28px; border: 2px solid ${color}; box-shadow: 0 0 6px ${color}; flex-shrink: 0; margin-top: 2px;" onerror="this.onerror=null; this.outerHTML=\`<span style='width: 28px; height: 28px; border-radius: 50%; background: ${color}; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; border: 2px solid ${color}; box-shadow: 0 0 6px ${color}; flex-shrink: 0; color: #fff; margin-top: 2px;'>👤</span>\`;">
+                            <span style="font-size: 0.85rem; color: #f3f4f6; line-height: 1.4; word-break: break-word;">
                                 <strong style="color: #fff; font-weight: 700; margin-right: 4px;">${n.player_name || 'System'}</strong> 
                                 ${parseDiscordMarkdown(n.message)}
                             </span>
                         </div>
-                        <span style="font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; flex-shrink: 0;">${dateStr}</span>
+                        <span style="font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; flex-shrink: 0; margin-top: 3px;">${dateStr}</span>
                     </div>
                 `;
                 container.appendChild(item);
@@ -5366,7 +5473,7 @@
             if (historyView && historyView.style.display !== 'none' && main && container) {
                 const isSingleColumn = container.classList.contains('layout-stacked');
                 if (!isSingleColumn) {
-                    main.style.gridColumn = '1 / 3';
+                    main.style.gridColumn = '1';
                 } else {
                     main.style.gridColumn = '';
                 }
@@ -5573,6 +5680,7 @@
                     },
                     plugins: {
                         legend: {
+                            display: false,
                             labels: {
                                 color: '#f8f9fa',
                                 font: { family: "'Outfit', sans-serif", size: 12, weight: '600' }
@@ -5645,6 +5753,193 @@
                 recentRankIncreaseMap[sid] = hasRecent;
             });
             overallProgressChart.recentRankIncreaseMap = recentRankIncreaseMap;
+
+            // --- Weekly Activity & Growth Charts ---
+            
+            // 1. Calculate PBs in filtered period
+            const pbsCountMap = {};
+            configuredPlayers.forEach(p => {
+                pbsCountMap[p.steam_id] = 0;
+            });
+            events.forEach(evt => {
+                if (!minTime || evt.timestamp >= minTime) {
+                    if (pbsCountMap[evt.steamId] !== undefined) {
+                        pbsCountMap[evt.steamId]++;
+                    }
+                }
+            });
+
+            const pbsDatasets = [];
+            configuredPlayers.forEach(p => {
+                const sid = p.steam_id;
+                const isCompareAll = document.getElementById('filter-compare-all')?.checked;
+                const isSelected = isCompareAll || selectedPlayers.has(sid);
+                const color = getPlayerThemeColor(sid);
+                const count = pbsCountMap[sid] || 0;
+                
+                const segmentColor = isSelected ? color : getGrayscaleColor(color, 0.1);
+                
+                pbsDatasets.push({
+                    label: p.username,
+                    steamId: sid,
+                    data: [count],
+                    backgroundColor: segmentColor,
+                    borderColor: isSelected ? color : 'rgba(255, 255, 255, 0.05)',
+                    borderWidth: isSelected ? 1 : 0.5
+                });
+            });
+
+            const weeklyPbsCanvas = document.getElementById('weekly-pbs-chart');
+            if (weeklyPbsCanvas) {
+                const weeklyPbsCtx = weeklyPbsCanvas.getContext('2d');
+                if (window.weeklyPbsChartInstance) {
+                    window.weeklyPbsChartInstance.destroy();
+                }
+                window.weeklyPbsChartInstance = new Chart(weeklyPbsCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['PBs'],
+                        datasets: pbsDatasets
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    title: () => 'Personal Bests',
+                                    label: (context) => `${context.dataset.label}: ${context.raw}`
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                stacked: true,
+                                grid: { display: false },
+                                ticks: { color: '#9fa6b2', font: { family: "'Outfit', sans-serif" }, precision: 0 }
+                            },
+                            y: {
+                                stacked: true,
+                                grid: { display: false },
+                                display: false
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 2. Calculate Growth in filtered period
+            const growthMap = {};
+            configuredPlayers.forEach(p => {
+                const sid = p.steam_id;
+                const playerPoints = allProgressPoints.filter(pt => pt.steamId === sid);
+                
+                let startPct = 0.0;
+                if (K > 0) {
+                    const t0 = sortedTimestamps[0];
+                    let latestPct = playerPoints.length > 0 ? playerPoints[0].y : 0.0;
+                    playerPoints.forEach(pt => {
+                        if (pt.timestamp <= t0) {
+                            latestPct = pt.y;
+                        }
+                    });
+                    startPct = latestPct;
+                }
+                
+                let finalPct = 0.0;
+                if (K > 0) {
+                    const tEnd = sortedTimestamps[K - 1];
+                    let latestPct = playerPoints.length > 0 ? playerPoints[0].y : 0.0;
+                    playerPoints.forEach(pt => {
+                        if (pt.timestamp <= tEnd) {
+                            latestPct = pt.y;
+                        }
+                    });
+                    finalPct = latestPct;
+                }
+                
+                growthMap[sid] = Number((finalPct - startPct).toFixed(2));
+            });
+
+            const growthLabels = [];
+            const growthData = [];
+            const pointBgColors = [];
+            const pointBorderColors = [];
+            const pointRadii = [];
+            const pointHoverRadii = [];
+            
+            configuredPlayers.forEach(p => {
+                const sid = p.steam_id;
+                const isCompareAll = document.getElementById('filter-compare-all')?.checked;
+                const isSelected = isCompareAll || selectedPlayers.has(sid);
+                const color = getPlayerThemeColor(sid);
+                const val = growthMap[sid] || 0.0;
+                
+                growthLabels.push(p.username);
+                growthData.push(val);
+                
+                const dotColor = isSelected ? color : getGrayscaleColor(color, 0.1);
+                pointBgColors.push(dotColor);
+                pointBorderColors.push(isSelected ? color : 'rgba(255, 255, 255, 0.05)');
+                pointRadii.push(isSelected ? 6 : 4);
+                pointHoverRadii.push(isSelected ? 8 : 0);
+            });
+
+            const growthCanvas = document.getElementById('growth-chart');
+            if (growthCanvas) {
+                const growthCtx = growthCanvas.getContext('2d');
+                if (window.growthChartInstance) {
+                    window.growthChartInstance.destroy();
+                }
+                window.growthChartInstance = new Chart(growthCtx, {
+                    type: 'line',
+                    data: {
+                        labels: growthLabels,
+                        datasets: [{
+                            label: 'Progress Growth',
+                            data: growthData,
+                            showLine: false,
+                            pointBackgroundColor: pointBgColors,
+                            pointBorderColor: pointBorderColors,
+                            pointRadius: pointRadii,
+                            pointHoverRadius: pointHoverRadii,
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: (context) => `${context.label}: ${context.raw >= 0 ? '+' : ''}${context.raw.toFixed(2)}%`
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                                ticks: {
+                                    color: '#9fa6b2',
+                                    font: { family: "'Outfit', sans-serif" },
+                                    callback: (val) => `${val >= 0 ? '+' : ''}${val}%`
+                                }
+                            },
+                            y: {
+                                grid: { display: false },
+                                ticks: {
+                                    color: '#9fa6b2',
+                                    font: { family: "'Outfit', sans-serif", size: 10 }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
 
             // Sync card heights after drawing
             syncLayoutHeights();
