@@ -1,5 +1,12 @@
 [
   {
+    "id": 268,
+    "player_name": "Laggiing",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udf89 **beanTS Larger**\n- \u2694\ufe0f Goo guy rage! @Laggiing eat @CoachCam score on [FloatTS Angelic Easy Larger](https://matthewgutz.github.io/kovaaks-play?scenario=FloatTS%20Angelic%20Easy%20Larger). Yum yum!",
+    "timestamp": "2026-05-26 01:38:59"
+  },
+  {
     "id": 267,
     "player_name": "Laggiing",
     "event_type": "pb",
@@ -691,12 +698,5 @@
     "event_type": "pb",
     "message": "\ud83c\udf89 Aim training is paying off! @Christine pushed their **SmoothBot Invincible Goated 75%** (<https://matthewgutz.github.io/kovaaks-play/play?scenario=SmoothBot%20Invincible%20Goated%2075%25>) record up to 1434.0!",
     "timestamp": "2026-05-23 03:17:46"
-  },
-  {
-    "id": 168,
-    "player_name": "BakaOppai",
-    "event_type": "rank_up",
-    "message": "\ud83c\udfc6 RANK UP! @BakaOppai has promoted to **Saffron** (Rank 3) on the **Medium** benchmark! From Bronze scrubs to Grandmasters! (Previous: Cinnabar)",
-    "timestamp": "2026-05-23 02:38:30"
   }
 ]
