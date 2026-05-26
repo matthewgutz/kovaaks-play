@@ -2417,6 +2417,42 @@
             }
         }
 
+        // Map score to a mapped rank space where each Voltaic rank takes exactly 1.0 unit of height
+        function mapScoreToRankSpace(score, thresholds) {
+            if (!thresholds || thresholds.length === 0) return score;
+            if (score <= 0) return 0;
+            if (score < thresholds[0]) {
+                return score / thresholds[0];
+            }
+            const N = thresholds.length;
+            for (let i = 0; i < N - 1; i++) {
+                if (score >= thresholds[i] && score < thresholds[i+1]) {
+                    return (i + 1) + (score - thresholds[i]) / (thresholds[i+1] - thresholds[i]);
+                }
+            }
+            const lastDiff = N >= 2 ? (thresholds[N-1] - thresholds[N-2]) : thresholds[0];
+            const diff = lastDiff > 0 ? lastDiff : 1;
+            return N + (score - thresholds[N-1]) / diff;
+        }
+
+        // Map from mapped rank space back to the original score
+        function mapRankSpaceToScore(yMapped, thresholds) {
+            if (!thresholds || thresholds.length === 0) return yMapped;
+            if (yMapped <= 0) return 0;
+            if (yMapped < 1) {
+                return yMapped * thresholds[0];
+            }
+            const N = thresholds.length;
+            if (yMapped >= N) {
+                const lastDiff = N >= 2 ? (thresholds[N-1] - thresholds[N-2]) : thresholds[0];
+                const diff = lastDiff > 0 ? lastDiff : 1;
+                return thresholds[N-1] + (yMapped - N) * diff;
+            }
+            const idx = Math.floor(yMapped) - 1;
+            const frac = yMapped - Math.floor(yMapped);
+            return thresholds[idx] + frac * (thresholds[idx+1] - thresholds[idx]);
+        }
+
         // Format score dynamically (conditionally remove decimals if whole number)
         function formatScore(val) {
             if (val === undefined || val === null || isNaN(val)) return '-';
@@ -2658,8 +2694,9 @@
                 const overlayContainer = document.getElementById('weekly-pbs-overlay');
                 if (!overlayContainer) return;
                 
-                chart._avatarOverlays = chart._avatarOverlays || {};
-                const seenIds = new Set();
+                // Clear the container to prevent accumulation of duplicate elements
+                overlayContainer.innerHTML = '';
+                chart._avatarOverlays = {};
                 
                 chart.data.datasets.forEach((dataset, index) => {
                     const steamId = dataset.steamId;
@@ -2667,18 +2704,12 @@
                     
                     const meta = chart.getDatasetMeta(index);
                     if (!meta || meta.hidden || !meta.data || meta.data.length === 0) {
-                        if (chart._avatarOverlays[steamId]) {
-                            chart._avatarOverlays[steamId].style.display = 'none';
-                        }
                         return;
                     }
                     
                     const element = meta.data[0];
                     const count = dataset.data[0];
                     if (!element || count === 0) {
-                        if (chart._avatarOverlays[steamId]) {
-                            chart._avatarOverlays[steamId].style.display = 'none';
-                        }
                         return;
                     }
                     
@@ -2686,65 +2717,60 @@
                     const right = element.x;
                     const width = right - left;
                     if (width <= 0) {
-                        if (chart._avatarOverlays[steamId]) {
-                            chart._avatarOverlays[steamId].style.display = 'none';
-                        }
                         return;
                     }
                     
-                    seenIds.add(steamId);
-                    
                     const centerX = (left + right) / 2;
-                    let overlay = chart._avatarOverlays[steamId];
-                    if (!overlay) {
-                        overlay = document.createElement('div');
-                        overlay.style.position = 'absolute';
-                        overlay.style.transform = 'translate(-50%, 0)';
-                        overlay.style.display = 'flex';
-                        overlay.style.flexDirection = 'column';
-                        overlay.style.alignItems = 'center';
-                        overlay.style.gap = '2px';
-                        overlay.style.pointerEvents = 'auto';
-                        
-                        const color = dataset.borderColor || getPlayerThemeColor(steamId);
-                        const usernameName = dataset.label.replace('@', '');
-                        const avatarUrl = `avatars/${usernameName}.png`;
-                        
-                        overlay.innerHTML = `
-                            <div class="avatar-container-weekly" style="position: relative; display: flex; flex-direction: column; align-items: center; cursor: pointer;">
-                                <img src="${avatarUrl}" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid ${color}; transition: transform 0.2s ease-in-out;" onerror="this.onerror=null; this.outerHTML=\`<span style='width: 10px; height: 10px; border-radius: 50%; background: ${color}; display: inline-block;'></span>\`;">
-                                <span style="font-size: 0.65rem; font-weight: 700; color: #fff; white-space: nowrap; margin-top: 1px; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">${dataset.label.replace('@', '')} (${count})</span>
-                            </div>
-                        `;
-                        
-                        const img = overlay.querySelector('img');
-                        if (img) {
-                            img.addEventListener('mouseenter', () => {
-                                img.style.transform = 'scale(1.25)';
-                                overlay.style.zIndex = '50';
-                            });
-                            img.addEventListener('mouseleave', () => {
-                                img.style.transform = 'scale(1)';
-                                overlay.style.zIndex = '1';
-                            });
-                        }
-                        
-                        overlayContainer.appendChild(overlay);
-                        chart._avatarOverlays[steamId] = overlay;
+                    const overlay = document.createElement('div');
+                    overlay.style.position = 'absolute';
+                    overlay.style.transform = 'translate(-50%, 0)';
+                    overlay.style.display = 'flex';
+                    overlay.style.flexDirection = 'column';
+                    overlay.style.alignItems = 'center';
+                    overlay.style.gap = '2px';
+                    overlay.style.pointerEvents = 'auto';
+                    
+                    const color = dataset.borderColor || getPlayerThemeColor(steamId);
+                    const usernameName = dataset.label.replace('@', '');
+                    const avatarUrl = `avatars/${usernameName}.png`;
+                    
+                    overlay.innerHTML = `
+                        <div class="avatar-container-weekly" title="${dataset.label.replace('@', '')}" style="position: relative; display: flex; flex-direction: column; align-items: center; cursor: pointer;">
+                            <img src="${avatarUrl}" title="${dataset.label.replace('@', '')}" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid ${color}; transition: transform 0.2s ease-in-out;" onerror="this.onerror=null; this.outerHTML=\`<span title='${dataset.label.replace('@', '')}' style='width: 24px; height: 24px; border-radius: 50%; background: ${color}; border: 2px solid ${color}; display: inline-block; transition: transform 0.2s ease-in-out;'></span>\`;">
+                            <span style="font-size: 0.65rem; font-weight: 700; color: #fff; white-space: nowrap; margin-top: 1px; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">(${count})</span>
+                        </div>
+                    `;
+                    
+                    const avatarEl = overlay.querySelector('.avatar-container-weekly');
+                    if (avatarEl) {
+                        avatarEl.addEventListener('mouseenter', () => {
+                            const target = avatarEl.querySelector('img') || avatarEl.querySelector('span');
+                            if (target) target.style.transform = 'scale(1.1667)';
+                            overlay.style.zIndex = '50';
+                        });
+                        avatarEl.addEventListener('mouseleave', () => {
+                            const target = avatarEl.querySelector('img') || avatarEl.querySelector('span');
+                            if (target) target.style.transform = 'scale(1)';
+                            overlay.style.zIndex = '1';
+                        });
                     }
+                    
+                    overlayContainer.appendChild(overlay);
+                    chart._avatarOverlays[steamId] = overlay;
                     
                     overlay.style.display = 'block';
                     overlay.style.left = `${centerX}px`;
                     overlay.style.top = `0px`;
                 });
-                
-                Object.keys(chart._avatarOverlays).forEach(steamId => {
-                    if (!seenIds.has(steamId)) {
-                        chart._avatarOverlays[steamId].style.display = 'none';
-                    }
-                });
             },
             beforeDestroy(chart) {
+                if (chart._avatarOverlays) {
+                    Object.values(chart._avatarOverlays).forEach(overlay => {
+                        if (overlay && overlay.parentNode) {
+                            overlay.parentNode.removeChild(overlay);
+                        }
+                    });
+                }
                 chart._avatarOverlays = null;
             }
         };
@@ -2755,17 +2781,15 @@
                 const overlayContainer = document.getElementById('growth-overlay');
                 if (!overlayContainer) return;
                 
-                chart._avatarOverlays = chart._avatarOverlays || {};
-                const seenIds = new Set();
+                // Clear the container to prevent accumulation of duplicate elements
+                overlayContainer.innerHTML = '';
+                chart._avatarOverlays = {};
                 
                 const dataset = chart.data.datasets[0];
                 if (!dataset || !dataset.data) return;
                 
                 const meta = chart.getDatasetMeta(0);
                 if (!meta || meta.hidden || !meta.data) {
-                    Object.keys(chart._avatarOverlays).forEach(steamId => {
-                        chart._avatarOverlays[steamId].style.display = 'none';
-                    });
                     return;
                 }
                 
@@ -2822,57 +2846,55 @@
                     const yOffset = getOffsetForLevel(level);
                     const steamId = pt.steamId;
                     
-                    seenIds.add(steamId);
+                    const overlay = document.createElement('div');
+                    overlay.style.position = 'absolute';
+                    overlay.style.transform = 'translate(-50%, -50%)';
+                    overlay.style.display = 'flex';
+                    overlay.style.flexDirection = 'column';
+                    overlay.style.alignItems = 'center';
+                    overlay.style.pointerEvents = 'auto';
                     
-                    let overlay = chart._avatarOverlays[steamId];
-                    if (!overlay) {
-                        overlay = document.createElement('div');
-                        overlay.style.position = 'absolute';
-                        overlay.style.transform = 'translate(-50%, -50%)';
-                        overlay.style.display = 'flex';
-                        overlay.style.flexDirection = 'column';
-                        overlay.style.alignItems = 'center';
-                        overlay.style.pointerEvents = 'auto';
-                        
-                        const color = getPlayerThemeColor(steamId);
-                        const usernameName = pt.username.replace('@', '');
-                        const avatarUrl = `avatars/${usernameName}.png`;
-                        
-                        overlay.innerHTML = `
-                            <div class="avatar-container-growth" style="position: relative; display: flex; flex-direction: column; align-items: center; cursor: pointer;">
-                                <img src="${avatarUrl}" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid ${color}; transition: transform 0.2s ease-in-out;" onerror="this.onerror=null; this.outerHTML=\`<span style='width: 10px; height: 10px; border-radius: 50%; background: ${color}; display: inline-block;'></span>\`;">
-                                <span style="font-size: 0.65rem; font-weight: 700; color: #fff; white-space: nowrap; margin-top: 1px; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">${pt.username.replace('@', '')} (${pt.xVal >= 0 ? '+' : ''}${pt.xVal.toFixed(1)}%)</span>
-                            </div>
-                        `;
-                        
-                        const img = overlay.querySelector('img');
-                        if (img) {
-                            img.addEventListener('mouseenter', () => {
-                                img.style.transform = 'scale(1.25)';
-                                overlay.style.zIndex = '50';
-                            });
-                            img.addEventListener('mouseleave', () => {
-                                img.style.transform = 'scale(1)';
-                                overlay.style.zIndex = '1';
-                            });
-                        }
-                        
-                        overlayContainer.appendChild(overlay);
-                        chart._avatarOverlays[steamId] = overlay;
+                    const color = getPlayerThemeColor(steamId);
+                    const usernameName = pt.username.replace('@', '');
+                    const avatarUrl = `avatars/${usernameName}.png`;
+                    
+                    overlay.innerHTML = `
+                        <div class="avatar-container-growth" title="${pt.username.replace('@', '')}" style="position: relative; display: flex; flex-direction: column; align-items: center; cursor: pointer;">
+                            <img src="${avatarUrl}" title="${pt.username.replace('@', '')}" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid ${color}; transition: transform 0.2s ease-in-out;" onerror="this.onerror=null; this.outerHTML=\`<span title='${pt.username.replace('@', '')}' style='width: 24px; height: 24px; border-radius: 50%; background: ${color}; border: 2px solid ${color}; display: inline-block; transition: transform 0.2s ease-in-out;'></span>\`;">
+                            <span style="font-size: 0.65rem; font-weight: 700; color: #fff; white-space: nowrap; margin-top: 1px; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">(${pt.xVal >= 0 ? '+' : ''}${pt.xVal.toFixed(1)}%)</span>
+                        </div>
+                    `;
+                    
+                    const avatarEl = overlay.querySelector('.avatar-container-growth');
+                    if (avatarEl) {
+                        avatarEl.addEventListener('mouseenter', () => {
+                            const target = avatarEl.querySelector('img') || avatarEl.querySelector('span');
+                            if (target) target.style.transform = 'scale(1.1667)';
+                            overlay.style.zIndex = '50';
+                        });
+                        avatarEl.addEventListener('mouseleave', () => {
+                            const target = avatarEl.querySelector('img') || avatarEl.querySelector('span');
+                            if (target) target.style.transform = 'scale(1)';
+                            overlay.style.zIndex = '1';
+                        });
                     }
+                    
+                    overlayContainer.appendChild(overlay);
+                    chart._avatarOverlays[steamId] = overlay;
                     
                     overlay.style.display = 'block';
                     overlay.style.left = `${pt.x}px`;
                     overlay.style.top = `${pt.y + yOffset}px`;
                 });
-                
-                Object.keys(chart._avatarOverlays).forEach(steamId => {
-                    if (!seenIds.has(steamId)) {
-                        chart._avatarOverlays[steamId].style.display = 'none';
-                    }
-                });
             },
             beforeDestroy(chart) {
+                if (chart._avatarOverlays) {
+                    Object.values(chart._avatarOverlays).forEach(overlay => {
+                        if (overlay && overlay.parentNode) {
+                            overlay.parentNode.removeChild(overlay);
+                        }
+                    });
+                }
                 chart._avatarOverlays = null;
             }
         };
@@ -4917,7 +4939,7 @@
             tbody.innerHTML = '';
             
             if (last15.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="3" style="text-align: center; color: var(--text-muted); padding: 12px;">No scores recorded yet.</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="3" style="text-align: center; color: var(--text-muted); padding: 12px; border-bottom: none !important;">No scores recorded yet.</td></tr>';
             } else {
                 last15.forEach(pt => {
                     const row = document.createElement('tr');
@@ -4927,12 +4949,11 @@
                     const dateStr = formatDateTimePST(pt.timestamp, false, false, true);
                     
                     row.innerHTML = `
-                        <td style="padding: 8px 12px; display: flex; align-items: center; gap: 6px;">
-                           <img src="${avatarUrl}" style="width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid ${color};" onerror="this.onerror=null; this.outerHTML=\`<span style='width: 8px; height: 8px; border-radius: 50%; background: ${color}; display: inline-block;'></span>\`;">
-                           <span style="font-weight: 600; color: #fff;">${pt.playerName}</span>
+                        <td style="padding: 8px 12px; display: flex; align-items: center; gap: 6px; border-bottom: none !important;">
+                           <img src="${avatarUrl}" title="${pt.playerName.replace('@', '')}" style="width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid ${color};" onerror="this.onerror=null; this.outerHTML=\`<span title='${pt.playerName.replace('@', '')}' style='width: 8px; height: 8px; border-radius: 50%; background: ${color}; display: inline-block;'></span>\`;">
                         </td>
-                        <td style="padding: 8px 12px; font-weight: 600; text-align: right;">${formatScore(pt.score)}</td>
-                        <td style="padding: 8px 12px; color: var(--text-muted); text-align: right;">${dateStr}</td>
+                        <td style="padding: 8px 12px; font-weight: 600; text-align: right; border-bottom: none !important;">${formatScore(pt.score)}</td>
+                        <td style="padding: 8px 12px; color: var(--text-muted); text-align: right; border-bottom: none !important;">${dateStr}</td>
                     `;
                     tbody.appendChild(row);
                 });
@@ -4958,6 +4979,17 @@
             if (sortedTimestamps.length === 0) return;
             const M = sortedTimestamps.length;
 
+            const benchmarkRanks = {
+                "686": ['Lemming', 'Hare', 'Ermine', 'Penguin', 'Fox', 'Mammoth', 'Orca', 'Seal'],
+                "687": ['Cinnabar', 'Vermillion', 'Saffron', 'Celadon', 'Cerulean', 'Lavender', 'Indigo', 'Fuchsia'],
+                "688": ['Wool', 'Linen', 'Velvet', 'Chiffon', 'Satin', 'Silk']
+            };
+
+            const ranks = benchmarkRanks[currentBenchmarkId] || [];
+            const thresholds = (standingsData[currentBenchmarkId] && standingsData[currentBenchmarkId].thresholds) ? 
+                               standingsData[currentBenchmarkId].thresholds[currentScenarioName] : null;
+            const hasThresholds = thresholds && thresholds.length > 0;
+
             // 2. Build datasets
             Object.keys(filteredData).forEach(steamId => {
                 const playerObj = filteredData[steamId];
@@ -4970,9 +5002,11 @@
                 pHistory.forEach(h => {
                     const idx = sortedTimestamps.indexOf(h.timestamp);
                     if (idx !== -1) {
+                        const yVal = hasThresholds ? mapScoreToRankSpace(h.score, thresholds) : h.score;
                         dataPoints.push({
                             x: idx,
-                            y: h.score
+                            y: yVal,
+                            rawScore: h.score
                         });
                     }
                 });
@@ -4982,6 +5016,7 @@
                     dataPoints.unshift({
                         x: 0,
                         y: 0,
+                        rawScore: 0,
                         isBoundary: true
                     });
                 }
@@ -4991,6 +5026,7 @@
                     dataPoints.push({
                         x: M - 1,
                         y: dataPoints[dataPoints.length - 1].y,
+                        rawScore: dataPoints[dataPoints.length - 1].rawScore,
                         isBoundary: true
                     });
                 }
@@ -5012,26 +5048,17 @@
             });
 
             // Add Voltaic Rank Targets to comparison chart
-            const benchmarkRanks = {
-                "686": ['Lemming', 'Hare', 'Ermine', 'Penguin', 'Fox', 'Mammoth', 'Orca', 'Seal'],
-                "687": ['Cinnabar', 'Vermillion', 'Saffron', 'Celadon', 'Cerulean', 'Lavender', 'Indigo', 'Fuchsia'],
-                "688": ['Wool', 'Linen', 'Velvet', 'Chiffon', 'Satin', 'Silk']
-            };
-
-            const ranks = benchmarkRanks[currentBenchmarkId] || [];
-            const thresholds = (standingsData[currentBenchmarkId] && standingsData[currentBenchmarkId].thresholds) ? 
-                               standingsData[currentBenchmarkId].thresholds[currentScenarioName] : null;
-
-            if (thresholds && thresholds.length > 0) {
+            if (hasThresholds) {
                 ranks.forEach((rankName, index) => {
                     const thresholdVal = thresholds[index];
                     if (thresholdVal !== undefined && thresholdVal > 0) {
                         const rankColor = rankColors[rankName.toLowerCase()] || '#ffffff';
+                        const yVal = index + 1;
                         datasets.push({
                             label: `${rankName} Target`,
                             data: [
-                                { x: 0, y: thresholdVal },
-                                { x: M - 1, y: thresholdVal }
+                                { x: 0, y: yVal, rawScore: thresholdVal },
+                                { x: M - 1, y: yVal, rawScore: thresholdVal }
                             ],
                             borderColor: rankColor + '80', // Bolder: 50% opacity
                             borderWidth: 2,
@@ -5062,6 +5089,11 @@
                                         return formatDateTimePST(sortedTimestamps[i], true, true, true);
                                     }
                                     return '';
+                                },
+                                label: function(context) {
+                                    const pt = context.dataset.data[context.dataIndex];
+                                    const scoreVal = pt && pt.rawScore !== undefined ? pt.rawScore : context.parsed.y;
+                                    return `${context.dataset.label}: ${formatScore(scoreVal)}`;
                                 }
                             }
                         }
@@ -5093,25 +5125,45 @@
                         y: {
                             grid: { color: 'rgba(255, 255, 255, 0.05)' },
                             suggestedMin: 0,
-                            suggestedMax: thresholds && thresholds.length > 0 ? Math.max(...thresholds.filter(t => typeof t === 'number' && t > 0)) : 100,
+                            suggestedMax: hasThresholds ? thresholds.length : (thresholds && thresholds.length > 0 ? Math.max(...thresholds.filter(t => typeof t === 'number' && t > 0)) : 100),
                             afterBuildTicks: function(scale) {
-                                const activeThresholds = [0];
-                                if (thresholds && thresholds.length > 0) {
-                                    thresholds.forEach(t => {
-                                        if (typeof t === 'number' && t > 0) {
-                                            activeThresholds.push(t);
+                                if (hasThresholds) {
+                                    let maxMappedY = thresholds.length;
+                                    scale.chart.data.datasets.forEach(dSet => {
+                                        if (dSet.data) {
+                                            dSet.data.forEach(pt => {
+                                                if (pt.y > maxMappedY) {
+                                                    maxMappedY = pt.y;
+                                                }
+                                            });
                                         }
                                     });
+                                    const chartMaxY = Math.ceil(maxMappedY);
+                                    const tickValues = [];
+                                    for (let i = 0; i <= chartMaxY; i++) {
+                                        tickValues.push(i);
+                                    }
+                                    scale.ticks = tickValues.map(value => ({ value }));
                                 }
-                                activeThresholds.sort((a, b) => a - b);
-                                scale.ticks = activeThresholds.map(value => ({ value }));
                             },
                             ticks: {
                                 color: '#9fa6b2',
                                 font: { family: "'Outfit', sans-serif" },
                                 callback: function(value) {
                                     if (value === 0) return '0';
-                                    if (thresholds && thresholds.length > 0) {
+                                    if (hasThresholds) {
+                                        const N = thresholds.length;
+                                        if (value <= N) {
+                                            const idx = value - 1;
+                                            if (idx >= 0 && idx < ranks.length) {
+                                                return `${ranks[idx]} (${Math.round(thresholds[idx])})`;
+                                            }
+                                        } else {
+                                            const maxRankName = ranks[ranks.length - 1] || 'Max';
+                                            const rawScore = mapRankSpaceToScore(value, thresholds);
+                                            return `${maxRankName}+ (${Math.round(rawScore)})`;
+                                        }
+                                    } else if (thresholds && thresholds.length > 0) {
                                         const idx = thresholds.indexOf(value);
                                         if (idx !== -1 && idx < ranks.length) {
                                             return `${ranks[idx]} (${value})`;
@@ -5191,13 +5243,26 @@
             if (sortedTimestamps.length === 0) return;
             const M = sortedTimestamps.length;
 
+            const benchmarkRanks = {
+                "686": ['Lemming', 'Hare', 'Ermine', 'Penguin', 'Fox', 'Mammoth', 'Orca', 'Seal'],
+                "687": ['Cinnabar', 'Vermillion', 'Saffron', 'Celadon', 'Cerulean', 'Lavender', 'Indigo', 'Fuchsia'],
+                "688": ['Wool', 'Linen', 'Velvet', 'Chiffon', 'Satin', 'Silk']
+            };
+
+            const ranks = benchmarkRanks[currentBenchmarkId] || [];
+            const thresholds = (standingsData[currentBenchmarkId] && standingsData[currentBenchmarkId].thresholds) ? 
+                               standingsData[currentBenchmarkId].thresholds[currentScenarioName] : null;
+            const hasThresholds = thresholds && thresholds.length > 0;
+
             const dataPoints = [];
             pHistory.forEach(h => {
                 const idx = sortedTimestamps.indexOf(h.timestamp);
                 if (idx !== -1) {
+                    const yVal = hasThresholds ? mapScoreToRankSpace(h.score, thresholds) : h.score;
                     dataPoints.push({
                         x: idx,
-                        y: h.score
+                        y: yVal,
+                        rawScore: h.score
                     });
                 }
             });
@@ -5207,6 +5272,7 @@
                 dataPoints.unshift({
                     x: 0,
                     y: 0,
+                    rawScore: 0,
                     isBoundary: true
                 });
             }
@@ -5216,11 +5282,13 @@
                 dataPoints.push({
                     x: M - 1,
                     y: dataPoints[dataPoints.length - 1].y,
+                    rawScore: dataPoints[dataPoints.length - 1].rawScore,
                     isBoundary: true
                 });
             }
 
             const pb = Math.max(...pHistory.map(h => h.score));
+            const mappedPb = hasThresholds ? mapScoreToRankSpace(pb, thresholds) : pb;
             const color = getPlayerThemeColor(steamId);
             
             const datasets = [
@@ -5239,8 +5307,8 @@
                 {
                     label: 'Personal Best',
                     data: [
-                        { x: 0, y: pb },
-                        { x: M - 1, y: pb }
+                        { x: 0, y: mappedPb, rawScore: pb },
+                        { x: M - 1, y: mappedPb, rawScore: pb }
                     ],
                     borderColor: '#ffd166', // Gold
                     borderWidth: 2,
@@ -5251,26 +5319,17 @@
             ];
 
             // Add Voltaic Rank Targets
-            const benchmarkRanks = {
-                "686": ['Lemming', 'Hare', 'Ermine', 'Penguin', 'Fox', 'Mammoth', 'Orca', 'Seal'],
-                "687": ['Cinnabar', 'Vermillion', 'Saffron', 'Celadon', 'Cerulean', 'Lavender', 'Indigo', 'Fuchsia'],
-                "688": ['Wool', 'Linen', 'Velvet', 'Chiffon', 'Satin', 'Silk']
-            };
-
-            const ranks = benchmarkRanks[currentBenchmarkId] || [];
-            const thresholds = (standingsData[currentBenchmarkId] && standingsData[currentBenchmarkId].thresholds) ? 
-                               standingsData[currentBenchmarkId].thresholds[currentScenarioName] : null;
-
-            if (thresholds && thresholds.length > 0) {
+            if (hasThresholds) {
                 ranks.forEach((rankName, index) => {
                     const thresholdVal = thresholds[index];
                     if (thresholdVal !== undefined && thresholdVal > 0) {
                         const rankColor = rankColors[rankName.toLowerCase()] || '#ffffff';
+                        const yVal = index + 1;
                         datasets.push({
                             label: `${rankName} Target`,
                             data: [
-                                { x: 0, y: thresholdVal },
-                                { x: M - 1, y: thresholdVal }
+                                { x: 0, y: yVal, rawScore: thresholdVal },
+                                { x: M - 1, y: yVal, rawScore: thresholdVal }
                             ],
                             borderColor: rankColor + '80', // Bolder: 50% opacity
                             borderWidth: 2,
@@ -5303,6 +5362,11 @@
                                         return formatDateTimePST(sortedTimestamps[i], true, true, true);
                                     }
                                     return '';
+                                },
+                                label: function(context) {
+                                    const pt = context.dataset.data[context.dataIndex];
+                                    const scoreVal = pt && pt.rawScore !== undefined ? pt.rawScore : context.parsed.y;
+                                    return `${context.dataset.label}: ${formatScore(scoreVal)}`;
                                 }
                             }
                         }
@@ -5334,25 +5398,45 @@
                         y: {
                             grid: { color: 'rgba(255, 255, 255, 0.05)' },
                             suggestedMin: 0,
-                            suggestedMax: thresholds && thresholds.length > 0 ? Math.max(...thresholds.filter(t => typeof t === 'number' && t > 0)) : 100,
+                            suggestedMax: hasThresholds ? thresholds.length : (thresholds && thresholds.length > 0 ? Math.max(...thresholds.filter(t => typeof t === 'number' && t > 0)) : 100),
                             afterBuildTicks: function(scale) {
-                                const activeThresholds = [0];
-                                if (thresholds && thresholds.length > 0) {
-                                    thresholds.forEach(t => {
-                                        if (typeof t === 'number' && t > 0) {
-                                            activeThresholds.push(t);
+                                if (hasThresholds) {
+                                    let maxMappedY = thresholds.length;
+                                    scale.chart.data.datasets.forEach(dSet => {
+                                        if (dSet.data) {
+                                            dSet.data.forEach(pt => {
+                                                if (pt.y > maxMappedY) {
+                                                    maxMappedY = pt.y;
+                                                }
+                                            });
                                         }
                                     });
+                                    const chartMaxY = Math.ceil(maxMappedY);
+                                    const tickValues = [];
+                                    for (let i = 0; i <= chartMaxY; i++) {
+                                        tickValues.push(i);
+                                    }
+                                    scale.ticks = tickValues.map(value => ({ value }));
                                 }
-                                activeThresholds.sort((a, b) => a - b);
-                                scale.ticks = activeThresholds.map(value => ({ value }));
                             },
                             ticks: {
                                 color: '#9fa6b2',
                                 font: { family: "'Outfit', sans-serif" },
                                 callback: function(value) {
                                     if (value === 0) return '0';
-                                    if (thresholds && thresholds.length > 0) {
+                                    if (hasThresholds) {
+                                        const N = thresholds.length;
+                                        if (value <= N) {
+                                            const idx = value - 1;
+                                            if (idx >= 0 && idx < ranks.length) {
+                                                return `${ranks[idx]} (${Math.round(thresholds[idx])})`;
+                                            }
+                                        } else {
+                                            const maxRankName = ranks[ranks.length - 1] || 'Max';
+                                            const rawScore = mapRankSpaceToScore(value, thresholds);
+                                            return `${maxRankName}+ (${Math.round(rawScore)})`;
+                                        }
+                                    } else if (thresholds && thresholds.length > 0) {
                                         const idx = thresholds.indexOf(value);
                                         if (idx !== -1 && idx < ranks.length) {
                                             return `${ranks[idx]} (${value})`;
@@ -5841,6 +5925,18 @@
                 .map(tStr => new Date(tStr))
                 .sort((a, b) => a - b);
 
+            const getProgressPctAt = (steamId, targetTime) => {
+                if (!targetTime) return 0.0;
+                const playerPoints = allProgressPoints.filter(pt => pt.steamId === steamId);
+                let latestPct = 0.0;
+                playerPoints.forEach(pt => {
+                    if (pt.timestamp <= targetTime) {
+                        latestPct = pt.y;
+                    }
+                });
+                return latestPct;
+            };
+
             const now = new Date();
             let minTime = null;
             if (timelineFilter === '1W') {
@@ -6011,15 +6107,21 @@
             
             // 1. Calculate PBs in filtered period
             const pbsCountMap = {};
+            const playerPbsSets = {};
             configuredPlayers.forEach(p => {
                 pbsCountMap[p.steam_id] = 0;
+                playerPbsSets[p.steam_id] = new Set();
             });
             events.forEach(evt => {
                 if (!minTime || evt.timestamp >= minTime) {
-                    if (pbsCountMap[evt.steamId] !== undefined) {
-                        pbsCountMap[evt.steamId]++;
+                    if (playerPbsSets[evt.steamId] !== undefined) {
+                        const key = evt.scenName + '_' + evt.timestamp.toISOString();
+                        playerPbsSets[evt.steamId].add(key);
                     }
                 }
+            });
+            configuredPlayers.forEach(p => {
+                pbsCountMap[p.steam_id] = playerPbsSets[p.steam_id].size;
             });
 
             const isCompareAll = document.getElementById('filter-compare-all')?.checked;
@@ -6090,32 +6192,8 @@
             const growthMap = {};
             configuredPlayers.forEach(p => {
                 const sid = p.steam_id;
-                const playerPoints = allProgressPoints.filter(pt => pt.steamId === sid);
-                
-                let startPct = 0.0;
-                if (K > 0) {
-                    const t0 = sortedTimestamps[0];
-                    let latestPct = playerPoints.length > 0 ? playerPoints[0].y : 0.0;
-                    playerPoints.forEach(pt => {
-                        if (pt.timestamp <= t0) {
-                            latestPct = pt.y;
-                        }
-                    });
-                    startPct = latestPct;
-                }
-                
-                let finalPct = 0.0;
-                if (K > 0) {
-                    const tEnd = sortedTimestamps[K - 1];
-                    let latestPct = playerPoints.length > 0 ? playerPoints[0].y : 0.0;
-                    playerPoints.forEach(pt => {
-                        if (pt.timestamp <= tEnd) {
-                            latestPct = pt.y;
-                        }
-                    });
-                    finalPct = latestPct;
-                }
-                
+                const startPct = minTime ? getProgressPctAt(sid, minTime) : 0.0;
+                const finalPct = calcMaxRankPct(sid);
                 growthMap[sid] = Number((finalPct - startPct).toFixed(2));
             });
 
@@ -6131,6 +6209,19 @@
                     username: p.username
                 };
             });
+
+            // Calculate dynamic X-axis zoom bounds based on checked/selected players
+            const growthValues = checkedPlayersForGrowth.map(p => growthMap[p.steam_id] || 0.0);
+            let minGrowth = 0.0;
+            let maxGrowth = 0.0;
+            if (growthValues.length > 0) {
+                minGrowth = Math.min(...growthValues);
+                maxGrowth = Math.max(...growthValues);
+            }
+            const growthRange = maxGrowth - minGrowth;
+            const growthPadding = growthRange === 0 ? 1.0 : growthRange * 0.15;
+            const xMin = minGrowth - growthPadding;
+            const xMax = maxGrowth + growthPadding;
 
             const growthCanvas = document.getElementById('growth-chart');
             if (growthCanvas) {
@@ -6167,6 +6258,8 @@
                         },
                         scales: {
                             x: {
+                                min: xMin,
+                                max: xMax,
                                 grid: { color: 'rgba(255, 255, 255, 0.05)' },
                                 ticks: {
                                     color: '#9fa6b2',
