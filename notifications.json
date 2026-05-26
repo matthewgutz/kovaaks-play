@@ -1,5 +1,19 @@
 [
   {
+    "id": 290,
+    "player_name": "CoachCam",
+    "event_type": "pain_point",
+    "message": "Trash panda angry! @CoachCam almost beat @Olioli on [Flicker Plaza rAim Easy Less Blinks](https://matthewgutz.github.io/kovaaks-play?scenario=Flicker%20Plaza%20rAim%20Easy%20Less%20Blinks)! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-26 03:58:13"
+  },
+  {
+    "id": 289,
+    "player_name": "Olioli",
+    "event_type": "pb",
+    "message": "**Flicker Plaza rAim Easy Less Blinks** \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-26 03:58:13"
+  },
+  {
     "id": 288,
     "player_name": "Olioli",
     "event_type": "pb",
@@ -684,19 +698,5 @@
     "event_type": "pb",
     "message": "\ud83c\udf89 Aim training is paying off! @Laggiing pushed their **Polarized Hell Easy 40% Slower** - <https://matthewgutz.github.io/kovaaks-play?scenario=Polarized%20Hell%20Easy%2040%25%20Slower> record up to 1735.0! \ud83d\udd25 Hot Streak!",
     "timestamp": "2026-05-23 04:44:01"
-  },
-  {
-    "id": 190,
-    "player_name": "Laggiing",
-    "event_type": "pb",
-    "message": "\ud83c\udf89 Iron Man Overdrive! @Laggiing's repulsors are fully charged, landing a new PB of 3135.0 on **VT Controlsphere Intermediate S5 80%** - <https://matthewgutz.github.io/kovaaks-play?scenario=VT%20Controlsphere%20Intermediate%20S5%2080%25>! \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-23 04:38:46"
-  },
-  {
-    "id": 189,
-    "player_name": "Laggiing",
-    "event_type": "pb",
-    "message": "\ud83c\udf89 Loki decoy-level trickery! @Laggiing just fooled everyone with a stunning new PB of 9153.0 on **Controlsphere rAim Easy 90%** - <https://matthewgutz.github.io/kovaaks-play?scenario=Controlsphere%20rAim%20Easy%2090%25>! \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-23 04:33:31"
   }
 ]
