@@ -246,7 +246,7 @@
         "76561198017954362": 920.95,
         "76561198348625808": 872.24,
         "76561199164422123": 890.45,
-        "76561198033879793": 887.81,
+        "76561198033879793": 894.99,
         "76561198046477600": 904.35,
         "76561198995689034": 0.0
       },
@@ -752,7 +752,7 @@
         "76561198017954362": "2026-05-13 14:27:00",
         "76561198348625808": "2026-05-24 05:07:59",
         "76561199164422123": "2026-05-26 03:58:22",
-        "76561198033879793": "2026-05-26 03:58:22",
+        "76561198033879793": "2026-05-26 04:04:36",
         "76561198046477600": "2026-05-13 14:27:00",
         "76561198995689034": "2026-05-13 14:27:00"
       },
@@ -1215,10 +1215,10 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 34.19,
+        "points": 34.65,
         "has_streak": true,
-        "weekly_pbs": 6,
-        "total_pbs": 42,
+        "weekly_pbs": 7,
+        "total_pbs": 43,
         "active_days": 3,
         "position_change": 0
       },
@@ -1719,6 +1719,12 @@
         "winner_sid": "76561198046477600",
         "loser_sid": "76561198033879793",
         "timestamp": "2026-05-26 01:42:10"
+      },
+      {
+        "scenario_name": "Flicker Plaza rAim Easy Less Blinks",
+        "winner_sid": "76561198033879793",
+        "loser_sid": "76561199164422123",
+        "timestamp": "2026-05-26 04:04:36"
       }
     ],
     "active_rivalries": [
@@ -1808,6 +1814,16 @@
         "target_sid": "76561198348625808",
         "target_name": "@Christine",
         "scenario_name": "Air Voltaic Invincible 7 Easy 80%",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
+      },
+      {
+        "chaser_sid": "76561199164422123",
+        "chaser_name": "@Olioli",
+        "target_sid": "76561198033879793",
+        "target_name": "@CoachCam",
+        "scenario_name": "Flicker Plaza rAim Easy Less Blinks",
         "chaser_overtakes_target": 0,
         "target_overtakes_chaser": 1,
         "total_overtakes": 1
@@ -1933,7 +1949,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779768092.35189,
+    "last_poll": 1779768292.956088,
     "check_interval": 180
   },
   "687": {
@@ -3668,7 +3684,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779768092.370486,
+    "last_poll": 1779768292.969664,
     "check_interval": 180
   },
   "688": {
@@ -5245,7 +5261,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779768092.384759,
+    "last_poll": 1779768292.98081,
     "check_interval": 180
   }
 }
