@@ -1,5 +1,12 @@
 [
   {
+    "id": 293,
+    "player_name": "Christine",
+    "event_type": "pb",
+    "message": "**WhisphereRawControl Larger + Slowed**",
+    "timestamp": "2026-05-26 04:17:51"
+  },
+  {
     "id": 292,
     "player_name": "CoachCam",
     "event_type": "overtake",
@@ -691,12 +698,5 @@
     "event_type": "rank_up",
     "message": "[Silent Run] \ud83c\udfc6 Doctor Strange portals to the next tier! @Haruno promoted to **Lemming** on **Easier**!",
     "timestamp": "2026-05-23 06:33:38"
-  },
-  {
-    "id": 193,
-    "player_name": "CoachCam",
-    "event_type": "pb",
-    "message": "\ud83c\udf89 Punisher rage activated! @CoachCam went full auto and shredded their old score, hitting a new PB of 833.53 on **Air CELESTIAL No UFO Easy Slowed** - <https://matthewgutz.github.io/kovaaks-play?scenario=Air%20CELESTIAL%20No%20UFO%20Easy%20Slowed>!",
-    "timestamp": "2026-05-23 05:05:04"
   }
 ]
