@@ -289,7 +289,7 @@
         "76561198348625808": 1673.0,
         "76561199164422123": 2698.0,
         "76561198033879793": 2687.0,
-        "76561198046477600": 2652.0,
+        "76561198046477600": 2794.0,
         "76561198995689034": 0.0
       },
       "Pokeball Frenzy Auto TE Wide": {
@@ -795,7 +795,7 @@
         "76561198348625808": "2000-01-01 00:00:00",
         "76561199164422123": "2026-05-13 14:27:00",
         "76561198033879793": "2026-05-13 14:27:00",
-        "76561198046477600": "2026-05-13 14:27:00",
+        "76561198046477600": "2026-05-26 01:21:35",
         "76561198995689034": "2026-05-13 14:27:00"
       },
       "Pokeball Frenzy Auto TE Wide": {
@@ -1185,10 +1185,10 @@
         "rank_name": "Hare",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 60.06,
+        "points": 60.2,
         "has_streak": true,
-        "weekly_pbs": 12,
-        "total_pbs": 48,
+        "weekly_pbs": 14,
+        "total_pbs": 50,
         "active_days": 2,
         "position_change": 0
       },
@@ -1671,6 +1671,18 @@
         "winner_sid": "76561198046477600",
         "loser_sid": "76561198348625808",
         "timestamp": "2026-05-26 00:55:24"
+      },
+      {
+        "scenario_name": "Air Voltaic Easy Invincible 4 80%",
+        "winner_sid": "76561198046477600",
+        "loser_sid": "76561199164422123",
+        "timestamp": "2026-05-26 01:21:35"
+      },
+      {
+        "scenario_name": "Air Voltaic Easy Invincible 4 80%",
+        "winner_sid": "76561198046477600",
+        "loser_sid": "76561198033879793",
+        "timestamp": "2026-05-26 01:21:35"
       }
     ],
     "active_rivalries": [
@@ -1769,6 +1781,26 @@
         "chaser_name": "@Olioli",
         "target_sid": "76561198046477600",
         "target_name": "@Laggiing",
+        "scenario_name": "Air Voltaic Easy Invincible 4 80%",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
+      },
+      {
+        "chaser_sid": "76561198033879793",
+        "chaser_name": "@CoachCam",
+        "target_sid": "76561198046477600",
+        "target_name": "@Laggiing",
+        "scenario_name": "Air Voltaic Easy Invincible 4 80%",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
+      },
+      {
+        "chaser_sid": "76561199164422123",
+        "chaser_name": "@Olioli",
+        "target_sid": "76561198046477600",
+        "target_name": "@Laggiing",
         "scenario_name": "Pokeball Frenzy Auto TE Wide",
         "chaser_overtakes_target": 0,
         "target_overtakes_chaser": 1,
@@ -1815,7 +1847,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779757333.588096,
+    "last_poll": 1779758515.06719,
     "check_interval": 180
   },
   "687": {
@@ -3534,7 +3566,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779757333.608221,
+    "last_poll": 1779758515.089279,
     "check_interval": 180
   },
   "688": {
@@ -5111,7 +5143,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779757333.621929,
+    "last_poll": 1779758515.104681,
     "check_interval": 180
   }
 }
