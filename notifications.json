@@ -1,5 +1,19 @@
 [
   {
+    "id": 263,
+    "player_name": "Laggiing",
+    "event_type": "pb",
+    "message": "**Pokeball Frenzy Auto TE Wide** \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-26 01:02:09"
+  },
+  {
+    "id": 262,
+    "player_name": "Laggiing",
+    "event_type": "pb",
+    "message": "**Pokeball Frenzy Auto TE Wide** \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-26 01:02:09"
+  },
+  {
     "id": 261,
     "player_name": "Laggiing",
     "event_type": "pb",
@@ -684,19 +698,5 @@
     "event_type": "rank_up",
     "message": "\ud83c\udfc6 Doctor Strange portals to the next tier! @BakaOppai promoted to **Orca** on **Easier**!",
     "timestamp": "2026-05-23 02:38:30"
-  },
-  {
-    "id": 163,
-    "player_name": "Haruno",
-    "event_type": "rank_up",
-    "message": "[Silent Run] \ud83c\udfc6 Look who's climbing! @Haruno is now a certified **Wool** on **Hard**!",
-    "timestamp": "2026-05-23 02:36:57"
-  },
-  {
-    "id": 162,
-    "player_name": "Laggiing",
-    "event_type": "rank_up",
-    "message": "[Silent Run] \ud83c\udfc6 RANK UP! @Laggiing has promoted to **Wool** (Rank 1) on the **Hard** benchmark! From Bronze scrubs to Grandmasters! (Previous: Unranked)",
-    "timestamp": "2026-05-23 02:36:57"
   }
 ]
