@@ -14,19 +14,19 @@
   {
     "benchmark_id": "686",
     "benchmark_name": "Easier",
-    "scenario_name": "beanTS Larger",
-    "update_count": 16
-  },
-  {
-    "benchmark_id": "688",
-    "benchmark_name": "Hard",
     "scenario_name": "Pokeball Frenzy Auto TE Wide",
     "update_count": 16
   },
   {
     "benchmark_id": "686",
     "benchmark_name": "Easier",
-    "scenario_name": "Controlsphere rAim Easy 90%",
-    "update_count": 15
+    "scenario_name": "beanTS Larger",
+    "update_count": 16
+  },
+  {
+    "benchmark_id": "687",
+    "benchmark_name": "Medium",
+    "scenario_name": "Pokeball Frenzy Auto TE Wide",
+    "update_count": 16
   }
 ]
