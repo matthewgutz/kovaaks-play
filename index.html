@@ -1663,23 +1663,30 @@
             display: flex !important;
             flex-direction: row !important;
             align-items: center !important;
-            gap: 16px !important;
-            padding: 8px 16px !important;
-            flex-wrap: wrap;
+            gap: 8px !important;
+            padding: 6px 12px !important;
+            flex-wrap: wrap !important;
+            max-height: 110px !important;
+            overflow: hidden !important;
         }
-        .app-container.layout-stacked #player-filter-section .panel-title {
-            margin: 0 !important;
-            font-size: 1.0rem !important;
-            border-bottom: none !important;
-            padding-bottom: 0 !important;
+        .app-container.layout-stacked #player-filter-section .panel-title,
+        .app-container.layout-stacked #player-filter-section .filter-divider-top {
+            display: none !important;
+        }
+        .app-container.layout-stacked #player-filter-section .time-filter-controls {
+            margin-bottom: 0 !important;
+            width: auto !important;
+            border-right: 1px solid rgba(255, 255, 255, 0.15) !important;
+            padding-right: 8px !important;
         }
         .app-container.layout-stacked #player-filter-section > div {
             display: flex !important;
             flex-direction: row !important;
             align-items: center !important;
-            gap: 16px !important;
-            flex-wrap: wrap;
-            flex-grow: 1;
+            gap: 8px !important;
+            flex-wrap: wrap !important;
+            flex-grow: 1 !important;
+            width: auto !important;
         }
         .app-container.layout-stacked #player-filter-section > div > div:nth-child(2) {
             border-top: none !important;
@@ -1690,45 +1697,39 @@
         }
         .app-container.layout-stacked #filter-players-list {
             flex-direction: row !important;
-            flex-wrap: wrap;
-            gap: 12px !important;
+            flex-wrap: wrap !important;
+            gap: 8px !important;
             overflow: visible !important;
         }
         .app-container.layout-stacked #timeline-section {
             order: 3 !important;
         }
-        .app-container.layout-stacked #weekly-charts-section {
+        .app-container.layout-stacked #radar-chart-section {
             order: 4 !important;
         }
-        .app-container.layout-stacked #radar-chart-section {
+        .app-container.layout-stacked #grid-section {
             order: 5 !important;
         }
-        .app-container.layout-stacked #grid-section {
+        .app-container.layout-stacked #history-view {
             order: 6 !important;
         }
-        .app-container.layout-stacked #history-view {
+        .app-container.layout-stacked #standings-section {
             order: 7 !important;
         }
-        .app-container.layout-stacked #standings-section {
+        .app-container.layout-stacked #focus-maps-section {
             order: 8 !important;
         }
-        .app-container.layout-stacked #weekly-activity-section {
+        .app-container.layout-stacked #rivalries-section {
             order: 9 !important;
         }
-        .app-container.layout-stacked #focus-maps-section {
+        .app-container.layout-stacked #simulator-section {
             order: 10 !important;
         }
-        .app-container.layout-stacked #rivalries-section {
+        .app-container.layout-stacked #player-management-section {
             order: 11 !important;
         }
-        .app-container.layout-stacked #simulator-section {
-            order: 12 !important;
-        }
-        .app-container.layout-stacked #player-management-section {
-            order: 13 !important;
-        }
         .app-container.layout-stacked #webhook-section {
-            order: 14 !important;
+            order: 12 !important;
         }
     </style>
 </head>
@@ -1799,34 +1800,9 @@
                 <section class="glass-panel" id="timeline-section" style="padding: 24px;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
                         <h2 class="panel-title" style="margin-bottom: 0; border-bottom: none; padding-bottom: 0;">📈 Max Rank % Progress Timeline</h2>
-                        <div class="time-filter-controls" style="display: flex; gap: 6px;">
-                            <button class="time-filter-btn" onclick="filterTimelineChart('1W', this)">1W</button>
-                            <button class="time-filter-btn" onclick="filterTimelineChart('1M', this)">1M</button>
-                            <button class="time-filter-btn active" onclick="filterTimelineChart('ALL', this)">ALL</button>
-                        </div>
                     </div>
                     <div style="flex-grow: 1; min-height: 250px; position: relative; width: 100%;">
                         <canvas id="timeline-chart"></canvas>
-                    </div>
-                </section>
-
-                <!-- Weekly Activity & Growth Section -->
-                <section class="glass-panel" id="weekly-charts-section" style="padding: 24px;">
-                    <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
-                        <!-- Weekly PBs Chart -->
-                        <div>
-                            <h2 class="panel-title" style="margin-bottom: 8px; border-bottom: none; padding-bottom: 0; font-size: 1.1rem;">📊 Personal Bests in Filtered Period</h2>
-                            <div style="height: 65px; position: relative; width: 100%;">
-                                <canvas id="weekly-pbs-chart"></canvas>
-                            </div>
-                        </div>
-                        <!-- Growth Chart -->
-                        <div>
-                            <h2 class="panel-title" style="margin-bottom: 8px; border-bottom: none; padding-bottom: 0; font-size: 1.1rem;">📈 Progress Growth in Filtered Period</h2>
-                            <div style="height: 85px; position: relative; width: 100%;">
-                                <canvas id="growth-chart"></canvas>
-                            </div>
-                        </div>
                     </div>
                 </section>
 
@@ -1877,6 +1853,30 @@
                     <!-- Radar Canvas Container (Expanded) -->
                     <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; position: relative; min-height: 320px; width: 100%;">
                         <canvas id="radar-chart" style="width: 100%; height: 100%;"></canvas>
+                    </div>
+                </div>
+
+                <!-- Divider -->
+                <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); margin: 12px 0;"></div>
+
+                <!-- Weekly PBs Row -->
+                <div style="display: flex; align-items: center; gap: 16px; width: 100%;">
+                    <div style="width: 140px; flex-shrink: 0; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 700; color: #fff;">Personal Bests</div>
+                    <div style="flex: 1; min-width: 0; position: relative; height: 22px; margin-top: 38px;">
+                        <canvas id="weekly-pbs-chart"></canvas>
+                        <div id="weekly-pbs-overlay" style="position: absolute; top: -38px; left: 0; width: 100%; height: 60px; pointer-events: none; z-index: 10;"></div>
+                    </div>
+                </div>
+
+                <!-- Divider -->
+                <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); margin: 12px 0;"></div>
+
+                <!-- Progress Growth Row -->
+                <div style="display: flex; align-items: center; gap: 16px; width: 100%;">
+                    <div style="width: 140px; flex-shrink: 0; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 700; color: #fff;">Progress Growth</div>
+                    <div style="flex: 1; min-width: 0; position: relative; height: 85px;">
+                        <canvas id="growth-chart"></canvas>
+                        <div id="growth-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10;"></div>
                     </div>
                 </div>
             </section>
@@ -1942,31 +1942,7 @@
                 </div>
             </section>
 
-            <!-- Weekly Activity Leaderboard -->
-            <section class="glass-panel sidebar-panel" id="weekly-activity-section">
-                <div>
-                    <h2 class="panel-title">⚡ Weekly Activity (Last 7 Days)</h2>
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.3;">
-                        Total Personal Bests achieved in the last 7 days. Highlights current practice and improvement!
-                    </p>
-                    
-                    <!-- Activity Highlights Banner -->
-                    <div class="activity-highlights" style="display: flex; gap: 8px; margin-bottom: 15px;">
-                        <div class="highlight-card" style="flex: 1; background: rgba(0, 245, 212, 0.03); border: 1px solid rgba(0, 245, 212, 0.08); border-radius: 8px; padding: 10px; text-align: center;">
-                            <div style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); font-weight: bold; letter-spacing: 0.5px;">🚀 Most Active</div>
-                            <div id="highlight-most-active" style="font-size: 0.85rem; font-weight: 800; color: var(--accent-secondary); margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">-</div>
-                        </div>
-                        <div class="highlight-card" style="flex: 1; background: rgba(247, 37, 133, 0.03); border: 1px solid rgba(247, 37, 133, 0.08); border-radius: 8px; padding: 10px; text-align: center;">
-                            <div style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); font-weight: bold; letter-spacing: 0.5px;">💤 Slumbering</div>
-                            <div id="highlight-slacking" style="font-size: 0.85rem; font-weight: 800; color: var(--accent-primary); margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">-</div>
-                        </div>
-                    </div>
-                    
-                    <div id="weekly-activity-list" style="display: flex; flex-direction: column; gap: 12px;">
-                        <!-- Populated dynamically -->
-                    </div>
-                </div>
-            </section>
+
 
             <!-- Focus Maps Recommendation Widget -->
             <section class="glass-panel sidebar-panel" id="focus-maps-section">
@@ -2035,8 +2011,14 @@
         <div class="filter-column">
             <!-- Sticky Unified Player Filter Widget -->
             <section class="glass-panel sidebar-panel sticky-filter-panel" id="player-filter-section" style="border-color: rgba(0, 245, 212, 0.3);">
+                <div class="time-filter-controls" style="display: flex; gap: 6px; margin-bottom: 12px; justify-content: center; width: 100%;">
+                    <button class="time-filter-btn" onclick="filterTimelineChart('1W', this)">1W</button>
+                    <button class="time-filter-btn" onclick="filterTimelineChart('1M', this)">1M</button>
+                    <button class="time-filter-btn active" onclick="filterTimelineChart('ALL', this)">ALL</button>
+                </div>
+                <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); margin: 0 0 12px 0; width: 100%;" class="filter-divider-top"></div>
                 <h2 class="panel-title" style="margin: 0 0 10px 0; font-size: 1.1rem; border-bottom: none; padding-bottom: 0; display: flex; align-items: center; gap: 8px;">👥 Player Filter</h2>
-                <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="display: flex; flex-direction: column; gap: 8px; width: 100%;">
                     <label class="filter-checkbox-label" style="font-weight: 600; color: #fff;">
                         <input type="checkbox" id="filter-compare-all" checked>
                         Compare All
@@ -2068,25 +2050,27 @@
             <div class="drawer-layout">
                 <!-- Left stats panel (visible only in single player mode) -->
                 <div class="drawer-stats-panel" id="drawer-stats-col" style="display: none;">
-                    <div class="mini-stat-card pb-card">
-                        <div class="mini-stat-label">Personal Best</div>
-                        <div class="mini-stat-val" id="stat-pb">-</div>
-                    </div>
-                    <div class="mini-stat-card">
-                        <div class="mini-stat-label">PB Milestones</div>
-                        <div class="mini-stat-val" id="stat-pb-count">-</div>
-                    </div>
-                    <div class="mini-stat-card">
-                        <div class="mini-stat-label">Overall Improvement</div>
-                        <div class="mini-stat-val" id="stat-improvement">-</div>
+                    <div id="drawer-mini-cards" style="display: flex; flex-direction: column; gap: 16px; width: 100%;">
+                        <div class="mini-stat-card pb-card">
+                            <div class="mini-stat-label">Personal Best</div>
+                            <div class="mini-stat-val" id="stat-pb">-</div>
+                        </div>
+                        <div class="mini-stat-card">
+                            <div class="mini-stat-label">PB Milestones</div>
+                            <div class="mini-stat-val" id="stat-pb-count">-</div>
+                        </div>
+                        <div class="mini-stat-card">
+                            <div class="mini-stat-label">Overall Improvement</div>
+                            <div class="mini-stat-val" id="stat-improvement">-</div>
+                        </div>
                     </div>
                     
-                    <div style="margin-top: 10px;">
-                        <h3 class="mini-stat-label" style="margin-bottom: 8px;">PB Progress History (Last 10)</h3>
-                        <div class="table-container" style="margin-bottom: 0; border: 1px solid rgba(255,255,255,0.04); border-radius: 8px;">
+                    <div style="margin-top: 10px; flex-grow: 1; display: flex; flex-direction: column; width: 100%;">
+                        <h3 class="mini-stat-label" id="drawer-history-title" style="margin-bottom: 8px;">PB Progress History (Last 10)</h3>
+                        <div class="table-container" style="margin-bottom: 0; border: 1px solid rgba(255,255,255,0.04); border-radius: 8px; flex-grow: 1; overflow-y: auto;">
                             <table style="width: 100%; font-size: 0.85rem;">
                                 <thead>
-                                    <tr>
+                                    <tr id="drawer-history-thead-row">
                                         <th style="padding: 8px 12px;">Score</th>
                                         <th style="padding: 8px 12px;">Date</th>
                                     </tr>
@@ -2204,82 +2188,10 @@
             renderPlayerFilterCard();
             renderLeaderboard();
             renderRivalries();
-            renderWeeklyActivity();
             renderFocusMaps();
-            // Trigger redraw on the progress timeline chart if it exists
-            if (overallProgressChart) {
-                // We re-render the chart by updating its datasets with new visual styles
-                const bData = standingsData[currentBenchmarkId];
-                if (bData && overallProgressChart.data.datasets) {
-                    const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
-                    const isCompareAll = document.getElementById('filter-compare-all')?.checked;
-                    
-                    overallProgressChart.data.datasets.forEach(dataset => {
-                        const sid = dataset.steamId;
-                        const isSelected = isCompareAll || selectedPlayers.has(sid);
-                        const baseColor = getPlayerThemeColor(sid);
-                        
-                        if (isSelected) {
-                            dataset.borderColor = baseColor;
-                            dataset.borderWidth = 2.5;
-                            dataset.pointHoverRadius = 4;
-                        } else {
-                            dataset.borderColor = getGrayscaleColor(baseColor, 0.08);
-                            dataset.borderWidth = 1.0;
-                            dataset.pointHoverRadius = 0;
-                        }
-                    });
-                    overallProgressChart.update();
-                }
-            }
-
-            // Trigger update on weekly PBs chart
-            if (window.weeklyPbsChartInstance && window.weeklyPbsChartInstance.data.datasets) {
-                const isCompareAll = document.getElementById('filter-compare-all')?.checked;
-                window.weeklyPbsChartInstance.data.datasets.forEach(dataset => {
-                    const sid = dataset.steamId;
-                    const isSelected = isCompareAll || selectedPlayers.has(sid);
-                    const baseColor = getPlayerThemeColor(sid);
-                    
-                    dataset.backgroundColor = isSelected ? baseColor : getGrayscaleColor(baseColor, 0.1);
-                    dataset.borderColor = isSelected ? baseColor : 'rgba(255, 255, 255, 0.05)';
-                    dataset.borderWidth = isSelected ? 1 : 0.5;
-                });
-                window.weeklyPbsChartInstance.update();
-            }
-
-            // Trigger update on growth chart
-            if (window.growthChartInstance && window.growthChartInstance.data.datasets && window.growthChartInstance.data.datasets[0]) {
-                const isCompareAll = document.getElementById('filter-compare-all')?.checked;
-                const bData = standingsData[currentBenchmarkId];
-                if (bData) {
-                    const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
-                    const dataset = window.growthChartInstance.data.datasets[0];
-                    
-                    const bgColors = [];
-                    const borderColors = [];
-                    const radii = [];
-                    const hoverRadii = [];
-                    
-                    configuredPlayers.forEach(p => {
-                        const sid = p.steam_id;
-                        const isSelected = isCompareAll || selectedPlayers.has(sid);
-                        const baseColor = getPlayerThemeColor(sid);
-                        
-                        const dotColor = isSelected ? baseColor : getGrayscaleColor(baseColor, 0.1);
-                        bgColors.push(dotColor);
-                        borderColors.push(isSelected ? baseColor : 'rgba(255, 255, 255, 0.05)');
-                        radii.push(isSelected ? 6 : 4);
-                        hoverRadii.push(isSelected ? 8 : 0);
-                    });
-                    
-                    dataset.pointBackgroundColor = bgColors;
-                    dataset.pointBorderColor = borderColors;
-                    dataset.pointRadius = radii;
-                    dataset.pointHoverRadius = hoverRadii;
-                    
-                    window.growthChartInstance.update();
-                }
+            // Trigger redraw on all history-based charts if history is cached
+            if (window.lastLoadedHistoryData) {
+                renderOverallProgressChart(window.lastLoadedHistoryData);
             }
 
             // Trigger redraw on the history log feed
@@ -2736,6 +2648,231 @@
                     chart._overlayGroup.remove();
                     chart._overlayGroup = null;
                 }
+                chart._avatarOverlays = null;
+            }
+        };
+
+        const weeklyPbsOverlayPlugin = {
+            id: 'weeklyPbsOverlay',
+            afterDraw(chart) {
+                const overlayContainer = document.getElementById('weekly-pbs-overlay');
+                if (!overlayContainer) return;
+                
+                chart._avatarOverlays = chart._avatarOverlays || {};
+                const seenIds = new Set();
+                
+                chart.data.datasets.forEach((dataset, index) => {
+                    const steamId = dataset.steamId;
+                    if (!steamId) return;
+                    
+                    const meta = chart.getDatasetMeta(index);
+                    if (!meta || meta.hidden || !meta.data || meta.data.length === 0) {
+                        if (chart._avatarOverlays[steamId]) {
+                            chart._avatarOverlays[steamId].style.display = 'none';
+                        }
+                        return;
+                    }
+                    
+                    const element = meta.data[0];
+                    const count = dataset.data[0];
+                    if (!element || count === 0) {
+                        if (chart._avatarOverlays[steamId]) {
+                            chart._avatarOverlays[steamId].style.display = 'none';
+                        }
+                        return;
+                    }
+                    
+                    const left = element.base;
+                    const right = element.x;
+                    const width = right - left;
+                    if (width <= 0) {
+                        if (chart._avatarOverlays[steamId]) {
+                            chart._avatarOverlays[steamId].style.display = 'none';
+                        }
+                        return;
+                    }
+                    
+                    seenIds.add(steamId);
+                    
+                    const centerX = (left + right) / 2;
+                    let overlay = chart._avatarOverlays[steamId];
+                    if (!overlay) {
+                        overlay = document.createElement('div');
+                        overlay.style.position = 'absolute';
+                        overlay.style.transform = 'translate(-50%, 0)';
+                        overlay.style.display = 'flex';
+                        overlay.style.flexDirection = 'column';
+                        overlay.style.alignItems = 'center';
+                        overlay.style.gap = '2px';
+                        overlay.style.pointerEvents = 'auto';
+                        
+                        const color = dataset.borderColor || getPlayerThemeColor(steamId);
+                        const usernameName = dataset.label.replace('@', '');
+                        const avatarUrl = `avatars/${usernameName}.png`;
+                        
+                        overlay.innerHTML = `
+                            <div class="avatar-container-weekly" style="position: relative; display: flex; flex-direction: column; align-items: center; cursor: pointer;">
+                                <img src="${avatarUrl}" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid ${color}; transition: transform 0.2s ease-in-out;" onerror="this.onerror=null; this.outerHTML=\`<span style='width: 10px; height: 10px; border-radius: 50%; background: ${color}; display: inline-block;'></span>\`;">
+                                <span style="font-size: 0.65rem; font-weight: 700; color: #fff; white-space: nowrap; margin-top: 1px; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">${dataset.label.replace('@', '')} (${count})</span>
+                            </div>
+                        `;
+                        
+                        const img = overlay.querySelector('img');
+                        if (img) {
+                            img.addEventListener('mouseenter', () => {
+                                img.style.transform = 'scale(1.25)';
+                                overlay.style.zIndex = '50';
+                            });
+                            img.addEventListener('mouseleave', () => {
+                                img.style.transform = 'scale(1)';
+                                overlay.style.zIndex = '1';
+                            });
+                        }
+                        
+                        overlayContainer.appendChild(overlay);
+                        chart._avatarOverlays[steamId] = overlay;
+                    }
+                    
+                    overlay.style.display = 'block';
+                    overlay.style.left = `${centerX}px`;
+                    overlay.style.top = `0px`;
+                });
+                
+                Object.keys(chart._avatarOverlays).forEach(steamId => {
+                    if (!seenIds.has(steamId)) {
+                        chart._avatarOverlays[steamId].style.display = 'none';
+                    }
+                });
+            },
+            beforeDestroy(chart) {
+                chart._avatarOverlays = null;
+            }
+        };
+
+        const growthOverlayPlugin = {
+            id: 'growthOverlay',
+            afterDraw(chart) {
+                const overlayContainer = document.getElementById('growth-overlay');
+                if (!overlayContainer) return;
+                
+                chart._avatarOverlays = chart._avatarOverlays || {};
+                const seenIds = new Set();
+                
+                const dataset = chart.data.datasets[0];
+                if (!dataset || !dataset.data) return;
+                
+                const meta = chart.getDatasetMeta(0);
+                if (!meta || meta.hidden || !meta.data) {
+                    Object.keys(chart._avatarOverlays).forEach(steamId => {
+                        chart._avatarOverlays[steamId].style.display = 'none';
+                    });
+                    return;
+                }
+                
+                const renderingPoints = [];
+                meta.data.forEach((element, index) => {
+                    const pt = dataset.data[index];
+                    if (!pt) return;
+                    
+                    const xPixel = chart.scales.x.getPixelForValue(pt.x);
+                    const yPixel = chart.scales.y.getPixelForValue(0);
+                    
+                    renderingPoints.push({
+                        steamId: pt.steamId,
+                        username: pt.username,
+                        xVal: pt.x,
+                        x: xPixel,
+                        y: yPixel,
+                        index: index
+                    });
+                });
+                
+                renderingPoints.sort((a, b) => a.x - b.x);
+                
+                const assignedLevels = [];
+                for (let i = 0; i < renderingPoints.length; i++) {
+                    const pt = renderingPoints[i];
+                    let level = 0;
+                    while (true) {
+                        let overlap = false;
+                        for (let j = 0; j < i; j++) {
+                            if (assignedLevels[j] === level) {
+                                const otherPt = renderingPoints[j];
+                                if (Math.abs(pt.x - otherPt.x) < 32) {
+                                    overlap = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if (!overlap) break;
+                        level++;
+                    }
+                    assignedLevels[i] = level;
+                }
+                
+                const getOffsetForLevel = (level) => {
+                    if (level === 0) return 0;
+                    const sign = level % 2 === 1 ? -1 : 1;
+                    const step = Math.ceil(level / 2);
+                    return sign * step * 24;
+                };
+                
+                renderingPoints.forEach((pt, i) => {
+                    const level = assignedLevels[i];
+                    const yOffset = getOffsetForLevel(level);
+                    const steamId = pt.steamId;
+                    
+                    seenIds.add(steamId);
+                    
+                    let overlay = chart._avatarOverlays[steamId];
+                    if (!overlay) {
+                        overlay = document.createElement('div');
+                        overlay.style.position = 'absolute';
+                        overlay.style.transform = 'translate(-50%, -50%)';
+                        overlay.style.display = 'flex';
+                        overlay.style.flexDirection = 'column';
+                        overlay.style.alignItems = 'center';
+                        overlay.style.pointerEvents = 'auto';
+                        
+                        const color = getPlayerThemeColor(steamId);
+                        const usernameName = pt.username.replace('@', '');
+                        const avatarUrl = `avatars/${usernameName}.png`;
+                        
+                        overlay.innerHTML = `
+                            <div class="avatar-container-growth" style="position: relative; display: flex; flex-direction: column; align-items: center; cursor: pointer;">
+                                <img src="${avatarUrl}" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid ${color}; transition: transform 0.2s ease-in-out;" onerror="this.onerror=null; this.outerHTML=\`<span style='width: 10px; height: 10px; border-radius: 50%; background: ${color}; display: inline-block;'></span>\`;">
+                                <span style="font-size: 0.65rem; font-weight: 700; color: #fff; white-space: nowrap; margin-top: 1px; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">${pt.username.replace('@', '')} (${pt.xVal >= 0 ? '+' : ''}${pt.xVal.toFixed(1)}%)</span>
+                            </div>
+                        `;
+                        
+                        const img = overlay.querySelector('img');
+                        if (img) {
+                            img.addEventListener('mouseenter', () => {
+                                img.style.transform = 'scale(1.25)';
+                                overlay.style.zIndex = '50';
+                            });
+                            img.addEventListener('mouseleave', () => {
+                                img.style.transform = 'scale(1)';
+                                overlay.style.zIndex = '1';
+                            });
+                        }
+                        
+                        overlayContainer.appendChild(overlay);
+                        chart._avatarOverlays[steamId] = overlay;
+                    }
+                    
+                    overlay.style.display = 'block';
+                    overlay.style.left = `${pt.x}px`;
+                    overlay.style.top = `${pt.y + yOffset}px`;
+                });
+                
+                Object.keys(chart._avatarOverlays).forEach(steamId => {
+                    if (!seenIds.has(steamId)) {
+                        chart._avatarOverlays[steamId].style.display = 'none';
+                    }
+                });
+            },
+            beforeDestroy(chart) {
                 chart._avatarOverlays = null;
             }
         };
@@ -3452,9 +3589,6 @@
             btnElement.classList.add('active');
 
             // Render tables and other sections
-            renderLeaderboard();
-            renderRivalries();
-            renderWeeklyActivity();
             renderFocusMaps();
         }
 
@@ -3799,56 +3933,7 @@
             section.style.display = 'block';
         }
 
-        // Render Weekly Activity Panel
-        function renderWeeklyActivity() {
-            const bData = standingsData[currentBenchmarkId];
-            const list = document.getElementById('weekly-activity-list');
-            if (!bData || !list) return;
-            
-            list.innerHTML = '';
-            
-            const isCompareAll = document.getElementById('filter-compare-all')?.checked;
-            const sortedPlayers = [...bData.players].sort((a, b) => b.weekly_pbs - a.weekly_pbs);
-            const filteredPlayers = isCompareAll ? sortedPlayers : sortedPlayers.filter(p => selectedPlayers.has(p.steam_id));
-            const maxPBs = Math.max(...filteredPlayers.map(p => p.weekly_pbs), 1);
-            
-            // Populate highlights based on filtered players
-            const mostActive = filteredPlayers[0];
-            const slacking = [...filteredPlayers].reverse().find(p => p.weekly_pbs === 0);
-            
-            document.getElementById('highlight-most-active').innerText = mostActive && mostActive.weekly_pbs > 0 
-                ? `${mostActive.username} (${mostActive.weekly_pbs} PB${mostActive.weekly_pbs !== 1 ? 's' : ''})` 
-                : 'None';
-            document.getElementById('highlight-slacking').innerText = slacking 
-                ? `${slacking.username} (0 PBs)` 
-                : 'None! All Active 🙌';
-            
-            filteredPlayers.forEach(p => {
-                const item = document.createElement('div');
-                item.className = 'player-config-item';
-                item.style.flexDirection = 'column';
-                item.style.alignItems = 'stretch';
-                item.style.gap = '8px';
-                item.style.padding = '12px';
-                
-                const pct = (p.weekly_pbs / maxPBs) * 100;
-                const daysText = p.active_days > 0 ? `Active ${p.active_days}/7 days` : 'Inactive this week';
-                
-                item.innerHTML = `
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span class="player-config-name" style="font-size: 0.9rem; font-weight: 700; color: #fff;">${p.username}</span>
-                        <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-primary);">${p.weekly_pbs} PB${p.weekly_pbs !== 1 ? 's' : ''}</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: var(--text-muted); margin-top: -4px;">
-                        <span>${daysText}</span>
-                    </div>
-                    <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.04); border-radius: 3px; overflow: hidden; margin-top: 2px;">
-                        <div style="width: ${pct}%; height: 100%; background: linear-gradient(90deg, var(--accent-secondary) 0%, var(--accent-primary) 100%); border-radius: 3px;"></div>
-                    </div>
-                `;
-                list.appendChild(item);
-            });
-        }
+
 
         // Render current benchmark leaderboard and score grid
         function renderLeaderboard() {
@@ -4754,25 +4839,114 @@
                 historyChart.destroy();
             }
             
+            statsCol.style.display = 'flex';
+            chartCol.style.gridColumn = 'span 1';
+            
             if (tabId === 'all') {
-                statsCol.style.display = 'none';
-                chartCol.style.gridColumn = 'span 2';
+                document.getElementById('drawer-mini-cards').style.display = 'none';
+                document.getElementById('drawer-history-title').innerText = 'Recent PBs (Last 15)';
+                document.getElementById('drawer-history-thead-row').innerHTML = `
+                    <th style="padding: 8px 12px; text-align: left;">Player</th>
+                    <th style="padding: 8px 12px; text-align: right;">Score</th>
+                    <th style="padding: 8px 12px; text-align: right;">Date</th>
+                `;
+                renderAllPlayersRecentHistory();
                 drawComparisonChart(ctx);
             } else {
-                statsCol.style.display = 'flex';
-                chartCol.style.gridColumn = 'span 1';
+                document.getElementById('drawer-mini-cards').style.display = 'flex';
+                document.getElementById('drawer-history-title').innerText = 'PB Progress History (Last 10)';
+                document.getElementById('drawer-history-thead-row').innerHTML = `
+                    <th style="padding: 8px 12px; text-align: left;">Score</th>
+                    <th style="padding: 8px 12px; text-align: left;">Date</th>
+                `;
                 renderSinglePlayerDetails(tabId);
                 drawSinglePlayerChart(ctx, tabId);
             }
         }
 
+        function getFilteredHistoryData() {
+            if (!currentHistoryData) return {};
+            
+            const now = new Date();
+            let cutOffDate = null;
+            if (timelineFilter === '1W') {
+                cutOffDate = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+            } else if (timelineFilter === '1M') {
+                cutOffDate = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+            }
+            
+            const filteredData = {};
+            Object.keys(currentHistoryData).forEach(steamId => {
+                const playerObj = currentHistoryData[steamId];
+                if (!playerObj) return;
+                
+                const filteredHistory = playerObj.history.filter(h => {
+                    if (!cutOffDate) return true;
+                    return parseDate(h.timestamp) >= cutOffDate;
+                });
+                
+                filteredData[steamId] = {
+                    ...playerObj,
+                    history: filteredHistory
+                };
+            });
+            return filteredData;
+        }
+
+        function renderAllPlayersRecentHistory() {
+            const filteredData = getFilteredHistoryData();
+            const allPoints = [];
+            Object.keys(filteredData).forEach(steamId => {
+                const playerObj = filteredData[steamId];
+                if (playerObj && playerObj.history) {
+                    playerObj.history.forEach(h => {
+                        allPoints.push({
+                            steamId: steamId,
+                            playerName: playerObj.player_name,
+                            score: h.score,
+                            timestamp: h.timestamp
+                        });
+                    });
+                }
+            });
+            
+            allPoints.sort((a, b) => parseDate(b.timestamp) - parseDate(a.timestamp));
+            const last15 = allPoints.slice(0, 15);
+            
+            const tbody = document.getElementById('drawer-history-tbody');
+            tbody.innerHTML = '';
+            
+            if (last15.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="3" style="text-align: center; color: var(--text-muted); padding: 12px;">No scores recorded yet.</td></tr>';
+            } else {
+                last15.forEach(pt => {
+                    const row = document.createElement('tr');
+                    const color = getPlayerThemeColor(pt.steamId);
+                    const usernameName = pt.playerName.replace('@', '');
+                    const avatarUrl = `avatars/${usernameName}.png`;
+                    const dateStr = formatDateTimePST(pt.timestamp, false, false, true);
+                    
+                    row.innerHTML = `
+                        <td style="padding: 8px 12px; display: flex; align-items: center; gap: 6px;">
+                           <img src="${avatarUrl}" style="width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid ${color};" onerror="this.onerror=null; this.outerHTML=\`<span style='width: 8px; height: 8px; border-radius: 50%; background: ${color}; display: inline-block;'></span>\`;">
+                           <span style="font-weight: 600; color: #fff;">${pt.playerName}</span>
+                        </td>
+                        <td style="padding: 8px 12px; font-weight: 600; text-align: right;">${formatScore(pt.score)}</td>
+                        <td style="padding: 8px 12px; color: var(--text-muted); text-align: right;">${dateStr}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            }
+        }
+
         function drawComparisonChart(ctx) {
             const datasets = [];
+            const filteredData = getFilteredHistoryData();
 
             // 1. Gather and sort unique timestamps across all players' histories
             const allTimestampsSet = new Set();
-            Object.keys(currentHistoryData).forEach(steamId => {
-                const playerObj = currentHistoryData[steamId];
+            Object.keys(filteredData).forEach(steamId => {
+                const playerObj = filteredData[steamId];
                 if (playerObj && playerObj.history) {
                     playerObj.history.forEach(h => {
                         allTimestampsSet.add(h.timestamp);
@@ -4785,8 +4959,8 @@
             const M = sortedTimestamps.length;
 
             // 2. Build datasets
-            Object.keys(currentHistoryData).forEach(steamId => {
-                const playerObj = currentHistoryData[steamId];
+            Object.keys(filteredData).forEach(steamId => {
+                const playerObj = filteredData[steamId];
                 const pName = playerObj.player_name;
                 const pHistory = [...playerObj.history].sort((a, b) => parseDate(a.timestamp) - parseDate(b.timestamp));
                 
@@ -4803,7 +4977,7 @@
                     }
                 });
 
-                // Insert a virtual starting score of 0 at x = 0 to show the initial jump from 0
+                // Insert a virtual starting score of 0 at x = 0
                 if (dataPoints.length > 0 && dataPoints[0].x > 0) {
                     dataPoints.unshift({
                         x: 0,
@@ -4812,7 +4986,7 @@
                     });
                 }
 
-                // Carry latest score forward to x = M - 1 to stretch to the far right
+                // Carry latest score forward to x = M - 1
                 if (dataPoints.length > 0 && dataPoints[dataPoints.length - 1].x < M - 1) {
                     dataPoints.push({
                         x: M - 1,
@@ -4836,6 +5010,38 @@
                     spanGaps: true
                 });
             });
+
+            // Add Voltaic Rank Targets to comparison chart
+            const benchmarkRanks = {
+                "686": ['Lemming', 'Hare', 'Ermine', 'Penguin', 'Fox', 'Mammoth', 'Orca', 'Seal'],
+                "687": ['Cinnabar', 'Vermillion', 'Saffron', 'Celadon', 'Cerulean', 'Lavender', 'Indigo', 'Fuchsia'],
+                "688": ['Wool', 'Linen', 'Velvet', 'Chiffon', 'Satin', 'Silk']
+            };
+
+            const ranks = benchmarkRanks[currentBenchmarkId] || [];
+            const thresholds = (standingsData[currentBenchmarkId] && standingsData[currentBenchmarkId].thresholds) ? 
+                               standingsData[currentBenchmarkId].thresholds[currentScenarioName] : null;
+
+            if (thresholds && thresholds.length > 0) {
+                ranks.forEach((rankName, index) => {
+                    const thresholdVal = thresholds[index];
+                    if (thresholdVal !== undefined && thresholdVal > 0) {
+                        const rankColor = rankColors[rankName.toLowerCase()] || '#ffffff';
+                        datasets.push({
+                            label: `${rankName} Target`,
+                            data: [
+                                { x: 0, y: thresholdVal },
+                                { x: M - 1, y: thresholdVal }
+                            ],
+                            borderColor: rankColor + '80', // Bolder: 50% opacity
+                            borderWidth: 2,
+                            borderDash: [3, 3],
+                            pointRadius: 0,
+                            fill: false
+                        });
+                    }
+                });
+            }
 
             historyChart = new Chart(ctx, {
                 type: 'line',
@@ -4886,7 +5092,34 @@
                         },
                         y: {
                             grid: { color: 'rgba(255, 255, 255, 0.05)' },
-                            ticks: { color: '#9fa6b2', font: { family: "'Outfit', sans-serif" } }
+                            suggestedMin: 0,
+                            suggestedMax: thresholds && thresholds.length > 0 ? Math.max(...thresholds.filter(t => typeof t === 'number' && t > 0)) : 100,
+                            afterBuildTicks: function(scale) {
+                                const activeThresholds = [0];
+                                if (thresholds && thresholds.length > 0) {
+                                    thresholds.forEach(t => {
+                                        if (typeof t === 'number' && t > 0) {
+                                            activeThresholds.push(t);
+                                        }
+                                    });
+                                }
+                                activeThresholds.sort((a, b) => a - b);
+                                scale.ticks = activeThresholds.map(value => ({ value }));
+                            },
+                            ticks: {
+                                color: '#9fa6b2',
+                                font: { family: "'Outfit', sans-serif" },
+                                callback: function(value) {
+                                    if (value === 0) return '0';
+                                    if (thresholds && thresholds.length > 0) {
+                                        const idx = thresholds.indexOf(value);
+                                        if (idx !== -1 && idx < ranks.length) {
+                                            return `${ranks[idx]} (${value})`;
+                                        }
+                                    }
+                                    return value;
+                                }
+                            }
                         }
                     }
                 }
@@ -4894,14 +5127,13 @@
         }
 
         function renderSinglePlayerDetails(steamId) {
-            const playerObj = currentHistoryData[steamId] || { player_name: 'Player', history: [] };
+            const filteredData = getFilteredHistoryData();
+            const playerObj = filteredData[steamId] || { player_name: 'Player', history: [] };
             
-            // Sort chronologically ascending
             const chronologicalHistory = [...playerObj.history].sort((a, b) => parseDate(a.timestamp) - parseDate(b.timestamp));
             const scores = chronologicalHistory.map(h => h.score);
             const pb = scores.length > 0 ? Math.max(...scores) : 0;
             
-            // Sort chronologically descending for the history table (newest first)
             const newestFirstHistory = [...playerObj.history].sort((a, b) => parseDate(b.timestamp) - parseDate(a.timestamp));
             const last10 = newestFirstHistory.slice(0, 10);
             
@@ -4938,15 +5170,16 @@
         }
 
         function drawSinglePlayerChart(ctx, steamId) {
-            const playerObj = currentHistoryData[steamId] || { player_name: 'Player', history: [] };
+            const filteredData = getFilteredHistoryData();
+            const playerObj = filteredData[steamId] || { player_name: 'Player', history: [] };
             const pHistory = [...playerObj.history].sort((a, b) => parseDate(a.timestamp) - parseDate(b.timestamp));
             
             if (pHistory.length === 0) return;
 
             // 1. Gather and sort unique timestamps across all players' histories
             const allTimestampsSet = new Set();
-            Object.keys(currentHistoryData).forEach(sId => {
-                const pObj = currentHistoryData[sId];
+            Object.keys(filteredData).forEach(sId => {
+                const pObj = filteredData[sId];
                 if (pObj && pObj.history) {
                     pObj.history.forEach(h => {
                         allTimestampsSet.add(h.timestamp);
@@ -4969,7 +5202,7 @@
                 }
             });
 
-            // Insert a virtual starting score of 0 at x = 0 to show the initial jump from 0
+            // Insert a virtual starting score of 0 at x = 0
             if (dataPoints.length > 0 && dataPoints[0].x > 0) {
                 dataPoints.unshift({
                     x: 0,
@@ -5023,14 +5256,6 @@
                 "687": ['Cinnabar', 'Vermillion', 'Saffron', 'Celadon', 'Cerulean', 'Lavender', 'Indigo', 'Fuchsia'],
                 "688": ['Wool', 'Linen', 'Velvet', 'Chiffon', 'Satin', 'Silk']
             };
-            const rankColors = {
-                'lemming': '#8a99ad', 'hare': '#10b981', 'ermine': '#3b82f6', 'penguin': '#14b8a6',
-                'fox': '#8b5cf6', 'mammoth': '#f59e0b', 'orca': '#ec4899', 'seal': '#ef4444',
-                'cinnabar': '#8a99ad', 'vermillion': '#10b981', 'saffron': '#3b82f6', 'celadon': '#14b8a6',
-                'cerulean': '#8b5cf6', 'lavender': '#f59e0b', 'indigo': '#ec4899', 'fuchsia': '#ef4444',
-                'wool': '#8a99ad', 'linen': '#10b981', 'velvet': '#3b82f6', 'chiffon': '#14b8a6',
-                'satin': '#8b5cf6', 'silk': '#ef4444'
-            };
 
             const ranks = benchmarkRanks[currentBenchmarkId] || [];
             const thresholds = (standingsData[currentBenchmarkId] && standingsData[currentBenchmarkId].thresholds) ? 
@@ -5047,8 +5272,8 @@
                                 { x: 0, y: thresholdVal },
                                 { x: M - 1, y: thresholdVal }
                             ],
-                            borderColor: rankColor + '40', // Subtle 25% opacity
-                            borderWidth: 1.5,
+                            borderColor: rankColor + '80', // Bolder: 50% opacity
+                            borderWidth: 2,
                             borderDash: [3, 3],
                             pointRadius: 0,
                             fill: false
@@ -5108,7 +5333,34 @@
                         },
                         y: {
                             grid: { color: 'rgba(255, 255, 255, 0.05)' },
-                            ticks: { color: '#9fa6b2', font: { family: "'Outfit', sans-serif" } }
+                            suggestedMin: 0,
+                            suggestedMax: thresholds && thresholds.length > 0 ? Math.max(...thresholds.filter(t => typeof t === 'number' && t > 0)) : 100,
+                            afterBuildTicks: function(scale) {
+                                const activeThresholds = [0];
+                                if (thresholds && thresholds.length > 0) {
+                                    thresholds.forEach(t => {
+                                        if (typeof t === 'number' && t > 0) {
+                                            activeThresholds.push(t);
+                                        }
+                                    });
+                                }
+                                activeThresholds.sort((a, b) => a - b);
+                                scale.ticks = activeThresholds.map(value => ({ value }));
+                            },
+                            ticks: {
+                                color: '#9fa6b2',
+                                font: { family: "'Outfit', sans-serif" },
+                                callback: function(value) {
+                                    if (value === 0) return '0';
+                                    if (thresholds && thresholds.length > 0) {
+                                        const idx = thresholds.indexOf(value);
+                                        if (idx !== -1 && idx < ranks.length) {
+                                            return `${ranks[idx]} (${value})`;
+                                        }
+                                    }
+                                    return value;
+                                }
+                            }
                         }
                     }
                 }
@@ -5437,6 +5689,7 @@
                     const res = await fetch(`/api/history?benchmark_id=${currentBenchmarkId}`);
                     data = await res.json();
                 }
+                window.lastLoadedHistoryData = data;
                 renderOverallProgressChart(data);
             } catch (err) {
                 console.error("Error loading overall progress history:", err);
@@ -5769,23 +6022,25 @@
                 }
             });
 
+            const isCompareAll = document.getElementById('filter-compare-all')?.checked;
+            const checkedPlayersForPbs = configuredPlayers.filter(p => isCompareAll || selectedPlayers.has(p.steam_id));
+            
+            // Sort checked players by PB count ascending (least left, most right)
+            checkedPlayersForPbs.sort((a, b) => (pbsCountMap[a.steam_id] || 0) - (pbsCountMap[b.steam_id] || 0));
+
             const pbsDatasets = [];
-            configuredPlayers.forEach(p => {
+            checkedPlayersForPbs.forEach(p => {
                 const sid = p.steam_id;
-                const isCompareAll = document.getElementById('filter-compare-all')?.checked;
-                const isSelected = isCompareAll || selectedPlayers.has(sid);
                 const color = getPlayerThemeColor(sid);
                 const count = pbsCountMap[sid] || 0;
-                
-                const segmentColor = isSelected ? color : getGrayscaleColor(color, 0.1);
                 
                 pbsDatasets.push({
                     label: p.username,
                     steamId: sid,
                     data: [count],
-                    backgroundColor: segmentColor,
-                    borderColor: isSelected ? color : 'rgba(255, 255, 255, 0.05)',
-                    borderWidth: isSelected ? 1 : 0.5
+                    backgroundColor: color,
+                    borderColor: color,
+                    borderWidth: 1
                 });
             });
 
@@ -5801,6 +6056,7 @@
                         labels: ['PBs'],
                         datasets: pbsDatasets
                     },
+                    plugins: [weeklyPbsOverlayPlugin],
                     options: {
                         indexAxis: 'y',
                         responsive: true,
@@ -5818,7 +6074,7 @@
                             x: {
                                 stacked: true,
                                 grid: { display: false },
-                                ticks: { color: '#9fa6b2', font: { family: "'Outfit', sans-serif" }, precision: 0 }
+                                ticks: { display: false }
                             },
                             y: {
                                 stacked: true,
@@ -5863,28 +6119,17 @@
                 growthMap[sid] = Number((finalPct - startPct).toFixed(2));
             });
 
-            const growthLabels = [];
-            const growthData = [];
-            const pointBgColors = [];
-            const pointBorderColors = [];
-            const pointRadii = [];
-            const pointHoverRadii = [];
-            
-            configuredPlayers.forEach(p => {
+            // Gather only checked players for growth scatter plot
+            const checkedPlayersForGrowth = configuredPlayers.filter(p => isCompareAll || selectedPlayers.has(p.steam_id));
+            const growthPoints = checkedPlayersForGrowth.map(p => {
                 const sid = p.steam_id;
-                const isCompareAll = document.getElementById('filter-compare-all')?.checked;
-                const isSelected = isCompareAll || selectedPlayers.has(sid);
-                const color = getPlayerThemeColor(sid);
                 const val = growthMap[sid] || 0.0;
-                
-                growthLabels.push(p.username);
-                growthData.push(val);
-                
-                const dotColor = isSelected ? color : getGrayscaleColor(color, 0.1);
-                pointBgColors.push(dotColor);
-                pointBorderColors.push(isSelected ? color : 'rgba(255, 255, 255, 0.05)');
-                pointRadii.push(isSelected ? 6 : 4);
-                pointHoverRadii.push(isSelected ? 8 : 0);
+                return {
+                    x: val,
+                    y: 0,
+                    steamId: sid,
+                    username: p.username
+                };
             });
 
             const growthCanvas = document.getElementById('growth-chart');
@@ -5894,29 +6139,29 @@
                     window.growthChartInstance.destroy();
                 }
                 window.growthChartInstance = new Chart(growthCtx, {
-                    type: 'line',
+                    type: 'scatter',
                     data: {
-                        labels: growthLabels,
                         datasets: [{
                             label: 'Progress Growth',
-                            data: growthData,
-                            showLine: false,
-                            pointBackgroundColor: pointBgColors,
-                            pointBorderColor: pointBorderColors,
-                            pointRadius: pointRadii,
-                            pointHoverRadius: pointHoverRadii,
-                            borderWidth: 0
+                            data: growthPoints,
+                            pointRadius: 0,
+                            pointHoverRadius: 0,
+                            showLine: false
                         }]
                     },
+                    plugins: [growthOverlayPlugin],
                     options: {
-                        indexAxis: 'y',
                         responsive: true,
                         maintainAspectRatio: false,
                         plugins: {
                             legend: { display: false },
                             tooltip: {
+                                enabled: true,
                                 callbacks: {
-                                    label: (context) => `${context.label}: ${context.raw >= 0 ? '+' : ''}${context.raw.toFixed(2)}%`
+                                    label: (context) => {
+                                        const pt = context.raw;
+                                        return `${pt.username.replace('@', '')}: ${pt.x >= 0 ? '+' : ''}${pt.x.toFixed(2)}%`;
+                                    }
                                 }
                             }
                         },
@@ -5930,11 +6175,9 @@
                                 }
                             },
                             y: {
-                                grid: { display: false },
-                                ticks: {
-                                    color: '#9fa6b2',
-                                    font: { family: "'Outfit', sans-serif", size: 10 }
-                                }
+                                display: false,
+                                min: -2,
+                                max: 2
                             }
                         }
                     }
