@@ -317,7 +317,7 @@
         "76561198348625808": 66.0,
         "76561199164422123": 78.0,
         "76561198033879793": 78.0,
-        "76561198046477600": 62.0,
+        "76561198046477600": 79.0,
         "76561198995689034": 0.0
       },
       "voxTargetSwitch 2 Large": {
@@ -823,7 +823,7 @@
         "76561198348625808": "2026-05-24 05:25:13",
         "76561199164422123": "2026-05-13 14:27:00",
         "76561198033879793": "2026-05-13 14:27:00",
-        "76561198046477600": "2026-05-13 14:27:00",
+        "76561198046477600": "2026-05-26 01:28:24",
         "76561198995689034": "2026-05-13 14:27:00"
       },
       "voxTargetSwitch 2 Large": {
@@ -1185,10 +1185,10 @@
         "rank_name": "Hare",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 60.56,
+        "points": 61.05,
         "has_streak": true,
-        "weekly_pbs": 15,
-        "total_pbs": 51,
+        "weekly_pbs": 18,
+        "total_pbs": 54,
         "active_days": 2,
         "position_change": 0
       },
@@ -1683,6 +1683,24 @@
         "winner_sid": "76561198046477600",
         "loser_sid": "76561198033879793",
         "timestamp": "2026-05-26 01:21:35"
+      },
+      {
+        "scenario_name": "1w3ts reload Larger",
+        "winner_sid": "76561198046477600",
+        "loser_sid": "76561199164422123",
+        "timestamp": "2026-05-26 01:28:24"
+      },
+      {
+        "scenario_name": "1w3ts reload Larger",
+        "winner_sid": "76561198046477600",
+        "loser_sid": "76561198033879793",
+        "timestamp": "2026-05-26 01:28:24"
+      },
+      {
+        "scenario_name": "1w3ts reload Larger",
+        "winner_sid": "76561198046477600",
+        "loser_sid": "76561198348625808",
+        "timestamp": "2026-05-26 01:28:24"
       }
     ],
     "active_rivalries": [
@@ -1692,6 +1710,16 @@
         "target_sid": "76561198046477600",
         "target_name": "@Laggiing",
         "scenario_name": "Pokeball Frenzy Auto TE Wide",
+        "chaser_overtakes_target": 1,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 2
+      },
+      {
+        "chaser_sid": "76561198348625808",
+        "chaser_name": "@Christine",
+        "target_sid": "76561198046477600",
+        "target_name": "@Laggiing",
+        "scenario_name": "1w3ts reload Larger",
         "chaser_overtakes_target": 1,
         "target_overtakes_chaser": 1,
         "total_overtakes": 2
@@ -1817,10 +1845,20 @@
         "total_overtakes": 1
       },
       {
-        "chaser_sid": "76561198046477600",
-        "chaser_name": "@Laggiing",
-        "target_sid": "76561198348625808",
-        "target_name": "@Christine",
+        "chaser_sid": "76561199164422123",
+        "chaser_name": "@Olioli",
+        "target_sid": "76561198046477600",
+        "target_name": "@Laggiing",
+        "scenario_name": "1w3ts reload Larger",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
+      },
+      {
+        "chaser_sid": "76561198033879793",
+        "chaser_name": "@CoachCam",
+        "target_sid": "76561198046477600",
+        "target_name": "@Laggiing",
         "scenario_name": "1w3ts reload Larger",
         "chaser_overtakes_target": 0,
         "target_overtakes_chaser": 1,
@@ -1847,7 +1885,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779758716.668095,
+    "last_poll": 1779758915.096916,
     "check_interval": 180
   },
   "687": {
@@ -3566,7 +3604,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779758716.689117,
+    "last_poll": 1779758915.116003,
     "check_interval": 180
   },
   "688": {
@@ -5143,7 +5181,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779758716.704412,
+    "last_poll": 1779758915.130789,
     "check_interval": 180
   }
 }
