@@ -524,7 +524,7 @@
         "76561198129757659": 0.0,
         "76561198045952875": 0.0,
         "76561198017954362": 3168.0,
-        "76561198348625808": 1728.0,
+        "76561198348625808": 1908.0,
         "76561199164422123": 2016.0,
         "76561198033879793": 2052.0,
         "76561198046477600": 2340.0,
@@ -1030,7 +1030,7 @@
         "76561198129757659": "2026-05-13 14:27:00",
         "76561198045952875": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-13 14:27:00",
-        "76561198348625808": "2026-05-24 06:06:05",
+        "76561198348625808": "2026-05-27 02:03:59",
         "76561199164422123": "2026-05-13 14:27:00",
         "76561198033879793": "2026-05-13 14:27:00",
         "76561198046477600": "2026-05-13 14:27:00",
@@ -1173,7 +1173,7 @@
         "points": 92.35,
         "has_streak": false,
         "weekly_pbs": 5,
-        "total_pbs": 41,
+        "total_pbs": 5,
         "active_days": 1,
         "position_change": 0
       },
@@ -1187,8 +1187,8 @@
         "completed_count": 36,
         "points": 68.42,
         "has_streak": true,
-        "weekly_pbs": 37,
-        "total_pbs": 73,
+        "weekly_pbs": 32,
+        "total_pbs": 32,
         "active_days": 2,
         "position_change": 0
       },
@@ -1203,7 +1203,7 @@
         "points": 42.98,
         "has_streak": true,
         "weekly_pbs": 7,
-        "total_pbs": 43,
+        "total_pbs": 7,
         "active_days": 2,
         "position_change": 0
       },
@@ -1218,7 +1218,7 @@
         "points": 34.65,
         "has_streak": true,
         "weekly_pbs": 7,
-        "total_pbs": 43,
+        "total_pbs": 7,
         "active_days": 3,
         "position_change": 0
       },
@@ -1230,11 +1230,11 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 23.97,
+        "points": 24.15,
         "has_streak": false,
-        "weekly_pbs": 64,
-        "total_pbs": 64,
-        "active_days": 3,
+        "weekly_pbs": 32,
+        "total_pbs": 32,
+        "active_days": 4,
         "position_change": 0
       },
       {
@@ -1248,7 +1248,7 @@
         "points": 3.52,
         "has_streak": false,
         "weekly_pbs": 1,
-        "total_pbs": 37,
+        "total_pbs": 1,
         "active_days": 1,
         "position_change": 0
       }
@@ -1655,72 +1655,6 @@
     },
     "recent_overtakes": [
       {
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "winner_sid": "76561198046477600",
-        "loser_sid": "76561199164422123",
-        "timestamp": "2026-05-26 00:55:24"
-      },
-      {
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "winner_sid": "76561198046477600",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-26 00:55:24"
-      },
-      {
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "winner_sid": "76561198046477600",
-        "loser_sid": "76561198348625808",
-        "timestamp": "2026-05-26 00:55:24"
-      },
-      {
-        "scenario_name": "Air Voltaic Easy Invincible 4 80%",
-        "winner_sid": "76561198046477600",
-        "loser_sid": "76561199164422123",
-        "timestamp": "2026-05-26 01:21:35"
-      },
-      {
-        "scenario_name": "Air Voltaic Easy Invincible 4 80%",
-        "winner_sid": "76561198046477600",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-26 01:21:35"
-      },
-      {
-        "scenario_name": "1w3ts reload Larger",
-        "winner_sid": "76561198046477600",
-        "loser_sid": "76561199164422123",
-        "timestamp": "2026-05-26 01:28:24"
-      },
-      {
-        "scenario_name": "1w3ts reload Larger",
-        "winner_sid": "76561198046477600",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-26 01:28:24"
-      },
-      {
-        "scenario_name": "1w3ts reload Larger",
-        "winner_sid": "76561198046477600",
-        "loser_sid": "76561198348625808",
-        "timestamp": "2026-05-26 01:28:24"
-      },
-      {
-        "scenario_name": "FloatTS Angelic Easy Larger",
-        "winner_sid": "76561198046477600",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-26 01:38:35"
-      },
-      {
-        "scenario_name": "waldoTS Novice",
-        "winner_sid": "76561198046477600",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-26 01:42:10"
-      },
-      {
-        "scenario_name": "devTS Goated NR Static 5Bot",
-        "winner_sid": "76561198046477600",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-26 01:42:10"
-      },
-      {
         "scenario_name": "Flicker Plaza rAim Easy Less Blinks",
         "winner_sid": "76561198033879793",
         "loser_sid": "76561199164422123",
@@ -1949,8 +1883,8 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779769073.526182,
-    "check_interval": 180
+    "last_poll": 1779847468.494831,
+    "check_interval": 600
   },
   "687": {
     "benchmark_name": "Medium",
@@ -2477,7 +2411,7 @@
         "76561198038568603": 0.0,
         "76561198129757659": 0.0,
         "76561198017954362": 3168.0,
-        "76561198348625808": 1728.0,
+        "76561198348625808": 1908.0,
         "76561199164422123": 2016.0,
         "76561198033879793": 2052.0,
         "76561198046477600": 2340.0,
@@ -2983,7 +2917,7 @@
         "76561198038568603": "2026-05-13 14:27:00",
         "76561198129757659": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-13 14:27:00",
-        "76561198348625808": "2026-05-24 06:06:09",
+        "76561198348625808": "2026-05-27 02:04:13",
         "76561199164422123": "2026-05-13 14:27:00",
         "76561198033879793": "2026-05-13 14:27:00",
         "76561198046477600": "2026-05-13 14:27:00",
@@ -3126,7 +3060,7 @@
         "points": 40.68,
         "has_streak": false,
         "weekly_pbs": 0,
-        "total_pbs": 36,
+        "total_pbs": 0,
         "active_days": 0,
         "position_change": 0
       },
@@ -3141,7 +3075,7 @@
         "points": 1.89,
         "has_streak": false,
         "weekly_pbs": 1,
-        "total_pbs": 37,
+        "total_pbs": 1,
         "active_days": 1,
         "position_change": 0
       },
@@ -3154,11 +3088,11 @@
         "crown_count": 0,
         "completed_count": 5,
         "points": 2.68,
-        "has_streak": true,
-        "weekly_pbs": 8,
-        "total_pbs": 44,
+        "has_streak": false,
+        "weekly_pbs": 6,
+        "total_pbs": 6,
         "active_days": 2,
-        "position_change": 1
+        "position_change": 0
       },
       {
         "steam_id": "76561199164422123",
@@ -3171,9 +3105,9 @@
         "points": 1.76,
         "has_streak": false,
         "weekly_pbs": 1,
-        "total_pbs": 37,
+        "total_pbs": 1,
         "active_days": 1,
-        "position_change": -1
+        "position_change": 0
       },
       {
         "steam_id": "76561198348625808",
@@ -3183,11 +3117,11 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 5,
-        "points": 1.12,
+        "points": 1.15,
         "has_streak": false,
-        "weekly_pbs": 9,
-        "total_pbs": 9,
-        "active_days": 2,
+        "weekly_pbs": 5,
+        "total_pbs": 5,
+        "active_days": 3,
         "position_change": 0
       },
       {
@@ -3201,7 +3135,7 @@
         "points": 0.0,
         "has_streak": false,
         "weekly_pbs": 0,
-        "total_pbs": 36,
+        "total_pbs": 0,
         "active_days": 0,
         "position_change": 0
       }
@@ -3606,32 +3540,7 @@
       "Floating Heads Timing 400% Larger": "Linear",
       "voxTargetClick 20% Small": "Linear"
     },
-    "recent_overtakes": [
-      {
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "winner_sid": "76561198046477600",
-        "loser_sid": "76561199164422123",
-        "timestamp": "2026-05-26 00:55:28"
-      },
-      {
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "winner_sid": "76561198046477600",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-26 00:55:28"
-      },
-      {
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "winner_sid": "76561198046477600",
-        "loser_sid": "76561198348625808",
-        "timestamp": "2026-05-26 00:55:28"
-      },
-      {
-        "scenario_name": "devTS Goated NR Static 5Bot",
-        "winner_sid": "76561198046477600",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-26 01:42:20"
-      }
-    ],
+    "recent_overtakes": [],
     "active_rivalries": [
       {
         "chaser_sid": "76561198348625808",
@@ -3684,8 +3593,8 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779769073.548199,
-    "check_interval": 180
+    "last_poll": 1779847468.578995,
+    "check_interval": 600
   },
   "688": {
     "benchmark_name": "Hard",
@@ -4801,7 +4710,7 @@
         "points": 1.41,
         "has_streak": false,
         "weekly_pbs": 4,
-        "total_pbs": 40,
+        "total_pbs": 4,
         "active_days": 2,
         "position_change": 0
       },
@@ -4814,11 +4723,11 @@
         "crown_count": 0,
         "completed_count": 1,
         "points": 0.32,
-        "has_streak": true,
-        "weekly_pbs": 5,
-        "total_pbs": 41,
+        "has_streak": false,
+        "weekly_pbs": 3,
+        "total_pbs": 3,
         "active_days": 1,
-        "position_change": 3
+        "position_change": 0
       },
       {
         "steam_id": "76561199164422123",
@@ -4831,9 +4740,9 @@
         "points": 0.31,
         "has_streak": false,
         "weekly_pbs": 0,
-        "total_pbs": 36,
+        "total_pbs": 0,
         "active_days": 0,
-        "position_change": -1
+        "position_change": 0
       },
       {
         "steam_id": "76561198033879793",
@@ -4846,9 +4755,9 @@
         "points": 0.27,
         "has_streak": false,
         "weekly_pbs": 0,
-        "total_pbs": 36,
+        "total_pbs": 0,
         "active_days": 0,
-        "position_change": -1
+        "position_change": 0
       },
       {
         "steam_id": "76561198348625808",
@@ -4860,10 +4769,10 @@
         "completed_count": 1,
         "points": 0.26,
         "has_streak": false,
-        "weekly_pbs": 2,
-        "total_pbs": 2,
+        "weekly_pbs": 1,
+        "total_pbs": 1,
         "active_days": 2,
-        "position_change": -1
+        "position_change": 0
       },
       {
         "steam_id": "76561198995689034",
@@ -4876,7 +4785,7 @@
         "points": 0.0,
         "has_streak": false,
         "weekly_pbs": 0,
-        "total_pbs": 36,
+        "total_pbs": 0,
         "active_days": 0,
         "position_change": 0
       }
@@ -5209,26 +5118,7 @@
       "Floating Heads Timing 400% FIXED": "Linear",
       "VoxTargetSwitch Click Small": "Linear"
     },
-    "recent_overtakes": [
-      {
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "winner_sid": "76561198046477600",
-        "loser_sid": "76561199164422123",
-        "timestamp": "2026-05-26 00:55:33"
-      },
-      {
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "winner_sid": "76561198046477600",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-26 00:55:33"
-      },
-      {
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "winner_sid": "76561198046477600",
-        "loser_sid": "76561198348625808",
-        "timestamp": "2026-05-26 00:55:33"
-      }
-    ],
+    "recent_overtakes": [],
     "active_rivalries": [
       {
         "chaser_sid": "76561198348625808",
@@ -5261,7 +5151,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779769073.563067,
-    "check_interval": 180
+    "last_poll": 1779847468.661317,
+    "check_interval": 600
   }
 }
