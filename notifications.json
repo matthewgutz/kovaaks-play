@@ -1,5 +1,19 @@
 [
   {
+    "id": 313,
+    "player_name": "Laggiing",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udf89 **Popcorn MV Novice**\n- \ud83c\udf89 **voxTargetSwitch Click**",
+    "timestamp": "2026-05-27 03:28:05"
+  },
+  {
+    "id": 310,
+    "player_name": "Christine",
+    "event_type": "pb",
+    "message": "**Air Voltaic Easy Invincible 4 80%** \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-27 03:27:54"
+  },
+  {
     "id": 309,
     "player_name": "Laggiing",
     "event_type": "pb",
@@ -683,20 +697,6 @@
     "player_name": "Haruno",
     "event_type": "rank_up",
     "message": "[Silent Run] \ud83c\udfc6 Mirror Dimension mastered! @Haruno moves up to **Wool** on **Hard**!",
-    "timestamp": "2026-05-23 06:33:38"
-  },
-  {
-    "id": 204,
-    "player_name": "Laggiing",
-    "event_type": "rank_up",
-    "message": "[Silent Run] \ud83c\udfc6 RANK UP! @Laggiing has promoted to **Wool** (Rank 1) on the **Hard** benchmark! From Bronze scrubs to Grandmasters! (Previous: Unranked)",
-    "timestamp": "2026-05-23 06:33:38"
-  },
-  {
-    "id": 203,
-    "player_name": "CoachCam",
-    "event_type": "rank_up",
-    "message": "[Silent Run] \ud83c\udfc6 Time Stone activated! @CoachCam fast-forwards their rank to **Wool** on **Hard**!",
     "timestamp": "2026-05-23 06:33:38"
   }
 ]
