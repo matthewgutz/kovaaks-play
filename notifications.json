@@ -1,5 +1,12 @@
 [
   {
+    "id": 294,
+    "player_name": "Christine",
+    "event_type": "pb",
+    "message": "**Floating Heads Timing 400% Larger**",
+    "timestamp": "2026-05-27 02:03:59"
+  },
+  {
     "id": 293,
     "player_name": "Christine",
     "event_type": "pb",
@@ -690,13 +697,6 @@
     "player_name": "Christine",
     "event_type": "rank_up",
     "message": "[Silent Run] \ud83c\udfc6 Bifrost bridge open! @Christine ascends to **Cinnabar** on the **Medium** benchmark!",
-    "timestamp": "2026-05-23 06:33:38"
-  },
-  {
-    "id": 194,
-    "player_name": "Haruno",
-    "event_type": "rank_up",
-    "message": "[Silent Run] \ud83c\udfc6 Doctor Strange portals to the next tier! @Haruno promoted to **Lemming** on **Easier**!",
     "timestamp": "2026-05-23 06:33:38"
   }
 ]
