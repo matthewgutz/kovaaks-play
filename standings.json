@@ -149,7 +149,7 @@
         "76561198348625808": 3201.0,
         "76561199164422123": 4569.0,
         "76561198033879793": 2862.0,
-        "76561198046477600": 5679.0,
+        "76561198046477600": 5682.0,
         "76561198995689034": 0.0
       },
       "Controlsphere Far, Far Larger 90%": {
@@ -655,7 +655,7 @@
         "76561198348625808": "2026-05-23 03:37:18",
         "76561199164422123": "2026-05-13 14:27:00",
         "76561198033879793": "2026-05-13 14:27:00",
-        "76561198046477600": "2026-05-27 03:48:29",
+        "76561198046477600": "2026-05-27 03:58:46",
         "76561198995689034": "2026-05-13 14:27:00"
       },
       "Controlsphere Far, Far Larger 90%": {
@@ -1187,8 +1187,8 @@
         "completed_count": 36,
         "points": 68.9,
         "has_streak": true,
-        "weekly_pbs": 36,
-        "total_pbs": 36,
+        "weekly_pbs": 37,
+        "total_pbs": 37,
         "active_days": 3,
         "position_change": 0
       },
@@ -1201,7 +1201,7 @@
         "crown_count": 0,
         "completed_count": 36,
         "points": 42.98,
-        "has_streak": true,
+        "has_streak": false,
         "weekly_pbs": 7,
         "total_pbs": 7,
         "active_days": 2,
@@ -1216,7 +1216,7 @@
         "crown_count": 0,
         "completed_count": 36,
         "points": 34.72,
-        "has_streak": true,
+        "has_streak": false,
         "weekly_pbs": 8,
         "total_pbs": 8,
         "active_days": 4,
@@ -1915,7 +1915,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779853720.1927,
+    "last_poll": 1779854337.637403,
     "check_interval": 600
   },
   "687": {
@@ -3642,7 +3642,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779853720.229519,
+    "last_poll": 1779854337.675394,
     "check_interval": 600
   },
   "688": {
@@ -5200,7 +5200,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779853720.265282,
+    "last_poll": 1779854337.711966,
     "check_interval": 600
   }
 }
