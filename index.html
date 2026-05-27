@@ -1859,7 +1859,11 @@
                 <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); margin: 12px 0;"></div>
 
                 <!-- Weekly Stats (PBs & Growth) Section -->
-                <div id="weekly-stats-title" style="font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 8px;">Weekly PBs & Growth</div>
+                <div style="display: flex; justify-content: space-between; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 8px; width: 100%;">
+                    <div id="weekly-stats-pb-title" style="flex: 1; text-align: left;">Weekly PBs</div>
+                    <div style="width: 48px; flex-shrink: 0;"></div>
+                    <div id="weekly-stats-growth-title" style="flex: 1; text-align: left;">Growth</div>
+                </div>
                 <div style="display: flex; flex-direction: row; height: 220px; padding-top: 2px; padding-bottom: 2px; position: relative; width: 100%;">
                     <div style="flex: 1; min-width: 0; position: relative; height: 100%;"><canvas id="weekly-pbs-chart-new"></canvas></div>
                     <div style="width: 48px; flex-shrink: 0;"></div>
@@ -2675,77 +2679,115 @@
             }
         };
 
+        function drawWeeklyStatsOverlay() {
+            const leftChart = window.weeklyPbsChartInstance;
+            const rightChart = window.weeklyGrowthChartInstance;
+            if (!leftChart || !rightChart) return;
+            
+            const overlayContainer = document.getElementById('weekly-stats-overlay');
+            if (!overlayContainer) return;
+            
+            overlayContainer.innerHTML = '';
+            
+            const players = leftChart.config.options.plugins.weeklyStatsOverlay?.players || [];
+            if (!players || players.length === 0) return;
+            
+            const leftCanvas = document.getElementById('weekly-pbs-chart-new');
+            const rightCanvas = document.getElementById('weekly-growth-chart-new');
+            if (!leftCanvas || !rightCanvas) return;
+            
+            const isCompareAll = document.getElementById('filter-compare-all')?.checked;
+            
+            players.forEach((p, index) => {
+                const steamId = p.steam_id;
+                let yPixel = leftChart.scales.y.getPixelForValue(index);
+                if (yPixel === undefined || isNaN(yPixel)) return;
+                yPixel += 2;
+                
+                const isSelected = isCompareAll || selectedPlayers.has(steamId);
+                const color = getPlayerThemeColor(steamId);
+                const usernameName = p.username.replace('@', '');
+                const avatarUrl = `avatars/${usernameName}.png`;
+                
+                // Create avatar overlay
+                const overlay = document.createElement('div');
+                overlay.style.position = 'absolute';
+                overlay.style.transform = 'translate(-50%, -50%)';
+                overlay.style.display = 'flex';
+                overlay.style.alignItems = 'center';
+                overlay.style.justifyContent = 'center';
+                overlay.style.pointerEvents = 'auto';
+                overlay.style.opacity = isSelected ? '1' : '0.15';
+                overlay.style.filter = isSelected ? 'none' : 'grayscale(100%)';
+                
+                overlay.innerHTML = `
+                    <div class="avatar-container-weekly-stats" title="${p.username.replace('@', '')}" style="position: relative; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                        <img src="${avatarUrl}" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid ${color}; transition: transform 0.2s ease-in-out;" onerror="this.onerror=null; this.outerHTML=\`<span style='width: 24px; height: 24px; border-radius: 50%; background: ${color}; border: 2px solid ${color}; display: inline-block; transition: transform 0.2s ease-in-out;'></span>\`;">
+                    </div>
+                `;
+                
+                const avatarEl = overlay.querySelector('.avatar-container-weekly-stats');
+                if (avatarEl) {
+                    avatarEl.addEventListener('mouseenter', () => {
+                        const target = avatarEl.querySelector('img') || avatarEl.querySelector('span');
+                        if (target) target.style.transform = 'scale(1.1667)';
+                        overlay.style.zIndex = '50';
+                    });
+                    avatarEl.addEventListener('mouseleave', () => {
+                        const target = avatarEl.querySelector('img') || avatarEl.querySelector('span');
+                        if (target) target.style.transform = 'scale(1)';
+                        overlay.style.zIndex = '1';
+                    });
+                }
+                
+                overlayContainer.appendChild(overlay);
+                const centerXPx = overlayContainer.clientWidth / 2;
+                overlay.style.left = `${centerXPx}px`;
+                overlay.style.top = `${yPixel}px`;
+                
+                // PB value label to the left of the left bar
+                const pbVal = leftChart.data.datasets[0].data[index] || 0;
+                const leftX = leftCanvas.offsetLeft + leftChart.scales.x.getPixelForValue(pbVal);
+                
+                const pbLabel = document.createElement('div');
+                pbLabel.style.position = 'absolute';
+                pbLabel.style.left = `${leftX - 6}px`;
+                pbLabel.style.top = `${yPixel}px`;
+                pbLabel.style.transform = 'translate(-100%, -50%)';
+                pbLabel.style.fontSize = '0.7rem';
+                pbLabel.style.fontWeight = '600';
+                pbLabel.style.color = isSelected ? '#fff' : 'rgba(255, 255, 255, 0.25)';
+                pbLabel.style.fontFamily = "'Outfit', sans-serif";
+                pbLabel.textContent = pbVal;
+                overlayContainer.appendChild(pbLabel);
+                
+                // Growth value label to the right of the right bar
+                const growthVal = rightChart.data.datasets[0].data[index] || 0;
+                const rightX = rightCanvas.offsetLeft + rightChart.scales.x.getPixelForValue(growthVal);
+                
+                const growthLabel = document.createElement('div');
+                growthLabel.style.position = 'absolute';
+                growthLabel.style.left = `${rightX + 6}px`;
+                growthLabel.style.top = `${yPixel}px`;
+                growthLabel.style.transform = 'translate(0, -50%)';
+                growthLabel.style.fontSize = '0.7rem';
+                growthLabel.style.fontWeight = '600';
+                growthLabel.style.color = isSelected ? '#fff' : 'rgba(255, 255, 255, 0.25)';
+                growthLabel.style.fontFamily = "'Outfit', sans-serif";
+                growthLabel.textContent = `${growthVal >= 0 ? '+' : ''}${growthVal.toFixed(2)}%`;
+                overlayContainer.appendChild(growthLabel);
+            });
+        }
+
         const weeklyStatsOverlayPlugin = {
             id: 'weeklyStatsOverlay',
             afterDraw(chart) {
-                // Only run when the left chart draws
                 if (chart.canvas && chart.canvas.id !== 'weekly-pbs-chart-new') return;
-
-                const overlayContainer = document.getElementById('weekly-stats-overlay');
-                if (!overlayContainer) return;
-                
-                // Clear the container to prevent accumulation of duplicate elements
-                overlayContainer.innerHTML = '';
-                chart._avatarOverlays = {};
-                
-                const players = chart.config.options.plugins.weeklyStatsOverlay?.players || [];
-                if (!players || players.length === 0) return;
-                
-                players.forEach((p, index) => {
-                    const steamId = p.steam_id;
-                    let yPixel = chart.scales.y.getPixelForValue(index);
-                    if (yPixel === undefined || isNaN(yPixel)) return;
-                    yPixel += 2;
-                    
-                    const overlay = document.createElement('div');
-                    overlay.style.position = 'absolute';
-                    overlay.style.transform = 'translate(-50%, -50%)';
-                    overlay.style.display = 'flex';
-                    overlay.style.alignItems = 'center';
-                    overlay.style.justifyContent = 'center';
-                    overlay.style.pointerEvents = 'auto';
-                    
-                    const color = getPlayerThemeColor(steamId);
-                    const usernameName = p.username.replace('@', '');
-                    const avatarUrl = `avatars/${usernameName}.png`;
-                    
-                    overlay.innerHTML = `
-                        <div class="avatar-container-weekly-stats" title="${p.username.replace('@', '')}" style="position: relative; display: flex; align-items: center; justify-content: center; cursor: pointer;">
-                            <img src="${avatarUrl}" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid ${color}; transition: transform 0.2s ease-in-out;" onerror="this.onerror=null; this.outerHTML=\`<span style='width: 24px; height: 24px; border-radius: 50%; background: ${color}; border: 2px solid ${color}; display: inline-block; transition: transform 0.2s ease-in-out;'></span>\`;">
-                        </div>
-                    `;
-                    
-                    const avatarEl = overlay.querySelector('.avatar-container-weekly-stats');
-                    if (avatarEl) {
-                        avatarEl.addEventListener('mouseenter', () => {
-                            const target = avatarEl.querySelector('img') || avatarEl.querySelector('span');
-                            if (target) target.style.transform = 'scale(1.1667)';
-                            overlay.style.zIndex = '50';
-                        });
-                        avatarEl.addEventListener('mouseleave', () => {
-                            const target = avatarEl.querySelector('img') || avatarEl.querySelector('span');
-                            if (target) target.style.transform = 'scale(1)';
-                            overlay.style.zIndex = '1';
-                        });
-                    }
-                    
-                    overlayContainer.appendChild(overlay);
-                    chart._avatarOverlays[steamId] = overlay;
-                    
-                    const xPixel = overlayContainer.clientWidth / 2;
-                    overlay.style.left = `${xPixel}px`;
-                    overlay.style.top = `${yPixel}px`;
-                });
+                drawWeeklyStatsOverlay();
             },
             beforeDestroy(chart) {
-                if (chart._avatarOverlays) {
-                    Object.values(chart._avatarOverlays).forEach(overlay => {
-                        if (overlay && overlay.parentNode) {
-                            overlay.parentNode.removeChild(overlay);
-                        }
-                    });
-                }
-                chart._avatarOverlays = null;
+                const overlayContainer = document.getElementById('weekly-stats-overlay');
+                if (overlayContainer) overlayContainer.innerHTML = '';
             }
         };
 
@@ -6039,23 +6081,22 @@
                 growthMap[sid] = Number((finalPct - startPct).toFixed(2));
             });
 
-            // Dynamically update card title #weekly-stats-title based on timelineFilter
-            const statsTitleEl = document.getElementById('weekly-stats-title');
-            if (statsTitleEl) {
+            // Dynamically update card titles based on timelineFilter
+            const pbTitleEl = document.getElementById('weekly-stats-pb-title');
+            const growthTitleEl = document.getElementById('weekly-stats-growth-title');
+            if (pbTitleEl && growthTitleEl) {
                 if (timelineFilter === '1W') {
-                    statsTitleEl.textContent = "Weekly PBs & Growth";
+                    pbTitleEl.textContent = "Weekly PBs";
                 } else if (timelineFilter === '1M') {
-                    statsTitleEl.textContent = "Monthly PBs & Growth";
+                    pbTitleEl.textContent = "Monthly PBs";
                 } else if (timelineFilter === 'ALL') {
-                    statsTitleEl.textContent = "All-Time PBs & Growth";
+                    pbTitleEl.textContent = "All-Time PBs";
                 }
+                growthTitleEl.textContent = "Growth";
             }
 
             const isCompareAll = document.getElementById('filter-compare-all')?.checked;
-            const checkedPlayers = configuredPlayers.filter(p => isCompareAll || selectedPlayers.has(p.steam_id));
-            
-            // Sort checked players by PB count ascending
-            checkedPlayers.sort((a, b) => (pbsCountMap[a.steam_id] || 0) - (pbsCountMap[b.steam_id] || 0));
+            const checkedPlayers = [...configuredPlayers];
 
             const labels = checkedPlayers.map(p => p.username.replace('@', ''));
             const pbsData = checkedPlayers.map(p => pbsCountMap[p.steam_id] || 0);
@@ -6067,6 +6108,24 @@
             } else if (timelineFilter === 'ALL') {
                 pbDatasetLabel = 'All-Time PBs';
             }
+
+            const isSelectedMap = checkedPlayers.map(p => isCompareAll || selectedPlayers.has(p.steam_id));
+            const pbsBackgroundColors = checkedPlayers.map((p, idx) => {
+                const color = getPlayerThemeColor(p.steam_id);
+                return isSelectedMap[idx] ? color : getGrayscaleColor(color, 0.08);
+            });
+            const pbsBorderColors = checkedPlayers.map((p, idx) => {
+                const color = getPlayerThemeColor(p.steam_id);
+                return isSelectedMap[idx] ? color : getGrayscaleColor(color, 0.15);
+            });
+            const growthBackgroundColors = checkedPlayers.map((p, idx) => {
+                const color = getPlayerThemeColor(p.steam_id);
+                return isSelectedMap[idx] ? color + '66' : getGrayscaleColor(color, 0.04);
+            });
+            const growthBorderColors = checkedPlayers.map((p, idx) => {
+                const color = getPlayerThemeColor(p.steam_id);
+                return isSelectedMap[idx] ? color : getGrayscaleColor(color, 0.15);
+            });
 
             // Cleanup mismatched instances if only one exists
             if (window.weeklyPbsChartInstance && !window.weeklyGrowthChartInstance) {
@@ -6086,8 +6145,10 @@
                 const samePbs = JSON.stringify(pbsData) === JSON.stringify(leftChart.data.datasets[0].data);
                 const sameGrowth = JSON.stringify(growthData) === JSON.stringify(rightChart.data.datasets[0].data);
                 const samePbLabel = pbDatasetLabel === leftChart.data.datasets[0].label;
+                const sameColors = JSON.stringify(pbsBackgroundColors) === JSON.stringify(leftChart.data.datasets[0].backgroundColor);
                 
-                if (sameLabels && samePbs && sameGrowth && samePbLabel) {
+                if (sameLabels && samePbs && sameGrowth && samePbLabel && sameColors) {
+                    drawWeeklyStatsOverlay();
                     syncLayoutHeights();
                     return;
                 }
@@ -6096,18 +6157,19 @@
                 leftChart.data.labels = labels;
                 leftChart.data.datasets[0].label = pbDatasetLabel;
                 leftChart.data.datasets[0].data = pbsData;
-                leftChart.data.datasets[0].backgroundColor = checkedPlayers.map(p => getPlayerThemeColor(p.steam_id));
-                leftChart.data.datasets[0].borderColor = checkedPlayers.map(p => getPlayerThemeColor(p.steam_id));
+                leftChart.data.datasets[0].backgroundColor = pbsBackgroundColors;
+                leftChart.data.datasets[0].borderColor = pbsBorderColors;
                 leftChart.options.plugins.weeklyStatsOverlay.players = checkedPlayers;
                 
                 rightChart.data.labels = labels;
                 rightChart.data.datasets[0].data = growthData;
-                rightChart.data.datasets[0].backgroundColor = checkedPlayers.map(p => getPlayerThemeColor(p.steam_id) + '66');
-                rightChart.data.datasets[0].borderColor = checkedPlayers.map(p => getPlayerThemeColor(p.steam_id));
+                rightChart.data.datasets[0].backgroundColor = growthBackgroundColors;
+                rightChart.data.datasets[0].borderColor = growthBorderColors;
                 rightChart.options.plugins.weeklyStatsOverlay.players = checkedPlayers;
                 
                 leftChart.update();
                 rightChart.update();
+                drawWeeklyStatsOverlay();
                 syncLayoutHeights();
                 return;
             }
@@ -6127,8 +6189,8 @@
                             {
                                 label: pbDatasetLabel,
                                 data: pbsData,
-                                backgroundColor: checkedPlayers.map(p => getPlayerThemeColor(p.steam_id)),
-                                borderColor: checkedPlayers.map(p => getPlayerThemeColor(p.steam_id)),
+                                backgroundColor: pbsBackgroundColors,
+                                borderColor: pbsBorderColors,
                                 borderWidth: 1
                             }
                         ]
@@ -6142,7 +6204,8 @@
                         layout: {
                             padding: {
                                 top: 2,
-                                bottom: 2
+                                bottom: 2,
+                                left: 35
                             }
                         },
                         plugins: {
@@ -6191,8 +6254,8 @@
                             {
                                 label: 'Progress Growth',
                                 data: growthData,
-                                backgroundColor: checkedPlayers.map(p => getPlayerThemeColor(p.steam_id) + '66'),
-                                borderColor: checkedPlayers.map(p => getPlayerThemeColor(p.steam_id)),
+                                backgroundColor: growthBackgroundColors,
+                                borderColor: growthBorderColors,
                                 borderWidth: 1
                             }
                         ]
@@ -6205,7 +6268,8 @@
                         layout: {
                             padding: {
                                 top: 2,
-                                bottom: 2
+                                bottom: 2,
+                                right: 35
                             }
                         },
                         plugins: {
@@ -6244,6 +6308,9 @@
                         }
                     }
                 });
+                
+                // Force a draw of the overlay immediately after creation
+                setTimeout(drawWeeklyStatsOverlay, 0);
             }
 
             // Sync card heights after drawing
