@@ -1,5 +1,19 @@
 [
   {
+    "id": 301,
+    "player_name": "Christine",
+    "event_type": "overtake",
+    "message": "Whack-a-mole! @Christine smash targets, smash @Olioli on [devTS Goated NR Static 5Bot](https://matthewgutz.github.io/kovaaks-play/?scenario=devTS%20Goated%20NR%20Static%205Bot)!",
+    "timestamp": "2026-05-27 02:46:14"
+  },
+  {
+    "id": 300,
+    "player_name": "Christine",
+    "event_type": "overtake",
+    "message": "Baby shark chomp! @Christine eat @Olioli lead on [devTS Goated NR Static 5Bot](https://matthewgutz.github.io/kovaaks-play/?scenario=devTS%20Goated%20NR%20Static%205Bot)! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-27 02:46:09"
+  },
+  {
     "id": 299,
     "player_name": "Christine",
     "event_type": "consolidated",
@@ -683,20 +697,6 @@
     "player_name": "BakaOppai",
     "event_type": "rank_up",
     "message": "[Silent Run] \ud83c\udfc6 Doctor Strange portals to the next tier! @BakaOppai promoted to **Wool** on **Hard**!",
-    "timestamp": "2026-05-23 06:33:38"
-  },
-  {
-    "id": 199,
-    "player_name": "Haruno",
-    "event_type": "rank_up",
-    "message": "[Silent Run] \ud83c\udfc6 Mirror Dimension mastered! @Haruno moves up to **Cinnabar** on **Medium**!",
-    "timestamp": "2026-05-23 06:33:38"
-  },
-  {
-    "id": 198,
-    "player_name": "Laggiing",
-    "event_type": "rank_up",
-    "message": "[Silent Run] \ud83c\udfc6 RANK UP! @Laggiing has promoted to **Cinnabar** (Rank 1) on the **Medium** benchmark! From Bronze scrubs to Grandmasters! (Previous: Unranked)",
     "timestamp": "2026-05-23 06:33:38"
   }
 ]
