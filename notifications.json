@@ -1,5 +1,12 @@
 [
   {
+    "id": 299,
+    "player_name": "Christine",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udf89 **B180 Voltaic Easy 92%**\n- \u2694\ufe0f Squirrel fall! @Christine shoot @Olioli out of tree on [Pasu Angelic 20% Larger 80% Speed](https://matthewgutz.github.io/kovaaks-play/?scenario=Pasu%20Angelic%2020%25%20Larger%2080%25%20Speed)!",
+    "timestamp": "2026-05-27 02:25:31"
+  },
+  {
     "id": 296,
     "player_name": "CoachCam",
     "event_type": "pain_point",
@@ -690,13 +697,6 @@
     "player_name": "Laggiing",
     "event_type": "rank_up",
     "message": "[Silent Run] \ud83c\udfc6 RANK UP! @Laggiing has promoted to **Cinnabar** (Rank 1) on the **Medium** benchmark! From Bronze scrubs to Grandmasters! (Previous: Unranked)",
-    "timestamp": "2026-05-23 06:33:38"
-  },
-  {
-    "id": 197,
-    "player_name": "CoachCam",
-    "event_type": "rank_up",
-    "message": "[Silent Run] \ud83c\udfc6 Look who's climbing! @CoachCam is now a certified **Cinnabar** on **Medium**!",
     "timestamp": "2026-05-23 06:33:38"
   }
 ]
