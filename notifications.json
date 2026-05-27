@@ -1,5 +1,12 @@
 [
   {
+    "id": 305,
+    "player_name": "Christine",
+    "event_type": "consolidated",
+    "message": "Consolidated [3 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udf89 **beanTS Larger**\n- \ud83c\udf89 **FloatTS Angelic Easy Larger**\n- \ud83c\udf89 **waldoTS Novice**",
+    "timestamp": "2026-05-27 02:56:41"
+  },
+  {
     "id": 301,
     "player_name": "Christine",
     "event_type": "overtake",
@@ -690,13 +697,6 @@
     "player_name": "Christine",
     "event_type": "rank_up",
     "message": "[Silent Run] \ud83c\udfc6 Bifrost bridge open! @Christine ascends to **Wool** on the **Hard** benchmark!",
-    "timestamp": "2026-05-23 06:33:38"
-  },
-  {
-    "id": 200,
-    "player_name": "BakaOppai",
-    "event_type": "rank_up",
-    "message": "[Silent Run] \ud83c\udfc6 Doctor Strange portals to the next tier! @BakaOppai promoted to **Wool** on **Hard**!",
     "timestamp": "2026-05-23 06:33:38"
   }
 ]
