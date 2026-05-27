@@ -1,5 +1,19 @@
 [
   {
+    "id": 296,
+    "player_name": "CoachCam",
+    "event_type": "pain_point",
+    "message": "Trash panda angry! @CoachCam almost beat @Olioli on [Air Pure Intermediate Slower No UFO](https://matthewgutz.github.io/kovaaks-play/?scenario=Air%20Pure%20Intermediate%20Slower%20No%20UFO)! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-27 02:14:36"
+  },
+  {
+    "id": 295,
+    "player_name": "Christine",
+    "event_type": "pb",
+    "message": "**1w2ts Pasu Perfected Easy** \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-05-27 02:14:36"
+  },
+  {
     "id": 294,
     "player_name": "Christine",
     "event_type": "pb",
@@ -683,20 +697,6 @@
     "player_name": "CoachCam",
     "event_type": "rank_up",
     "message": "[Silent Run] \ud83c\udfc6 Look who's climbing! @CoachCam is now a certified **Cinnabar** on **Medium**!",
-    "timestamp": "2026-05-23 06:33:38"
-  },
-  {
-    "id": 196,
-    "player_name": "Olioli",
-    "event_type": "rank_up",
-    "message": "[Silent Run] \ud83c\udfc6 Wakanda Forever! @Olioli advances to **Cinnabar** on **Medium**!",
-    "timestamp": "2026-05-23 06:33:38"
-  },
-  {
-    "id": 195,
-    "player_name": "Christine",
-    "event_type": "rank_up",
-    "message": "[Silent Run] \ud83c\udfc6 Bifrost bridge open! @Christine ascends to **Cinnabar** on the **Medium** benchmark!",
     "timestamp": "2026-05-23 06:33:38"
   }
 ]
