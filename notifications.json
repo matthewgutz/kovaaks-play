@@ -1,5 +1,12 @@
 [
   {
+    "id": 318,
+    "player_name": "Christine",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates] :\n- \ud83c\udf89 **Whisphere 80%**\n- \ud83c\udf89 **SmoothBot Invincible Goated 75%**",
+    "timestamp": "2026-05-28 03:22:25"
+  },
+  {
     "id": 315,
     "player_name": "Laggiing",
     "event_type": "pb",
@@ -690,13 +697,6 @@
     "player_name": "CoachCam",
     "event_type": "rank_up",
     "message": "\ud83c\udfc6 Climb mountain! @CoachCam stand high as **Hare** on Easier!",
-    "timestamp": "2026-05-23 07:29:27"
-  },
-  {
-    "id": 207,
-    "player_name": "Olioli",
-    "event_type": "rank_up",
-    "message": "\ud83c\udfc6 BIG RANK! @Olioli promote to **Ermine** on Easier. No more bronze scrub!",
     "timestamp": "2026-05-23 07:29:27"
   }
 ]
