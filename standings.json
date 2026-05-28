@@ -330,7 +330,7 @@
         "76561198017954362": 111.89,
         "76561198348625808": 84.0,
         "76561199164422123": 87.0,
-        "76561198033879793": 85.0,
+        "76561198033879793": 87.6,
         "76561198046477600": 100.0,
         "76561198995689034": 0.0
       },
@@ -371,7 +371,7 @@
         "76561198045952875": 0.0,
         "76561198017954362": 133.34,
         "76561198348625808": 97.2,
-        "76561199164422123": 96.0,
+        "76561199164422123": 101.5,
         "76561198033879793": 105.39,
         "76561198046477600": 121.2,
         "76561198995689034": 0.0
@@ -385,7 +385,7 @@
         "76561198045952875": 0.0,
         "76561198017954362": 715.0,
         "76561198348625808": 571.0,
-        "76561199164422123": 561.0,
+        "76561199164422123": 606.0,
         "76561198033879793": 632.0,
         "76561198046477600": 654.0,
         "76561198995689034": 0.0
@@ -836,7 +836,7 @@
         "76561198017954362": "2026-05-13 14:27:00",
         "76561198348625808": "2026-05-27 03:06:48",
         "76561199164422123": "2026-05-13 14:27:00",
-        "76561198033879793": "2026-05-13 14:27:00",
+        "76561198033879793": "2026-05-28 03:42:54",
         "76561198046477600": "2026-05-26 01:34:59",
         "76561198995689034": "2026-05-13 14:27:00"
       },
@@ -877,7 +877,7 @@
         "76561198045952875": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-13 14:27:00",
         "76561198348625808": "2026-05-27 02:56:32",
-        "76561199164422123": "2026-05-28 03:32:33",
+        "76561199164422123": "2026-05-28 03:42:54",
         "76561198033879793": "2026-05-13 14:27:00",
         "76561198046477600": "2026-05-26 01:42:10",
         "76561198995689034": "2026-05-13 14:27:00"
@@ -891,7 +891,7 @@
         "76561198045952875": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-13 14:27:00",
         "76561198348625808": "2026-05-27 02:46:09",
-        "76561199164422123": "2026-05-13 14:27:00",
+        "76561199164422123": "2026-05-28 03:42:54",
         "76561198033879793": "2026-05-13 14:27:00",
         "76561198046477600": "2026-05-26 01:42:10",
         "76561198995689034": "2026-05-13 14:27:00"
@@ -1200,10 +1200,10 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 43.63,
+        "points": 44.15,
         "has_streak": true,
-        "weekly_pbs": 10,
-        "total_pbs": 10,
+        "weekly_pbs": 12,
+        "total_pbs": 12,
         "active_days": 3,
         "position_change": 0
       },
@@ -1215,10 +1215,10 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 34.77,
+        "points": 34.88,
         "has_streak": false,
-        "weekly_pbs": 9,
-        "total_pbs": 9,
+        "weekly_pbs": 10,
+        "total_pbs": 10,
         "active_days": 5,
         "position_change": 0
       },
@@ -1665,6 +1665,24 @@
         "winner_sid": "76561198033879793",
         "loser_sid": "76561199164422123",
         "timestamp": "2026-05-28 03:32:33"
+      },
+      {
+        "scenario_name": "waldoTS Novice",
+        "winner_sid": "76561199164422123",
+        "loser_sid": "76561198348625808",
+        "timestamp": "2026-05-28 03:42:54"
+      },
+      {
+        "scenario_name": "devTS Goated NR Static 5Bot",
+        "winner_sid": "76561199164422123",
+        "loser_sid": "76561198348625808",
+        "timestamp": "2026-05-28 03:42:54"
+      },
+      {
+        "scenario_name": "voxTargetSwitch 2 Large",
+        "winner_sid": "76561198033879793",
+        "loser_sid": "76561199164422123",
+        "timestamp": "2026-05-28 03:42:54"
       }
     ],
     "active_rivalries": [
@@ -1694,6 +1712,26 @@
         "target_sid": "76561198046477600",
         "target_name": "@Laggiing",
         "scenario_name": "1w3ts reload Larger",
+        "chaser_overtakes_target": 1,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 2
+      },
+      {
+        "chaser_sid": "76561198348625808",
+        "chaser_name": "@Christine",
+        "target_sid": "76561199164422123",
+        "target_name": "@Olioli",
+        "scenario_name": "waldoTS Novice",
+        "chaser_overtakes_target": 1,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 2
+      },
+      {
+        "chaser_sid": "76561198348625808",
+        "chaser_name": "@Christine",
+        "target_sid": "76561199164422123",
+        "target_name": "@Olioli",
+        "scenario_name": "devTS Goated NR Static 5Bot",
         "chaser_overtakes_target": 1,
         "target_overtakes_chaser": 1,
         "total_overtakes": 2
@@ -1849,6 +1887,16 @@
         "total_overtakes": 1
       },
       {
+        "chaser_sid": "76561199164422123",
+        "chaser_name": "@Olioli",
+        "target_sid": "76561198033879793",
+        "target_name": "@CoachCam",
+        "scenario_name": "voxTargetSwitch 2 Large",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
+      },
+      {
         "chaser_sid": "76561198033879793",
         "chaser_name": "@CoachCam",
         "target_sid": "76561198046477600",
@@ -1869,30 +1917,10 @@
         "total_overtakes": 1
       },
       {
-        "chaser_sid": "76561199164422123",
-        "chaser_name": "@Olioli",
-        "target_sid": "76561198348625808",
-        "target_name": "@Christine",
-        "scenario_name": "waldoTS Novice",
-        "chaser_overtakes_target": 0,
-        "target_overtakes_chaser": 1,
-        "total_overtakes": 1
-      },
-      {
         "chaser_sid": "76561198033879793",
         "chaser_name": "@CoachCam",
         "target_sid": "76561198046477600",
         "target_name": "@Laggiing",
-        "scenario_name": "devTS Goated NR Static 5Bot",
-        "chaser_overtakes_target": 0,
-        "target_overtakes_chaser": 1,
-        "total_overtakes": 1
-      },
-      {
-        "chaser_sid": "76561199164422123",
-        "chaser_name": "@Olioli",
-        "target_sid": "76561198348625808",
-        "target_name": "@Christine",
         "scenario_name": "devTS Goated NR Static 5Bot",
         "chaser_overtakes_target": 0,
         "target_overtakes_chaser": 1,
@@ -1919,7 +1947,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779939170.290596,
+    "last_poll": 1779939789.637041,
     "check_interval": 600
   },
   "687": {
@@ -2308,7 +2336,7 @@
         "76561198129757659": 0.0,
         "76561198017954362": 715.0,
         "76561198348625808": 571.0,
-        "76561199164422123": 561.0,
+        "76561199164422123": 606.0,
         "76561198033879793": 632.0,
         "76561198046477600": 654.0,
         "76561198995689034": 0.0
@@ -2814,7 +2842,7 @@
         "76561198129757659": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-13 14:27:00",
         "76561198348625808": "2026-05-27 02:46:14",
-        "76561199164422123": "2026-05-13 14:27:00",
+        "76561199164422123": "2026-05-28 03:42:59",
         "76561198033879793": "2026-05-13 14:27:00",
         "76561198046477600": "2026-05-26 01:42:20",
         "76561198995689034": "2026-05-13 14:27:00"
@@ -3138,11 +3166,11 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 5,
-        "points": 1.76,
+        "points": 1.83,
         "has_streak": false,
-        "weekly_pbs": 1,
-        "total_pbs": 1,
-        "active_days": 1,
+        "weekly_pbs": 2,
+        "total_pbs": 2,
+        "active_days": 2,
         "position_change": 0
       },
       {
@@ -3576,7 +3604,14 @@
       "Floating Heads Timing 400% Larger": "Linear",
       "voxTargetClick 20% Small": "Linear"
     },
-    "recent_overtakes": [],
+    "recent_overtakes": [
+      {
+        "scenario_name": "devTS Goated NR Static 5Bot",
+        "winner_sid": "76561199164422123",
+        "loser_sid": "76561198348625808",
+        "timestamp": "2026-05-28 03:42:59"
+      }
+    ],
     "active_rivalries": [
       {
         "chaser_sid": "76561198348625808",
@@ -3584,6 +3619,16 @@
         "target_sid": "76561198046477600",
         "target_name": "@Laggiing",
         "scenario_name": "Pokeball Frenzy Auto TE Wide",
+        "chaser_overtakes_target": 1,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 2
+      },
+      {
+        "chaser_sid": "76561198348625808",
+        "chaser_name": "@Christine",
+        "target_sid": "76561199164422123",
+        "target_name": "@Olioli",
+        "scenario_name": "devTS Goated NR Static 5Bot",
         "chaser_overtakes_target": 1,
         "target_overtakes_chaser": 1,
         "total_overtakes": 2
@@ -3619,16 +3664,6 @@
         "total_overtakes": 1
       },
       {
-        "chaser_sid": "76561199164422123",
-        "chaser_name": "@Olioli",
-        "target_sid": "76561198348625808",
-        "target_name": "@Christine",
-        "scenario_name": "devTS Goated NR Static 5Bot",
-        "chaser_overtakes_target": 0,
-        "target_overtakes_chaser": 1,
-        "total_overtakes": 1
-      },
-      {
         "chaser_sid": "76561198033879793",
         "chaser_name": "@CoachCam",
         "target_sid": "76561198348625808",
@@ -3639,7 +3674,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779939170.327694,
+    "last_poll": 1779939789.674917,
     "check_interval": 600
   },
   "688": {
@@ -5197,7 +5232,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1779939170.363928,
+    "last_poll": 1779939789.711805,
     "check_interval": 600
   }
 }
