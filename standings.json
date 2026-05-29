@@ -232,7 +232,7 @@
         "76561198017954362": 8676.0,
         "76561198348625808": 2361.0,
         "76561199164422123": 6003.0,
-        "76561198033879793": 4005.0,
+        "76561198033879793": 4461.0,
         "76561198046477600": 7821.0,
         "76561198995689034": 1476.0
       },
@@ -414,7 +414,7 @@
         "76561198017954362": 28.0,
         "76561198348625808": 7.0,
         "76561199164422123": 12.0,
-        "76561198033879793": 4.0,
+        "76561198033879793": 10.0,
         "76561198046477600": 18.0,
         "76561198995689034": 0.0
       },
@@ -510,7 +510,7 @@
         "76561198129757659": 0.0,
         "76561198045952875": 0.0,
         "76561198017954362": 1226.0,
-        "76561198348625808": 714.0,
+        "76561198348625808": 760.0,
         "76561199164422123": 742.0,
         "76561198033879793": 564.0,
         "76561198046477600": 920.0,
@@ -738,7 +738,7 @@
         "76561198017954362": "2026-05-13 14:27:00",
         "76561198348625808": "2026-05-24 05:00:58",
         "76561199164422123": "2026-05-26 03:54:48",
-        "76561198033879793": "2026-05-13 14:27:00",
+        "76561198033879793": "2026-05-29 03:53:50",
         "76561198046477600": "2026-05-26 03:22:22",
         "76561198995689034": "2026-05-13 14:27:00"
       },
@@ -920,7 +920,7 @@
         "76561198017954362": "2026-05-13 14:27:00",
         "76561198348625808": "2026-05-24 05:48:21",
         "76561199164422123": "2026-05-13 14:27:00",
-        "76561198033879793": "2026-05-13 14:27:00",
+        "76561198033879793": "2026-05-29 03:53:50",
         "76561198046477600": "2026-05-26 01:52:55",
         "76561198995689034": "2026-05-13 14:27:00"
       },
@@ -1016,7 +1016,7 @@
         "76561198129757659": "2026-05-13 14:27:00",
         "76561198045952875": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-13 14:27:00",
-        "76561198348625808": "2026-05-24 06:02:51",
+        "76561198348625808": "2026-05-29 03:53:50",
         "76561199164422123": "2026-05-13 14:27:00",
         "76561198033879793": "2026-05-13 14:27:00",
         "76561198046477600": "2026-05-26 03:25:38",
@@ -1215,10 +1215,10 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 35.37,
+        "points": 35.81,
         "has_streak": true,
-        "weekly_pbs": 15,
-        "total_pbs": 15,
+        "weekly_pbs": 17,
+        "total_pbs": 17,
         "active_days": 6,
         "position_change": 0
       },
@@ -1230,10 +1230,10 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 26.65,
+        "points": 26.81,
         "has_streak": true,
-        "weekly_pbs": 54,
-        "total_pbs": 54,
+        "weekly_pbs": 55,
+        "total_pbs": 55,
         "active_days": 6,
         "position_change": 0
       },
@@ -1683,6 +1683,18 @@
         "winner_sid": "76561198033879793",
         "loser_sid": "76561198348625808",
         "timestamp": "2026-05-29 03:43:32"
+      },
+      {
+        "scenario_name": "1w3ts Pasu Perfected Micro Goated Larger 80%",
+        "winner_sid": "76561198348625808",
+        "loser_sid": "76561199164422123",
+        "timestamp": "2026-05-29 03:53:50"
+      },
+      {
+        "scenario_name": "tamTargetSwitch Smooth Easy",
+        "winner_sid": "76561198033879793",
+        "loser_sid": "76561198348625808",
+        "timestamp": "2026-05-29 03:53:50"
       }
     ],
     "active_rivalries": [
@@ -1752,6 +1764,16 @@
         "target_sid": "76561199164422123",
         "target_name": "@Olioli",
         "scenario_name": "waldoTS Novice",
+        "chaser_overtakes_target": 1,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 2
+      },
+      {
+        "chaser_sid": "76561198348625808",
+        "chaser_name": "@Christine",
+        "target_sid": "76561198033879793",
+        "target_name": "@CoachCam",
+        "scenario_name": "tamTargetSwitch Smooth Easy",
         "chaser_overtakes_target": 1,
         "target_overtakes_chaser": 1,
         "total_overtakes": 2
@@ -1939,25 +1961,25 @@
       {
         "chaser_sid": "76561198033879793",
         "chaser_name": "@CoachCam",
-        "target_sid": "76561198348625808",
-        "target_name": "@Christine",
-        "scenario_name": "tamTargetSwitch Smooth Easy",
-        "chaser_overtakes_target": 0,
-        "target_overtakes_chaser": 1,
-        "total_overtakes": 1
-      },
-      {
-        "chaser_sid": "76561198033879793",
-        "chaser_name": "@CoachCam",
         "target_sid": "76561199164422123",
         "target_name": "@Olioli",
         "scenario_name": "Pasu Angelic 20% Larger 80% Speed",
         "chaser_overtakes_target": 0,
         "target_overtakes_chaser": 1,
         "total_overtakes": 1
+      },
+      {
+        "chaser_sid": "76561199164422123",
+        "chaser_name": "@Olioli",
+        "target_sid": "76561198348625808",
+        "target_name": "@Christine",
+        "scenario_name": "1w3ts Pasu Perfected Micro Goated Larger 80%",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
       }
     ],
-    "last_poll": 1780026225.994086,
+    "last_poll": 1780026847.811208,
     "check_interval": 600
   },
   "687": {
@@ -2375,7 +2397,7 @@
         "76561198017954362": 28.0,
         "76561198348625808": 7.0,
         "76561199164422123": 12.0,
-        "76561198033879793": 4.0,
+        "76561198033879793": 10.0,
         "76561198046477600": 18.0,
         "76561198995689034": 0.0
       },
@@ -2881,7 +2903,7 @@
         "76561198017954362": "2026-05-13 14:27:00",
         "76561198348625808": "2026-05-24 05:48:30",
         "76561199164422123": "2026-05-13 14:27:00",
-        "76561198033879793": "2026-05-13 14:27:00",
+        "76561198033879793": "2026-05-29 03:53:55",
         "76561198046477600": "2026-05-26 01:53:08",
         "76561198995689034": "2026-05-13 14:27:00"
       },
@@ -3146,11 +3168,11 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 6,
-        "points": 1.89,
+        "points": 1.99,
         "has_streak": false,
-        "weekly_pbs": 1,
-        "total_pbs": 1,
-        "active_days": 1,
+        "weekly_pbs": 2,
+        "total_pbs": 2,
+        "active_days": 2,
         "position_change": 0
       },
       {
@@ -3620,6 +3642,12 @@
         "winner_sid": "76561198348625808",
         "loser_sid": "76561199164422123",
         "timestamp": "2026-05-28 04:14:00"
+      },
+      {
+        "scenario_name": "tamTargetSwitch Smooth Easy",
+        "winner_sid": "76561198033879793",
+        "loser_sid": "76561198348625808",
+        "timestamp": "2026-05-29 03:53:55"
       }
     ],
     "active_rivalries": [
@@ -3639,6 +3667,16 @@
         "target_sid": "76561198046477600",
         "target_name": "@Laggiing",
         "scenario_name": "Pokeball Frenzy Auto TE Wide",
+        "chaser_overtakes_target": 1,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 2
+      },
+      {
+        "chaser_sid": "76561198348625808",
+        "chaser_name": "@Christine",
+        "target_sid": "76561198033879793",
+        "target_name": "@CoachCam",
+        "scenario_name": "tamTargetSwitch Smooth Easy",
         "chaser_overtakes_target": 1,
         "target_overtakes_chaser": 1,
         "total_overtakes": 2
@@ -3672,19 +3710,9 @@
         "chaser_overtakes_target": 0,
         "target_overtakes_chaser": 1,
         "total_overtakes": 1
-      },
-      {
-        "chaser_sid": "76561198033879793",
-        "chaser_name": "@CoachCam",
-        "target_sid": "76561198348625808",
-        "target_name": "@Christine",
-        "scenario_name": "tamTargetSwitch Smooth Easy",
-        "chaser_overtakes_target": 0,
-        "target_overtakes_chaser": 1,
-        "total_overtakes": 1
       }
     ],
-    "last_poll": 1780026226.037052,
+    "last_poll": 1780026847.857326,
     "check_interval": 600
   },
   "688": {
@@ -5242,7 +5270,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780026226.077379,
+    "last_poll": 1780026847.90102,
     "check_interval": 600
   }
 }
