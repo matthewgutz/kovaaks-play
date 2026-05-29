@@ -35,6 +35,12 @@
       "discord_username": "@Haruno",
       "discord_id": "",
       "color": "#4caf50"
+    },
+    {
+      "steam_id": "76561199139664790",
+      "discord_username": "@Billyos",
+      "discord_id": "",
+      "color": "#ffd166"
     }
   ],
   "use_mock_data": false,
