@@ -2,12 +2,12 @@
   {
     "benchmark_id": "686",
     "benchmark_name": "Easier",
-    "scenario_name": "devTS Goated NR Static 5Bot",
+    "scenario_name": "beanTS Larger",
     "update_count": 21
   },
   {
-    "benchmark_id": "687",
-    "benchmark_name": "Medium",
+    "benchmark_id": "686",
+    "benchmark_name": "Easier",
     "scenario_name": "devTS Goated NR Static 5Bot",
     "update_count": 21
   },
@@ -15,13 +15,13 @@
     "benchmark_id": "686",
     "benchmark_name": "Easier",
     "scenario_name": "waldoTS Novice",
-    "update_count": 20
+    "update_count": 21
   },
   {
-    "benchmark_id": "686",
-    "benchmark_name": "Easier",
-    "scenario_name": "beanTS Larger",
-    "update_count": 19
+    "benchmark_id": "687",
+    "benchmark_name": "Medium",
+    "scenario_name": "devTS Goated NR Static 5Bot",
+    "update_count": 21
   },
   {
     "benchmark_id": "686",
