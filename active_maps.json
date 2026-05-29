@@ -2,19 +2,19 @@
   {
     "benchmark_id": "686",
     "benchmark_name": "Easier",
-    "scenario_name": "beanTS Larger",
-    "update_count": 19
-  },
-  {
-    "benchmark_id": "686",
-    "benchmark_name": "Easier",
     "scenario_name": "devTS Goated NR Static 5Bot",
-    "update_count": 19
+    "update_count": 20
   },
   {
     "benchmark_id": "687",
     "benchmark_name": "Medium",
     "scenario_name": "devTS Goated NR Static 5Bot",
+    "update_count": 20
+  },
+  {
+    "benchmark_id": "686",
+    "benchmark_name": "Easier",
+    "scenario_name": "beanTS Larger",
     "update_count": 19
   },
   {
