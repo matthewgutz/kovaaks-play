@@ -162,7 +162,7 @@
         "76561198017954362": 11298.0,
         "76561198348625808": 5595.0,
         "76561199164422123": 7923.0,
-        "76561198033879793": 5463.0,
+        "76561198033879793": 6750.0,
         "76561198046477600": 9348.0,
         "76561198995689034": 3522.0
       },
@@ -524,7 +524,7 @@
         "76561198129757659": 0.0,
         "76561198045952875": 0.0,
         "76561198017954362": 3168.0,
-        "76561198348625808": 1908.0,
+        "76561198348625808": 1980.0,
         "76561199164422123": 2016.0,
         "76561198033879793": 2052.0,
         "76561198046477600": 2340.0,
@@ -668,7 +668,7 @@
         "76561198017954362": "2026-05-13 14:27:00",
         "76561198348625808": "2026-05-24 04:20:34",
         "76561199164422123": "2026-05-13 14:27:00",
-        "76561198033879793": "2026-05-13 14:27:00",
+        "76561198033879793": "2026-05-29 03:43:32",
         "76561198046477600": "2026-05-26 02:49:51",
         "76561198995689034": "2026-05-13 14:27:00"
       },
@@ -1030,7 +1030,7 @@
         "76561198129757659": "2026-05-13 14:27:00",
         "76561198045952875": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-13 14:27:00",
-        "76561198348625808": "2026-05-27 02:03:59",
+        "76561198348625808": "2026-05-29 03:43:32",
         "76561199164422123": "2026-05-13 14:27:00",
         "76561198033879793": "2026-05-13 14:27:00",
         "76561198046477600": "2026-05-13 14:27:00",
@@ -1215,10 +1215,10 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 35.31,
+        "points": 35.37,
         "has_streak": true,
-        "weekly_pbs": 14,
-        "total_pbs": 14,
+        "weekly_pbs": 15,
+        "total_pbs": 15,
         "active_days": 6,
         "position_change": 0
       },
@@ -1230,10 +1230,10 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 26.58,
+        "points": 26.65,
         "has_streak": true,
-        "weekly_pbs": 53,
-        "total_pbs": 53,
+        "weekly_pbs": 54,
+        "total_pbs": 54,
         "active_days": 6,
         "position_change": 0
       },
@@ -1655,24 +1655,6 @@
     },
     "recent_overtakes": [
       {
-        "scenario_name": "waldoTS Novice",
-        "winner_sid": "76561199164422123",
-        "loser_sid": "76561198348625808",
-        "timestamp": "2026-05-28 03:42:54"
-      },
-      {
-        "scenario_name": "devTS Goated NR Static 5Bot",
-        "winner_sid": "76561199164422123",
-        "loser_sid": "76561198348625808",
-        "timestamp": "2026-05-28 03:42:54"
-      },
-      {
-        "scenario_name": "voxTargetSwitch 2 Large",
-        "winner_sid": "76561198033879793",
-        "loser_sid": "76561199164422123",
-        "timestamp": "2026-05-28 03:42:54"
-      },
-      {
         "scenario_name": "devTS Goated NR Static 5Bot",
         "winner_sid": "76561198348625808",
         "loser_sid": "76561199164422123",
@@ -1695,6 +1677,12 @@
         "winner_sid": "76561198033879793",
         "loser_sid": "76561198348625808",
         "timestamp": "2026-05-29 03:33:07"
+      },
+      {
+        "scenario_name": "Controlsphere Far, Far Larger 90%",
+        "winner_sid": "76561198033879793",
+        "loser_sid": "76561198348625808",
+        "timestamp": "2026-05-29 03:43:32"
       }
     ],
     "active_rivalries": [
@@ -1714,6 +1702,16 @@
         "target_sid": "76561198033879793",
         "target_name": "@CoachCam",
         "scenario_name": "cloverRawControl Easy 80% Speed",
+        "chaser_overtakes_target": 1,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 2
+      },
+      {
+        "chaser_sid": "76561198348625808",
+        "chaser_name": "@Christine",
+        "target_sid": "76561198033879793",
+        "target_name": "@CoachCam",
+        "scenario_name": "Controlsphere Far, Far Larger 90%",
         "chaser_overtakes_target": 1,
         "target_overtakes_chaser": 1,
         "total_overtakes": 2
@@ -1794,16 +1792,6 @@
         "target_sid": "76561198348625808",
         "target_name": "@Christine",
         "scenario_name": "Controlsphere rAim Easy 90%",
-        "chaser_overtakes_target": 0,
-        "target_overtakes_chaser": 1,
-        "total_overtakes": 1
-      },
-      {
-        "chaser_sid": "76561198033879793",
-        "chaser_name": "@CoachCam",
-        "target_sid": "76561198348625808",
-        "target_name": "@Christine",
-        "scenario_name": "Controlsphere Far, Far Larger 90%",
         "chaser_overtakes_target": 0,
         "target_overtakes_chaser": 1,
         "total_overtakes": 1
@@ -1969,7 +1957,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780025607.654204,
+    "last_poll": 1780026225.994086,
     "check_interval": 600
   },
   "687": {
@@ -2497,7 +2485,7 @@
         "76561198038568603": 0.0,
         "76561198129757659": 0.0,
         "76561198017954362": 3168.0,
-        "76561198348625808": 1908.0,
+        "76561198348625808": 1980.0,
         "76561199164422123": 2016.0,
         "76561198033879793": 2052.0,
         "76561198046477600": 2340.0,
@@ -3003,7 +2991,7 @@
         "76561198038568603": "2026-05-13 14:27:00",
         "76561198129757659": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-13 14:27:00",
-        "76561198348625808": "2026-05-27 02:04:13",
+        "76561198348625808": "2026-05-29 03:43:37",
         "76561199164422123": "2026-05-13 14:27:00",
         "76561198033879793": "2026-05-13 14:27:00",
         "76561198046477600": "2026-05-13 14:27:00",
@@ -3203,11 +3191,11 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 5,
-        "points": 1.37,
-        "has_streak": false,
-        "weekly_pbs": 9,
-        "total_pbs": 9,
-        "active_days": 4,
+        "points": 1.41,
+        "has_streak": true,
+        "weekly_pbs": 10,
+        "total_pbs": 10,
+        "active_days": 5,
         "position_change": 0
       },
       {
@@ -3629,12 +3617,6 @@
     "recent_overtakes": [
       {
         "scenario_name": "devTS Goated NR Static 5Bot",
-        "winner_sid": "76561199164422123",
-        "loser_sid": "76561198348625808",
-        "timestamp": "2026-05-28 03:42:59"
-      },
-      {
-        "scenario_name": "devTS Goated NR Static 5Bot",
         "winner_sid": "76561198348625808",
         "loser_sid": "76561199164422123",
         "timestamp": "2026-05-28 04:14:00"
@@ -3702,7 +3684,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780025607.69638,
+    "last_poll": 1780026226.037052,
     "check_interval": 600
   },
   "688": {
@@ -5260,7 +5242,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780025607.736819,
+    "last_poll": 1780026226.077379,
     "check_interval": 600
   }
 }
