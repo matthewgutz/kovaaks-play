@@ -356,7 +356,7 @@
         "76561198129757659": 0.0,
         "76561198045952875": 0.0,
         "76561198017954362": 103.0,
-        "76561198348625808": 73.99,
+        "76561198348625808": 80.55,
         "76561199164422123": 81.0,
         "76561198033879793": 85.0,
         "76561198046477600": 91.0,
@@ -370,7 +370,7 @@
         "76561198129757659": 0.0,
         "76561198045952875": 0.0,
         "76561198017954362": 133.34,
-        "76561198348625808": 101.6,
+        "76561198348625808": 105.6,
         "76561199164422123": 103.2,
         "76561198033879793": 105.39,
         "76561198046477600": 121.2,
@@ -862,7 +862,7 @@
         "76561198129757659": "2026-05-13 14:27:00",
         "76561198045952875": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-25 02:57:11",
-        "76561198348625808": "2026-05-27 02:56:32",
+        "76561198348625808": "2026-05-29 04:45:33",
         "76561199164422123": "2026-05-13 14:27:00",
         "76561198033879793": "2026-05-13 14:27:00",
         "76561198046477600": "2026-05-26 01:38:35",
@@ -876,7 +876,7 @@
         "76561198129757659": "2026-05-13 14:27:00",
         "76561198045952875": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-13 14:27:00",
-        "76561198348625808": "2026-05-29 04:35:02",
+        "76561198348625808": "2026-05-29 04:45:33",
         "76561199164422123": "2026-05-29 03:12:18",
         "76561198033879793": "2026-05-13 14:27:00",
         "76561198046477600": "2026-05-26 01:42:10",
@@ -1230,10 +1230,10 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 27.23,
+        "points": 27.69,
         "has_streak": true,
-        "weekly_pbs": 58,
-        "total_pbs": 58,
+        "weekly_pbs": 60,
+        "total_pbs": 60,
         "active_days": 6,
         "position_change": 0
       },
@@ -1701,9 +1701,31 @@
         "winner_sid": "76561198348625808",
         "loser_sid": "76561198033879793",
         "timestamp": "2026-05-29 04:35:02"
+      },
+      {
+        "scenario_name": "waldoTS Novice",
+        "winner_sid": "76561198348625808",
+        "loser_sid": "76561198033879793",
+        "timestamp": "2026-05-29 04:45:33"
+      },
+      {
+        "scenario_name": "waldoTS Novice",
+        "winner_sid": "76561198348625808",
+        "loser_sid": "76561199164422123",
+        "timestamp": "2026-05-29 04:45:33"
       }
     ],
     "active_rivalries": [
+      {
+        "chaser_sid": "76561199164422123",
+        "chaser_name": "@Olioli",
+        "target_sid": "76561198348625808",
+        "target_name": "@Christine",
+        "scenario_name": "waldoTS Novice",
+        "chaser_overtakes_target": 1,
+        "target_overtakes_chaser": 2,
+        "total_overtakes": 3
+      },
       {
         "chaser_sid": "76561199164422123",
         "chaser_name": "@Olioli",
@@ -1760,16 +1782,6 @@
         "target_sid": "76561198046477600",
         "target_name": "@Laggiing",
         "scenario_name": "1w3ts reload Larger",
-        "chaser_overtakes_target": 1,
-        "target_overtakes_chaser": 1,
-        "total_overtakes": 2
-      },
-      {
-        "chaser_sid": "76561198348625808",
-        "chaser_name": "@Christine",
-        "target_sid": "76561199164422123",
-        "target_name": "@Olioli",
-        "scenario_name": "waldoTS Novice",
         "chaser_overtakes_target": 1,
         "target_overtakes_chaser": 1,
         "total_overtakes": 2
@@ -1957,6 +1969,16 @@
       {
         "chaser_sid": "76561198033879793",
         "chaser_name": "@CoachCam",
+        "target_sid": "76561198348625808",
+        "target_name": "@Christine",
+        "scenario_name": "waldoTS Novice",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
+      },
+      {
+        "chaser_sid": "76561198033879793",
+        "chaser_name": "@CoachCam",
         "target_sid": "76561198046477600",
         "target_name": "@Laggiing",
         "scenario_name": "devTS Goated NR Static 5Bot",
@@ -2005,7 +2027,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780029325.424378,
+    "last_poll": 1780029949.628043,
     "check_interval": 600
   },
   "687": {
@@ -3764,7 +3786,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780029325.469365,
+    "last_poll": 1780029949.671232,
     "check_interval": 600
   },
   "688": {
@@ -5322,7 +5344,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780029325.510169,
+    "last_poll": 1780029949.711722,
     "check_interval": 600
   }
 }
