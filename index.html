@@ -2869,6 +2869,29 @@
         let selectedRadarPlayerId = 'all';
         let lastLoadedBenchmarkId = null;
 
+        function shouldEnableHarunoFMock() {
+            const bData = standingsData[currentBenchmarkId];
+            if (!bData || !bData.score_timestamps) return true;
+            
+            const harunoSid = '76561198995689034';
+            let mostRecentPbTime = 0;
+            
+            for (const scen in bData.score_timestamps) {
+                const ts = bData.score_timestamps[scen][harunoSid];
+                if (ts && ts !== "2000-01-01 00:00:00") {
+                    const parsed = parseDate(ts).getTime();
+                    if (parsed > mostRecentPbTime) {
+                        mostRecentPbTime = parsed;
+                    }
+                }
+            }
+            
+            if (mostRecentPbTime === 0) return true;
+            
+            const fiveDaysAgo = Date.now() - (5 * 24 * 60 * 60 * 1000);
+            return mostRecentPbTime < fiveDaysAgo;
+        }
+
         function getSubcategoryData(bData) {
             const PARENT_ORDER = ["CONTROL TRACKING", "REACTIVE TRACKING", "FLICK TECH", "DYNAMIC CLICKING"];
             const SUBCAT_ORDER = {
@@ -2938,6 +2961,10 @@
             const playerPerformance = {};
             
             configuredPlayers.forEach(p => {
+                if (p.steam_id === '76561198995689034' && shouldEnableHarunoFMock()) {
+                    playerPerformance[p.steam_id] = activeSubcats.map(() => null);
+                    return;
+                }
                 playerPerformance[p.steam_id] = activeSubcats.map(subcat => {
                     const scens = subcatScenarios[subcat];
                     let totalRankFraction = 0;
@@ -2988,8 +3015,104 @@
         }
 
         function updateRadarChart(hoveredPlayerSteamId = null) {
+            window.currentHoveredRadarPlayerId = hoveredPlayerSteamId;
             const bData = standingsData[currentBenchmarkId];
             if (!bData) return;
+
+            const harunoFPlugin = {
+                id: 'harunoFPlugin',
+                afterDraw(chart) {
+                    if (!shouldEnableHarunoFMock()) return;
+                    const rScale = chart.scales.r;
+                    if (!rScale) return;
+                    
+                    const centerX = rScale.xCenter;
+                    const centerY = rScale.yCenter;
+                    
+                    const topPoint = rScale.getPointPositionForValue(0, rScale.max);
+                    const maxRadius = centerY - topPoint.y;
+                    if (maxRadius <= 0) return;
+                    
+                    // Small and centered coordinates
+                    const stemX = centerX - maxRadius * 0.05;
+                    const stemYTop = centerY - maxRadius * 0.12;
+                    const stemYBottom = centerY + maxRadius * 0.12;
+                    const topBarEndX = stemX + maxRadius * 0.10;
+                    const middleY = centerY;
+                    const middleBarEndX = stemX + maxRadius * 0.06;
+                    
+                    const isCompareAll = document.getElementById('filter-compare-all')?.checked;
+                    const isSelected = isCompareAll || selectedPlayers.has('76561198995689034');
+                    const hoveredId = window.currentHoveredRadarPlayerId || null;
+                    
+                    let opacity = 0.85;
+                    let lineWidth = 1.5;
+                    
+                    if (hoveredId !== null) {
+                        if (hoveredId === '76561198995689034') {
+                            opacity = 1.0;
+                            lineWidth = 2.5;
+                        } else {
+                            opacity = 0.08;
+                            lineWidth = 0.5;
+                        }
+                    } else {
+                        if (isSelected) {
+                            opacity = 1.0;
+                            lineWidth = 2.5;
+                        } else {
+                            opacity = 0.08;
+                            lineWidth = 0.5;
+                        }
+                    }
+                    
+                    const themeColor = getPlayerThemeColor('76561198995689034') || '#4caf50';
+                    const ctx = chart.ctx;
+                    ctx.save();
+                    
+                    if (opacity > 0.1) {
+                        ctx.shadowColor = themeColor;
+                        ctx.shadowBlur = 6;
+                    }
+                    
+                    ctx.strokeStyle = `rgba(${hexToRgb(themeColor)}, ${opacity})`;
+                    ctx.lineWidth = lineWidth;
+                    ctx.lineCap = 'round';
+                    ctx.lineJoin = 'round';
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(stemX, stemYTop);
+                    ctx.lineTo(stemX, stemYBottom);
+                    ctx.moveTo(stemX, stemYTop);
+                    ctx.lineTo(topBarEndX, stemYTop);
+                    ctx.moveTo(stemX, middleY);
+                    ctx.lineTo(middleBarEndX, middleY);
+                    ctx.stroke();
+                    
+                    const vertices = [
+                        { x: stemX, y: stemYTop },
+                        { x: stemX, y: stemYBottom },
+                        { x: topBarEndX, y: stemYTop },
+                        { x: stemX, y: middleY },
+                        { x: middleBarEndX, y: middleY }
+                    ];
+                    
+                    ctx.shadowBlur = 0;
+                    ctx.fillStyle = `rgba(${hexToRgb(themeColor)}, ${opacity})`;
+                    ctx.strokeStyle = '#121214';
+                    ctx.lineWidth = lineWidth > 1.5 ? 1.5 : 1.0;
+                    const dotRadius = lineWidth > 1.5 ? 3.5 : 2.0;
+                    
+                    vertices.forEach(v => {
+                        ctx.beginPath();
+                        ctx.arc(v.x, v.y, dotRadius, 0, 2 * Math.PI);
+                        ctx.fill();
+                        ctx.stroke();
+                    });
+                    
+                    ctx.restore();
+                }
+            };
             
             const radarInfo = getSubcategoryData(bData);
             const activeSubcats = radarInfo.subcategories;
@@ -3090,6 +3213,13 @@
                 radarChart.data.datasets = datasets;
                 radarChart.options.scales.r.max = ranksList.length;
                 radarChart.options.scales.r.grid.color = gridColors;
+                if (radarChart.config.plugins) {
+                    if (!radarChart.config.plugins.some(p => p.id === 'harunoFPlugin')) {
+                        radarChart.config.plugins.push(harunoFPlugin);
+                    }
+                } else {
+                    radarChart.config.plugins = [harunoFPlugin];
+                }
                 radarChart.update('none');
             } else {
                 if (radarChart) radarChart.destroy();
@@ -3120,6 +3250,7 @@
                                 callbacks: {
                                     label: function(context) {
                                         const rVal = context.raw;
+                                        if (rVal === null) return null;
                                         const rInt = Math.floor(rVal);
                                         const rFrac = rVal - rInt;
                                         const rankName = rInt > 0 && rInt <= ranksList.length ? ranksList[rInt - 1] : 'Unranked';
@@ -3128,7 +3259,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    plugins: [harunoFPlugin]
                 });
             }
         }
