@@ -578,7 +578,7 @@
         "76561198033879793": 53.0,
         "76561198046477600": 79.0,
         "76561198995689034": 0.0,
-        "76561199139664790": 0.0
+        "76561199139664790": 48.0
       }
     },
     "score_timestamps": {
@@ -1120,7 +1120,7 @@
         "76561198033879793": "2026-05-13 14:27:00",
         "76561198046477600": "2026-05-27 03:27:54",
         "76561198995689034": "2026-05-13 14:27:00",
-        "76561199139664790": "2026-05-29 21:38:51"
+        "76561199139664790": "2026-05-30 07:02:42"
       }
     },
     "leaders": {
@@ -1259,9 +1259,9 @@
         "completed_count": 36,
         "points": 68.9,
         "has_streak": false,
-        "weekly_pbs": 33,
+        "weekly_pbs": 32,
         "total_pbs": 37,
-        "active_days": 3,
+        "active_days": 2,
         "position_change": 0
       },
       {
@@ -1289,9 +1289,9 @@
         "completed_count": 36,
         "points": 36.19,
         "has_streak": false,
-        "weekly_pbs": 19,
+        "weekly_pbs": 17,
         "total_pbs": 19,
-        "active_days": 6,
+        "active_days": 5,
         "position_change": 0
       },
       {
@@ -1331,12 +1331,12 @@
         "rank_idx": 0,
         "rank_name": "Unranked",
         "crown_count": 0,
-        "completed_count": 2,
-        "points": 0.33,
-        "has_streak": false,
-        "weekly_pbs": 2,
-        "total_pbs": 2,
-        "active_days": 2,
+        "completed_count": 3,
+        "points": 0.67,
+        "has_streak": true,
+        "weekly_pbs": 3,
+        "total_pbs": 3,
+        "active_days": 3,
         "position_change": 0
       }
     ],
@@ -1741,48 +1741,6 @@
       "voxTargetSwitch Click": "Linear"
     },
     "recent_overtakes": [
-      {
-        "scenario_name": "waldoTS Novice",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-29 04:45:33"
-      },
-      {
-        "scenario_name": "waldoTS Novice",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561199164422123",
-        "timestamp": "2026-05-29 04:45:33"
-      },
-      {
-        "scenario_name": "FloatTS Angelic Easy Larger",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561199164422123",
-        "timestamp": "2026-05-29 04:58:45"
-      },
-      {
-        "scenario_name": "waldoTS Novice",
-        "winner_sid": "76561198033879793",
-        "loser_sid": "76561198348625808",
-        "timestamp": "2026-05-29 04:58:45"
-      },
-      {
-        "scenario_name": "beanTS Larger",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-29 05:05:11"
-      },
-      {
-        "scenario_name": "beanTS Larger",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561199164422123",
-        "timestamp": "2026-05-29 05:05:11"
-      },
-      {
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-29 05:30:33"
-      },
       {
         "scenario_name": "Pokeball Frenzy Auto TE Wide",
         "winner_sid": "76561199164422123",
@@ -2208,7 +2166,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780116181.136738,
+    "last_poll": 1780124576.213606,
     "check_interval": 600
   },
   "687": {
@@ -3955,12 +3913,6 @@
     "recent_overtakes": [
       {
         "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-29 05:30:44"
-      },
-      {
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
         "winner_sid": "76561199164422123",
         "loser_sid": "76561198046477600",
         "timestamp": "2026-05-29 21:39:04"
@@ -4074,7 +4026,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780116181.186456,
+    "last_poll": 1780124576.270933,
     "check_interval": 600
   },
   "688": {
@@ -5691,12 +5643,6 @@
     "recent_overtakes": [
       {
         "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-29 05:30:50"
-      },
-      {
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
         "winner_sid": "76561199164422123",
         "loser_sid": "76561198046477600",
         "timestamp": "2026-05-29 21:39:13"
@@ -5744,7 +5690,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780116181.232215,
+    "last_poll": 1780124576.326504,
     "check_interval": 600
   }
 }
