@@ -1444,7 +1444,7 @@
             width: 26px;
             height: 26px;
             border-radius: 50%;
-            transition: transform 0.2s ease, z-index 0.2s ease;
+            transition: left 0.8s ease, transform 0.2s ease, z-index 0.2s ease;
             cursor: pointer;
         }
         .grid-pin:hover {
@@ -4092,6 +4092,17 @@
             // Render scenario comparison grid
             const gridHeader = document.getElementById('grid-header');
             const gridBody = document.getElementById('grid-body');
+            
+            // IN-PLACE UPDATE LOGIC: If the grid already exists for this benchmark, just update the pins
+            if (gridBody.children.length > 0 && !window.forceGridRebuild) {
+                const canUpdateInPlace = updateComparisonGridPinsInPlace(bData);
+                if (canUpdateInPlace) {
+                    fetchOverallHistoryAndRenderChart();
+                    setTimeout(drawConnectingLines, 0);
+                    return;
+                }
+            }
+            
             gridHeader.innerHTML = '';
             gridBody.innerHTML = '';
 
@@ -4275,6 +4286,7 @@
                     subcatInfo.scenarios.forEach((scen, scenIdx) => {
                         const row = document.createElement('tr');
                         row.className = 'grid-scen-row';
+                        row.setAttribute('data-scenario', scen);
                         
                         row.style.transition = 'height 0.25s ease';
                         
@@ -4634,12 +4646,129 @@
                 });
             });
             
-            // Fetch and render overall progress timeline chart at the top
             fetchOverallHistoryAndRenderChart();
             setTimeout(drawConnectingLines, 0);
             } catch (err) {
                 console.error("LEADERBOARD_ERROR:", err);
             }
+        }
+
+        function updateComparisonGridPinsInPlace(bData) {
+            const configuredPlayers = globalPlayers.length > 0 ? globalPlayers : bData.players;
+            const rows = document.querySelectorAll('.grid-scen-row');
+            let allPinsExist = true;
+            
+            rows.forEach(row => {
+                const scen = row.getAttribute('data-scenario');
+                if (!scen) return;
+                
+                const scoresMap = bData.scores[scen] || {};
+                const rankMaxes = (bData.thresholds && bData.thresholds[scen]) || [];
+                const leaders = bData.leaders[scen] || [];
+                
+                // Update best score display
+                let bestScoreVal = 0;
+                configuredPlayers.forEach(p => {
+                    const s = scoresMap[p.steam_id];
+                    if (s !== undefined && s > bestScoreVal) bestScoreVal = s;
+                });
+                const bestScoreCell = row.querySelector('.best-score-cell');
+                if (bestScoreCell) {
+                    bestScoreCell.innerHTML = bestScoreVal > 0 
+                        ? `<div style="display: flex; flex-direction: column; align-items: center; gap: 2px;">
+                               <span style="font-size: 0.95rem; line-height: 1;">👑</span>
+                               <span style="font-weight: 800; color: var(--accent-gold); text-shadow: 0 0 8px rgba(255, 209, 102, 0.4); font-size: 0.9rem;">${formatScore(bestScoreVal)}</span>
+                           </div>`
+                        : `<span style="color: var(--text-muted)">-</span>`;
+                }
+                
+                const cells = row.querySelectorAll('.scen-cell');
+                
+                configuredPlayers.forEach(p => {
+                    const pin = row.querySelector(`.grid-pin[data-steam-id="${p.steam_id}"]`);
+                    if (!pin) {
+                        allPinsExist = false;
+                        return;
+                    }
+                    
+                    const sVal = scoresMap[p.steam_id];
+                    if (sVal === undefined || sVal === 0) return;
+                    
+                    let targetColIdx = -1;
+                    let pinPct = 0;
+                    
+                    for (let rIdx = 0; rIdx < rankMaxes.length; rIdx++) {
+                        const colMin = rIdx === 0 ? 0 : (rankMaxes[rIdx - 1] || 0);
+                        const colMax = rankMaxes[rIdx] || 1;
+                        if (sVal >= colMin && sVal < colMax) {
+                            targetColIdx = rIdx;
+                            pinPct = ((sVal - colMin) / (colMax - colMin)) * 100;
+                            if (pinPct > 100) pinPct = 100;
+                            break;
+                        }
+                    }
+                    if (targetColIdx === -1 && sVal >= rankMaxes[rankMaxes.length - 1]) {
+                        targetColIdx = rankMaxes.length - 1;
+                        pinPct = 100;
+                    }
+                    
+                    if (targetColIdx !== -1 && cells[targetColIdx]) {
+                        const targetCell = cells[targetColIdx];
+                        const container = targetCell.querySelector('div');
+                        if (container && pin.parentElement !== container) {
+                            pin.parentElement.removeChild(pin);
+                            container.appendChild(pin);
+                        }
+                        pin.style.left = `calc(${pinPct}% - 13px)`;
+                        
+                        const isLeader = leaders.includes(p.steam_id);
+                        const timestamps = (bData.score_timestamps && bData.score_timestamps[scen]) || {};
+                        const lastUpdatedStr = timestamps[p.steam_id];
+                        let isRecentPB = false;
+                        if (lastUpdatedStr) {
+                            const diffTime = Math.abs(new Date() - parseDate(lastUpdatedStr));
+                            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                            isRecentPB = diffDays <= 7;
+                        }
+                        
+                        const scoreStr = formatScore(sVal);
+                        const tooltipText = `${p.username}: ${scoreStr}${isLeader ? ' (Leader 👑)' : ''}${isRecentPB ? ' (New PB! ⚡)' : ''}`;
+                        pin.title = tooltipText;
+                        
+                        const isCompareAll = document.getElementById('filter-compare-all')?.checked;
+                        const isSelected = isCompareAll || selectedPlayers.has(p.steam_id);
+                        
+                        if (!isSelected) {
+                            pin.style.opacity = '0.05';
+                            pin.style.filter = 'grayscale(100%)';
+                            pin.style.border = '1.5px solid rgba(255,255,255,0.1)';
+                            pin.style.boxShadow = 'none';
+                            pin.classList.remove('recent-pb-pulse');
+                        } else if (sVal === 0) {
+                            pin.style.opacity = '0.25';
+                            pin.style.filter = 'grayscale(100%)';
+                            pin.style.border = '1.5px solid rgba(255,255,255,0.2)';
+                            pin.style.boxShadow = 'none';
+                            pin.classList.remove('recent-pb-pulse');
+                        } else {
+                            pin.style.opacity = '1';
+                            pin.style.filter = 'none';
+                            const themeColor = getPlayerThemeColor(p.steam_id);
+                            pin.style.border = `2.2px solid ${themeColor}`;
+                            
+                            if (isRecentPB) {
+                                pin.style.setProperty('--pulse-color', themeColor);
+                                pin.classList.add('recent-pb-pulse');
+                            } else {
+                                pin.style.boxShadow = 'none';
+                                pin.classList.remove('recent-pb-pulse');
+                            }
+                        }
+                    }
+                });
+            });
+            
+            return allPinsExist;
         }
 
         // Trigger immediate check/poll
