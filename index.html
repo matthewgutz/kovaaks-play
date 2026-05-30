@@ -502,35 +502,39 @@
         }
 
         /* Standings & Leaderboard Tabs */
-        .tab-controls {
+        .difficulty-filter-controls {
             display: flex;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.05);
-            margin-bottom: 20px;
-            gap: 8px;
+            flex-direction: column;
+            gap: 6px;
+            width: 100%;
+            margin-bottom: 12px;
         }
-
-        .tab-btn {
-            background: none;
-            border: none;
-            border-bottom: 3px solid transparent;
-            border-radius: 0;
+        .difficulty-filter-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             color: var(--text-muted);
-            padding: 12px 24px;
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 1.1rem;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
             transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            text-align: center;
         }
-
-        .tab-btn:hover {
+        .difficulty-filter-btn:hover {
             color: var(--text-main);
-            background: rgba(255, 255, 255, 0.02);
-            transform: none;
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-1px);
         }
-
-        .tab-btn.active {
-            color: var(--accent-primary);
-            border-bottom-color: var(--accent-primary);
+        .difficulty-filter-btn.active {
+            color: #000 !important;
+            background: var(--accent-primary) !important;
+            border-color: var(--accent-primary) !important;
+            box-shadow: 0 0 10px rgba(0, 245, 212, 0.3) !important;
         }
 
         /* Leaderboard Tables */
@@ -1678,6 +1682,20 @@
             border-right: 1px solid rgba(255, 255, 255, 0.15) !important;
             padding-right: 8px !important;
         }
+        .app-container.layout-stacked #player-filter-section .difficulty-filter-controls {
+            display: flex !important;
+            flex-direction: row !important;
+            width: auto !important;
+            margin-bottom: 0 !important;
+            border-right: 1px solid rgba(255, 255, 255, 0.15) !important;
+            padding-right: 8px !important;
+            gap: 6px !important;
+        }
+        .app-container.layout-stacked #player-filter-section .difficulty-filter-btn {
+            width: auto !important;
+            padding: 6px 10px !important;
+            font-size: 0.8rem !important;
+        }
         .app-container.layout-stacked #player-filter-section > div {
             display: flex !important;
             flex-direction: row !important;
@@ -1776,13 +1794,6 @@
                 <div class="main-tabs-toggle" style="display: flex; gap: 8px;">
                     <button class="main-tab-btn active" onclick="switchMainView('leaderboard', this)" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-size: 0.95rem; font-weight: bold; cursor: pointer; padding: 8px 16px; border-radius: 6px; transition: var(--transition-smooth); font-family: 'Outfit', sans-serif;">🏆 Leaderboard</button>
                     <button class="main-tab-btn" onclick="switchMainView('history', this)" style="background: none; border: 1px solid transparent; color: var(--text-muted); font-size: 0.95rem; font-weight: bold; cursor: pointer; padding: 8px 16px; border-radius: 6px; transition: var(--transition-smooth); font-family: 'Outfit', sans-serif;">📜 History Log</button>
-                </div>
-
-                <!-- Difficulty Selector on Right -->
-                <div class="tab-controls" style="display: flex; border-bottom: none; margin-bottom: 0; padding-bottom: 0; gap: 8px;">
-                    <button class="tab-btn active" data-benchmark-id="686" onclick="switchBenchmark('686', this)">Easier</button>
-                    <button class="tab-btn" data-benchmark-id="687" onclick="switchBenchmark('687', this)">Medium</button>
-                    <button class="tab-btn" data-benchmark-id="688" onclick="switchBenchmark('688', this)">Hard</button>
                 </div>
             </div>
         </header>
@@ -2006,6 +2017,11 @@
                     <button class="time-filter-btn" onclick="filterTimelineChart('1W', this)">1W</button>
                     <button class="time-filter-btn" onclick="filterTimelineChart('1M', this)">1M</button>
                     <button class="time-filter-btn active" onclick="filterTimelineChart('ALL', this)">ALL</button>
+                </div>
+                <div class="difficulty-filter-controls" role="group" aria-label="Difficulty level selection" style="display: flex; gap: 6px; margin-bottom: 12px; justify-content: center; width: 100%;">
+                    <button class="difficulty-filter-btn active" data-benchmark-id="686" onclick="switchBenchmark('686', this)" aria-pressed="true">Easier</button>
+                    <button class="difficulty-filter-btn" data-benchmark-id="687" onclick="switchBenchmark('687', this)" aria-pressed="false">Medium</button>
+                    <button class="difficulty-filter-btn" data-benchmark-id="688" onclick="switchBenchmark('688', this)" aria-pressed="false">Hard</button>
                 </div>
                 <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); margin: 0 0 12px 0; width: 100%;" class="filter-divider-top"></div>
                 <h2 class="panel-title" style="margin: 0 0 10px 0; font-size: 1.1rem; border-bottom: none; padding-bottom: 0; display: flex; align-items: center; gap: 8px;">👥 Player Filter</h2>
@@ -3632,16 +3648,23 @@
 
         // Switch Benchmark Tab
         function switchBenchmark(benchmarkId, btnElement) {
-            currentBenchmarkId = benchmarkId;
-            
-            // Toggle active classes
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            btnElement.classList.add('active');
+            try {
+                currentBenchmarkId = benchmarkId;
+                
+                // Toggle active classes
+                document.querySelectorAll('.difficulty-filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-pressed', 'false');
+                });
+                btnElement.classList.add('active');
+                btnElement.setAttribute('aria-pressed', 'true');
 
-            // Render tables and other sections
-            syncAllComponentsAfterFilterChange();
+                // Render tables and other sections
+                syncAllComponentsAfterFilterChange();
+            } catch (err) {
+                console.error("Error switching benchmark:", err);
+                showToast("Failed to change difficulty level", "❌");
+            }
         }
 
         // Fetch config parameters
@@ -4927,7 +4950,22 @@
         function getFilteredHistoryData() {
             if (!currentHistoryData) return {};
             
-            const now = new Date();
+            let now = new Date();
+            // Resolve the latest play timestamp from all history events in currentHistoryData
+            let maxTimeMs = 0;
+            Object.values(currentHistoryData).forEach(playerObj => {
+                if (playerObj && playerObj.history) {
+                    playerObj.history.forEach(h => {
+                        const parsed = parseDate(h.timestamp);
+                        if (parsed.getTime() > maxTimeMs) {
+                            maxTimeMs = parsed.getTime();
+                        }
+                    });
+                }
+            });
+            if (maxTimeMs > 0) {
+                now = new Date(maxTimeMs);
+            }
             let cutOffDate = null;
             if (timelineFilter === '1W') {
                 cutOffDate = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
@@ -6000,7 +6038,12 @@
                 return latestPct;
             };
 
-            const now = new Date();
+            let now = new Date();
+            if (events.length > 0) {
+                // Resolve the latest play timestamp from the event history
+                const maxEventTime = new Date(Math.max(...events.map(e => e.timestamp.getTime())));
+                now = maxEventTime;
+            }
             let minTime = null;
             if (timelineFilter === '1W') {
                 minTime = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
