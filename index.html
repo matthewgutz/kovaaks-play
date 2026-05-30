@@ -3476,12 +3476,12 @@
             checkRedirectQuery();
 
             // Refresh standings and notifications periodically
-            const standingsInterval = isStatic ? 10000 : 5000;
-            const notifInterval = isStatic ? 10000 : 3000;
-            setInterval(() => {
-                fetchStandings();
-            }, standingsInterval);
-            setInterval(fetchNotifications, notifInterval);
+            if (!isStatic) {
+                setInterval(() => {
+                    fetchStandings();
+                }, 5000);
+                setInterval(fetchNotifications, 3000);
+            }
 
             // Initialize ResizeObserver on document.body to drive responsive layout tiers
             const container = document.querySelector('.app-container');
@@ -3836,9 +3836,6 @@
         // Fetch standings data
         async function fetchStandings() {
             try {
-                const badgeText = document.querySelector('.status-badge span:not(.status-dot)');
-                if (badgeText) badgeText.innerText = 'Syncing...';
-
                 await fetchActiveMaps();
                 const response = await fetch(isStatic ? `standings.json?_t=${Date.now()}` : '/api/standings');
                 const text = await response.text();
