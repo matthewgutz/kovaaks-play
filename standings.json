@@ -48,7 +48,7 @@
         "76561198129757659": 0.0,
         "76561198045952875": 0.0,
         "76561198017954362": 12570.0,
-        "76561198348625808": 4605.0,
+        "76561198348625808": 5394.0,
         "76561199164422123": 8913.0,
         "76561198033879793": 5814.0,
         "76561198046477600": 10683.0,
@@ -63,7 +63,7 @@
         "76561198129757659": 0.0,
         "76561198045952875": 0.0,
         "76561198017954362": 15570.0,
-        "76561198348625808": 6660.0,
+        "76561198348625808": 7770.0,
         "76561199164422123": 9120.0,
         "76561198033879793": 6888.0,
         "76561198046477600": 11350.0,
@@ -78,7 +78,7 @@
         "76561198129757659": 0.0,
         "76561198045952875": 0.0,
         "76561198017954362": 3588.0,
-        "76561198348625808": 1596.0,
+        "76561198348625808": 1812.0,
         "76561199164422123": 2568.0,
         "76561198033879793": 1818.0,
         "76561198046477600": 3084.0,
@@ -590,7 +590,7 @@
         "76561198129757659": "2026-05-13 14:27:00",
         "76561198045952875": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-13 14:27:00",
-        "76561198348625808": "2026-05-29 02:51:29",
+        "76561198348625808": "2026-05-30 04:33:55",
         "76561199164422123": "2026-05-28 03:32:33",
         "76561198033879793": "2026-05-29 03:22:39",
         "76561198046477600": "2026-05-26 00:33:29",
@@ -605,7 +605,7 @@
         "76561198129757659": "2026-05-13 14:27:00",
         "76561198045952875": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-13 14:27:00",
-        "76561198348625808": "2026-05-28 03:22:16",
+        "76561198348625808": "2026-05-30 04:33:55",
         "76561199164422123": "2026-05-28 03:32:33",
         "76561198033879793": "2026-05-13 14:27:00",
         "76561198046477600": "2026-05-13 14:27:00",
@@ -620,7 +620,7 @@
         "76561198129757659": "2026-05-13 14:27:00",
         "76561198045952875": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-13 14:27:00",
-        "76561198348625808": "2026-05-29 03:01:53",
+        "76561198348625808": "2026-05-30 04:33:55",
         "76561199164422123": "2026-05-29 21:38:51",
         "76561198033879793": "2026-05-29 03:33:07",
         "76561198046477600": "2026-05-13 14:27:00",
@@ -1259,7 +1259,7 @@
         "completed_count": 36,
         "points": 68.9,
         "has_streak": false,
-        "weekly_pbs": 37,
+        "weekly_pbs": 33,
         "total_pbs": 37,
         "active_days": 3,
         "position_change": 0
@@ -1288,7 +1288,7 @@
         "crown_count": 0,
         "completed_count": 36,
         "points": 36.19,
-        "has_streak": true,
+        "has_streak": false,
         "weekly_pbs": 19,
         "total_pbs": 19,
         "active_days": 6,
@@ -1302,10 +1302,10 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 28.62,
+        "points": 28.99,
         "has_streak": true,
-        "weekly_pbs": 68,
-        "total_pbs": 68,
+        "weekly_pbs": 71,
+        "total_pbs": 71,
         "active_days": 6,
         "position_change": 0
       },
@@ -1742,54 +1742,6 @@
     },
     "recent_overtakes": [
       {
-        "scenario_name": "Pasu Angelic 20% Larger 80% Speed",
-        "winner_sid": "76561199164422123",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-29 03:12:18"
-      },
-      {
-        "scenario_name": "Pasu Angelic 20% Larger 80% Speed",
-        "winner_sid": "76561199164422123",
-        "loser_sid": "76561198348625808",
-        "timestamp": "2026-05-29 03:12:18"
-      },
-      {
-        "scenario_name": "cloverRawControl Easy 80% Speed",
-        "winner_sid": "76561198033879793",
-        "loser_sid": "76561198348625808",
-        "timestamp": "2026-05-29 03:33:07"
-      },
-      {
-        "scenario_name": "Controlsphere Far, Far Larger 90%",
-        "winner_sid": "76561198033879793",
-        "loser_sid": "76561198348625808",
-        "timestamp": "2026-05-29 03:43:32"
-      },
-      {
-        "scenario_name": "1w3ts Pasu Perfected Micro Goated Larger 80%",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561199164422123",
-        "timestamp": "2026-05-29 03:53:50"
-      },
-      {
-        "scenario_name": "tamTargetSwitch Smooth Easy",
-        "winner_sid": "76561198033879793",
-        "loser_sid": "76561198348625808",
-        "timestamp": "2026-05-29 03:53:50"
-      },
-      {
-        "scenario_name": "tamTargetSwitch Smooth Easy",
-        "winner_sid": "76561198033879793",
-        "loser_sid": "76561199164422123",
-        "timestamp": "2026-05-29 04:04:12"
-      },
-      {
-        "scenario_name": "devTS Goated NR Static 5Bot",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-29 04:35:02"
-      },
-      {
         "scenario_name": "waldoTS Novice",
         "winner_sid": "76561198348625808",
         "loser_sid": "76561198033879793",
@@ -1866,6 +1818,12 @@
         "winner_sid": "76561199164422123",
         "loser_sid": "76561198033879793",
         "timestamp": "2026-05-29 21:38:51"
+      },
+      {
+        "scenario_name": "Whisphere 80%",
+        "winner_sid": "76561198348625808",
+        "loser_sid": "76561198033879793",
+        "timestamp": "2026-05-30 04:33:55"
       }
     ],
     "active_rivalries": [
@@ -2008,6 +1966,16 @@
         "chaser_overtakes_target": 1,
         "target_overtakes_chaser": 1,
         "total_overtakes": 2
+      },
+      {
+        "chaser_sid": "76561198033879793",
+        "chaser_name": "@CoachCam",
+        "target_sid": "76561198348625808",
+        "target_name": "@Christine",
+        "scenario_name": "Whisphere 80%",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
       },
       {
         "chaser_sid": "76561199164422123",
@@ -2240,7 +2208,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780090892.264532,
+    "last_poll": 1780116181.136738,
     "check_interval": 600
   },
   "687": {
@@ -3503,9 +3471,9 @@
         "completed_count": 6,
         "points": 2.05,
         "has_streak": false,
-        "weekly_pbs": 3,
+        "weekly_pbs": 2,
         "total_pbs": 3,
-        "active_days": 2,
+        "active_days": 1,
         "position_change": 0
       },
       {
@@ -3518,9 +3486,9 @@
         "completed_count": 5,
         "points": 2.68,
         "has_streak": false,
-        "weekly_pbs": 6,
+        "weekly_pbs": 5,
         "total_pbs": 6,
-        "active_days": 2,
+        "active_days": 1,
         "position_change": 0
       },
       {
@@ -3532,10 +3500,10 @@
         "crown_count": 0,
         "completed_count": 5,
         "points": 2.26,
-        "has_streak": true,
-        "weekly_pbs": 5,
+        "has_streak": false,
+        "weekly_pbs": 4,
         "total_pbs": 5,
-        "active_days": 3,
+        "active_days": 2,
         "position_change": 0
       },
       {
@@ -3547,10 +3515,10 @@
         "crown_count": 0,
         "completed_count": 5,
         "points": 1.7,
-        "has_streak": true,
+        "has_streak": false,
         "weekly_pbs": 12,
         "total_pbs": 12,
-        "active_days": 5,
+        "active_days": 4,
         "position_change": 0
       },
       {
@@ -3986,24 +3954,6 @@
     },
     "recent_overtakes": [
       {
-        "scenario_name": "tamTargetSwitch Smooth Easy",
-        "winner_sid": "76561198033879793",
-        "loser_sid": "76561198348625808",
-        "timestamp": "2026-05-29 03:53:55"
-      },
-      {
-        "scenario_name": "tamTargetSwitch Smooth Easy",
-        "winner_sid": "76561198033879793",
-        "loser_sid": "76561199164422123",
-        "timestamp": "2026-05-29 04:04:17"
-      },
-      {
-        "scenario_name": "devTS Goated NR Static 5Bot",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-05-29 04:35:13"
-      },
-      {
         "scenario_name": "Pokeball Frenzy Auto TE Wide",
         "winner_sid": "76561198348625808",
         "loser_sid": "76561198033879793",
@@ -4124,7 +4074,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780090892.311207,
+    "last_poll": 1780116181.186456,
     "check_interval": 600
   },
   "688": {
@@ -4250,7 +4200,7 @@
         "76561198028775210": 0.0,
         "76561198038568603": 0.0,
         "76561198129757659": 0.0,
-        "76561198017954362": 0.0,
+        "76561198017954362": 2060.0,
         "76561198348625808": 0.0,
         "76561199164422123": 0.0,
         "76561198033879793": 0.0,
@@ -4792,7 +4742,7 @@
         "76561198028775210": "2026-05-13 14:27:00",
         "76561198038568603": "2026-05-13 14:27:00",
         "76561198129757659": "2026-05-13 14:27:00",
-        "76561198017954362": "2026-05-13 14:27:00",
+        "76561198017954362": "2026-05-30 04:34:30",
         "76561198348625808": "2000-01-01 00:00:00",
         "76561199164422123": "2026-05-13 14:27:00",
         "76561198033879793": "2026-05-13 14:27:00",
@@ -5265,7 +5215,9 @@
         "76561198017954362"
       ],
       "Controlsphere rAim": [],
-      "VT Controlsphere Intermediate S5 Hard": [],
+      "VT Controlsphere Intermediate S5 Hard": [
+        "76561198017954362"
+      ],
       "Air Angelic 4 Voltaic": [
         "76561198017954362"
       ],
@@ -5308,12 +5260,12 @@
         "discord_id": "",
         "rank_idx": 0,
         "rank_name": "Unranked",
-        "crown_count": 6,
-        "completed_count": 6,
-        "points": 1.41,
+        "crown_count": 7,
+        "completed_count": 7,
+        "points": 1.75,
         "has_streak": false,
         "weekly_pbs": 4,
-        "total_pbs": 4,
+        "total_pbs": 5,
         "active_days": 2,
         "position_change": 0
       },
@@ -5359,7 +5311,7 @@
         "has_streak": false,
         "weekly_pbs": 3,
         "total_pbs": 3,
-        "active_days": 4,
+        "active_days": 3,
         "position_change": 0
       },
       {
@@ -5792,7 +5744,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780090892.356765,
+    "last_poll": 1780116181.232215,
     "check_interval": 600
   }
 }
