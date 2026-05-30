@@ -4094,7 +4094,7 @@
             const gridBody = document.getElementById('grid-body');
             
             // IN-PLACE UPDATE LOGIC: If the grid already exists for this benchmark, just update the pins
-            if (gridBody.children.length > 0 && !window.forceGridRebuild) {
+            if (gridBody.children.length > 0 && !window.forceGridRebuild && window.currentRenderedGridBenchmarkId === currentBenchmarkId) {
                 const canUpdateInPlace = updateComparisonGridPinsInPlace(bData);
                 if (canUpdateInPlace) {
                     fetchOverallHistoryAndRenderChart();
@@ -4646,6 +4646,7 @@
                 });
             });
             
+            window.currentRenderedGridBenchmarkId = currentBenchmarkId;
             fetchOverallHistoryAndRenderChart();
             setTimeout(drawConnectingLines, 0);
             } catch (err) {
