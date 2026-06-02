@@ -1259,7 +1259,7 @@
         "completed_count": 36,
         "points": 69.1,
         "has_streak": false,
-        "weekly_pbs": 32,
+        "weekly_pbs": 29,
         "total_pbs": 38,
         "active_days": 3,
         "position_change": 0
@@ -2160,7 +2160,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780361278.091437,
+    "last_poll": 1780361897.005473,
     "check_interval": 600
   },
   "687": {
@@ -2676,7 +2676,7 @@
         "76561198028775210": 0.0,
         "76561198038568603": 0.0,
         "76561198129757659": 0.0,
-        "76561198017954362": 79.0,
+        "76561198017954362": 81.0,
         "76561198348625808": 0.0,
         "76561199164422123": 0.0,
         "76561198033879793": 0.0,
@@ -3218,7 +3218,7 @@
         "76561198028775210": "2026-05-13 14:27:00",
         "76561198038568603": "2026-05-13 14:27:00",
         "76561198129757659": "2026-05-13 14:27:00",
-        "76561198017954362": "2026-05-13 14:27:00",
+        "76561198017954362": "2026-06-02 00:58:09",
         "76561198348625808": "2000-01-01 00:00:00",
         "76561199164422123": "2026-05-13 14:27:00",
         "76561198033879793": "2026-05-13 14:27:00",
@@ -3406,10 +3406,10 @@
         "rank_name": "Vermillion",
         "crown_count": 36,
         "completed_count": 36,
-        "points": 42.54,
+        "points": 42.65,
         "has_streak": true,
-        "weekly_pbs": 5,
-        "total_pbs": 5,
+        "weekly_pbs": 6,
+        "total_pbs": 6,
         "active_days": 2,
         "position_change": 0
       },
@@ -3438,7 +3438,7 @@
         "completed_count": 5,
         "points": 2.68,
         "has_streak": false,
-        "weekly_pbs": 5,
+        "weekly_pbs": 3,
         "total_pbs": 6,
         "active_days": 1,
         "position_change": 0
@@ -4007,7 +4007,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780361278.153001,
+    "last_poll": 1780361897.064568,
     "check_interval": 600
   },
   "688": {
@@ -5237,7 +5237,7 @@
         "completed_count": 1,
         "points": 0.32,
         "has_streak": false,
-        "weekly_pbs": 3,
+        "weekly_pbs": 1,
         "total_pbs": 3,
         "active_days": 1,
         "position_change": 0
@@ -5674,7 +5674,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780361278.211751,
+    "last_poll": 1780361897.119194,
     "check_interval": 600
   }
 }
