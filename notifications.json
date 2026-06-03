@@ -1,5 +1,12 @@
 [
   {
+    "id": 469,
+    "player_name": "Laggiing",
+    "event_type": "pb",
+    "message": "**Pokeball Frenzy Auto TE Wide** \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-06-03 05:17:53"
+  },
+  {
     "id": 468,
     "player_name": "Laggiing",
     "event_type": "arch_nemesis",
@@ -690,13 +697,6 @@
     "player_name": "CoachCam",
     "event_type": "pain_point",
     "message": "Trash panda angry! @CoachCam almost beat @Olioli on [Air Pure Intermediate Slower No UFO](https://matthewgutz.github.io/kovaaks-play/?scenario=Air%20Pure%20Intermediate%20Slower%20No%20UFO)! \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-27 02:14:36"
-  },
-  {
-    "id": 295,
-    "player_name": "Christine",
-    "event_type": "pb",
-    "message": "**1w2ts Pasu Perfected Easy** \ud83d\udd25 Hot Streak!",
     "timestamp": "2026-05-27 02:14:36"
   }
 ]
