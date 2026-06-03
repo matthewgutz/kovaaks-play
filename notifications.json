@@ -1,5 +1,12 @@
 [
   {
+    "id": 461,
+    "player_name": "CoachCam",
+    "event_type": "pb",
+    "message": "**1w2ts Pasu Perfected Easy**",
+    "timestamp": "2026-06-03 03:55:13"
+  },
+  {
     "id": 460,
     "player_name": "CoachCam",
     "event_type": "pb",
@@ -691,12 +698,5 @@
     "event_type": "pain_point",
     "message": "So close! @Olioli smell @CoachCam butt on [Polarized Hell Easy 40% Slower](https://matthewgutz.github.io/kovaaks-play?scenario=Polarized%20Hell%20Easy%2040%25%20Slower)! \ud83d\udd25 Hot Streak!",
     "timestamp": "2026-05-26 04:01:30"
-  },
-  {
-    "id": 290,
-    "player_name": "CoachCam",
-    "event_type": "pain_point",
-    "message": "Trash panda angry! @CoachCam almost beat @Olioli on [Flicker Plaza rAim Easy Less Blinks](https://matthewgutz.github.io/kovaaks-play/?scenario=Flicker%20Plaza%20rAim%20Easy%20Less%20Blinks)! \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-26 03:58:22"
   }
 ]
