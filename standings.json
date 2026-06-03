@@ -51,7 +51,7 @@
         "76561198348625808": 5394.0,
         "76561199164422123": 8913.0,
         "76561198033879793": 5814.0,
-        "76561198046477600": 10683.0,
+        "76561198046477600": 11013.0,
         "76561198995689034": 1764.0,
         "76561199139664790": 2772.0
       },
@@ -593,7 +593,7 @@
         "76561198348625808": "2026-05-30 04:33:55",
         "76561199164422123": "2026-05-28 03:32:33",
         "76561198033879793": "2026-05-29 03:22:39",
-        "76561198046477600": "2026-05-26 00:33:29",
+        "76561198046477600": "2026-06-03 02:12:05",
         "76561198995689034": "2026-05-13 14:27:00",
         "76561199139664790": "2026-05-29 21:38:51"
       },
@@ -1257,11 +1257,11 @@
         "rank_name": "Ermine",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 69.1,
+        "points": 69.23,
         "has_streak": false,
-        "weekly_pbs": 6,
-        "total_pbs": 38,
-        "active_days": 2,
+        "weekly_pbs": 7,
+        "total_pbs": 39,
+        "active_days": 3,
         "position_change": 0
       },
       {
@@ -1274,9 +1274,9 @@
         "completed_count": 36,
         "points": 48.78,
         "has_streak": true,
-        "weekly_pbs": 34,
+        "weekly_pbs": 30,
         "total_pbs": 37,
-        "active_days": 4,
+        "active_days": 3,
         "position_change": 0
       },
       {
@@ -1289,9 +1289,9 @@
         "completed_count": 36,
         "points": 37.77,
         "has_streak": true,
-        "weekly_pbs": 23,
+        "weekly_pbs": 20,
         "total_pbs": 27,
-        "active_days": 6,
+        "active_days": 5,
         "position_change": 0
       },
       {
@@ -1304,9 +1304,9 @@
         "completed_count": 36,
         "points": 28.99,
         "has_streak": false,
-        "weekly_pbs": 41,
+        "weekly_pbs": 39,
         "total_pbs": 71,
-        "active_days": 5,
+        "active_days": 4,
         "position_change": 0
       },
       {
@@ -1742,12 +1742,6 @@
     },
     "recent_overtakes": [
       {
-        "scenario_name": "PGTI Voltaic Easy 80%",
-        "winner_sid": "76561198033879793",
-        "loser_sid": "76561198348625808",
-        "timestamp": "2026-06-01 04:14:42"
-      },
-      {
         "scenario_name": "Flicker Plaza rAim Easy Less Blinks",
         "winner_sid": "76561199164422123",
         "loser_sid": "76561198033879793",
@@ -2182,7 +2176,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780371223.207168,
+    "last_poll": 1780452738.230208,
     "check_interval": 600
   },
   "687": {
@@ -3490,7 +3484,7 @@
         "completed_count": 5,
         "points": 1.7,
         "has_streak": false,
-        "weekly_pbs": 8,
+        "weekly_pbs": 7,
         "total_pbs": 12,
         "active_days": 3,
         "position_change": 0
@@ -4029,7 +4023,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780371223.267136,
+    "last_poll": 1780452738.290982,
     "check_interval": 600
   },
   "688": {
@@ -5696,7 +5690,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780371223.324186,
+    "last_poll": 1780452738.347599,
     "check_interval": 600
   }
 }
