@@ -128,7 +128,7 @@
         "76561198033879793": 2178.0,
         "76561198046477600": 3587.0,
         "76561198995689034": 1025.0,
-        "76561199139664790": 0.0
+        "76561199139664790": 1284.0
       },
       "Air Angelic 4 Voltaic Easy 80% (Good Version)": {
         "76561198000452332": 0.0,
@@ -143,7 +143,7 @@
         "76561198033879793": 2392.0,
         "76561198046477600": 3120.0,
         "76561198995689034": 1413.0,
-        "76561199139664790": 0.0
+        "76561199139664790": 1907.0
       },
       "cloverRawControl Easy 80% Speed": {
         "76561198000452332": 0.0,
@@ -563,7 +563,7 @@
         "76561198033879793": 2052.0,
         "76561198046477600": 2700.0,
         "76561198995689034": 0.0,
-        "76561199139664790": 0.0
+        "76561199139664790": 1764.0
       },
       "voxTargetSwitch Click": {
         "76561198000452332": 0.0,
@@ -670,7 +670,7 @@
         "76561198033879793": "2026-05-13 14:27:00",
         "76561198046477600": "2026-05-26 00:49:55",
         "76561198995689034": "2026-05-13 14:27:00",
-        "76561199139664790": "2026-05-29 21:38:51"
+        "76561199139664790": "2026-06-03 04:15:51"
       },
       "Air Angelic 4 Voltaic Easy 80% (Good Version)": {
         "76561198000452332": "2026-05-13 14:27:00",
@@ -685,7 +685,7 @@
         "76561198033879793": "2026-05-13 14:27:00",
         "76561198046477600": "2026-05-13 14:27:00",
         "76561198995689034": "2026-05-13 14:27:00",
-        "76561199139664790": "2026-05-29 21:38:51"
+        "76561199139664790": "2026-06-03 04:15:51"
       },
       "cloverRawControl Easy 80% Speed": {
         "76561198000452332": "2026-05-13 14:27:00",
@@ -1105,7 +1105,7 @@
         "76561198033879793": "2026-05-13 14:27:00",
         "76561198046477600": "2026-06-03 02:43:03",
         "76561198995689034": "2026-05-13 14:27:00",
-        "76561199139664790": "2026-05-29 21:38:51"
+        "76561199139664790": "2026-06-03 04:15:51"
       },
       "voxTargetSwitch Click": {
         "76561198000452332": "2026-05-13 14:27:00",
@@ -1331,11 +1331,11 @@
         "rank_idx": 0,
         "rank_name": "Unranked",
         "crown_count": 0,
-        "completed_count": 8,
-        "points": 2.17,
-        "has_streak": false,
-        "weekly_pbs": 8,
-        "total_pbs": 8,
+        "completed_count": 11,
+        "points": 5.17,
+        "has_streak": true,
+        "weekly_pbs": 11,
+        "total_pbs": 11,
         "active_days": 4,
         "position_change": 0
       }
@@ -1752,6 +1752,18 @@
         "winner_sid": "76561199139664790",
         "loser_sid": "76561198995689034",
         "timestamp": "2026-06-03 04:05:31"
+      },
+      {
+        "scenario_name": "VT Controlsphere Intermediate S5 80%",
+        "winner_sid": "76561199139664790",
+        "loser_sid": "76561198995689034",
+        "timestamp": "2026-06-03 04:15:51"
+      },
+      {
+        "scenario_name": "Air Angelic 4 Voltaic Easy 80% (Good Version)",
+        "winner_sid": "76561199139664790",
+        "loser_sid": "76561198995689034",
+        "timestamp": "2026-06-03 04:15:51"
       }
     ],
     "active_rivalries": [
@@ -1988,6 +2000,26 @@
       {
         "chaser_sid": "76561198995689034",
         "chaser_name": "@Haruno",
+        "target_sid": "76561199139664790",
+        "target_name": "@Billyos",
+        "scenario_name": "VT Controlsphere Intermediate S5 80%",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
+      },
+      {
+        "chaser_sid": "76561198995689034",
+        "chaser_name": "@Haruno",
+        "target_sid": "76561199139664790",
+        "target_name": "@Billyos",
+        "scenario_name": "Air Angelic 4 Voltaic Easy 80% (Good Version)",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
+      },
+      {
+        "chaser_sid": "76561198995689034",
+        "chaser_name": "@Haruno",
         "target_sid": "76561198348625808",
         "target_name": "@Christine",
         "scenario_name": "Air Voltaic Invincible 7 Easy 80%",
@@ -2196,7 +2228,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780459545.739369,
+    "last_poll": 1780460163.695083,
     "check_interval": 600
   },
   "687": {
@@ -2763,7 +2795,7 @@
         "76561198033879793": 2052.0,
         "76561198046477600": 2700.0,
         "76561198995689034": 0.0,
-        "76561199139664790": 0.0
+        "76561199139664790": 1764.0
       },
       "voxTargetClick 20% Small": {
         "76561198000452332": 0.0,
@@ -3305,7 +3337,7 @@
         "76561198033879793": "2026-05-13 14:27:00",
         "76561198046477600": "2026-06-03 02:43:13",
         "76561198995689034": "2026-05-13 14:27:00",
-        "76561199139664790": "2026-05-29 21:39:04"
+        "76561199139664790": "2026-06-03 04:15:56"
       },
       "voxTargetClick 20% Small": {
         "76561198000452332": "2026-05-13 14:27:00",
@@ -3510,6 +3542,21 @@
         "position_change": 0
       },
       {
+        "steam_id": "76561199139664790",
+        "username": "@Billyos",
+        "discord_id": "",
+        "rank_idx": 0,
+        "rank_name": "Unranked",
+        "crown_count": 0,
+        "completed_count": 1,
+        "points": 0.31,
+        "has_streak": false,
+        "weekly_pbs": 1,
+        "total_pbs": 1,
+        "active_days": 2,
+        "position_change": 1
+      },
+      {
         "steam_id": "76561198995689034",
         "username": "@Haruno",
         "discord_id": "",
@@ -3522,22 +3569,7 @@
         "weekly_pbs": 0,
         "total_pbs": 0,
         "active_days": 0,
-        "position_change": 0
-      },
-      {
-        "steam_id": "76561199139664790",
-        "username": "@Billyos",
-        "discord_id": "",
-        "rank_idx": 0,
-        "rank_name": "Unranked",
-        "crown_count": 0,
-        "completed_count": 0,
-        "points": 0.0,
-        "has_streak": false,
-        "weekly_pbs": 0,
-        "total_pbs": 0,
-        "active_days": 1,
-        "position_change": 0
+        "position_change": -1
       }
     ],
     "thresholds": {
@@ -4043,7 +4075,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780459545.798879,
+    "last_poll": 1780460163.75755,
     "check_interval": 600
   },
   "688": {
@@ -5710,7 +5742,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780459545.855097,
+    "last_poll": 1780460163.815275,
     "check_interval": 600
   }
 }
