@@ -530,7 +530,7 @@
         "76561198017954362": 101.0,
         "76561198348625808": 68.0,
         "76561199164422123": 78.0,
-        "76561198033879793": 72.0,
+        "76561198033879793": 76.0,
         "76561198046477600": 83.0,
         "76561198995689034": 0.0,
         "76561199139664790": 0.0
@@ -1072,7 +1072,7 @@
         "76561198017954362": "2026-05-13 14:27:00",
         "76561198348625808": "2026-05-29 04:04:12",
         "76561199164422123": "2026-05-29 21:38:51",
-        "76561198033879793": "2026-05-13 14:27:00",
+        "76561198033879793": "2026-06-03 03:44:55",
         "76561198046477600": "2026-05-26 03:27:30",
         "76561198995689034": "2026-05-13 14:27:00",
         "76561199139664790": "2026-05-29 21:38:51"
@@ -1259,7 +1259,7 @@
         "completed_count": 36,
         "points": 69.67,
         "has_streak": true,
-        "weekly_pbs": 11,
+        "weekly_pbs": 8,
         "total_pbs": 43,
         "active_days": 3,
         "position_change": 0
@@ -1273,7 +1273,7 @@
         "crown_count": 0,
         "completed_count": 36,
         "points": 48.78,
-        "has_streak": true,
+        "has_streak": false,
         "weekly_pbs": 30,
         "total_pbs": 37,
         "active_days": 3,
@@ -1287,11 +1287,11 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 37.77,
-        "has_streak": true,
-        "weekly_pbs": 19,
-        "total_pbs": 27,
-        "active_days": 4,
+        "points": 37.9,
+        "has_streak": false,
+        "weekly_pbs": 20,
+        "total_pbs": 28,
+        "active_days": 5,
         "position_change": 0
       },
       {
@@ -1304,9 +1304,9 @@
         "completed_count": 36,
         "points": 28.99,
         "has_streak": false,
-        "weekly_pbs": 35,
+        "weekly_pbs": 30,
         "total_pbs": 71,
-        "active_days": 4,
+        "active_days": 3,
         "position_change": 0
       },
       {
@@ -1740,20 +1740,7 @@
       "Floating Heads Timing 400% Larger": "Linear",
       "voxTargetSwitch Click": "Linear"
     },
-    "recent_overtakes": [
-      {
-        "scenario_name": "Flicker Plaza rAim Easy Less Blinks",
-        "winner_sid": "76561199164422123",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-06-02 03:33:26"
-      },
-      {
-        "scenario_name": "B180 Voltaic Easy 92%",
-        "winner_sid": "76561198033879793",
-        "loser_sid": "76561199164422123",
-        "timestamp": "2026-06-02 03:33:26"
-      }
-    ],
+    "recent_overtakes": [],
     "active_rivalries": [
       {
         "chaser_sid": "76561199164422123",
@@ -2176,7 +2163,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780455222.345526,
+    "last_poll": 1780458307.73486,
     "check_interval": 600
   },
   "687": {
@@ -3423,7 +3410,7 @@
         "crown_count": 36,
         "completed_count": 36,
         "points": 44.78,
-        "has_streak": true,
+        "has_streak": false,
         "weekly_pbs": 12,
         "total_pbs": 12,
         "active_days": 2,
@@ -3484,9 +3471,9 @@
         "completed_count": 5,
         "points": 1.7,
         "has_streak": false,
-        "weekly_pbs": 6,
+        "weekly_pbs": 5,
         "total_pbs": 12,
-        "active_days": 3,
+        "active_days": 2,
         "position_change": 0
       },
       {
@@ -4023,7 +4010,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780455222.405206,
+    "last_poll": 1780458307.794513,
     "check_interval": 600
   },
   "688": {
@@ -5268,9 +5255,9 @@
         "completed_count": 1,
         "points": 0.28,
         "has_streak": false,
-        "weekly_pbs": 2,
+        "weekly_pbs": 1,
         "total_pbs": 3,
-        "active_days": 2,
+        "active_days": 1,
         "position_change": 0
       },
       {
@@ -5690,7 +5677,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780455222.466155,
+    "last_poll": 1780458307.852139,
     "check_interval": 600
   }
 }
