@@ -113,7 +113,7 @@
         "76561198033879793": 6204.0,
         "76561198046477600": 9153.0,
         "76561198995689034": 2799.0,
-        "76561199139664790": 0.0
+        "76561199139664790": 3375.0
       },
       "VT Controlsphere Intermediate S5 80%": {
         "76561198000452332": 0.0,
@@ -530,7 +530,7 @@
         "76561198017954362": 101.0,
         "76561198348625808": 68.0,
         "76561199164422123": 78.0,
-        "76561198033879793": 78.0,
+        "76561198033879793": 83.0,
         "76561198046477600": 83.0,
         "76561198995689034": 0.0,
         "76561199139664790": 0.0
@@ -655,7 +655,7 @@
         "76561198033879793": "2026-05-13 14:27:00",
         "76561198046477600": "2026-05-23 04:33:22",
         "76561198995689034": "2026-05-13 14:27:00",
-        "76561199139664790": "2026-05-29 21:38:51"
+        "76561199139664790": "2026-06-03 04:05:31"
       },
       "VT Controlsphere Intermediate S5 80%": {
         "76561198000452332": "2026-05-13 14:27:00",
@@ -1072,7 +1072,7 @@
         "76561198017954362": "2026-05-13 14:27:00",
         "76561198348625808": "2026-05-29 04:04:12",
         "76561199164422123": "2026-05-29 21:38:51",
-        "76561198033879793": "2026-06-03 03:55:13",
+        "76561198033879793": "2026-06-03 04:05:31",
         "76561198046477600": "2026-05-26 03:27:30",
         "76561198995689034": "2026-05-13 14:27:00",
         "76561199139664790": "2026-05-29 21:38:51"
@@ -1259,9 +1259,9 @@
         "completed_count": 36,
         "points": 69.67,
         "has_streak": true,
-        "weekly_pbs": 7,
+        "weekly_pbs": 6,
         "total_pbs": 43,
-        "active_days": 3,
+        "active_days": 2,
         "position_change": 0
       },
       {
@@ -1287,10 +1287,10 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 37.96,
-        "has_streak": false,
-        "weekly_pbs": 21,
-        "total_pbs": 29,
+        "points": 38.17,
+        "has_streak": true,
+        "weekly_pbs": 22,
+        "total_pbs": 30,
         "active_days": 5,
         "position_change": 0
       },
@@ -1331,12 +1331,12 @@
         "rank_idx": 0,
         "rank_name": "Unranked",
         "crown_count": 0,
-        "completed_count": 7,
-        "points": 1.98,
+        "completed_count": 8,
+        "points": 2.17,
         "has_streak": false,
-        "weekly_pbs": 7,
-        "total_pbs": 7,
-        "active_days": 3,
+        "weekly_pbs": 8,
+        "total_pbs": 8,
+        "active_days": 4,
         "position_change": 0
       }
     ],
@@ -1740,7 +1740,20 @@
       "Floating Heads Timing 400% Larger": "Linear",
       "voxTargetSwitch Click": "Linear"
     },
-    "recent_overtakes": [],
+    "recent_overtakes": [
+      {
+        "scenario_name": "1w2ts Pasu Perfected Easy",
+        "winner_sid": "76561198033879793",
+        "loser_sid": "76561199164422123",
+        "timestamp": "2026-06-03 04:05:31"
+      },
+      {
+        "scenario_name": "Controlsphere rAim Easy 90%",
+        "winner_sid": "76561199139664790",
+        "loser_sid": "76561198995689034",
+        "timestamp": "2026-06-03 04:05:31"
+      }
+    ],
     "active_rivalries": [
       {
         "chaser_sid": "76561199164422123",
@@ -1965,6 +1978,16 @@
       {
         "chaser_sid": "76561198995689034",
         "chaser_name": "@Haruno",
+        "target_sid": "76561199139664790",
+        "target_name": "@Billyos",
+        "scenario_name": "Controlsphere rAim Easy 90%",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
+      },
+      {
+        "chaser_sid": "76561198995689034",
+        "chaser_name": "@Haruno",
         "target_sid": "76561198348625808",
         "target_name": "@Christine",
         "scenario_name": "Air Voltaic Invincible 7 Easy 80%",
@@ -2153,6 +2176,16 @@
         "total_overtakes": 1
       },
       {
+        "chaser_sid": "76561199164422123",
+        "chaser_name": "@Olioli",
+        "target_sid": "76561198033879793",
+        "target_name": "@CoachCam",
+        "scenario_name": "1w2ts Pasu Perfected Easy",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
+      },
+      {
         "chaser_sid": "76561198033879793",
         "chaser_name": "@CoachCam",
         "target_sid": "76561199164422123",
@@ -2163,7 +2196,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780458925.835529,
+    "last_poll": 1780459545.739369,
     "check_interval": 600
   },
   "687": {
@@ -4010,7 +4043,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780458925.894441,
+    "last_poll": 1780459545.798879,
     "check_interval": 600
   },
   "688": {
@@ -5677,7 +5710,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780458925.951334,
+    "last_poll": 1780459545.855097,
     "check_interval": 600
   }
 }
