@@ -469,7 +469,7 @@
         "76561198045952875": 0.0,
         "76561198017954362": 78.0,
         "76561198348625808": 27.0,
-        "76561199164422123": 52.0,
+        "76561199164422123": 59.0,
         "76561198033879793": 47.0,
         "76561198046477600": 63.0,
         "76561198995689034": 0.0,
@@ -1011,7 +1011,7 @@
         "76561198045952875": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-13 14:27:00",
         "76561198348625808": "2026-05-27 02:25:13",
-        "76561199164422123": "2026-06-04 03:55:57",
+        "76561199164422123": "2026-06-04 04:06:27",
         "76561198033879793": "2026-06-02 03:33:26",
         "76561198046477600": "2026-05-26 02:00:09",
         "76561198995689034": "2026-05-13 14:27:00",
@@ -1272,10 +1272,10 @@
         "rank_name": "Lemming",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 49.36,
+        "points": 49.67,
         "has_streak": true,
-        "weekly_pbs": 29,
-        "total_pbs": 41,
+        "weekly_pbs": 30,
+        "total_pbs": 42,
         "active_days": 3,
         "position_change": 0
       },
@@ -1304,7 +1304,7 @@
         "completed_count": 36,
         "points": 28.99,
         "has_streak": false,
-        "weekly_pbs": 24,
+        "weekly_pbs": 23,
         "total_pbs": 71,
         "active_days": 3,
         "position_change": 0
@@ -1741,18 +1741,6 @@
       "voxTargetSwitch Click": "Linear"
     },
     "recent_overtakes": [
-      {
-        "scenario_name": "1w2ts Pasu Perfected Easy",
-        "winner_sid": "76561198033879793",
-        "loser_sid": "76561199164422123",
-        "timestamp": "2026-06-03 04:05:31"
-      },
-      {
-        "scenario_name": "Controlsphere rAim Easy 90%",
-        "winner_sid": "76561199139664790",
-        "loser_sid": "76561198995689034",
-        "timestamp": "2026-06-03 04:05:31"
-      },
       {
         "scenario_name": "VT Controlsphere Intermediate S5 80%",
         "winner_sid": "76561199139664790",
@@ -2316,7 +2304,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780545381.381618,
+    "last_poll": 1780546005.147124,
     "check_interval": 600
   },
   "687": {
@@ -3624,7 +3612,7 @@
         "completed_count": 5,
         "points": 1.7,
         "has_streak": false,
-        "weekly_pbs": 5,
+        "weekly_pbs": 4,
         "total_pbs": 12,
         "active_days": 2,
         "position_change": 0
@@ -4170,7 +4158,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780545381.443677,
+    "last_poll": 1780546005.208923,
     "check_interval": 600
   },
   "688": {
@@ -5837,7 +5825,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780545381.503279,
+    "last_poll": 1780546005.26733,
     "check_interval": 600
   }
 }
