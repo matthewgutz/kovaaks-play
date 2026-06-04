@@ -1,5 +1,12 @@
 [
   {
+    "id": 479,
+    "player_name": "Olioli",
+    "event_type": "pb",
+    "message": "**B180 Voltaic Easy 92%** \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-06-04 04:06:27"
+  },
+  {
     "id": 478,
     "player_name": "CoachCam",
     "event_type": "consolidated",
@@ -691,12 +698,5 @@
     "event_type": "consolidated",
     "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udf89 **Pokeball Frenzy Auto TE Wide**\n- \ud83c\udf89 **voxTargetSwitch 2 Large**",
     "timestamp": "2026-05-27 03:07:04"
-  },
-  {
-    "id": 305,
-    "player_name": "Christine",
-    "event_type": "consolidated",
-    "message": "Consolidated [3 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udf89 **beanTS Larger**\n- \ud83c\udf89 **FloatTS Angelic Easy Larger**\n- \ud83c\udf89 **waldoTS Novice**",
-    "timestamp": "2026-05-27 02:56:41"
   }
 ]
