@@ -94,7 +94,7 @@
         "76561198045952875": 0.0,
         "76561198017954362": 2622.0,
         "76561198348625808": 1456.0,
-        "76561199164422123": 1997.0,
+        "76561199164422123": 2078.0,
         "76561198033879793": 1550.0,
         "76561198046477600": 2152.0,
         "76561198995689034": 1027.0,
@@ -545,7 +545,7 @@
         "76561198017954362": 1226.0,
         "76561198348625808": 760.0,
         "76561199164422123": 814.0,
-        "76561198033879793": 564.0,
+        "76561198033879793": 850.0,
         "76561198046477600": 944.0,
         "76561198995689034": 0.0,
         "76561199139664790": 0.0
@@ -636,7 +636,7 @@
         "76561198045952875": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-13 14:27:00",
         "76561198348625808": "2026-05-29 03:12:18",
-        "76561199164422123": "2026-05-13 14:27:00",
+        "76561199164422123": "2026-06-04 03:45:21",
         "76561198033879793": "2026-05-13 14:27:00",
         "76561198046477600": "2026-05-23 04:28:05",
         "76561198995689034": "2026-05-13 14:27:00",
@@ -1087,7 +1087,7 @@
         "76561198017954362": "2026-05-13 14:27:00",
         "76561198348625808": "2026-05-29 03:53:50",
         "76561199164422123": "2026-05-29 21:38:51",
-        "76561198033879793": "2026-05-13 14:27:00",
+        "76561198033879793": "2026-06-04 03:45:21",
         "76561198046477600": "2026-06-03 02:53:30",
         "76561198995689034": "2026-05-13 14:27:00",
         "76561199139664790": "2026-05-29 21:38:51"
@@ -1258,7 +1258,7 @@
         "crown_count": 0,
         "completed_count": 36,
         "points": 69.81,
-        "has_streak": true,
+        "has_streak": false,
         "weekly_pbs": 8,
         "total_pbs": 45,
         "active_days": 2,
@@ -1272,10 +1272,10 @@
         "rank_name": "Lemming",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 48.78,
+        "points": 48.92,
         "has_streak": false,
-        "weekly_pbs": 30,
-        "total_pbs": 37,
+        "weekly_pbs": 26,
+        "total_pbs": 38,
         "active_days": 3,
         "position_change": 0
       },
@@ -1287,10 +1287,10 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 38.17,
+        "points": 39.06,
         "has_streak": true,
-        "weekly_pbs": 22,
-        "total_pbs": 30,
+        "weekly_pbs": 21,
+        "total_pbs": 31,
         "active_days": 5,
         "position_change": 0
       },
@@ -1304,7 +1304,7 @@
         "completed_count": 36,
         "points": 28.99,
         "has_streak": false,
-        "weekly_pbs": 30,
+        "weekly_pbs": 25,
         "total_pbs": 71,
         "active_days": 3,
         "position_change": 0
@@ -1776,6 +1776,18 @@
         "winner_sid": "76561198046477600",
         "loser_sid": "76561199164422123",
         "timestamp": "2026-06-03 05:07:23"
+      },
+      {
+        "scenario_name": "1w3ts Pasu Perfected Micro Goated Larger 80%",
+        "winner_sid": "76561198033879793",
+        "loser_sid": "76561199164422123",
+        "timestamp": "2026-06-04 03:45:21"
+      },
+      {
+        "scenario_name": "1w3ts Pasu Perfected Micro Goated Larger 80%",
+        "winner_sid": "76561198033879793",
+        "loser_sid": "76561198348625808",
+        "timestamp": "2026-06-04 03:45:21"
       }
     ],
     "active_rivalries": [
@@ -2230,6 +2242,26 @@
         "total_overtakes": 1
       },
       {
+        "chaser_sid": "76561199164422123",
+        "chaser_name": "@Olioli",
+        "target_sid": "76561198033879793",
+        "target_name": "@CoachCam",
+        "scenario_name": "1w3ts Pasu Perfected Micro Goated Larger 80%",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
+      },
+      {
+        "chaser_sid": "76561198348625808",
+        "chaser_name": "@Christine",
+        "target_sid": "76561198033879793",
+        "target_name": "@CoachCam",
+        "scenario_name": "1w3ts Pasu Perfected Micro Goated Larger 80%",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
+      },
+      {
         "chaser_sid": "76561198033879793",
         "chaser_name": "@CoachCam",
         "target_sid": "76561199164422123",
@@ -2240,7 +2272,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780463895.232573,
+    "last_poll": 1780544747.788047,
     "check_interval": 600
   },
   "687": {
@@ -3517,7 +3549,7 @@
         "crown_count": 0,
         "completed_count": 5,
         "points": 3.1,
-        "has_streak": true,
+        "has_streak": false,
         "weekly_pbs": 3,
         "total_pbs": 9,
         "active_days": 1,
@@ -3533,9 +3565,9 @@
         "completed_count": 5,
         "points": 2.26,
         "has_streak": false,
-        "weekly_pbs": 4,
+        "weekly_pbs": 3,
         "total_pbs": 5,
-        "active_days": 2,
+        "active_days": 1,
         "position_change": 0
       },
       {
@@ -4087,7 +4119,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780463895.293081,
+    "last_poll": 1780544747.851668,
     "check_interval": 600
   },
   "688": {
@@ -5754,7 +5786,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780463895.349293,
+    "last_poll": 1780544747.913259,
     "check_interval": 600
   }
 }
