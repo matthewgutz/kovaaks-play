@@ -1,5 +1,12 @@
 [
   {
+    "id": 488,
+    "player_name": "CoachCam",
+    "event_type": "pb",
+    "message": "**SmoothBot Invincible Goated 75%** \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-06-05 03:17:16"
+  },
+  {
     "id": 487,
     "player_name": "CoachCam",
     "event_type": "pb",
@@ -691,12 +698,5 @@
     "event_type": "arch_nemesis",
     "message": "No shield save you! @CoachCam hit @Laggiing and @Olioli again on [1w3ts reload Larger](https://matthewgutz.github.io/kovaaks-play/?scenario=1w3ts%20reload%20Larger)!",
     "timestamp": "2026-05-28 03:32:33"
-  },
-  {
-    "id": 318,
-    "player_name": "Christine",
-    "event_type": "consolidated",
-    "message": "Consolidated [2 updates] :\n- \ud83c\udf89 **Whisphere 80%**\n- \ud83c\udf89 **SmoothBot Invincible Goated 75%**",
-    "timestamp": "2026-05-28 03:22:25"
   }
 ]
