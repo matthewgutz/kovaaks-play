@@ -1,5 +1,12 @@
 [
   {
+    "id": 492,
+    "player_name": "Laggiing",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates] :\n- \ud83c\udf89 **WhisphereRawControl Larger + Slowed**\n- \ud83c\udf89 **Whisphere 80%**",
+    "timestamp": "2026-06-06 22:18:31"
+  },
+  {
     "id": 489,
     "player_name": "Laggiing",
     "event_type": "pb",
@@ -690,13 +697,6 @@
     "player_name": "Olioli",
     "event_type": "consolidated",
     "message": "Consolidated [3 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udf89 **WhisphereRawControl Larger + Slowed**\n- \ud83c\udf89 **Whisphere 80%**\n- \ud83c\udf89 **waldoTS Novice**",
-    "timestamp": "2026-05-28 03:32:44"
-  },
-  {
-    "id": 326,
-    "player_name": "Christine",
-    "event_type": "consolidated",
-    "message": "Consolidated [3 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udf89 **Controlsphere rAim Easy 90%**\n- \ud83c\udf89 **VT Controlsphere Intermediate S5 80%**\n- \ud83c\udf89 **Air Angelic 4 Voltaic Easy 80% (Good Version)**",
     "timestamp": "2026-05-28 03:32:44"
   }
 ]
