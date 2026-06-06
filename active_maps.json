@@ -9,7 +9,13 @@
     "benchmark_id": "686",
     "benchmark_name": "Easier",
     "scenario_name": "Whisphere 80%",
-    "update_count": 23
+    "update_count": 24
+  },
+  {
+    "benchmark_id": "686",
+    "benchmark_name": "Easier",
+    "scenario_name": "WhisphereRawControl Larger + Slowed",
+    "update_count": 22
   },
   {
     "benchmark_id": "686",
@@ -21,12 +27,6 @@
     "benchmark_id": "686",
     "benchmark_name": "Easier",
     "scenario_name": "devTS Goated NR Static 5Bot",
-    "update_count": 22
-  },
-  {
-    "benchmark_id": "686",
-    "benchmark_name": "Easier",
-    "scenario_name": "waldoTS Novice",
     "update_count": 22
   }
 ]
