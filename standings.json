@@ -51,7 +51,7 @@
         "76561198348625808": 5394.0,
         "76561199164422123": 8913.0,
         "76561198033879793": 5814.0,
-        "76561198046477600": 11013.0,
+        "76561198046477600": 11601.0,
         "76561198995689034": 1764.0,
         "76561199139664790": 2772.0
       },
@@ -66,7 +66,7 @@
         "76561198348625808": 7770.0,
         "76561199164422123": 9170.0,
         "76561198033879793": 7930.0,
-        "76561198046477600": 11350.0,
+        "76561198046477600": 12630.0,
         "76561198995689034": 3300.0,
         "76561199139664790": 4150.0
       },
@@ -593,7 +593,7 @@
         "76561198348625808": "2026-05-30 04:33:55",
         "76561199164422123": "2026-05-28 03:32:33",
         "76561198033879793": "2026-05-29 03:22:39",
-        "76561198046477600": "2026-06-03 02:12:05",
+        "76561198046477600": "2026-06-06 22:18:16",
         "76561198995689034": "2026-05-13 14:27:00",
         "76561199139664790": "2026-05-29 21:38:51"
       },
@@ -608,7 +608,7 @@
         "76561198348625808": "2026-05-30 04:33:55",
         "76561199164422123": "2026-06-02 03:23:00",
         "76561198033879793": "2026-06-05 02:56:37",
-        "76561198046477600": "2026-05-13 14:27:00",
+        "76561198046477600": "2026-06-06 22:18:16",
         "76561198995689034": "2026-05-13 14:27:00",
         "76561199139664790": "2026-05-30 07:13:02"
       },
@@ -1243,7 +1243,7 @@
         "crown_count": 36,
         "completed_count": 36,
         "points": 92.82,
-        "has_streak": true,
+        "has_streak": false,
         "weekly_pbs": 4,
         "total_pbs": 9,
         "active_days": 1,
@@ -1257,11 +1257,11 @@
         "rank_name": "Ermine",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 69.86,
+        "points": 70.52,
         "has_streak": false,
-        "weekly_pbs": 9,
-        "total_pbs": 46,
-        "active_days": 3,
+        "weekly_pbs": 11,
+        "total_pbs": 48,
+        "active_days": 4,
         "position_change": 0
       },
       {
@@ -1274,9 +1274,9 @@
         "completed_count": 36,
         "points": 49.67,
         "has_streak": false,
-        "weekly_pbs": 22,
+        "weekly_pbs": 10,
         "total_pbs": 42,
-        "active_days": 3,
+        "active_days": 2,
         "position_change": 0
       },
       {
@@ -1288,10 +1288,10 @@
         "crown_count": 0,
         "completed_count": 36,
         "points": 39.96,
-        "has_streak": true,
-        "weekly_pbs": 18,
+        "has_streak": false,
+        "weekly_pbs": 17,
         "total_pbs": 36,
-        "active_days": 6,
+        "active_days": 5,
         "position_change": 0
       },
       {
@@ -1304,9 +1304,9 @@
         "completed_count": 36,
         "points": 28.99,
         "has_streak": false,
-        "weekly_pbs": 15,
+        "weekly_pbs": 0,
         "total_pbs": 71,
-        "active_days": 2,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -1334,9 +1334,9 @@
         "completed_count": 11,
         "points": 5.17,
         "has_streak": false,
-        "weekly_pbs": 11,
+        "weekly_pbs": 4,
         "total_pbs": 11,
-        "active_days": 3,
+        "active_days": 1,
         "position_change": 0
       }
     ],
@@ -1740,14 +1740,7 @@
       "Floating Heads Timing 400% Larger": "Linear",
       "voxTargetSwitch Click": "Linear"
     },
-    "recent_overtakes": [
-      {
-        "scenario_name": "Whisphere 80%",
-        "winner_sid": "76561198033879793",
-        "loser_sid": "76561198348625808",
-        "timestamp": "2026-06-05 02:56:37"
-      }
-    ],
+    "recent_overtakes": [],
     "active_rivalries": [
       {
         "chaser_sid": "76561198033879793",
@@ -2250,7 +2243,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780632540.251166,
+    "last_poll": 1780784313.858469,
     "check_interval": 600
   },
   "687": {
@@ -3543,9 +3536,9 @@
         "completed_count": 5,
         "points": 2.26,
         "has_streak": false,
-        "weekly_pbs": 2,
+        "weekly_pbs": 0,
         "total_pbs": 5,
-        "active_days": 1,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -3558,9 +3551,9 @@
         "completed_count": 5,
         "points": 1.7,
         "has_streak": false,
-        "weekly_pbs": 2,
+        "weekly_pbs": 0,
         "total_pbs": 12,
-        "active_days": 1,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -3575,7 +3568,7 @@
         "has_streak": false,
         "weekly_pbs": 1,
         "total_pbs": 1,
-        "active_days": 2,
+        "active_days": 1,
         "position_change": 0
       },
       {
@@ -4097,7 +4090,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780632540.316204,
+    "last_poll": 1780784313.92458,
     "check_interval": 600
   },
   "688": {
@@ -5297,9 +5290,9 @@
         "completed_count": 12,
         "points": 2.89,
         "has_streak": false,
-        "weekly_pbs": 6,
+        "weekly_pbs": 0,
         "total_pbs": 10,
-        "active_days": 1,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -5312,9 +5305,9 @@
         "completed_count": 1,
         "points": 0.33,
         "has_streak": false,
-        "weekly_pbs": 1,
+        "weekly_pbs": 0,
         "total_pbs": 1,
-        "active_days": 1,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -5342,9 +5335,9 @@
         "completed_count": 1,
         "points": 0.28,
         "has_streak": false,
-        "weekly_pbs": 1,
+        "weekly_pbs": 0,
         "total_pbs": 3,
-        "active_days": 1,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -5389,7 +5382,7 @@
         "has_streak": false,
         "weekly_pbs": 0,
         "total_pbs": 0,
-        "active_days": 1,
+        "active_days": 0,
         "position_change": 0
       }
     ],
@@ -5764,7 +5757,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780632540.378107,
+    "last_poll": 1780784313.986401,
     "check_interval": 600
   }
 }
