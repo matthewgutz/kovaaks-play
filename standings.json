@@ -63,7 +63,7 @@
         "76561198129757659": 0.0,
         "76561198045952875": 0.0,
         "76561198017954362": 15570.0,
-        "76561198348625808": 7770.0,
+        "76561198348625808": 7980.0,
         "76561199164422123": 9170.0,
         "76561198033879793": 7930.0,
         "76561198046477600": 12630.0,
@@ -605,7 +605,7 @@
         "76561198129757659": "2026-05-13 14:27:00",
         "76561198045952875": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-13 14:27:00",
-        "76561198348625808": "2026-05-30 04:33:55",
+        "76561198348625808": "2026-06-07 03:19:35",
         "76561199164422123": "2026-06-02 03:23:00",
         "76561198033879793": "2026-06-05 02:56:37",
         "76561198046477600": "2026-06-06 22:18:16",
@@ -1302,10 +1302,10 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 29.09,
+        "points": 29.15,
         "has_streak": false,
-        "weekly_pbs": 1,
-        "total_pbs": 72,
+        "weekly_pbs": 2,
+        "total_pbs": 73,
         "active_days": 1,
         "position_change": 0
       },
@@ -1746,9 +1746,25 @@
         "winner_sid": "76561198348625808",
         "loser_sid": "76561198033879793",
         "timestamp": "2026-06-07 03:09:15"
+      },
+      {
+        "scenario_name": "Whisphere 80%",
+        "winner_sid": "76561198348625808",
+        "loser_sid": "76561198033879793",
+        "timestamp": "2026-06-07 03:19:35"
       }
     ],
     "active_rivalries": [
+      {
+        "chaser_sid": "76561198033879793",
+        "chaser_name": "@CoachCam",
+        "target_sid": "76561198348625808",
+        "target_name": "@Christine",
+        "scenario_name": "Whisphere 80%",
+        "chaser_overtakes_target": 1,
+        "target_overtakes_chaser": 2,
+        "total_overtakes": 3
+      },
       {
         "chaser_sid": "76561198033879793",
         "chaser_name": "@CoachCam",
@@ -1778,16 +1794,6 @@
         "chaser_overtakes_target": 1,
         "target_overtakes_chaser": 2,
         "total_overtakes": 3
-      },
-      {
-        "chaser_sid": "76561198348625808",
-        "chaser_name": "@Christine",
-        "target_sid": "76561198033879793",
-        "target_name": "@CoachCam",
-        "scenario_name": "Whisphere 80%",
-        "chaser_overtakes_target": 1,
-        "target_overtakes_chaser": 1,
-        "total_overtakes": 2
       },
       {
         "chaser_sid": "76561198348625808",
@@ -2260,7 +2266,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780801770.065673,
+    "last_poll": 1780802388.423877,
     "check_interval": 600
   },
   "687": {
@@ -4107,7 +4113,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780801770.127955,
+    "last_poll": 1780802388.487056,
     "check_interval": 600
   },
   "688": {
@@ -5774,7 +5780,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780801770.187901,
+    "last_poll": 1780802388.545661,
     "check_interval": 600
   }
 }
