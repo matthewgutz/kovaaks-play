@@ -1,5 +1,12 @@
 [
   {
+    "id": 512,
+    "player_name": "Christine",
+    "event_type": "pain_point",
+    "message": "So close! @Christine smell @CoachCam butt on [voxTargetSwitch 2 Large](<https://matthewgutz.github.io/kovaaks-play/?scenario=voxTargetSwitch%202%20Large&_t=1>)! \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-06-07 05:44:08"
+  },
+  {
     "id": 511,
     "player_name": "Christine",
     "event_type": "pb",
@@ -691,12 +698,5 @@
     "event_type": "pb",
     "message": "**Leaptrack Goated 60% Larger** \ud83d\udd25 Hot Streak!",
     "timestamp": "2026-05-29 03:12:18"
-  },
-  {
-    "id": 343,
-    "player_name": "Olioli",
-    "event_type": "consolidated",
-    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udf89 **Controlsphere rAim Easy 90%**\n- \ud83c\udf89 **cloverRawControl Easy 80% Speed**",
-    "timestamp": "2026-05-29 03:02:07"
   }
 ]
