@@ -1,5 +1,12 @@
 [
   {
+    "id": 498,
+    "player_name": "Christine",
+    "event_type": "arch_nemesis",
+    "message": "No shield save you! @Christine hit @CoachCam again on [Whisphere 80%](<https://matthewgutz.github.io/kovaaks-play/?scenario=Whisphere%2080%25&_t=1>)!",
+    "timestamp": "2026-06-07 03:19:35"
+  },
+  {
     "id": 497,
     "player_name": "Christine",
     "event_type": "overtake",
@@ -691,12 +698,5 @@
     "event_type": "pb",
     "message": "**Whisphere Small & Slow 55%** \ud83d\udd25 Hot Streak!",
     "timestamp": "2026-05-28 03:53:15"
-  },
-  {
-    "id": 332,
-    "player_name": "Olioli",
-    "event_type": "consolidated",
-    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83d\udd25 Nemesis fight! @Olioli take lead BACK from @Christine on [waldoTS Novice](https://matthewgutz.github.io/kovaaks-play/?scenario=waldoTS%20Novice)!\n- \ud83d\udd25 No shield save you! @Olioli hit @Christine again on [devTS Goated NR Static 5Bot](https://matthewgutz.github.io/kovaaks-play/?scenario=devTS%20Goated%20NR%20Static%205Bot)!",
-    "timestamp": "2026-05-28 03:43:03"
   }
 ]
