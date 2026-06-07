@@ -1,5 +1,12 @@
 [
   {
+    "id": 517,
+    "player_name": "Laggiing",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udf89 **Air Voltaic Invincible 7 Easy 80%**\n- \ud83c\udf89 **Controlsphere OW Long Strafes 90%**",
+    "timestamp": "2026-06-07 17:52:31"
+  },
+  {
     "id": 514,
     "player_name": "Laggiing",
     "event_type": "pb",
@@ -690,13 +697,6 @@
     "player_name": "CoachCam",
     "event_type": "pb",
     "message": "**WhisphereRawControl Larger + Slowed** \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-29 03:22:39"
-  },
-  {
-    "id": 350,
-    "player_name": "Christine",
-    "event_type": "pb",
-    "message": "**voxTargetSwitch Click** \ud83d\udd25 Hot Streak!",
     "timestamp": "2026-05-29 03:22:39"
   }
 ]
