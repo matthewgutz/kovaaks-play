@@ -48,7 +48,7 @@
         "76561198129757659": 0.0,
         "76561198045952875": 0.0,
         "76561198017954362": 12570.0,
-        "76561198348625808": 5394.0,
+        "76561198348625808": 5823.0,
         "76561199164422123": 8913.0,
         "76561198033879793": 5814.0,
         "76561198046477600": 11601.0,
@@ -590,7 +590,7 @@
         "76561198129757659": "2026-05-13 14:27:00",
         "76561198045952875": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-13 14:27:00",
-        "76561198348625808": "2026-05-30 04:33:55",
+        "76561198348625808": "2026-06-07 03:09:15",
         "76561199164422123": "2026-05-28 03:32:33",
         "76561198033879793": "2026-05-29 03:22:39",
         "76561198046477600": "2026-06-06 22:18:16",
@@ -1302,11 +1302,11 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 28.99,
+        "points": 29.09,
         "has_streak": false,
-        "weekly_pbs": 0,
-        "total_pbs": 71,
-        "active_days": 0,
+        "weekly_pbs": 1,
+        "total_pbs": 72,
+        "active_days": 1,
         "position_change": 0
       },
       {
@@ -1740,7 +1740,14 @@
       "Floating Heads Timing 400% Larger": "Linear",
       "voxTargetSwitch Click": "Linear"
     },
-    "recent_overtakes": [],
+    "recent_overtakes": [
+      {
+        "scenario_name": "WhisphereRawControl Larger + Slowed",
+        "winner_sid": "76561198348625808",
+        "loser_sid": "76561198033879793",
+        "timestamp": "2026-06-07 03:09:15"
+      }
+    ],
     "active_rivalries": [
       {
         "chaser_sid": "76561198033879793",
@@ -1941,6 +1948,16 @@
         "chaser_overtakes_target": 1,
         "target_overtakes_chaser": 1,
         "total_overtakes": 2
+      },
+      {
+        "chaser_sid": "76561198033879793",
+        "chaser_name": "@CoachCam",
+        "target_sid": "76561198348625808",
+        "target_name": "@Christine",
+        "scenario_name": "WhisphereRawControl Larger + Slowed",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
       },
       {
         "chaser_sid": "76561198995689034",
@@ -2243,7 +2260,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780786817.985115,
+    "last_poll": 1780801770.065673,
     "check_interval": 600
   },
   "687": {
@@ -4090,7 +4107,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780786818.048675,
+    "last_poll": 1780801770.127955,
     "check_interval": 600
   },
   "688": {
@@ -5757,7 +5774,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780786818.108138,
+    "last_poll": 1780801770.187901,
     "check_interval": 600
   }
 }
