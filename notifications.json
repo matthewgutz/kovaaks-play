@@ -1,5 +1,12 @@
 [
   {
+    "id": 506,
+    "player_name": "Christine",
+    "event_type": "consolidated",
+    "message": "Consolidated [3 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udf89 **Air Angelic 4 Voltaic Easy 80% (Good Version)**\n- \ud83c\udf89 **cloverRawControl Easy 80% Speed**\n- \ud83c\udf89 **Controlsphere Far, Far Larger 90%**",
+    "timestamp": "2026-06-07 04:21:47"
+  },
+  {
     "id": 502,
     "player_name": "Christine",
     "event_type": "consolidated",
@@ -691,12 +698,5 @@
     "event_type": "arch_nemesis",
     "message": "No shield save you! @Christine hit @Olioli again on [devTS Goated NR Static 5Bot](https://matthewgutz.github.io/kovaaks-play/?scenario=devTS%20Goated%20NR%20Static%205Bot)! \ud83d\udd25 Hot Streak!",
     "timestamp": "2026-05-28 04:13:53"
-  },
-  {
-    "id": 335,
-    "player_name": "Christine",
-    "event_type": "pain_point",
-    "message": "Almost touch! @Christine twitch, miss @Olioli by tiny bit on [devTS Goated NR Static 5Bot](https://matthewgutz.github.io/kovaaks-play/?scenario=devTS%20Goated%20NR%20Static%205Bot)!",
-    "timestamp": "2026-05-28 04:03:37"
   }
 ]
