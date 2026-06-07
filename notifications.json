@@ -1,5 +1,12 @@
 [
   {
+    "id": 499,
+    "player_name": "Christine",
+    "event_type": "pb",
+    "message": "**SmoothBot Invincible Goated 75%** \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-06-07 03:50:28"
+  },
+  {
     "id": 498,
     "player_name": "Christine",
     "event_type": "arch_nemesis",
@@ -691,12 +698,5 @@
     "event_type": "pain_point",
     "message": "So close! @Christine smell @Olioli butt on [devTS Goated NR Static 5Bot](https://matthewgutz.github.io/kovaaks-play/?scenario=devTS%20Goated%20NR%20Static%205Bot)! \ud83d\udd25 Hot Streak!",
     "timestamp": "2026-05-28 04:03:32"
-  },
-  {
-    "id": 333,
-    "player_name": "Christine",
-    "event_type": "pb",
-    "message": "**Whisphere Small & Slow 55%** \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-28 03:53:15"
   }
 ]
