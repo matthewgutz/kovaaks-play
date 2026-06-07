@@ -1,5 +1,12 @@
 [
   {
+    "id": 510,
+    "player_name": "Christine",
+    "event_type": "pb",
+    "message": "**Pokeball Frenzy Auto TE Wide** \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-06-07 05:23:28"
+  },
+  {
     "id": 509,
     "player_name": "Christine",
     "event_type": "pb",
@@ -691,12 +698,5 @@
     "event_type": "pb",
     "message": "**beanTS Larger** \ud83d\udd25 Hot Streak!",
     "timestamp": "2026-05-29 03:01:54"
-  },
-  {
-    "id": 339,
-    "player_name": "Christine",
-    "event_type": "pb",
-    "message": "**SmoothBot Invincible Goated 75%** \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-29 03:01:53"
   }
 ]
