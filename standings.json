@@ -393,7 +393,7 @@
         "76561198129757659": 0.0,
         "76561198045952875": 0.0,
         "76561198017954362": 133.34,
-        "76561198348625808": 105.6,
+        "76561198348625808": 108.0,
         "76561199164422123": 103.2,
         "76561198033879793": 106.5,
         "76561198046477600": 121.2,
@@ -935,7 +935,7 @@
         "76561198129757659": "2026-05-13 14:27:00",
         "76561198045952875": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-13 14:27:00",
-        "76561198348625808": "2026-05-29 04:45:33",
+        "76561198348625808": "2026-06-07 06:04:48",
         "76561199164422123": "2026-05-29 03:12:18",
         "76561198033879793": "2026-05-29 04:58:45",
         "76561198046477600": "2026-05-26 01:42:10",
@@ -1302,10 +1302,10 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 30.74,
+        "points": 30.82,
         "has_streak": true,
-        "weekly_pbs": 14,
-        "total_pbs": 85,
+        "weekly_pbs": 15,
+        "total_pbs": 86,
         "active_days": 1,
         "position_change": 0
       },
@@ -1764,6 +1764,12 @@
         "winner_sid": "76561198348625808",
         "loser_sid": "76561198033879793",
         "timestamp": "2026-06-07 04:11:14"
+      },
+      {
+        "scenario_name": "waldoTS Novice",
+        "winner_sid": "76561198348625808",
+        "loser_sid": "76561198033879793",
+        "timestamp": "2026-06-07 06:04:48"
       }
     ],
     "active_rivalries": [
@@ -1790,6 +1796,16 @@
       {
         "chaser_sid": "76561199164422123",
         "chaser_name": "@Olioli",
+        "target_sid": "76561198348625808",
+        "target_name": "@Christine",
+        "scenario_name": "waldoTS Novice",
+        "chaser_overtakes_target": 1,
+        "target_overtakes_chaser": 2,
+        "total_overtakes": 3
+      },
+      {
+        "chaser_sid": "76561198033879793",
+        "chaser_name": "@CoachCam",
         "target_sid": "76561198348625808",
         "target_name": "@Christine",
         "scenario_name": "waldoTS Novice",
@@ -1903,16 +1919,6 @@
         "target_sid": "76561199164422123",
         "target_name": "@Olioli",
         "scenario_name": "FloatTS Angelic Easy Larger",
-        "chaser_overtakes_target": 1,
-        "target_overtakes_chaser": 1,
-        "total_overtakes": 2
-      },
-      {
-        "chaser_sid": "76561198348625808",
-        "chaser_name": "@Christine",
-        "target_sid": "76561198033879793",
-        "target_name": "@CoachCam",
-        "scenario_name": "waldoTS Novice",
         "chaser_overtakes_target": 1,
         "target_overtakes_chaser": 1,
         "total_overtakes": 2
@@ -2298,7 +2304,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780811061.821963,
+    "last_poll": 1780812303.350193,
     "check_interval": 600
   },
   "687": {
@@ -4145,7 +4151,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780811061.885742,
+    "last_poll": 1780812303.41363,
     "check_interval": 600
   },
   "688": {
@@ -5812,7 +5818,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780811061.945389,
+    "last_poll": 1780812303.473441,
     "check_interval": 600
   }
 }
