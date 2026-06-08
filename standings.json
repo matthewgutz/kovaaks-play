@@ -531,7 +531,7 @@
         "76561198348625808": 68.0,
         "76561199164422123": 80.0,
         "76561198033879793": 83.0,
-        "76561198046477600": 83.0,
+        "76561198046477600": 85.0,
         "76561198995689034": 0.0,
         "76561199139664790": 0.0
       },
@@ -1073,7 +1073,7 @@
         "76561198348625808": "2026-05-29 04:04:12",
         "76561199164422123": "2026-06-04 03:55:57",
         "76561198033879793": "2026-06-03 04:05:31",
-        "76561198046477600": "2026-05-26 03:27:30",
+        "76561198046477600": "2026-06-08 06:09:38",
         "76561198995689034": "2026-05-13 14:27:00",
         "76561199139664790": "2026-05-29 21:38:51"
       },
@@ -1257,11 +1257,11 @@
         "rank_name": "Ermine",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 72.11,
+        "points": 72.21,
         "has_streak": true,
-        "weekly_pbs": 16,
-        "total_pbs": 54,
-        "active_days": 4,
+        "weekly_pbs": 17,
+        "total_pbs": 55,
+        "active_days": 5,
         "position_change": 0
       },
       {
@@ -1289,9 +1289,9 @@
         "completed_count": 36,
         "points": 40.18,
         "has_streak": false,
-        "weekly_pbs": 17,
+        "weekly_pbs": 15,
         "total_pbs": 37,
-        "active_days": 6,
+        "active_days": 5,
         "position_change": 0
       },
       {
@@ -1742,24 +1742,6 @@
     },
     "recent_overtakes": [
       {
-        "scenario_name": "Leaptrack Goated 60% Larger",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-06-07 04:11:14"
-      },
-      {
-        "scenario_name": "Controlsphere rAim Easy 90%",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-06-07 04:11:14"
-      },
-      {
-        "scenario_name": "waldoTS Novice",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-06-07 06:04:48"
-      },
-      {
         "scenario_name": "voxTargetSwitch Click",
         "winner_sid": "76561198348625808",
         "loser_sid": "76561199164422123",
@@ -1776,6 +1758,12 @@
         "winner_sid": "76561198348625808",
         "loser_sid": "76561199164422123",
         "timestamp": "2026-06-08 03:55:37"
+      },
+      {
+        "scenario_name": "1w2ts Pasu Perfected Easy",
+        "winner_sid": "76561198046477600",
+        "loser_sid": "76561198033879793",
+        "timestamp": "2026-06-08 06:09:38"
       }
     ],
     "active_rivalries": [
@@ -2270,6 +2258,16 @@
         "total_overtakes": 1
       },
       {
+        "chaser_sid": "76561198033879793",
+        "chaser_name": "@CoachCam",
+        "target_sid": "76561198046477600",
+        "target_name": "@Laggiing",
+        "scenario_name": "1w2ts Pasu Perfected Easy",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
+      },
+      {
         "chaser_sid": "76561199164422123",
         "chaser_name": "@Olioli",
         "target_sid": "76561198033879793",
@@ -2320,7 +2318,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780891577.418781,
+    "last_poll": 1780898996.248622,
     "check_interval": 600
   },
   "687": {
@@ -3568,9 +3566,9 @@
         "completed_count": 36,
         "points": 44.91,
         "has_streak": false,
-        "weekly_pbs": 12,
+        "weekly_pbs": 9,
         "total_pbs": 13,
-        "active_days": 3,
+        "active_days": 2,
         "position_change": 0
       },
       {
@@ -4167,7 +4165,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780891577.483247,
+    "last_poll": 1780898996.313559,
     "check_interval": 600
   },
   "688": {
@@ -5834,7 +5832,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780891577.545266,
+    "last_poll": 1780898996.374081,
     "check_interval": 600
   }
 }
