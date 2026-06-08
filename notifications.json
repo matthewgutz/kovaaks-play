@@ -1,5 +1,12 @@
 [
   {
+    "id": 525,
+    "player_name": "Christine",
+    "event_type": "pb",
+    "message": "**waldoTS Novice** \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-06-08 04:05:55"
+  },
+  {
     "id": 524,
     "player_name": "Christine",
     "event_type": "consolidated",
@@ -690,13 +697,6 @@
     "player_name": "CoachCam",
     "event_type": "arch_nemesis",
     "message": "No shield save you! @CoachCam hit @Christine again on [Controlsphere Far, Far Larger 90%](https://matthewgutz.github.io/kovaaks-play/?scenario=Controlsphere%20Far%2C%20Far%20Larger%2090%25)! \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-29 03:43:32"
-  },
-  {
-    "id": 361,
-    "player_name": "Christine",
-    "event_type": "pb",
-    "message": "**Floating Heads Timing 400% Larger** \ud83d\udd25 Hot Streak!",
     "timestamp": "2026-05-29 03:43:32"
   }
 ]
