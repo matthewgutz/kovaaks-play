@@ -1,5 +1,12 @@
 [
   {
+    "id": 524,
+    "player_name": "Christine",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83d\udd25 Nemesis fight! @Christine take lead BACK from @Olioli on [1w3ts Pasu Perfected Micro Goated Larger 80%](<https://matthewgutz.github.io/kovaaks-play/?scenario=1w3ts%20Pasu%20Perfected%20Micro%20Goated%20Larger%2080%25&_t=1>)!\n- \ud83c\udf89 **Floating Heads Timing 400% Larger**",
+    "timestamp": "2026-06-08 03:55:48"
+  },
+  {
     "id": 521,
     "player_name": "CoachCam",
     "event_type": "arch_nemesis",
@@ -691,12 +698,5 @@
     "event_type": "pb",
     "message": "**Floating Heads Timing 400% Larger** \ud83d\udd25 Hot Streak!",
     "timestamp": "2026-05-29 03:43:32"
-  },
-  {
-    "id": 360,
-    "player_name": "CoachCam",
-    "event_type": "consolidated",
-    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udf89 **SmoothBot Invincible Goated 75%**\n- \ud83d\udd25 Nemesis fight! @CoachCam take lead BACK from @Christine on [cloverRawControl Easy 80% Speed](https://matthewgutz.github.io/kovaaks-play/?scenario=cloverRawControl%20Easy%2080%25%20Speed)!",
-    "timestamp": "2026-05-29 03:33:24"
   }
 ]
