@@ -319,7 +319,7 @@
         "76561198045952875": 0.0,
         "76561198017954362": 2790.0,
         "76561198348625808": 2280.0,
-        "76561199164422123": 2520.0,
+        "76561199164422123": 2550.0,
         "76561198033879793": 2070.0,
         "76561198046477600": 2520.0,
         "76561198995689034": 0.0,
@@ -334,7 +334,7 @@
         "76561198045952875": 0.0,
         "76561198017954362": 94.0,
         "76561198348625808": 72.0,
-        "76561199164422123": 79.0,
+        "76561199164422123": 84.0,
         "76561198033879793": 80.0,
         "76561198046477600": 82.0,
         "76561198995689034": 0.0,
@@ -364,7 +364,7 @@
         "76561198045952875": 0.0,
         "76561198017954362": 123.05,
         "76561198348625808": 96.55,
-        "76561199164422123": 92.0,
+        "76561199164422123": 102.0,
         "76561198033879793": 95.0,
         "76561198046477600": 113.0,
         "76561198995689034": 0.0,
@@ -379,7 +379,7 @@
         "76561198045952875": 0.0,
         "76561198017954362": 103.0,
         "76561198348625808": 82.4,
-        "76561199164422123": 87.2,
+        "76561199164422123": 88.0,
         "76561198033879793": 85.0,
         "76561198046477600": 91.0,
         "76561198995689034": 0.0,
@@ -861,7 +861,7 @@
         "76561198045952875": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-13 14:27:00",
         "76561198348625808": "2026-06-07 05:23:28",
-        "76561199164422123": "2026-05-29 21:38:51",
+        "76561199164422123": "2026-06-09 03:27:09",
         "76561198033879793": "2026-05-13 14:27:00",
         "76561198046477600": "2026-06-03 05:17:53",
         "76561198995689034": "2026-05-13 14:27:00",
@@ -876,7 +876,7 @@
         "76561198045952875": "2026-05-13 14:27:00",
         "76561198017954362": "2026-06-05 01:34:18",
         "76561198348625808": "2026-06-07 05:33:49",
-        "76561199164422123": "2026-05-29 21:38:51",
+        "76561199164422123": "2026-06-09 03:27:09",
         "76561198033879793": "2026-05-28 03:32:33",
         "76561198046477600": "2026-06-03 05:07:23",
         "76561198995689034": "2026-05-13 14:27:00",
@@ -906,7 +906,7 @@
         "76561198045952875": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-25 02:50:40",
         "76561198348625808": "2026-05-29 05:05:11",
-        "76561199164422123": "2026-05-13 14:27:00",
+        "76561199164422123": "2026-06-09 03:27:09",
         "76561198033879793": "2026-05-29 03:01:54",
         "76561198046477600": "2026-05-26 01:38:35",
         "76561198995689034": "2026-05-13 14:27:00",
@@ -921,7 +921,7 @@
         "76561198045952875": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-25 02:57:11",
         "76561198348625808": "2026-05-29 04:58:45",
-        "76561199164422123": "2026-06-04 03:55:57",
+        "76561199164422123": "2026-06-09 03:27:09",
         "76561198033879793": "2026-05-13 14:27:00",
         "76561198046477600": "2026-05-26 01:38:35",
         "76561198995689034": "2026-05-13 14:27:00",
@@ -1272,10 +1272,10 @@
         "rank_name": "Lemming",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 50.26,
+        "points": 50.83,
         "has_streak": true,
-        "weekly_pbs": 15,
-        "total_pbs": 47,
+        "weekly_pbs": 16,
+        "total_pbs": 51,
         "active_days": 4,
         "position_change": 0
       },
@@ -1289,7 +1289,7 @@
         "completed_count": 36,
         "points": 40.18,
         "has_streak": false,
-        "weekly_pbs": 14,
+        "weekly_pbs": 12,
         "total_pbs": 37,
         "active_days": 5,
         "position_change": 0
@@ -1776,6 +1776,36 @@
         "winner_sid": "76561199164422123",
         "loser_sid": "76561198033879793",
         "timestamp": "2026-06-09 03:16:46"
+      },
+      {
+        "scenario_name": "Pokeball Frenzy Auto TE Wide",
+        "winner_sid": "76561199164422123",
+        "loser_sid": "76561198046477600",
+        "timestamp": "2026-06-09 03:27:09"
+      },
+      {
+        "scenario_name": "1w3ts reload Larger",
+        "winner_sid": "76561199164422123",
+        "loser_sid": "76561198046477600",
+        "timestamp": "2026-06-09 03:27:09"
+      },
+      {
+        "scenario_name": "1w3ts reload Larger",
+        "winner_sid": "76561199164422123",
+        "loser_sid": "76561198033879793",
+        "timestamp": "2026-06-09 03:27:09"
+      },
+      {
+        "scenario_name": "beanTS Larger",
+        "winner_sid": "76561199164422123",
+        "loser_sid": "76561198348625808",
+        "timestamp": "2026-06-09 03:27:09"
+      },
+      {
+        "scenario_name": "beanTS Larger",
+        "winner_sid": "76561199164422123",
+        "loser_sid": "76561198033879793",
+        "timestamp": "2026-06-09 03:27:09"
       }
     ],
     "active_rivalries": [
@@ -1787,6 +1817,26 @@
         "scenario_name": "Whisphere 80%",
         "chaser_overtakes_target": 1,
         "target_overtakes_chaser": 2,
+        "total_overtakes": 3
+      },
+      {
+        "chaser_sid": "76561198046477600",
+        "chaser_name": "@Laggiing",
+        "target_sid": "76561199164422123",
+        "target_name": "@Olioli",
+        "scenario_name": "Pokeball Frenzy Auto TE Wide",
+        "chaser_overtakes_target": 1,
+        "target_overtakes_chaser": 2,
+        "total_overtakes": 3
+      },
+      {
+        "chaser_sid": "76561198046477600",
+        "chaser_name": "@Laggiing",
+        "target_sid": "76561199164422123",
+        "target_name": "@Olioli",
+        "scenario_name": "1w3ts reload Larger",
+        "chaser_overtakes_target": 2,
+        "target_overtakes_chaser": 1,
         "total_overtakes": 3
       },
       {
@@ -1890,16 +1940,6 @@
         "total_overtakes": 2
       },
       {
-        "chaser_sid": "76561198046477600",
-        "chaser_name": "@Laggiing",
-        "target_sid": "76561199164422123",
-        "target_name": "@Olioli",
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "chaser_overtakes_target": 1,
-        "target_overtakes_chaser": 1,
-        "total_overtakes": 2
-      },
-      {
         "chaser_sid": "76561198348625808",
         "chaser_name": "@Christine",
         "target_sid": "76561198046477600",
@@ -1907,16 +1947,6 @@
         "scenario_name": "Pokeball Frenzy Auto TE Wide",
         "chaser_overtakes_target": 1,
         "target_overtakes_chaser": 1,
-        "total_overtakes": 2
-      },
-      {
-        "chaser_sid": "76561199164422123",
-        "chaser_name": "@Olioli",
-        "target_sid": "76561198046477600",
-        "target_name": "@Laggiing",
-        "scenario_name": "1w3ts reload Larger",
-        "chaser_overtakes_target": 0,
-        "target_overtakes_chaser": 2,
         "total_overtakes": 2
       },
       {
@@ -1934,7 +1964,27 @@
         "chaser_name": "@CoachCam",
         "target_sid": "76561199164422123",
         "target_name": "@Olioli",
+        "scenario_name": "1w3ts reload Larger",
+        "chaser_overtakes_target": 1,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 2
+      },
+      {
+        "chaser_sid": "76561198033879793",
+        "chaser_name": "@CoachCam",
+        "target_sid": "76561199164422123",
+        "target_name": "@Olioli",
         "scenario_name": "voxTargetSwitch 2 Large",
+        "chaser_overtakes_target": 1,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 2
+      },
+      {
+        "chaser_sid": "76561198348625808",
+        "chaser_name": "@Christine",
+        "target_sid": "76561199164422123",
+        "target_name": "@Olioli",
+        "scenario_name": "beanTS Larger",
         "chaser_overtakes_target": 1,
         "target_overtakes_chaser": 1,
         "total_overtakes": 2
@@ -2170,20 +2220,10 @@
         "total_overtakes": 1
       },
       {
-        "chaser_sid": "76561199164422123",
-        "chaser_name": "@Olioli",
-        "target_sid": "76561198033879793",
-        "target_name": "@CoachCam",
-        "scenario_name": "1w3ts reload Larger",
-        "chaser_overtakes_target": 0,
-        "target_overtakes_chaser": 1,
-        "total_overtakes": 1
-      },
-      {
-        "chaser_sid": "76561199164422123",
-        "chaser_name": "@Olioli",
-        "target_sid": "76561198348625808",
-        "target_name": "@Christine",
+        "chaser_sid": "76561198033879793",
+        "chaser_name": "@CoachCam",
+        "target_sid": "76561199164422123",
+        "target_name": "@Olioli",
         "scenario_name": "beanTS Larger",
         "chaser_overtakes_target": 0,
         "target_overtakes_chaser": 1,
@@ -2350,7 +2390,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780975022.771754,
+    "last_poll": 1780975641.693134,
     "check_interval": 600
   },
   "687": {
@@ -2673,7 +2713,7 @@
         "76561198129757659": 0.0,
         "76561198017954362": 2790.0,
         "76561198348625808": 2280.0,
-        "76561199164422123": 2520.0,
+        "76561199164422123": 2550.0,
         "76561198033879793": 2070.0,
         "76561198046477600": 2520.0,
         "76561198995689034": 0.0,
@@ -3215,7 +3255,7 @@
         "76561198129757659": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-13 14:27:00",
         "76561198348625808": "2026-06-07 05:23:34",
-        "76561199164422123": "2026-05-29 21:39:04",
+        "76561199164422123": "2026-06-09 03:27:14",
         "76561198033879793": "2026-05-13 14:27:00",
         "76561198046477600": "2026-06-03 05:18:02",
         "76561198995689034": "2026-05-13 14:27:00",
@@ -3598,7 +3638,7 @@
         "completed_count": 36,
         "points": 44.91,
         "has_streak": false,
-        "weekly_pbs": 6,
+        "weekly_pbs": 4,
         "total_pbs": 13,
         "active_days": 2,
         "position_change": 0
@@ -3641,11 +3681,11 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 5,
-        "points": 2.26,
+        "points": 2.3,
         "has_streak": false,
-        "weekly_pbs": 0,
-        "total_pbs": 5,
-        "active_days": 0,
+        "weekly_pbs": 1,
+        "total_pbs": 6,
+        "active_days": 1,
         "position_change": 0
       },
       {
@@ -4094,8 +4134,25 @@
       "Floating Heads Timing 400% Larger": "Linear",
       "voxTargetClick 20% Small": "Linear"
     },
-    "recent_overtakes": [],
+    "recent_overtakes": [
+      {
+        "scenario_name": "Pokeball Frenzy Auto TE Wide",
+        "winner_sid": "76561199164422123",
+        "loser_sid": "76561198046477600",
+        "timestamp": "2026-06-09 03:27:14"
+      }
+    ],
     "active_rivalries": [
+      {
+        "chaser_sid": "76561198046477600",
+        "chaser_name": "@Laggiing",
+        "target_sid": "76561199164422123",
+        "target_name": "@Olioli",
+        "scenario_name": "Pokeball Frenzy Auto TE Wide",
+        "chaser_overtakes_target": 1,
+        "target_overtakes_chaser": 2,
+        "total_overtakes": 3
+      },
       {
         "chaser_sid": "76561199164422123",
         "chaser_name": "@Olioli",
@@ -4105,16 +4162,6 @@
         "chaser_overtakes_target": 1,
         "target_overtakes_chaser": 2,
         "total_overtakes": 3
-      },
-      {
-        "chaser_sid": "76561198046477600",
-        "chaser_name": "@Laggiing",
-        "target_sid": "76561199164422123",
-        "target_name": "@Olioli",
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "chaser_overtakes_target": 1,
-        "target_overtakes_chaser": 1,
-        "total_overtakes": 2
       },
       {
         "chaser_sid": "76561198348625808",
@@ -4197,7 +4244,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780975022.839361,
+    "last_poll": 1780975641.759279,
     "check_interval": 600
   },
   "688": {
@@ -5871,7 +5918,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780975022.90285,
+    "last_poll": 1780975641.823591,
     "check_interval": 600
   }
 }
