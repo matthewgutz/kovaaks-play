@@ -1,5 +1,12 @@
 [
   {
+    "id": 547,
+    "player_name": "Christine",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udf89 **1w2ts Pasu Perfected Easy**\n- \ud83c\udf89 **1w3ts Pasu Perfected Micro Goated Larger 80%**",
+    "timestamp": "2026-06-09 20:03:48"
+  },
+  {
     "id": 544,
     "player_name": "Christine",
     "event_type": "pb",
@@ -691,12 +698,5 @@
     "event_type": "overtake",
     "message": "[Silent Run] Whack-a-mole! @Christine smash targets, smash @CoachCam and @Olioli on [beanTS Larger](<https://matthewgutz.github.io/kovaaks-play/?scenario=beanTS%20Larger>)!",
     "timestamp": "2026-05-29 05:05:11"
-  },
-  {
-    "id": 379,
-    "player_name": "CoachCam",
-    "event_type": "arch_nemesis",
-    "message": "[Silent Run] No shield save you! @CoachCam hit @Christine again on [waldoTS Novice](<https://matthewgutz.github.io/kovaaks-play/?scenario=waldoTS%20Novice>)!",
-    "timestamp": "2026-05-29 04:58:45"
   }
 ]
