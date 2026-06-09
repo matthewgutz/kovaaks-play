@@ -336,7 +336,7 @@
         "76561198348625808": 72.0,
         "76561199164422123": 84.0,
         "76561198033879793": 80.0,
-        "76561198046477600": 82.0,
+        "76561198046477600": 85.0,
         "76561198995689034": 0.0,
         "76561199139664790": 0.0
       },
@@ -878,7 +878,7 @@
         "76561198348625808": "2026-06-07 05:33:49",
         "76561199164422123": "2026-06-09 03:27:09",
         "76561198033879793": "2026-05-28 03:32:33",
-        "76561198046477600": "2026-06-03 05:07:23",
+        "76561198046477600": "2026-06-09 04:08:28",
         "76561198995689034": "2026-05-13 14:27:00",
         "76561199139664790": "2026-05-29 21:38:51"
       },
@@ -1257,11 +1257,11 @@
         "rank_name": "Ermine",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 72.58,
-        "has_streak": false,
-        "weekly_pbs": 18,
-        "total_pbs": 56,
-        "active_days": 5,
+        "points": 72.68,
+        "has_streak": true,
+        "weekly_pbs": 19,
+        "total_pbs": 57,
+        "active_days": 6,
         "position_change": 0
       },
       {
@@ -1303,7 +1303,7 @@
         "crown_count": 0,
         "completed_count": 36,
         "points": 31.51,
-        "has_streak": true,
+        "has_streak": false,
         "weekly_pbs": 19,
         "total_pbs": 90,
         "active_days": 2,
@@ -1742,12 +1742,6 @@
     },
     "recent_overtakes": [
       {
-        "scenario_name": "1w3ts Pasu Perfected Micro Goated Larger 80%",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561199164422123",
-        "timestamp": "2026-06-08 03:55:37"
-      },
-      {
         "scenario_name": "1w2ts Pasu Perfected Easy",
         "winner_sid": "76561198046477600",
         "loser_sid": "76561198033879793",
@@ -1806,9 +1800,25 @@
         "winner_sid": "76561199164422123",
         "loser_sid": "76561198033879793",
         "timestamp": "2026-06-09 03:37:27"
+      },
+      {
+        "scenario_name": "1w3ts reload Larger",
+        "winner_sid": "76561198046477600",
+        "loser_sid": "76561199164422123",
+        "timestamp": "2026-06-09 04:08:28"
       }
     ],
     "active_rivalries": [
+      {
+        "chaser_sid": "76561199164422123",
+        "chaser_name": "@Olioli",
+        "target_sid": "76561198046477600",
+        "target_name": "@Laggiing",
+        "scenario_name": "1w3ts reload Larger",
+        "chaser_overtakes_target": 1,
+        "target_overtakes_chaser": 3,
+        "total_overtakes": 4
+      },
       {
         "chaser_sid": "76561198348625808",
         "chaser_name": "@Christine",
@@ -1837,16 +1847,6 @@
         "scenario_name": "Pokeball Frenzy Auto TE Wide",
         "chaser_overtakes_target": 1,
         "target_overtakes_chaser": 2,
-        "total_overtakes": 3
-      },
-      {
-        "chaser_sid": "76561198046477600",
-        "chaser_name": "@Laggiing",
-        "target_sid": "76561199164422123",
-        "target_name": "@Olioli",
-        "scenario_name": "1w3ts reload Larger",
-        "chaser_overtakes_target": 2,
-        "target_overtakes_chaser": 1,
         "total_overtakes": 3
       },
       {
@@ -2400,7 +2400,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780976881.033367,
+    "last_poll": 1780978124.406895,
     "check_interval": 600
   },
   "687": {
@@ -4254,7 +4254,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780976881.100299,
+    "last_poll": 1780978124.483699,
     "check_interval": 600
   },
   "688": {
@@ -5928,7 +5928,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1780976881.163504,
+    "last_poll": 1780978124.546554,
     "check_interval": 600
   }
 }
