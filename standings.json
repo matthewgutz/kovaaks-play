@@ -1244,9 +1244,9 @@
         "completed_count": 36,
         "points": 92.82,
         "has_streak": false,
-        "weekly_pbs": 4,
+        "weekly_pbs": 0,
         "total_pbs": 9,
-        "active_days": 1,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -1259,9 +1259,9 @@
         "completed_count": 36,
         "points": 72.68,
         "has_streak": false,
-        "weekly_pbs": 19,
+        "weekly_pbs": 0,
         "total_pbs": 57,
-        "active_days": 6,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -1273,10 +1273,10 @@
         "crown_count": 0,
         "completed_count": 36,
         "points": 51.49,
-        "has_streak": true,
-        "weekly_pbs": 16,
+        "has_streak": false,
+        "weekly_pbs": 0,
         "total_pbs": 53,
-        "active_days": 3,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -1289,9 +1289,9 @@
         "completed_count": 36,
         "points": 40.18,
         "has_streak": false,
-        "weekly_pbs": 10,
+        "weekly_pbs": 0,
         "total_pbs": 37,
-        "active_days": 4,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -1303,10 +1303,10 @@
         "crown_count": 0,
         "completed_count": 36,
         "points": 32.86,
-        "has_streak": true,
-        "weekly_pbs": 28,
+        "has_streak": false,
+        "weekly_pbs": 0,
         "total_pbs": 99,
-        "active_days": 3,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -1334,9 +1334,9 @@
         "completed_count": 11,
         "points": 5.17,
         "has_streak": false,
-        "weekly_pbs": 4,
+        "weekly_pbs": 0,
         "total_pbs": 11,
-        "active_days": 1,
+        "active_days": 0,
         "position_change": 0
       }
     ],
@@ -1740,74 +1740,7 @@
       "Floating Heads Timing 400% Larger": "Linear",
       "voxTargetSwitch Click": "Linear"
     },
-    "recent_overtakes": [
-      {
-        "scenario_name": "PGTI Voltaic Easy 80%",
-        "winner_sid": "76561199164422123",
-        "loser_sid": "76561198046477600",
-        "timestamp": "2026-06-09 03:16:46"
-      },
-      {
-        "scenario_name": "Polarized Hell Easy 40% Slower",
-        "winner_sid": "76561199164422123",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-06-09 03:16:46"
-      },
-      {
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "winner_sid": "76561199164422123",
-        "loser_sid": "76561198046477600",
-        "timestamp": "2026-06-09 03:27:09"
-      },
-      {
-        "scenario_name": "1w3ts reload Larger",
-        "winner_sid": "76561199164422123",
-        "loser_sid": "76561198046477600",
-        "timestamp": "2026-06-09 03:27:09"
-      },
-      {
-        "scenario_name": "1w3ts reload Larger",
-        "winner_sid": "76561199164422123",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-06-09 03:27:09"
-      },
-      {
-        "scenario_name": "beanTS Larger",
-        "winner_sid": "76561199164422123",
-        "loser_sid": "76561198348625808",
-        "timestamp": "2026-06-09 03:27:09"
-      },
-      {
-        "scenario_name": "beanTS Larger",
-        "winner_sid": "76561199164422123",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-06-09 03:27:09"
-      },
-      {
-        "scenario_name": "waldoTS Novice",
-        "winner_sid": "76561199164422123",
-        "loser_sid": "76561198348625808",
-        "timestamp": "2026-06-09 03:37:27"
-      },
-      {
-        "scenario_name": "waldoTS Novice",
-        "winner_sid": "76561199164422123",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-06-09 03:37:27"
-      },
-      {
-        "scenario_name": "1w3ts reload Larger",
-        "winner_sid": "76561198046477600",
-        "loser_sid": "76561199164422123",
-        "timestamp": "2026-06-09 04:08:28"
-      },
-      {
-        "scenario_name": "domiSwitch Easy Slower",
-        "winner_sid": "76561198348625808",
-        "loser_sid": "76561198033879793",
-        "timestamp": "2026-06-09 20:24:54"
-      }
-    ],
+    "recent_overtakes": [],
     "active_rivalries": [
       {
         "chaser_sid": "76561199164422123",
@@ -2410,7 +2343,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1781036717.920084,
+    "last_poll": 1781662684.048217,
     "check_interval": 600
   },
   "687": {
@@ -2656,7 +2589,7 @@
         "76561198028775210": 0.0,
         "76561198038568603": 0.0,
         "76561198129757659": 0.0,
-        "76561198017954362": 6030.0,
+        "76561198017954362": 7230.0,
         "76561198348625808": 0.0,
         "76561199164422123": 0.0,
         "76561198033879793": 0.0,
@@ -2686,7 +2619,7 @@
         "76561198028775210": 0.0,
         "76561198038568603": 0.0,
         "76561198129757659": 0.0,
-        "76561198017954362": 1961.0,
+        "76561198017954362": 2347.0,
         "76561198348625808": 0.0,
         "76561199164422123": 0.0,
         "76561198033879793": 0.0,
@@ -2761,7 +2694,7 @@
         "76561198028775210": 0.0,
         "76561198038568603": 0.0,
         "76561198129757659": 0.0,
-        "76561198017954362": 90.0,
+        "76561198017954362": 99.9,
         "76561198348625808": 0.0,
         "76561199164422123": 0.0,
         "76561198033879793": 72.65,
@@ -3198,7 +3131,7 @@
         "76561198028775210": "2026-05-13 14:27:00",
         "76561198038568603": "2026-05-13 14:27:00",
         "76561198129757659": "2026-05-13 14:27:00",
-        "76561198017954362": "2026-06-02 01:08:27",
+        "76561198017954362": "2026-06-17 02:07:19",
         "76561198348625808": "2000-01-01 00:00:00",
         "76561199164422123": "2026-05-13 14:27:00",
         "76561198033879793": "2026-05-13 14:27:00",
@@ -3228,7 +3161,7 @@
         "76561198028775210": "2026-05-13 14:27:00",
         "76561198038568603": "2026-05-13 14:27:00",
         "76561198129757659": "2026-05-13 14:27:00",
-        "76561198017954362": "2026-05-13 14:27:00",
+        "76561198017954362": "2026-06-17 02:17:51",
         "76561198348625808": "2000-01-01 00:00:00",
         "76561199164422123": "2026-05-13 14:27:00",
         "76561198033879793": "2026-05-13 14:27:00",
@@ -3303,7 +3236,7 @@
         "76561198028775210": "2026-05-13 14:27:00",
         "76561198038568603": "2026-05-13 14:27:00",
         "76561198129757659": "2026-05-13 14:27:00",
-        "76561198017954362": "2026-05-13 14:27:00",
+        "76561198017954362": "2026-06-17 02:07:19",
         "76561198348625808": "2000-01-01 00:00:00",
         "76561199164422123": "2026-05-13 14:27:00",
         "76561198033879793": "2026-05-13 14:27:00",
@@ -3656,11 +3589,11 @@
         "rank_name": "Vermillion",
         "crown_count": 36,
         "completed_count": 36,
-        "points": 45.67,
-        "has_streak": false,
+        "points": 47.06,
+        "has_streak": true,
         "weekly_pbs": 3,
-        "total_pbs": 15,
-        "active_days": 2,
+        "total_pbs": 18,
+        "active_days": 1,
         "position_change": 0
       },
       {
@@ -3673,9 +3606,9 @@
         "completed_count": 6,
         "points": 2.3,
         "has_streak": false,
-        "weekly_pbs": 1,
+        "weekly_pbs": 0,
         "total_pbs": 4,
-        "active_days": 1,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -3688,9 +3621,9 @@
         "completed_count": 5,
         "points": 3.1,
         "has_streak": false,
-        "weekly_pbs": 3,
+        "weekly_pbs": 0,
         "total_pbs": 9,
-        "active_days": 1,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -3703,9 +3636,9 @@
         "completed_count": 5,
         "points": 2.45,
         "has_streak": false,
-        "weekly_pbs": 2,
+        "weekly_pbs": 0,
         "total_pbs": 7,
-        "active_days": 1,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -3718,9 +3651,9 @@
         "completed_count": 5,
         "points": 1.98,
         "has_streak": false,
-        "weekly_pbs": 3,
+        "weekly_pbs": 0,
         "total_pbs": 15,
-        "active_days": 3,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -3733,9 +3666,9 @@
         "completed_count": 1,
         "points": 0.31,
         "has_streak": false,
-        "weekly_pbs": 1,
+        "weekly_pbs": 0,
         "total_pbs": 1,
-        "active_days": 1,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -4154,14 +4087,7 @@
       "Floating Heads Timing 400% Larger": "Linear",
       "voxTargetClick 20% Small": "Linear"
     },
-    "recent_overtakes": [
-      {
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "winner_sid": "76561199164422123",
-        "loser_sid": "76561198046477600",
-        "timestamp": "2026-06-09 03:27:14"
-      }
-    ],
+    "recent_overtakes": [],
     "active_rivalries": [
       {
         "chaser_sid": "76561198046477600",
@@ -4264,7 +4190,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1781036717.989936,
+    "last_poll": 1781662684.116098,
     "check_interval": 600
   },
   "688": {
@@ -5479,9 +5405,9 @@
         "completed_count": 1,
         "points": 0.33,
         "has_streak": false,
-        "weekly_pbs": 1,
+        "weekly_pbs": 0,
         "total_pbs": 2,
-        "active_days": 1,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -5494,9 +5420,9 @@
         "completed_count": 1,
         "points": 0.33,
         "has_streak": false,
-        "weekly_pbs": 1,
+        "weekly_pbs": 0,
         "total_pbs": 4,
-        "active_days": 1,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -5509,9 +5435,9 @@
         "completed_count": 1,
         "points": 0.3,
         "has_streak": false,
-        "weekly_pbs": 1,
+        "weekly_pbs": 0,
         "total_pbs": 4,
-        "active_days": 1,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -5888,14 +5814,7 @@
       "Floating Heads Timing 400% FIXED": "Linear",
       "VoxTargetSwitch Click Small": "Linear"
     },
-    "recent_overtakes": [
-      {
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "winner_sid": "76561199164422123",
-        "loser_sid": "76561198046477600",
-        "timestamp": "2026-06-09 03:16:58"
-      }
-    ],
+    "recent_overtakes": [],
     "active_rivalries": [
       {
         "chaser_sid": "76561198046477600",
@@ -5938,7 +5857,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1781036718.056452,
+    "last_poll": 1781662684.180762,
     "check_interval": 600
   }
 }
