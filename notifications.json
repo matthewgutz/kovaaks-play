@@ -1,5 +1,12 @@
 [
   {
+    "id": 554,
+    "player_name": "BakaOppai",
+    "event_type": "pb",
+    "message": "**Polarized Hell Easy 20% Slower** \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-06-17 02:17:51"
+  },
+  {
     "id": 553,
     "player_name": "Christine",
     "event_type": "overtake",
@@ -690,13 +697,6 @@
     "player_name": "Christine",
     "event_type": "consolidated",
     "message": "Consolidated [3 updates]  \ud83d\udd25 Hot Streak!:\n- \ud83c\udf89 **Air Pure Intermediate Slower No UFO**\n- \ud83c\udf89 **Air Voltaic Easy Invincible 4 80%**\n- \u2694\ufe0f Whack-a-mole! @Christine smash targets, smash @CoachCam on [Pokeball Frenzy Auto TE Wide](<https://matthewgutz.github.io/kovaaks-play/?scenario=Pokeball%20Frenzy%20Auto%20TE%20Wide>)!",
-    "timestamp": "2026-05-29 05:30:50"
-  },
-  {
-    "id": 387,
-    "player_name": "Christine",
-    "event_type": "overtake",
-    "message": "Goo guy rage! @Christine eat @CoachCam score on [Pokeball Frenzy Auto TE Wide](<https://matthewgutz.github.io/kovaaks-play/?scenario=Pokeball%20Frenzy%20Auto%20TE%20Wide>). Yum yum!",
     "timestamp": "2026-05-29 05:30:50"
   }
 ]
