@@ -1,5 +1,12 @@
 [
   {
+    "id": 558,
+    "player_name": "Olioli",
+    "event_type": "pb",
+    "message": "**SmoothBot Invincible Goated 75%**",
+    "timestamp": "2026-07-02 03:15:51"
+  },
+  {
     "id": 557,
     "player_name": "Olioli",
     "event_type": "pb",
@@ -690,13 +697,6 @@
     "player_name": "Olioli",
     "event_type": "overtake",
     "message": "[Silent Run] Squirrel fall! @Olioli shoot @CoachCam out of tree on [1wall5targets_pasu slow](<https://matthewgutz.github.io/kovaaks-play/?scenario=1wall5targets_pasu%20slow&_t=1>)!",
-    "timestamp": "2026-05-29 21:38:51"
-  },
-  {
-    "id": 391,
-    "player_name": "Olioli",
-    "event_type": "arch_nemesis",
-    "message": "[Silent Run] Nemesis fight! @Olioli take lead BACK from @Christine on [FloatTS Angelic Easy Larger](<https://matthewgutz.github.io/kovaaks-play/?scenario=FloatTS%20Angelic%20Easy%20Larger&_t=1>)!",
     "timestamp": "2026-05-29 21:38:51"
   }
 ]
