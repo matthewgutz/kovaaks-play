@@ -14,6 +14,12 @@
   {
     "benchmark_id": "686",
     "benchmark_name": "Easier",
+    "scenario_name": "WhisphereRawControl Larger + Slowed",
+    "update_count": 25
+  },
+  {
+    "benchmark_id": "686",
+    "benchmark_name": "Easier",
     "scenario_name": "waldoTS Novice",
     "update_count": 25
   },
@@ -21,12 +27,6 @@
     "benchmark_id": "686",
     "benchmark_name": "Easier",
     "scenario_name": "1w2ts Pasu Perfected Easy",
-    "update_count": 24
-  },
-  {
-    "benchmark_id": "686",
-    "benchmark_name": "Easier",
-    "scenario_name": "Leaptrack Goated 60% Larger",
     "update_count": 24
   }
 ]
