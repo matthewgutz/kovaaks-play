@@ -1,5 +1,12 @@
 [
   {
+    "id": 559,
+    "player_name": "Olioli",
+    "event_type": "pb",
+    "message": "**Leaptrack Goated 60% Larger** \ud83d\udd25 Hot Streak!",
+    "timestamp": "2026-07-03 02:52:01"
+  },
+  {
     "id": 558,
     "player_name": "Olioli",
     "event_type": "pb",
@@ -690,13 +697,6 @@
     "player_name": "Olioli",
     "event_type": "arch_nemesis",
     "message": "[Silent Run] No shield save you! @Olioli hit @Christine again on [1w3ts Pasu Perfected Micro Goated Larger 80%](<https://matthewgutz.github.io/kovaaks-play/?scenario=1w3ts%20Pasu%20Perfected%20Micro%20Goated%20Larger%2080%25&_t=1>)!",
-    "timestamp": "2026-05-29 21:38:51"
-  },
-  {
-    "id": 392,
-    "player_name": "Olioli",
-    "event_type": "overtake",
-    "message": "[Silent Run] Squirrel fall! @Olioli shoot @CoachCam out of tree on [1wall5targets_pasu slow](<https://matthewgutz.github.io/kovaaks-play/?scenario=1wall5targets_pasu%20slow&_t=1>)!",
     "timestamp": "2026-05-29 21:38:51"
   }
 ]
