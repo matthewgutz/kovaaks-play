@@ -1,5 +1,12 @@
 [
   {
+    "id": 563,
+    "player_name": "Olioli",
+    "event_type": "consolidated",
+    "message": "Consolidated [2 updates] :\n- \ud83c\udf89 **VT Controlsphere Intermediate S5 80%**\n- \ud83c\udf89 **Controlsphere Far, Far Larger 90%**",
+    "timestamp": "2026-07-04 03:54:59"
+  },
+  {
     "id": 560,
     "player_name": "Olioli",
     "event_type": "pb",
@@ -691,12 +698,5 @@
     "event_type": "arch_nemesis",
     "message": "[Silent Run] Nemesis fight! @Olioli take lead BACK from @Laggiing on [Pokeball Frenzy Auto TE Wide](<https://matthewgutz.github.io/kovaaks-play/?scenario=Pokeball%20Frenzy%20Auto%20TE%20Wide&_t=1>)!",
     "timestamp": "2026-05-29 21:39:04"
-  },
-  {
-    "id": 394,
-    "player_name": "Olioli",
-    "event_type": "overtake",
-    "message": "[Silent Run] @Olioli bonk @CoachCam head on [Floating Heads Timing 400% Larger](<https://matthewgutz.github.io/kovaaks-play/?scenario=Floating%20Heads%20Timing%20400%25%20Larger&_t=1>). @CoachCam go back to lobby.",
-    "timestamp": "2026-05-29 21:38:51"
   }
 ]
