@@ -50,7 +50,7 @@
         "76561198017954362": 12570.0,
         "76561198348625808": 6459.0,
         "76561199164422123": 9036.0,
-        "76561198033879793": 5814.0,
+        "76561198033879793": 6849.0,
         "76561198046477600": 11601.0,
         "76561198995689034": 1764.0,
         "76561199139664790": 2772.0
@@ -592,7 +592,7 @@
         "76561198017954362": "2026-05-13 14:27:00",
         "76561198348625808": "2026-06-09 19:21:48",
         "76561199164422123": "2026-07-02 03:05:27",
-        "76561198033879793": "2026-05-29 03:22:39",
+        "76561198033879793": "2026-07-21 01:02:08",
         "76561198046477600": "2026-06-06 22:18:16",
         "76561198995689034": "2026-05-13 14:27:00",
         "76561199139664790": "2026-05-29 21:38:51"
@@ -1274,9 +1274,9 @@
         "completed_count": 36,
         "points": 52.57,
         "has_streak": false,
-        "weekly_pbs": 7,
+        "weekly_pbs": 0,
         "total_pbs": 60,
-        "active_days": 4,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -1287,10 +1287,10 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 40.48,
+        "points": 40.78,
         "has_streak": false,
         "weekly_pbs": 1,
-        "total_pbs": 38,
+        "total_pbs": 39,
         "active_days": 1,
         "position_change": 0
       },
@@ -1742,10 +1742,10 @@
     },
     "recent_overtakes": [
       {
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
+        "scenario_name": "WhisphereRawControl Larger + Slowed",
         "winner_sid": "76561198033879793",
         "loser_sid": "76561198348625808",
-        "timestamp": "2026-07-04 04:05:07"
+        "timestamp": "2026-07-21 01:02:08"
       }
     ],
     "active_rivalries": [
@@ -1828,6 +1828,16 @@
         "chaser_overtakes_target": 1,
         "target_overtakes_chaser": 2,
         "total_overtakes": 3
+      },
+      {
+        "chaser_sid": "76561198348625808",
+        "chaser_name": "@Christine",
+        "target_sid": "76561198033879793",
+        "target_name": "@CoachCam",
+        "scenario_name": "WhisphereRawControl Larger + Slowed",
+        "chaser_overtakes_target": 1,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 2
       },
       {
         "chaser_sid": "76561198348625808",
@@ -1988,16 +1998,6 @@
         "chaser_overtakes_target": 1,
         "target_overtakes_chaser": 1,
         "total_overtakes": 2
-      },
-      {
-        "chaser_sid": "76561198033879793",
-        "chaser_name": "@CoachCam",
-        "target_sid": "76561198348625808",
-        "target_name": "@Christine",
-        "scenario_name": "WhisphereRawControl Larger + Slowed",
-        "chaser_overtakes_target": 0,
-        "target_overtakes_chaser": 1,
-        "total_overtakes": 1
       },
       {
         "chaser_sid": "76561198995689034",
@@ -2350,7 +2350,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1783137921.130999,
+    "last_poll": 1784595742.99881,
     "check_interval": 600
   },
   "687": {
@@ -3613,9 +3613,9 @@
         "completed_count": 6,
         "points": 2.61,
         "has_streak": false,
-        "weekly_pbs": 1,
+        "weekly_pbs": 0,
         "total_pbs": 5,
-        "active_days": 1,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -4094,14 +4094,7 @@
       "Floating Heads Timing 400% Larger": "Linear",
       "voxTargetClick 20% Small": "Linear"
     },
-    "recent_overtakes": [
-      {
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "winner_sid": "76561198033879793",
-        "loser_sid": "76561198348625808",
-        "timestamp": "2026-07-04 04:05:13"
-      }
-    ],
+    "recent_overtakes": [],
     "active_rivalries": [
       {
         "chaser_sid": "76561198046477600",
@@ -4204,7 +4197,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1783137921.197451,
+    "last_poll": 1784595743.081204,
     "check_interval": 600
   },
   "688": {
@@ -5449,10 +5442,10 @@
         "completed_count": 1,
         "points": 0.31,
         "has_streak": false,
-        "weekly_pbs": 1,
+        "weekly_pbs": 0,
         "total_pbs": 1,
-        "active_days": 1,
-        "position_change": 1
+        "active_days": 0,
+        "position_change": 0
       },
       {
         "steam_id": "76561198348625808",
@@ -5467,7 +5460,7 @@
         "weekly_pbs": 0,
         "total_pbs": 4,
         "active_days": 0,
-        "position_change": -1
+        "position_change": 0
       },
       {
         "steam_id": "76561198995689034",
@@ -5828,14 +5821,7 @@
       "Floating Heads Timing 400% FIXED": "Linear",
       "VoxTargetSwitch Click Small": "Linear"
     },
-    "recent_overtakes": [
-      {
-        "scenario_name": "Pokeball Frenzy Auto TE Wide",
-        "winner_sid": "76561198033879793",
-        "loser_sid": "76561198348625808",
-        "timestamp": "2026-07-04 04:05:19"
-      }
-    ],
+    "recent_overtakes": [],
     "active_rivalries": [
       {
         "chaser_sid": "76561198046477600",
@@ -5878,7 +5864,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1783137921.260229,
+    "last_poll": 1784595743.153366,
     "check_interval": 600
   }
 }
