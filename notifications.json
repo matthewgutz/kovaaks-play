@@ -1,5 +1,12 @@
 [
   {
+    "id": 565,
+    "player_name": "CoachCam",
+    "event_type": "arch_nemesis",
+    "message": "No shield save you! @CoachCam hit @Christine again on [WhisphereRawControl Larger + Slowed](<https://matthewgutz.github.io/kovaaks-play/?scenario=WhisphereRawControl%20Larger%20%2B%20Slowed&_t=1>)!",
+    "timestamp": "2026-07-21 01:02:08"
+  },
+  {
     "id": 564,
     "player_name": "CoachCam",
     "event_type": "arch_nemesis",
@@ -691,12 +698,5 @@
     "event_type": "arch_nemesis",
     "message": "[Silent Run] No shield save you! @Olioli hit @Laggiing again on [Pokeball Frenzy Auto TE Wide](<https://matthewgutz.github.io/kovaaks-play/?scenario=Pokeball%20Frenzy%20Auto%20TE%20Wide&_t=1>)!",
     "timestamp": "2026-05-29 21:39:13"
-  },
-  {
-    "id": 396,
-    "player_name": "Olioli",
-    "event_type": "overtake",
-    "message": "[Silent Run] Sword lady diff! @Olioli pin @CoachCam score to wall on [Floating Heads Timing 400% Larger](<https://matthewgutz.github.io/kovaaks-play/?scenario=Floating%20Heads%20Timing%20400%25%20Larger&_t=1>)!",
-    "timestamp": "2026-05-29 21:39:04"
   }
 ]
