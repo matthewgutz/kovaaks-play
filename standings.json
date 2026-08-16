@@ -110,7 +110,7 @@
         "76561198017954362": 11853.0,
         "76561198348625808": 6267.0,
         "76561199164422123": 8409.0,
-        "76561198033879793": 6204.0,
+        "76561198033879793": 6309.0,
         "76561198046477600": 10095.0,
         "76561198995689034": 2799.0,
         "76561199139664790": 3375.0
@@ -652,7 +652,7 @@
         "76561198017954362": "2026-05-13 14:27:00",
         "76561198348625808": "2026-06-07 04:11:14",
         "76561199164422123": "2026-07-03 03:02:42",
-        "76561198033879793": "2026-05-13 14:27:00",
+        "76561198033879793": "2026-08-16 02:41:26",
         "76561198046477600": "2026-06-06 22:59:55",
         "76561198995689034": "2026-05-13 14:27:00",
         "76561199139664790": "2026-06-03 04:05:31"
@@ -1274,9 +1274,9 @@
         "completed_count": 36,
         "points": 52.82,
         "has_streak": false,
-        "weekly_pbs": 1,
+        "weekly_pbs": 0,
         "total_pbs": 61,
-        "active_days": 1,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -1287,11 +1287,11 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 40.96,
+        "points": 41.0,
         "has_streak": false,
-        "weekly_pbs": 3,
-        "total_pbs": 41,
-        "active_days": 2,
+        "weekly_pbs": 1,
+        "total_pbs": 42,
+        "active_days": 1,
         "position_change": 0
       },
       {
@@ -1740,7 +1740,14 @@
       "Floating Heads Timing 400% Larger": "Linear",
       "voxTargetSwitch Click": "Linear"
     },
-    "recent_overtakes": [],
+    "recent_overtakes": [
+      {
+        "scenario_name": "Controlsphere rAim Easy 90%",
+        "winner_sid": "76561198033879793",
+        "loser_sid": "76561198348625808",
+        "timestamp": "2026-08-16 02:41:26"
+      }
+    ],
     "active_rivalries": [
       {
         "chaser_sid": "76561199164422123",
@@ -1838,6 +1845,16 @@
         "target_sid": "76561198033879793",
         "target_name": "@CoachCam",
         "scenario_name": "Leaptrack Goated 60% Larger",
+        "chaser_overtakes_target": 1,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 2
+      },
+      {
+        "chaser_sid": "76561198348625808",
+        "chaser_name": "@Christine",
+        "target_sid": "76561198033879793",
+        "target_name": "@CoachCam",
+        "scenario_name": "Controlsphere rAim Easy 90%",
         "chaser_overtakes_target": 1,
         "target_overtakes_chaser": 1,
         "total_overtakes": 2
@@ -2028,16 +2045,6 @@
         "target_sid": "76561198348625808",
         "target_name": "@Christine",
         "scenario_name": "Leaptrack Goated 60% Larger",
-        "chaser_overtakes_target": 0,
-        "target_overtakes_chaser": 1,
-        "total_overtakes": 1
-      },
-      {
-        "chaser_sid": "76561198033879793",
-        "chaser_name": "@CoachCam",
-        "target_sid": "76561198348625808",
-        "target_name": "@Christine",
-        "scenario_name": "Controlsphere rAim Easy 90%",
         "chaser_overtakes_target": 0,
         "target_overtakes_chaser": 1,
         "total_overtakes": 1
@@ -2343,7 +2350,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1785023251.243242,
+    "last_poll": 1786848101.072688,
     "check_interval": 600
   },
   "687": {
@@ -4190,7 +4197,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1785023251.319317,
+    "last_poll": 1786848101.148701,
     "check_interval": 600
   },
   "688": {
@@ -5857,7 +5864,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1785023251.391812,
+    "last_poll": 1786848101.221631,
     "check_interval": 600
   }
 }
