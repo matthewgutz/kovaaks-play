@@ -1,5 +1,12 @@
 [
   {
+    "id": 572,
+    "player_name": "Olioli",
+    "event_type": "pb",
+    "message": "**WhisphereRawControl Larger + Slowed**",
+    "timestamp": "2026-08-21 02:40:46"
+  },
+  {
     "id": 571,
     "player_name": "BakaOppai",
     "event_type": "pb",
@@ -691,12 +698,5 @@
     "event_type": "pb",
     "message": "**cloverRawControl** \ud83d\udd25 Hot Streak!",
     "timestamp": "2026-05-30 14:54:23"
-  },
-  {
-    "id": 410,
-    "player_name": "BakaOppai",
-    "event_type": "pb",
-    "message": "**Controlsphere rAim** \ud83d\udd25 Hot Streak!",
-    "timestamp": "2026-05-30 14:33:32"
   }
 ]
