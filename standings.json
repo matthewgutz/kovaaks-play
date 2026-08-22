@@ -186,7 +186,7 @@
         "76561198348625808": 648.0,
         "76561199164422123": 1115.0,
         "76561198033879793": 692.0,
-        "76561198046477600": 1102.0,
+        "76561198046477600": 1301.0,
         "76561198995689034": 298.0,
         "76561199139664790": 0.0
       },
@@ -728,7 +728,7 @@
         "76561198348625808": "2026-05-24 04:40:08",
         "76561199164422123": "2026-06-09 03:16:46",
         "76561198033879793": "2026-06-01 04:14:42",
-        "76561198046477600": "2026-05-13 14:27:00",
+        "76561198046477600": "2026-08-22 05:46:10",
         "76561198995689034": "2026-05-31 04:24:11",
         "76561199139664790": "2026-05-29 21:38:51"
       },
@@ -1257,11 +1257,11 @@
         "rank_name": "Ermine",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 72.68,
+        "points": 72.96,
         "has_streak": false,
-        "weekly_pbs": 0,
-        "total_pbs": 57,
-        "active_days": 0,
+        "weekly_pbs": 1,
+        "total_pbs": 58,
+        "active_days": 1,
         "position_change": 0
       },
       {
@@ -1740,7 +1740,14 @@
       "Floating Heads Timing 400% Larger": "Linear",
       "voxTargetSwitch Click": "Linear"
     },
-    "recent_overtakes": [],
+    "recent_overtakes": [
+      {
+        "scenario_name": "PGTI Voltaic Easy 80%",
+        "winner_sid": "76561198046477600",
+        "loser_sid": "76561199164422123",
+        "timestamp": "2026-08-22 05:46:10"
+      }
+    ],
     "active_rivalries": [
       {
         "chaser_sid": "76561199164422123",
@@ -1868,6 +1875,16 @@
         "target_sid": "76561198033879793",
         "target_name": "@CoachCam",
         "scenario_name": "Controlsphere Far, Far Larger 90%",
+        "chaser_overtakes_target": 1,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 2
+      },
+      {
+        "chaser_sid": "76561199164422123",
+        "chaser_name": "@Olioli",
+        "target_sid": "76561198046477600",
+        "target_name": "@Laggiing",
+        "scenario_name": "PGTI Voltaic Easy 80%",
         "chaser_overtakes_target": 1,
         "target_overtakes_chaser": 1,
         "total_overtakes": 2
@@ -2078,16 +2095,6 @@
         "target_sid": "76561199139664790",
         "target_name": "@Billyos",
         "scenario_name": "Air Angelic 4 Voltaic Easy 80% (Good Version)",
-        "chaser_overtakes_target": 0,
-        "target_overtakes_chaser": 1,
-        "total_overtakes": 1
-      },
-      {
-        "chaser_sid": "76561198046477600",
-        "chaser_name": "@Laggiing",
-        "target_sid": "76561199164422123",
-        "target_name": "@Olioli",
-        "scenario_name": "PGTI Voltaic Easy 80%",
         "chaser_overtakes_target": 0,
         "target_overtakes_chaser": 1,
         "total_overtakes": 1
@@ -2343,7 +2350,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1787370155.992469,
+    "last_poll": 1787377583.169481,
     "check_interval": 600
   },
   "687": {
@@ -4190,7 +4197,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1787370156.069878,
+    "last_poll": 1787377583.250066,
     "check_interval": 600
   },
   "688": {
@@ -5857,7 +5864,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1787370156.144531,
+    "last_poll": 1787377583.326174,
     "check_interval": 600
   }
 }
