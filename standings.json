@@ -201,7 +201,7 @@
         "76561198348625808": 766.34,
         "76561199164422123": 864.4,
         "76561198033879793": 833.53,
-        "76561198046477600": 880.42,
+        "76561198046477600": 885.67,
         "76561198995689034": 707.68,
         "76561199139664790": 0.0
       },
@@ -743,7 +743,7 @@
         "76561198348625808": "2026-05-24 04:47:00",
         "76561199164422123": "2026-06-02 03:23:00",
         "76561198033879793": "2026-05-23 05:04:52",
-        "76561198046477600": "2026-06-07 17:41:55",
+        "76561198046477600": "2026-09-22 23:18:42",
         "76561198995689034": "2026-05-31 04:34:31",
         "76561199139664790": "2026-05-29 21:38:51"
       },
@@ -1244,9 +1244,9 @@
         "completed_count": 36,
         "points": 92.82,
         "has_streak": false,
-        "weekly_pbs": 2,
+        "weekly_pbs": 0,
         "total_pbs": 12,
-        "active_days": 2,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -1257,10 +1257,10 @@
         "rank_name": "Ermine",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 73.06,
+        "points": 73.37,
         "has_streak": false,
-        "weekly_pbs": 2,
-        "total_pbs": 59,
+        "weekly_pbs": 1,
+        "total_pbs": 60,
         "active_days": 1,
         "position_change": 0
       },
@@ -1274,9 +1274,9 @@
         "completed_count": 36,
         "points": 53.32,
         "has_streak": false,
-        "weekly_pbs": 2,
+        "weekly_pbs": 0,
         "total_pbs": 63,
-        "active_days": 1,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -1289,9 +1289,9 @@
         "completed_count": 36,
         "points": 41.0,
         "has_streak": false,
-        "weekly_pbs": 1,
+        "weekly_pbs": 0,
         "total_pbs": 42,
-        "active_days": 1,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -1740,14 +1740,7 @@
       "Floating Heads Timing 400% Larger": "Linear",
       "voxTargetSwitch Click": "Linear"
     },
-    "recent_overtakes": [
-      {
-        "scenario_name": "PGTI Voltaic Easy 80%",
-        "winner_sid": "76561198046477600",
-        "loser_sid": "76561199164422123",
-        "timestamp": "2026-08-22 05:46:10"
-      }
-    ],
+    "recent_overtakes": [],
     "active_rivalries": [
       {
         "chaser_sid": "76561199164422123",
@@ -2350,7 +2343,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1787450179.110833,
+    "last_poll": 1790119135.802992,
     "check_interval": 600
   },
   "687": {
@@ -3597,10 +3590,10 @@
         "crown_count": 36,
         "completed_count": 36,
         "points": 48.8,
-        "has_streak": true,
-        "weekly_pbs": 11,
+        "has_streak": false,
+        "weekly_pbs": 0,
         "total_pbs": 30,
-        "active_days": 4,
+        "active_days": 0,
         "position_change": 0
       },
       {
@@ -4197,7 +4190,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1787450179.189498,
+    "last_poll": 1790119135.884302,
     "check_interval": 600
   },
   "688": {
@@ -5864,7 +5857,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1787450179.263156,
+    "last_poll": 1790119135.960863,
     "check_interval": 600
   }
 }
