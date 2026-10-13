@@ -574,7 +574,7 @@
         "76561198045952875": 0.0,
         "76561198017954362": 91.0,
         "76561198348625808": 60.0,
-        "76561199164422123": 58.0,
+        "76561199164422123": 64.0,
         "76561198033879793": 61.0,
         "76561198046477600": 79.0,
         "76561198995689034": 0.0,
@@ -1116,7 +1116,7 @@
         "76561198045952875": "2026-05-13 14:27:00",
         "76561198017954362": "2026-05-13 14:27:00",
         "76561198348625808": "2026-06-08 03:34:57",
-        "76561199164422123": "2026-05-13 14:27:00",
+        "76561199164422123": "2026-10-13 02:38:37",
         "76561198033879793": "2026-06-04 03:55:58",
         "76561198046477600": "2026-05-27 03:27:54",
         "76561198995689034": "2026-05-13 14:27:00",
@@ -1272,10 +1272,10 @@
         "rank_name": "Lemming",
         "crown_count": 0,
         "completed_count": 36,
-        "points": 53.39,
+        "points": 53.64,
         "has_streak": false,
-        "weekly_pbs": 1,
-        "total_pbs": 64,
+        "weekly_pbs": 2,
+        "total_pbs": 65,
         "active_days": 1,
         "position_change": 0
       },
@@ -1740,7 +1740,20 @@
       "Floating Heads Timing 400% Larger": "Linear",
       "voxTargetSwitch Click": "Linear"
     },
-    "recent_overtakes": [],
+    "recent_overtakes": [
+      {
+        "scenario_name": "voxTargetSwitch Click",
+        "winner_sid": "76561199164422123",
+        "loser_sid": "76561198033879793",
+        "timestamp": "2026-10-13 02:38:37"
+      },
+      {
+        "scenario_name": "voxTargetSwitch Click",
+        "winner_sid": "76561199164422123",
+        "loser_sid": "76561198348625808",
+        "timestamp": "2026-10-13 02:38:37"
+      }
+    ],
     "active_rivalries": [
       {
         "chaser_sid": "76561199164422123",
@@ -2008,6 +2021,26 @@
         "target_sid": "76561198033879793",
         "target_name": "@CoachCam",
         "scenario_name": "Floating Heads Timing 400% Larger",
+        "chaser_overtakes_target": 1,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 2
+      },
+      {
+        "chaser_sid": "76561198033879793",
+        "chaser_name": "@CoachCam",
+        "target_sid": "76561199164422123",
+        "target_name": "@Olioli",
+        "scenario_name": "voxTargetSwitch Click",
+        "chaser_overtakes_target": 1,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 2
+      },
+      {
+        "chaser_sid": "76561198348625808",
+        "chaser_name": "@Christine",
+        "target_sid": "76561199164422123",
+        "target_name": "@Olioli",
+        "scenario_name": "voxTargetSwitch Click",
         "chaser_overtakes_target": 1,
         "target_overtakes_chaser": 1,
         "total_overtakes": 2
@@ -2321,29 +2354,9 @@
         "chaser_overtakes_target": 0,
         "target_overtakes_chaser": 1,
         "total_overtakes": 1
-      },
-      {
-        "chaser_sid": "76561199164422123",
-        "chaser_name": "@Olioli",
-        "target_sid": "76561198033879793",
-        "target_name": "@CoachCam",
-        "scenario_name": "voxTargetSwitch Click",
-        "chaser_overtakes_target": 0,
-        "target_overtakes_chaser": 1,
-        "total_overtakes": 1
-      },
-      {
-        "chaser_sid": "76561199164422123",
-        "chaser_name": "@Olioli",
-        "target_sid": "76561198348625808",
-        "target_name": "@Christine",
-        "scenario_name": "voxTargetSwitch Click",
-        "chaser_overtakes_target": 0,
-        "target_overtakes_chaser": 1,
-        "total_overtakes": 1
       }
     ],
-    "last_poll": 1791858512.450754,
+    "last_poll": 1791859130.797175,
     "check_interval": 600
   },
   "687": {
@@ -4190,7 +4203,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1791858512.529483,
+    "last_poll": 1791859130.875127,
     "check_interval": 600
   },
   "688": {
@@ -5857,7 +5870,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1791858512.606535,
+    "last_poll": 1791859130.947831,
     "check_interval": 600
   }
 }
