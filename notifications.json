@@ -1,5 +1,12 @@
 [
   {
+    "id": 598,
+    "player_name": "Olioli",
+    "event_type": "arch_nemesis",
+    "message": "No shield save you! @Olioli hit @CoachCam and @Christine again on [voxTargetSwitch Click](<https://matthewgutz.github.io/kovaaks-play/?scenario=voxTargetSwitch%20Click&_t=1>)!",
+    "timestamp": "2026-10-13 02:38:37"
+  },
+  {
     "id": 597,
     "player_name": "Olioli",
     "event_type": "pb",
@@ -691,12 +698,5 @@
     "event_type": "pb",
     "message": "**Floating Heads Timing 400% Larger**",
     "timestamp": "2026-06-03 02:32:42"
-  },
-  {
-    "id": 454,
-    "player_name": "Laggiing",
-    "event_type": "pb",
-    "message": "**WhisphereRawControl Larger + Slowed**",
-    "timestamp": "2026-06-03 02:12:05"
   }
 ]
