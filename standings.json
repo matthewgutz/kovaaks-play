@@ -2343,7 +2343,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1792264801.127212,
+    "last_poll": 1792266033.672291,
     "check_interval": 600
   },
   "687": {
@@ -2398,7 +2398,7 @@
         "76561198348625808": 60.0,
         "76561199164422123": 40.0,
         "76561198033879793": 40.0,
-        "76561198046477600": 40.0,
+        "76561198046477600": 7491.0,
         "76561198995689034": 40.0,
         "76561199139664790": 0.0
       },
@@ -2940,7 +2940,7 @@
         "76561198348625808": "2026-05-23 02:36:53",
         "76561199164422123": "2026-05-23 02:36:53",
         "76561198033879793": "2026-05-23 02:36:53",
-        "76561198046477600": "2026-05-23 02:36:53",
+        "76561198046477600": "2026-10-17 19:40:26",
         "76561198995689034": "2026-05-13 14:27:00",
         "76561199139664790": "2026-05-29 21:39:04"
       },
@@ -3619,11 +3619,11 @@
         "rank_name": "Unranked",
         "crown_count": 0,
         "completed_count": 5,
-        "points": 3.1,
+        "points": 4.1,
         "has_streak": false,
-        "weekly_pbs": 0,
-        "total_pbs": 9,
-        "active_days": 0,
+        "weekly_pbs": 1,
+        "total_pbs": 10,
+        "active_days": 1,
         "position_change": 0
       },
       {
@@ -4087,7 +4087,32 @@
       "Floating Heads Timing 400% Larger": "Linear",
       "voxTargetClick 20% Small": "Linear"
     },
-    "recent_overtakes": [],
+    "recent_overtakes": [
+      {
+        "scenario_name": "WhisphereRawControl",
+        "winner_sid": "76561198046477600",
+        "loser_sid": "76561198348625808",
+        "timestamp": "2026-10-17 19:40:26"
+      },
+      {
+        "scenario_name": "WhisphereRawControl",
+        "winner_sid": "76561198046477600",
+        "loser_sid": "76561199164422123",
+        "timestamp": "2026-10-17 19:40:26"
+      },
+      {
+        "scenario_name": "WhisphereRawControl",
+        "winner_sid": "76561198046477600",
+        "loser_sid": "76561198033879793",
+        "timestamp": "2026-10-17 19:40:26"
+      },
+      {
+        "scenario_name": "WhisphereRawControl",
+        "winner_sid": "76561198046477600",
+        "loser_sid": "76561198995689034",
+        "timestamp": "2026-10-17 19:40:26"
+      }
+    ],
     "active_rivalries": [
       {
         "chaser_sid": "76561198046477600",
@@ -4154,6 +4179,46 @@
         "chaser_name": "@CoachCam",
         "target_sid": "76561198046477600",
         "target_name": "@Laggiing",
+        "scenario_name": "WhisphereRawControl",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
+      },
+      {
+        "chaser_sid": "76561199164422123",
+        "chaser_name": "@Olioli",
+        "target_sid": "76561198046477600",
+        "target_name": "@Laggiing",
+        "scenario_name": "WhisphereRawControl",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
+      },
+      {
+        "chaser_sid": "76561198348625808",
+        "chaser_name": "@Christine",
+        "target_sid": "76561198046477600",
+        "target_name": "@Laggiing",
+        "scenario_name": "WhisphereRawControl",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
+      },
+      {
+        "chaser_sid": "76561198995689034",
+        "chaser_name": "@Haruno",
+        "target_sid": "76561198046477600",
+        "target_name": "@Laggiing",
+        "scenario_name": "WhisphereRawControl",
+        "chaser_overtakes_target": 0,
+        "target_overtakes_chaser": 1,
+        "total_overtakes": 1
+      },
+      {
+        "chaser_sid": "76561198033879793",
+        "chaser_name": "@CoachCam",
+        "target_sid": "76561198046477600",
+        "target_name": "@Laggiing",
         "scenario_name": "Pokeball Frenzy Auto TE Wide",
         "chaser_overtakes_target": 0,
         "target_overtakes_chaser": 1,
@@ -4190,7 +4255,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1792264801.204583,
+    "last_poll": 1792266033.755056,
     "check_interval": 600
   },
   "688": {
@@ -5857,7 +5922,7 @@
         "total_overtakes": 1
       }
     ],
-    "last_poll": 1792264801.277824,
+    "last_poll": 1792266033.82998,
     "check_interval": 600
   }
 }
